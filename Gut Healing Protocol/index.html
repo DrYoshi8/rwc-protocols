@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://serene-fenglisu-29f6b7.netlify.app/ -->
+<html lang="en" data-scribe-recorder-ready="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gut Healing Protocol — RoVive Method</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:100vh;padding:32px 24px 60px;}
+.header{text-align:center;margin-bottom:48px;}
+.rovive-badge{display:inline-block;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);border-radius:6px;padding:4px 14px;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;color:#f5a623;text-transform:uppercase;margin-bottom:14px;}
+.header h1{font-size:2.4rem;font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.1;}
+.header h1 span{color:#f5a623;}
+.header p{margin-top:10px;color:#7a7a8a;font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;}
+.disclaimer{margin-top:6px;font-size:.72rem;color:#4a4a5a;font-family:'DM Mono',monospace;letter-spacing:.06em;}
+.tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;justify-content:center;}
+.tab{background:#1a1d26;border:1px solid #2a2d3a;color:#7a7a8a;padding:10px 20px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;transition:all .2s;text-transform:uppercase;user-select:none;}
+.tab:hover{border-color:#f5a623;color:#f5a623;}
+.tab.active{background:#f5a623;color:#0d0f14;border-color:#f5a623;font-weight:600;}
+.section{display:none;}
+.section.active{display:block;}
+.phase-grid{display:grid;gap:16px;}
+.phase-card{background:#131620;border:1px solid #1e2130;border-radius:12px;overflow:hidden;}
+.phase-header{display:flex;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;background:#181b28;border-bottom:1px solid #1e2130;transition:background .2s;}
+.phase-header:hover{background:#1e2233;}
+.phase-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;flex-shrink:0;}
+.phase-title{font-size:1rem;font-weight:700;flex:1;}
+.phase-sub{font-size:.78rem;color:#7a7a8a;font-family:'DM Mono',monospace;margin-top:2px;}
+.phase-toggle{color:#7a7a8a;font-size:1.4rem;transition:transform .2s;line-height:1;}
+.phase-card.open .phase-toggle{transform:rotate(90deg);}
+.phase-body{display:none;padding:20px;}
+.phase-card.open .phase-body{display:block;}
+.c-orange .phase-num{background:rgba(245,166,35,.15);color:#f5a623;}
+.c-orange .phase-header{border-left:3px solid #f5a623;}
+.c-blue .phase-num{background:rgba(99,179,237,.15);color:#63b3ed;}
+.c-blue .phase-header{border-left:3px solid #63b3ed;}
+.c-green .phase-num{background:rgba(104,211,145,.15);color:#68d391;}
+.c-green .phase-header{border-left:3px solid #68d391;}
+.c-red .phase-num{background:rgba(252,129,129,.15);color:#fc8181;}
+.c-red .phase-header{border-left:3px solid #fc8181;}
+.c-purple .phase-num{background:rgba(183,148,244,.15);color:#b794f4;}
+.c-purple .phase-header{border-left:3px solid #b794f4;}
+.med-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px;}
+.med-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:16px;}
+.med-name{font-weight:700;font-size:.95rem;color:#fff;margin-bottom:6px;}
+.med-dose{font-family:'DM Mono',monospace;font-size:.78rem;color:#f5a623;margin-bottom:8px;background:rgba(245,166,35,.08);padding:5px 9px;border-radius:4px;display:inline-block;line-height:1.5;}
+.med-why{font-size:.82rem;color:#9a9aaa;line-height:1.55;margin-top:6px;}
+.med-when{font-size:.78rem;color:#7a7a8a;margin-top:8px;padding-top:8px;border-top:1px solid #1e2130;font-family:'DM Mono',monospace;line-height:1.5;}
+.supp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px;}
+.supp-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:14px;}
+.supp-name{font-weight:700;font-size:.88rem;color:#68d391;margin-bottom:4px;}
+.supp-why{font-size:.8rem;color:#9a9aaa;line-height:1.55;}
+.dose-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+.dose-tag{font-family:'DM Mono',monospace;font-size:.74rem;padding:3px 8px;border-radius:4px;display:inline-block;}
+.dose-tag.mild{background:rgba(104,211,145,.08);color:#68d391;}
+.dose-tag.moderate{background:rgba(245,166,35,.08);color:#f5a623;}
+.dose-tag.heavy{background:rgba(252,129,129,.1);color:#fc8181;}
+.lab-section{margin-bottom:28px;}
+.lab-title{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;font-family:'DM Mono',monospace;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(245,166,35,.2);}
+.lab-row{display:grid;grid-template-columns:220px 150px 1fr;align-items:start;gap:12px;padding:10px 12px;border-radius:8px;margin-bottom:6px;background:#0d0f14;border:1px solid #1a1d26;}
+.lab-marker{font-weight:700;font-size:.85rem;color:#e8e4dc;}
+.lab-range{font-family:'DM Mono',monospace;font-size:.78rem;color:#68d391;}
+.lab-note{font-size:.78rem;color:#7a7a8a;line-height:1.5;}
+.scenario{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:12px;}
+.scenario-label{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#7a7a8a;text-transform:uppercase;margin-bottom:6px;}
+.scenario-title{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:10px;}
+.scenario-finding{font-size:.82rem;color:#b794f4;font-family:'DM Mono',monospace;background:rgba(183,148,244,.08);padding:6px 10px;border-radius:6px;margin-bottom:10px;}
+.action-list{list-style:none;}
+.action-list li{font-size:.83rem;color:#c8c4bc;padding:5px 0 5px 18px;position:relative;line-height:1.5;}
+.action-list li::before{content:'→';position:absolute;left:0;color:#f5a623;}
+.note-box{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#c8c4bc;line-height:1.65;margin-top:12px;}
+.note-box strong{color:#f5a623;}
+.warning-box{background:rgba(252,129,129,.06);border:1px solid rgba(252,129,129,.25);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#fca5a5;line-height:1.65;margin-top:12px;}
+.warning-box strong{color:#fc8181;}
+.info-box{background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#bee3f8;line-height:1.65;margin-top:12px;}
+.info-box strong{color:#63b3ed;}
+.success-box{background:rgba(104,211,145,.06);border:1px solid rgba(104,211,145,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#c6f6d5;line-height:1.65;margin-top:12px;}
+.success-box strong{color:#68d391;}
+.divider{height:1px;background:#1e2130;margin:24px 0;}
+h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
+h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
+.muted{font-size:.82rem;color:#9a9aaa;line-height:1.6;}
+.section-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#f5a623;font-family:'DM Mono',monospace;margin-bottom:16px;margin-top:28px;}
+.herb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:12px;}
+.herb-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:14px;}
+.herb-name{font-weight:700;font-size:.9rem;color:#b794f4;margin-bottom:4px;}
+.herb-tier{font-family:'DM Mono',monospace;font-size:.72rem;color:#7a7a8a;margin-bottom:6px;}
+.herb-why{font-size:.8rem;color:#9a9aaa;line-height:1.55;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.qr-block{background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;}
+.qr-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(245,166,35,.15);}
+.qr-item{font-size:.8rem;color:#c8c4bc;padding:4px 0 4px 16px;position:relative;line-height:1.5;border-bottom:1px solid #1a1d26;}
+.qr-item:last-child{border-bottom:none;}
+.qr-item::before{content:'·';position:absolute;left:4px;color:#f5a623;}
+.qr-item strong{color:#e8e4dc;}
+.condition-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.68rem;padding:2px 8px;border-radius:4px;margin:2px;}
+.tag-candida{background:rgba(245,166,35,.12);color:#f5a623;border:1px solid rgba(245,166,35,.25);}
+.tag-mold{background:rgba(252,129,129,.1);color:#fc8181;border:1px solid rgba(252,129,129,.2);}
+.tag-clostridia{background:rgba(183,148,244,.1);color:#b794f4;border:1px solid rgba(183,148,244,.2);}
+.tag-sibo{background:rgba(99,179,237,.1);color:#63b3ed;border:1px solid rgba(99,179,237,.2);}
+.tag-hpylori{background:rgba(104,211,145,.1);color:#68d391;border:1px solid rgba(104,211,145,.2);}
+.tag-leaky{background:rgba(245,166,35,.08);color:#d4a843;border:1px solid rgba(245,166,35,.15);}
+.tag-parasite{background:rgba(252,129,129,.08);color:#f9a8a8;border:1px solid rgba(252,129,129,.15);}
+.tag-general{background:rgba(200,196,188,.08);color:#9a9aaa;border:1px solid rgba(200,196,188,.12);}
+.timeline{display:grid;gap:0;margin:16px 0;}
+.tl-row{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start;padding:12px 0;border-bottom:1px solid #1e2130;}
+.tl-row:last-child{border-bottom:none;}
+.tl-phase{font-family:'DM Mono',monospace;font-size:.72rem;color:#f5a623;font-weight:500;}
+.tl-content{font-size:.82rem;color:#c8c4bc;line-height:1.6;}
+.roots-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+.roots-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:14px;}
+.roots-label{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
+.r-roots{color:#68d391;}.r-reveal{color:#63b3ed;}.r-refine{color:#b794f4;}.r-rise{color:#f5a623;}
+.protocol-footer{margin-top:48px;padding-top:20px;border-top:1px solid #1e2130;text-align:center;font-family:'DM Mono',monospace;font-size:.72rem;color:#4a4a5a;letter-spacing:.06em;line-height:1.8;}
+.protocol-footer a{color:#f5a623;text-decoration:none;}
+@media(max-width:640px){
+  .lab-row{grid-template-columns:1fr 1fr;}.lab-note{grid-column:1/-1;}
+  .header h1{font-size:1.7rem;}
+  .med-grid,.supp-grid,.herb-grid{grid-template-columns:1fr;}
+  .qr-grid,.roots-grid{grid-template-columns:1fr;}
+}
+</style>
+<script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script></head>
+<body cz-shortcut-listen="true" data-new-gr-c-s-check-loaded="14.1299.0" data-gr-ext-installed="">
+
+<div class="header">
+  <div class="rovive-badge">RoVive Method · Dr. Yoshi Rahm</div>
+  <h1>Gut Healing <span>Protocol</span></h1>
+  <p>Roots → Reveal → Refine → Rise · Functional &amp; Integrative Medicine</p>
+  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE · <a href="https://dryoshi.com/" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(&#39;overview&#39;,this)">Overview</div>
+  <div class="tab" onclick="showTab(&#39;decision&#39;,this)">Decision Tree</div>
+  <div class="tab" onclick="showTab(&#39;labs&#39;,this)">Labs &amp; Testing</div>
+  <div class="tab" onclick="showTab(&#39;meds&#39;,this)">Medications</div>
+  <div class="tab" onclick="showTab(&#39;supplements&#39;,this)">Supplements</div>
+  <div class="tab" onclick="showTab(&#39;herbals&#39;,this)">Herbal Support</div>
+  <div class="tab" onclick="showTab(&#39;nutrition&#39;,this)">Nutrition</div>
+  <div class="tab" onclick="showTab(&#39;rovive&#39;,this)">RoVive Method</div>
+  <div class="tab" onclick="showTab(&#39;aha&#39;,this)">Aha Moments</div>
+  <div class="tab" onclick="showTab(&#39;quickref&#39;,this)">Quick Reference</div>
+</div>
+
+<!-- ═══════════════ OVERVIEW ═══════════════ -->
+<div id="overview" class="section active">
+  <div class="info-box" style="margin-bottom:24px;">
+    <strong>What this protocol covers:</strong> Candida overgrowth · Aspergillus / mold in the gut · Clostridia dysbiosis · SIBO (hydrogen &amp; methane) · Leaky gut / intestinal permeability · IBS · H. pylori · Parasites · General microbiome dysbiosis. Use the Decision Tree tab to identify your starting point.
+  </div>
+
+  <div class="section-label">The 5-Phase Sequence</div>
+  <div class="phase-grid">
+    <div class="phase-card c-blue open" id="ph0">
+      <div class="phase-header" onclick="togglePhase(&#39;ph0&#39;)">
+        <div class="phase-num">0</div>
+        <div style="flex:1"><div class="phase-title">Assess — Read Your Map</div><div class="phase-sub">Before anything else · 1–2 weeks</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p class="muted" style="margin-bottom:12px;">You cannot treat what you cannot see. The biggest mistake in gut healing is starting a protocol before knowing which organisms or dysfunction is actually present. Get the data first.</p>
+        <h3>Priority Tests</h3>
+        <div class="timeline">
+          <div class="tl-row"><div class="tl-phase">FIRST CHOICE</div><div class="tl-content"><strong>Organic Acids Test (OAT)</strong> — maps yeast, fungal, and bacterial overgrowth via metabolic byproducts. Arabinose (Candida), Tartaric (Aspergillus), HPHPA/4-Cresol (Clostridia). Great Plains / Mosaic Labs.</div></div>
+          <div class="tl-row"><div class="tl-phase">ADD IF ABLE</div><div class="tl-content"><strong>GI-MAP</strong> (Diagnostic Solutions) — PCR-based stool test. H. pylori, pathogens, parasites, fungi, zonulin, SIgA, calprotectin, beta-glucuronidase.</div></div>
+          <div class="tl-row"><div class="tl-phase">IF SIBO SUSPECTED</div><div class="tl-content"><strong>SIBO Breath Test</strong> (hydrogen + methane, 3-hour lactulose) — determines bacterial type and guides antibiotic selection.</div></div>
+          <div class="tl-row"><div class="tl-phase">LEAKY GUT</div><div class="tl-content"><strong>Cyrex Array 2</strong> — intestinal permeability panel. Or use zonulin from GI-MAP as proxy.</div></div>
+        </div>
+        <div class="note-box"><strong>If you can't get labs yet:</strong> Start with the symptom-based path in the Decision Tree tab. A terrain-preparation protocol (diet + binders + digestive support) is appropriate for anyone regardless of lab status.</div>
+      </div>
+    </div>
+
+    <div class="phase-card c-orange" id="ph1">
+      <div class="phase-header" onclick="togglePhase(&#39;ph1&#39;)">
+        <div class="phase-num">1</div>
+        <div style="flex:1"><div class="phase-title">Prepare — Open Drainage &amp; Clear Terrain</div><div class="phase-sub">Weeks 1–4 · Binders · Diet · Drainage support</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p class="muted" style="margin-bottom:12px;">Before clearing organisms, the drainage system must be functional. If you start antifungals or antimicrobials into a congested system, die-off toxins recirculate — causing the herxheimer reactions that make people quit protocols.</p>
+        <h3>Drainage First</h3>
+        <div class="timeline">
+          <div class="tl-row"><div class="tl-phase">BILE FLOW</div><div class="tl-content">TUDCA 250–500mg with meals. Supports bile acid production, fat-soluble vitamin absorption, liver protection, gut motility. Critical when mold or mycotoxins are part of the picture.</div></div>
+          <div class="tl-row"><div class="tl-phase">BINDERS</div><div class="tl-content">GI Detox (clay + charcoal + zeolite), activated charcoal, or cholestyramine (Rx). Intercepts mycotoxins and endotoxins in the gut before they recirculate. Take 30–60 min before meals OR at bedtime. Always separate from medications and supplements by 2+ hours.</div></div>
+          <div class="tl-row"><div class="tl-phase">BOWEL REG.</div><div class="tl-content">Magnesium bisglycinate 300–500mg PM. If constipated, toxins stagnate. Must have 1+ formed bowel movements per day before aggressive clearance.</div></div>
+          <div class="tl-row"><div class="tl-phase">DIET</div><div class="tl-content">Remove: sugar, alcohol, processed foods, high-mold foods (peanuts, corn, dried fruit, aged cheese). Add: clean protein, non-starchy vegetables, healthy fats. See Nutrition tab for condition-specific adjustments.</div></div>
+        </div>
+        <div class="warning-box"><strong>Sensitive patients:</strong> Run Phase 1 for a full 2–4 weeks before adding clearance agents. Opening drainage before clearance determines whether the protocol is tolerable.</div>
+      </div>
+    </div>
+
+    <div class="phase-card c-red" id="ph2">
+      <div class="phase-header" onclick="togglePhase(&#39;ph2&#39;)">
+        <div class="phase-num">2</div>
+        <div style="flex:1"><div class="phase-title">Clear — Targeted Antimicrobial / Antifungal</div><div class="phase-sub">Weeks 4–12 · Organism-specific · Overlaps with Phase 3</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p class="muted" style="margin-bottom:12px;">The organism determines the protocol. See the Decision Tree and Medications tabs for specific agents. Clearance is never one-size-fits-all — matching the antifungal or antimicrobial to the confirmed finding is the difference between results and relapse.</p>
+        <h3>By Condition</h3>
+        <div class="timeline">
+          <div class="tl-row"><div class="tl-phase">CANDIDA</div><div class="tl-content">Nystatin (non-systemic) OR Fluconazole OR Itraconazole. Herbal: caprylic acid, berberine, oregano oil. Duration: 4–8 weeks minimum.</div></div>
+          <div class="tl-row"><div class="tl-phase">ASPERGILLUS</div><div class="tl-content">Itraconazole (pharmaceutical-grade — herbals insufficient). 200mg 1–2x/day. Pulsed for sensitive patients. Duration: 8–12 weeks. Continue binders throughout.</div></div>
+          <div class="tl-row"><div class="tl-phase">CLOSTRIDIA</div><div class="tl-content">Vancomycin oral (C. difficile), Metronidazole, or targeted antimicrobials. Saccharomyces boulardii concurrent. Support dopamine pathway with B6 (P5P), zinc.</div></div>
+          <div class="tl-row"><div class="tl-phase">SIBO</div><div class="tl-content">Rifaximin (hydrogen SIBO) OR Rifaximin + Neomycin (methane SIBO). Or herbal: oregano oil + berberine + allicin. 14-day course. May require 2 rounds.</div></div>
+          <div class="tl-row"><div class="tl-phase">H. PYLORI</div><div class="tl-content">Triple or Quadruple Therapy (physician-directed). Concurrent: mastic gum, DGL, bismuth, broccoli sprout sulforaphane. Retest 4 weeks post-treatment.</div></div>
+          <div class="tl-row"><div class="tl-phase">PARASITES</div><div class="tl-content">Nitazoxanide (broad antiparasitic) or Metronidazole (Giardia). Herbal: wormwood, black walnut, clove triad. 30-day protocol. Continue binders.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card c-green" id="ph3">
+      <div class="phase-header" onclick="togglePhase(&#39;ph3&#39;)">
+        <div class="phase-num">3</div>
+        <div style="flex:1"><div class="phase-title">Replace — Restore What Was Depleted</div><div class="phase-sub">Begin week 2–4 · Concurrent with Phase 2 · Continue through Phase 4</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p class="muted" style="margin-bottom:12px;">Gut overgrowth depletes bile acids, digestive enzymes, and key nutrients. Without restoring these, clearance doesn't hold and reseeding fails. Replacement begins concurrently with Phase 1 and continues through Phase 4.</p>
+        <h3>Foundation Replacements</h3>
+        <div class="timeline">
+          <div class="tl-row"><div class="tl-phase">BILE ACIDS</div><div class="tl-content">TUDCA (continued from Phase 1). Phosphatidylcholine if bile composition is disrupted. Critical for fat absorption and liver protection during Rx antifungal therapy.</div></div>
+          <div class="tl-row"><div class="tl-phase">ENZYMES</div><div class="tl-content">Broad-spectrum digestive enzymes (protease, lipase, amylase) with each meal. Overgrowth suppresses endogenous enzyme production — supplemental enzymes break the fermentation-overgrowth cycle.</div></div>
+          <div class="tl-row"><div class="tl-phase">GUT LINING</div><div class="tl-content">L-Glutamine (5–10g/day on empty stomach) + Zinc carnosine (75mg/day) + Collagen/bone broth. Repairs enterocyte integrity disrupted by overgrowth and leaky gut.</div></div>
+          <div class="tl-row"><div class="tl-phase">NUTRIENTS</div><div class="tl-content">Vitamin D3 (5,000 IU), Magnesium bisglycinate (300–400mg PM), Zinc picolinate (30–50mg), B12/methylcobalamin, NAC/liposomal glutathione (mold cases). These depletions are near-universal in gut dysbiosis.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card c-purple" id="ph4">
+      <div class="phase-header" onclick="togglePhase(&#39;ph4&#39;)">
+        <div class="phase-num">4</div>
+        <div style="flex:1"><div class="phase-title">Reseed — Rebuild the Microbiome</div><div class="phase-sub">Begin after Phase 2 clearance · Continue 3–6 months</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p class="muted" style="margin-bottom:12px;">Reseeding into an unprepared terrain is the most common gut protocol mistake. Start probiotics after initial clearance — not simultaneously. The terrain must be inhospitable to pathogens before you plant beneficial organisms.</p>
+        <h3>Reseeding Strategy</h3>
+        <div class="timeline">
+          <div class="tl-row"><div class="tl-phase">SPORE-BASED</div><div class="tl-content">MegaSporeBiotic (Bacillus species, 2 caps/day) — survives stomach acid, promotes microbiome diversity, reduces leaky gut markers. Best-tolerated by sensitive patients. Start here.</div></div>
+          <div class="tl-row"><div class="tl-phase">S. BOULARDII</div><div class="tl-content">500mg 2x/day. Anti-Candida yeast. Competes directly with Candida for adhesion sites. Well-tolerated even during antifungal therapy. Critical if Arabinose (Candida) remains elevated.</div></div>
+          <div class="tl-row"><div class="tl-phase">MULTI-STRAIN</div><div class="tl-content">After 4–6 weeks of spore-based: add multi-strain probiotic (Lactobacillus + Bifidobacterium, 25–50 billion CFU). Strain specificity matters more than CFU count. Rotate brands every 2 months.</div></div>
+          <div class="tl-row"><div class="tl-phase">BUTYRATE</div><div class="tl-content">Sodium or calcium/magnesium butyrate 600mg–1.2g/day with meals. Primary fuel for colonocytes, supports intestinal barrier, reduces gut inflammation. Accelerates lining repair concurrent with L-Glutamine.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card c-green" id="ph5">
+      <div class="phase-header" onclick="togglePhase(&#39;ph5&#39;)">
+        <div class="phase-num">5</div>
+        <div style="flex:1"><div class="phase-title">Maintain — Hold the Terrain</div><div class="phase-sub">Month 3 onward · Retest at 6 months</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p class="muted" style="margin-bottom:12px;">The gut is a terrain to tend, not a problem to fix once. Recurrence is overwhelmingly a terrain failure — not a treatment failure. Mold re-exposure, sugar, stress, and poor sleep will restore dysbiosis faster than any protocol can clear it.</p>
+        <div class="timeline">
+          <div class="tl-row"><div class="tl-phase">DIET</div><div class="tl-content">Maintain low-sugar, whole-food foundation long-term. Not a restriction protocol — a terrain protocol. The goal is diversity and stability.</div></div>
+          <div class="tl-row"><div class="tl-phase">MOLD CHECK</div><div class="tl-content">If Aspergillus was dominant: identify and address the environmental mold source. No gut protocol can permanently clear mold overgrowth if the exposure continues.</div></div>
+          <div class="tl-row"><div class="tl-phase">STRESS</div><div class="tl-content">HPA axis dysregulation directly disrupts gut motility, intestinal permeability, and microbiome diversity. Stress management is not optional — it is a gut intervention.</div></div>
+          <div class="tl-row"><div class="tl-phase">RETEST</div><div class="tl-content">Repeat OAT at 3–6 months. GI-MAP at 6–12 months. Results inform whether to continue maintenance or re-engage clearance. Arabinose &gt;29 or persistent symptoms = incomplete resolution.</div></div>
+        </div>
+        <div class="success-box"><strong>What success looks like:</strong> OAT markers within range. GI-MAP pathogens absent. Digestion regular with minimal symptoms. Energy improved. Brain fog reduced. No binders needed. Probiotics as maintenance only.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ DECISION TREE ═══════════════ -->
+<div id="decision" class="section">
+  <div class="note-box" style="margin-bottom:24px;"><strong>How to use this:</strong> Find the scenario that best matches your lab pattern or symptom picture. Multiple scenarios can overlap — apply all that apply, prioritize the dominant pattern first.</div>
+
+  <div class="section-label">OAT-Based Paths</div>
+
+  <div class="scenario">
+    <div class="scenario-label">Scenario 1 — Candida Overgrowth</div>
+    <div class="scenario-title">Arabinose elevated (ref ≤29) · Citramalic elevated · Sugar cravings · Brain fog · Bloating</div>
+    <div class="scenario-finding">Arabinose is a Candida metabolite. Levels above 29 indicate active Candida overgrowth. Above 60 = significant. Above 100 = severe.</div>
+    <ul class="action-list">
+      <li>Phase 1: Low-sugar, low-yeast diet (no fruit, no alcohol, no vinegar initially) + binders</li>
+      <li>Phase 2 mild–moderate: Caprylic acid 1,800mg/day + Berberine 500mg 3x/day + Saccharomyces boulardii</li>
+      <li>Phase 2 moderate–severe: Nystatin 500,000–1,000,000 IU 3x/day OR Fluconazole 100–200mg/day (physician-directed)</li>
+      <li>Phase 3: Digestive enzymes, L-Glutamine, Zinc carnosine, Vitamin D</li>
+      <li>Phase 4: MegaSporeBiotic + S. boulardii (continue even during antifungal therapy)</li>
+      <li>Retest OAT at 3 months — Arabinose should drop below 50, target below 29</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Scenario 2 — Aspergillus / Mold in Gut</div>
+    <div class="scenario-title">Tartaric elevated · 5-OH-methylfuroic elevated · Furan-2,5-dicarboxylic elevated · History of water damage / mold exposure</div>
+    <div class="scenario-finding">Multiple Aspergillus markers elevated simultaneously = significant mold burden in gut. Herbals are insufficient. Pharmaceutical antifungal required.</div>
+    <ul class="action-list">
+      <li>Identify and address environmental mold source FIRST — no protocol can permanently clear gut Aspergillus if ongoing exposure continues</li>
+      <li>Phase 1: Binders are critical here — GI Detox or cholestyramine. Drain first, clear second</li>
+      <li>Phase 2: Itraconazole 200mg 1–2x/day (physician-directed) — low-dose pulsed for sensitive patients</li>
+      <li>Add: TUDCA 500mg/day (liver protection during Itraconazole), NAC 600–1,200mg/day (glutathione support), liposomal glutathione</li>
+      <li>Continue binders throughout clearance — time away from all other supplements/Rx</li>
+      <li>Phase 4: Begin MegaSporeBiotic only after Aspergillus markers are trending down</li>
+      <li>Retest OAT at 3 months — all Aspergillus markers should normalize</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Scenario 3 — Clostridia Dysbiosis</div>
+    <div class="scenario-title">HPHPA elevated · 4-Cresol elevated · 4-Hydroxyphenylacetic elevated · Mood symptoms · Low motivation · ADHD-like presentation</div>
+    <div class="scenario-finding">Clostridia produce dopamine-disrupting metabolites. This is a gut problem presenting as a mood or cognitive problem.</div>
+    <ul class="action-list">
+      <li>Phase 2: Metronidazole (Flagyl) or Vancomycin oral for C. difficile (physician-directed)</li>
+      <li>Concurrent Saccharomyces boulardii (prevents C. diff recurrence, reduces Clostridia)</li>
+      <li>Support dopamine pathway: B6 as P5P 50mg/day, Zinc picolinate 30–50mg/day, L-Tyrosine 500–1,000mg AM</li>
+      <li>Berberine 500mg 3x/day (herbal antimicrobial, also anti-Clostridia)</li>
+      <li>After clearance: SCFA support via butyrate supplementation + fiber diversity</li>
+    </ul>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">Symptom-Based Paths</div>
+
+  <div class="scenario">
+    <div class="scenario-label">Scenario 4 — SIBO (Small Intestinal Bacterial Overgrowth)</div>
+    <div class="scenario-title">Upper abdominal bloating within 1–2 hours of eating · Belching · Early fullness · Brain fog post-meals · SIBO breath test: hydrogen or methane elevated</div>
+    <div class="scenario-finding">Hydrogen-dominant SIBO = faster motility type. Methane-dominant (IMO) = slower, constipation-predominant. Different organisms require different treatment.</div>
+    <ul class="action-list">
+      <li>Hydrogen SIBO: Rifaximin 550mg 3x/day x 14 days (physician-directed)</li>
+      <li>Methane SIBO (IMO): Rifaximin 550mg + Neomycin 500mg 3x/day x 14 days (physician-directed)</li>
+      <li>Herbal alternative: Oregano oil 200mg + Berberine 500mg + Allicin 450mg — 4 weeks, 3x/day</li>
+      <li>Elemental diet (if severe or refractory): 2–3 weeks; eliminates substrate for bacterial overgrowth</li>
+      <li>Address root cause: low stomach acid (Betaine HCl), poor motility (prokinetics: ginger, 5-HTP, LDN), structural issues</li>
+      <li>After clearance: introduce probiotics slowly (spore-based first); retest breath test at 4 weeks post-treatment</li>
+      <li>Note: Do NOT use Lactobacillus-based probiotics during active SIBO treatment — can worsen hydrogen levels</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Scenario 5 — H. pylori</div>
+    <div class="scenario-title">Epigastric pain · Nausea · Bloating after meals · Burping · Confirmed on GI-MAP or urea breath test</div>
+    <div class="scenario-finding">H. pylori is present in ~50% of the global population. Not all cases are symptomatic. Treat when symptomatic or when associated with gastric pathology.</div>
+    <ul class="action-list">
+      <li>First-line Rx: Triple Therapy — PPI + Amoxicillin 1g + Clarithromycin 500mg, twice daily x 14 days (physician-directed)</li>
+      <li>If Clarithromycin resistance suspected: Quadruple Therapy — Bismuth + Tetracycline + Metronidazole + PPI x 10–14 days</li>
+      <li>Adjunct (enhances eradication): Mastic Gum 1g 2x/day, DGL Licorice 380mg before meals, Zinc Carnosine 75mg 2x/day</li>
+      <li>Broccoli sprout extract (sulforaphane) 50–100mg/day — clinically shown to suppress H. pylori</li>
+      <li>Concurrent S. boulardii — reduces antibiotic-associated diarrhea, improves eradication rates</li>
+      <li>Post-treatment: retest with stool antigen or urea breath test at 4+ weeks post-antibiotic</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Scenario 6 — Leaky Gut / Intestinal Permeability</div>
+    <div class="scenario-title">Food sensitivities multiplying · Systemic inflammation · Autoimmune conditions · Fatigue · Skin issues · Zonulin elevated on GI-MAP · Cyrex Array 2 positive</div>
+    <div class="scenario-finding">Leaky gut is not a single diagnosis — it is a spectrum of intestinal permeability. It rarely occurs in isolation. Address the upstream driver (overgrowth, diet, stress) and the lining simultaneously.</div>
+    <ul class="action-list">
+      <li>Remove: gluten, dairy, alcohol, NSAIDs, processed food — during active healing phase (minimum 8 weeks)</li>
+      <li>L-Glutamine 5–10g/day on empty stomach — primary fuel for enterocytes</li>
+      <li>Zinc Carnosine 75mg 2x/day — gut lining integrity, anti-inflammatory</li>
+      <li>Collagen/bone broth daily — glycine, proline, hydroxyproline for lining repair</li>
+      <li>Butyrate 600mg–1.2g/day — fuel for colonocytes, tight junction support</li>
+      <li>Vitamin D3 5,000 IU — immune regulation, tight junction protein expression</li>
+      <li>Omega-3 fish oil 2–4g/day EPA+DHA — reduces intestinal inflammation</li>
+      <li>Address upstream driver: if dysbiosis found, treat it (see other scenarios)</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Scenario 7 — Parasites</div>
+    <div class="scenario-title">Travel history · Persistent diarrhea · Alternating bowel habits · Weight loss · Identified on GI-MAP (Giardia, Cryptosporidium, Blastocystis, etc.)</div>
+    <div class="scenario-finding">Parasites are underdiagnosed in the U.S. — most standard stool O&amp;P tests miss them. GI-MAP PCR is more sensitive. Treat confirmed findings.</div>
+    <ul class="action-list">
+      <li>Giardia / Blastocystis: Metronidazole 250–750mg 3x/day x 7–10 days (physician-directed)</li>
+      <li>Broad parasitic coverage: Nitazoxanide 500mg 2x/day x 3 days (physician-directed)</li>
+      <li>Herbal protocol (adjunct or milder presentations): Wormwood 500mg + Black Walnut 500mg + Clove 500mg — 30 days on, 2 weeks off, 30 days on</li>
+      <li>Continue binders throughout — parasites release toxins on die-off</li>
+      <li>After clearance: full reseeding protocol (Phase 4)</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Scenario 8 — General Dysbiosis / No Clear Diagnosis</div>
+    <div class="scenario-title">GI symptoms present · No specific pathogen identified · Low SIgA · Low microbiome diversity · Fatigue · Unclear picture</div>
+    <div class="scenario-finding">This is often a terrain problem rather than a specific pathogen. Build the foundation before targeting specific organisms.</div>
+    <ul class="action-list">
+      <li>Begin terrain protocol: Phase 1 (binders + drainage) + Phase 3 (replacement) simultaneously</li>
+      <li>Low-diversity intervention: prebiotic fiber diversity — rotate sources (inulin, resistant starch, psyllium, FOS)</li>
+      <li>Berberine 500mg 2x/day — broad antimicrobial, microbiome modulator, AMPK activation</li>
+      <li>Triphala 1g PM — bowel regularity, microbiome diversity, antioxidant</li>
+      <li>MegaSporeBiotic (spore-based probiotic) — builds diversity without overloading with single strains</li>
+      <li>Address upstream: sleep, stress, HPA axis — these are microbiome determinants, not just lifestyle factors</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════ LABS & TESTING ═══════════════ -->
+<div id="labs" class="section">
+
+  <div class="info-box" style="margin-bottom:20px;"><strong>Three levels of gut testing:</strong> (1) Standard labs — ordered by any physician, covered by insurance, great starting context. (2) Functional stool tests — GI-MAP (PCR/DNA), GI Effects (culture + metabolites). (3) Organic Acids Test — urine metabolomics showing what organisms are doing to the body systemically. Use all three for the complete picture.</div>
+
+  <!-- ─── OAT SECTION ─── -->
+  <div class="section-label">OAT — Organic Acids Test (Mosaic Diagnostics / MosaicDX)</div>
+  <p class="muted" style="margin-bottom:16px;">Urine test. Measures metabolic byproducts (exhaust) of organisms — not the organisms directly. Covers 7 clinical categories across ~70 markers. Key clinical categories below.</p>
+
+  <div class="lab-section">
+    <div class="lab-title">OAT · Category 1 — Yeast &amp; Fungal Markers</div>
+    <div class="lab-row"><div class="lab-marker">Arabinose</div><div class="lab-range">≤ 29 mmol/mol</div><div class="lab-note"><strong>Primary Candida marker.</strong> 4× upper limit = significant overgrowth. Correlates with sugar cravings, brain fog, vaginal/oral thrush. Cross-reference with stool Candida on GI-MAP or GI Effects for confirmed burden.</div></div>
+    <div class="lab-row"><div class="lab-marker">Citramalic Acid</div><div class="lab-range">≤ 3.6 mmol/mol</div><div class="lab-note">General yeast overgrowth marker. Less specific than Arabinose but useful in the overall pattern — especially when Arabinose is borderline.</div></div>
+    <div class="lab-row"><div class="lab-marker">3-Oxoglutaric Acid</div><div class="lab-range">≤ 0.33 mmol/mol</div><div class="lab-note">Yeast/dysbiosis marker. Elevated with Candida and broader microbial stress. Also correlates with mitochondrial dysfunction — dual signal.</div></div>
+    <div class="lab-row"><div class="lab-marker">Tartaric Acid</div><div class="lab-range">≤ 4.5 mmol/mol</div><div class="lab-note"><strong>Aspergillus (mold) marker.</strong> Nearly 5× upper limit in active mold-gut colonization. Herbals are insufficient — pharmaceutical antifungal (Itraconazole) required when this is elevated with other Aspergillus markers.</div></div>
+    <div class="lab-row"><div class="lab-marker">5-OH-Methylfuroic Acid</div><div class="lab-range">≤ 14 mmol/mol</div><div class="lab-note">Aspergillus marker. Elevated simultaneously with Tartaric = confirmed mold burden. Distinguish from dietary exposure (remove dietary sources for 48 hrs before test).</div></div>
+    <div class="lab-row"><div class="lab-marker">Furan-2,5-dicarboxylic</div><div class="lab-range">≤ 16 mmol/mol</div><div class="lab-note">Aspergillus marker. Part of the mold triad. Multiple simultaneous Aspergillus markers elevated = significant colonization requiring pharmaceutical intervention.</div></div>
+    <div class="lab-row"><div class="lab-marker">Furancarbonylglycine</div><div class="lab-range">≤ 1.9 mmol/mol</div><div class="lab-note">Aspergillus marker. Used in combination with the other Aspergillus markers to confirm and quantify mold gut burden.</div></div>
+    <div class="lab-row"><div class="lab-marker">Tricarballylic Acid</div><div class="lab-range">≤ 0.44 mmol/mol</div><div class="lab-note">Fusarium mold marker. Less common than Aspergillus but relevant in mold-heavy environments. Inhibits aconitase, an enzyme in the Krebs cycle — causes energy production disruption.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">OAT · Category 2 — Clostridia Bacterial Markers</div>
+    <div class="lab-row"><div class="lab-marker">HPHPA</div><div class="lab-range">≤ 208 mmol/mol</div><div class="lab-note"><strong>Clostridia sporogenes + C. botulinum.</strong> Inhibits dopamine-beta-hydroxylase — the enzyme that converts dopamine to norepinephrine. Elevated = dopamine excess or conversion failure. Presents as mood dysregulation, low motivation, ADHD-like symptoms, OCD patterns.</div></div>
+    <div class="lab-row"><div class="lab-marker">4-Cresol</div><div class="lab-range">≤ 75 mmol/mol</div><div class="lab-note"><strong>C. difficile marker.</strong> Directly inhibits dopamine synthesis. Strong autism research association. Significant even at moderate elevation. Paired with HPHPA — both elevated = significant Clostridia load.</div></div>
+    <div class="lab-row"><div class="lab-marker">4-Hydroxyphenylacetic</div><div class="lab-range">≤ 19 mmol/mol</div><div class="lab-note">C. difficile, C. stricklandii, C. lituseburense. Dopamine pathway disruption. Even mildly elevated warrants attention when cognitive or mood symptoms are part of the picture.</div></div>
+    <div class="lab-row"><div class="lab-marker">3-Indoleacetic Acid</div><div class="lab-range">≤ 11 mmol/mol</div><div class="lab-note">C. stricklandii + commensal bacteria marker. Low levels may indicate microbiome depletion. High = Clostridia overgrowth. Tryptophan metabolite — connects to serotonin pathway.</div></div>
+    <div class="lab-row"><div class="lab-marker">DHPPA</div><div class="lab-range">≤ 320 mmol/mol</div><div class="lab-note">3-(3-Hydroxyphenyl)-3-hydroxypropionic acid. Clostridia marker. Less commonly elevated but useful in complex presentations. Elevated in some dysbiosis patterns alongside HPHPA.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">OAT · Category 3 — Mitochondrial &amp; Krebs Cycle Markers</div>
+    <p class="muted" style="margin-bottom:10px;font-size:.79rem;">These markers reflect energy production efficiency. Elevated = bottleneck in the TCA cycle. Gut overgrowth directly depletes CoQ10, B vitamins, and mitochondrial substrates.</p>
+    <div class="lab-row"><div class="lab-marker">Succinic Acid</div><div class="lab-range">≤ 2.4 mmol/mol</div><div class="lab-note">TCA cycle intermediate. Elevation = block at succinate dehydrogenase step. Linked to fatigue, low energy output. CoQ10 and riboflavin (B2) support this enzyme.</div></div>
+    <div class="lab-row"><div class="lab-marker">Fumaric Acid</div><div class="lab-range">≤ 0.23 mmol/mol</div><div class="lab-note">TCA cycle intermediate. Elevated in mitochondrial dysfunction, mold toxin exposure (fumaric acid produced by Aspergillus and Fusarium species). Correlates with muscle fatigue.</div></div>
+    <div class="lab-row"><div class="lab-marker">Malic Acid</div><div class="lab-range">≤ 1.4 mmol/mol</div><div class="lab-note">TCA cycle — conversion to oxaloacetate. Elevated = block at malate dehydrogenase. Magnesium-dependent step. Low magnesium = impaired Krebs cycle flow.</div></div>
+    <div class="lab-row"><div class="lab-marker">2-Oxoglutaric (Alpha-KG)</div><div class="lab-range">≤ 0.30 mmol/mol</div><div class="lab-note">Alpha-ketoglutaric acid. Critical TCA intermediate and ammonia detoxification molecule. Elevated can indicate ammonia load from gut dysbiosis or blocked enzyme steps (B3, B1 dependent).</div></div>
+    <div class="lab-row"><div class="lab-marker">Aconitic Acid</div><div class="lab-range">≤ 20 mmol/mol</div><div class="lab-note">TCA cycle. When elevated alongside Fusarium markers (Tricarballylic), suggests aconitase inhibition by mold toxins. Also elevated in heavy metal toxicity — aluminum, fluoride inhibit this enzyme.</div></div>
+    <div class="lab-row"><div class="lab-marker">Pyroglutamic Acid</div><div class="lab-range">≤ 1.9 mmol/mol</div><div class="lab-note">Elevated = glutathione depletion or acetaminophen (Tylenol) overuse. The body recycles glutathione through this pathway. High levels flag antioxidant system under stress — critical in mold cases.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">OAT · Category 4 — Neurotransmitter Metabolites</div>
+    <p class="muted" style="margin-bottom:10px;font-size:.79rem;">These markers reveal what gut organisms are doing to brain chemistry. Clostridia suppress dopamine. Dysbiosis depletes serotonin. The OAT is the only standard functional test that shows this.</p>
+    <div class="lab-row"><div class="lab-marker">HVA (Homovanillic Acid)</div><div class="lab-range">2.3–10.8 mmol/mol</div><div class="lab-note"><strong>Dopamine metabolite.</strong> Low HVA = insufficient dopamine signaling (low motivation, fatigue, ADHD). Elevation with 4-Cresol/HPHPA = dopamine conversion failure. Supports need for B6 (P5P), tyrosine, and Clostridia treatment.</div></div>
+    <div class="lab-row"><div class="lab-marker">VMA (Vanilmandelic Acid)</div><div class="lab-range">1.2–7.7 mmol/mol</div><div class="lab-note">Norepinephrine/epinephrine metabolite. Low = epinephrine insufficiency (fatigue, poor stress response). High = adrenal hyperactivation or catecholamine-secreting tumor (rare — but worth noting when severely elevated).</div></div>
+    <div class="lab-row"><div class="lab-marker">5-HIAA</div><div class="lab-range">2.7–12.9 mmol/mol</div><div class="lab-note"><strong>Serotonin metabolite.</strong> 90% of serotonin is made in the gut. Low 5-HIAA = gut dysbiosis depleting tryptophan → serotonin pathway. Addresses the gut root of anxiety, sleep disruption, low mood — before trying SSRIs.</div></div>
+    <div class="lab-row"><div class="lab-marker">Quinolinic Acid</div><div class="lab-range">≤ 55 mmol/mol</div><div class="lab-note">Neuroinflammatory marker. Elevated = tryptophan being shunted to the kynurenine pathway instead of serotonin. Associated with depression, neuroinflammation, gut-brain axis disruption. Elevated with gut dysbiosis, mold, and chronic infections.</div></div>
+    <div class="lab-row"><div class="lab-marker">Kynurenic Acid</div><div class="lab-range">3–28 mmol/mol</div><div class="lab-note">Tryptophan metabolite. Inverse balance with quinolinic acid. High kynurenic = NMDA receptor antagonism (schizophrenia research). Low kynurenic + high quinolinic = neuroinflammatory pattern. B6 (P5P) and gut healing shift this balance.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">OAT · Category 5 — Oxalate Metabolites</div>
+    <p class="muted" style="margin-bottom:10px;font-size:.79rem;">Oxalates come from three sources: diet (spinach, almonds, beets), endogenous production, and microbial production — especially Aspergillus and Candida. Mold gut burden = elevated oxalates.</p>
+    <div class="lab-row"><div class="lab-marker">Oxalic Acid</div><div class="lab-range">≤ 23 mmol/mol</div><div class="lab-note">Primary oxalate marker. Elevated in fungal/yeast overgrowth, vitamin B6 deficiency, or high dietary intake. Deposits in kidney (stones), joints (pain), and mitochondria (energy disruption). Low-oxalate diet + B6 (P5P) + calcium citrate (binds dietary oxalates).</div></div>
+    <div class="lab-row"><div class="lab-marker">Glyceric Acid</div><div class="lab-range">≤ 50 mmol/mol</div><div class="lab-note">Elevated = primary hyperoxaluria type II, or intermediate in oxalate metabolism. Useful differentiator when oxalic acid is elevated — helps identify the metabolic origin.</div></div>
+    <div class="lab-row"><div class="lab-marker">Glycolic Acid</div><div class="lab-range">≤ 31 mmol/mol</div><div class="lab-note">Intermediate in the glyoxylate-to-oxalate pathway. Elevated in primary hyperoxaluria type I, or when vitamin B6 is insufficient (B6 prevents glyoxylate from converting to oxalate).</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">OAT · Category 6 — Fatty Acid Oxidation Markers</div>
+    <p class="muted" style="margin-bottom:10px;font-size:.79rem;">These markers reflect whether the body can efficiently burn fat for energy. Elevation indicates impaired beta-oxidation — often from B2 (riboflavin) deficiency, CoQ10 depletion, or carnitine insufficiency.</p>
+    <div class="lab-row"><div class="lab-marker">Adipic Acid</div><div class="lab-range">≤ 0.40 mmol/mol</div><div class="lab-note">Impaired beta-oxidation of medium-chain fats. Elevated with riboflavin (B2) deficiency or carnitine insufficiency. Fatigue despite adequate sleep — body can't extract energy from fats.</div></div>
+    <div class="lab-row"><div class="lab-marker">Suberic Acid</div><div class="lab-range">≤ 0.52 mmol/mol</div><div class="lab-note">Impaired fatty acid oxidation. Elevated with CoQ10 deficiency or B2 deficiency. Mitochondrial target: CoQ10 200–400mg + Riboflavin 100mg are first-line interventions.</div></div>
+    <div class="lab-row"><div class="lab-marker">Ethylmalonic Acid</div><div class="lab-range">≤ 0.37 mmol/mol</div><div class="lab-note">Short-chain fatty acid oxidation marker. B2 deficiency indicator. Elevated alongside Adipic and Suberic = confirmed impaired fatty acid oxidation requiring riboflavin + CoQ10 support.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">OAT · Category 7 — Nutritional &amp; Detox Markers</div>
+    <div class="lab-row"><div class="lab-marker">Methylmalonic Acid</div><div class="lab-range">≤ 0.37 mmol/mol</div><div class="lab-note"><strong>Best functional B12 marker.</strong> Methylmalonic acid accumulates when B12 is insufficient — even when serum B12 appears "normal." Elevated = true functional B12 deficiency. Treat with methylcobalamin (not cyanocobalamin).</div></div>
+    <div class="lab-row"><div class="lab-marker">Pyridoxic Acid</div><div class="lab-range">See report range</div><div class="lab-note">Vitamin B6 (pyridoxine) status marker. Pyridoxic acid is the urinary excretion form — low = B6 deficiency. B6 (as P5P) is critical for dopamine synthesis, oxalate control, and serotonin production.</div></div>
+    <div class="lab-row"><div class="lab-marker">Orotic Acid</div><div class="lab-range">≤ 0.30 mmol/mol</div><div class="lab-note">Elevated = ammonia detoxification stress or B-vitamin deficiency (B12, folate, or biotin). Gut bacterial overgrowth produces excess ammonia — orotic acid elevation reflects the downstream burden on urea cycle.</div></div>
+    <div class="lab-row"><div class="lab-marker">2-Hydroxyisobutyric Acid</div><div class="lab-range">≤ 0.22 mmol/mol</div><div class="lab-note">Toxic exposure marker. Elevated with MTBE (methyl tert-butyl ether) exposure from gasoline fumes, contaminated water, or fuel additives. Indicator of environmental toxic load alongside gut burden.</div></div>
+  </div>
+
+  <!-- ─── GI-MAP SECTION ─── -->
+  <div class="section-label" style="margin-top:32px;">GI-MAP (Diagnostic Solutions Laboratory) — PCR / DNA Stool Test</div>
+  <p class="muted" style="margin-bottom:16px;">Stool test. Uses quantitative PCR to detect and quantify actual organism DNA — not metabolites. Tells you WHO is there, how much, and (for H. pylori) which antibiotics won't work. 5-page report.</p>
+
+  <div class="lab-section">
+    <div class="lab-title">GI-MAP — Pathogens &amp; Infection</div>
+    <div class="lab-row"><div class="lab-marker">H. pylori + Virulence Factors</div><div class="lab-range">Not detected</div><div class="lab-note">PCR identifies H. pylori AND its virulence genes (babA, cagA, vacA, virB, virD). CagA+ = highest ulcer/cancer risk. GI-MAP also tests antibiotic resistance genes: Clarithromycin and Amoxicillin resistance — critical before choosing triple therapy. Standard culture misses this.</div></div>
+    <div class="lab-row"><div class="lab-marker">C. diff Toxin A + B</div><div class="lab-range">Not detected</div><div class="lab-note">Quantitative toxin detection. Toxin A and B together = active C. diff infection. Requires vancomycin or fidaxomicin (physician-directed). Concurrent S. boulardii essential to prevent recurrence.</div></div>
+    <div class="lab-row"><div class="lab-marker">Candida spp.</div><div class="lab-range">Not detected</div><div class="lab-note">Stool Candida DNA (genome equivalents/gram). Cross-reference with OAT Arabinose — both elevated = confirmed significant burden. GI-MAP distinguishes Candida albicans from other species.</div></div>
+    <div class="lab-row"><div class="lab-marker">Giardia · Cryptosporidium · Blastocystis</div><div class="lab-range">Not detected</div><div class="lab-note">PCR detects these parasites with far greater sensitivity than standard O&amp;P microscopy. Giardia = water-source. Cryptosporidium = immunocompromising. Blastocystis = controversial pathogen — treat if symptomatic.</div></div>
+    <div class="lab-row"><div class="lab-marker">Campylobacter · Salmonella · E. coli variants</div><div class="lab-range">Not detected</div><div class="lab-note">Bacterial pathogens. E. coli panel includes EPEC, EAEC, ETEC, STEC — each with distinct pathogenicity. Important after travel, foodborne illness, or persistent diarrhea.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">GI-MAP — Microbiome Health Markers</div>
+    <div class="lab-row"><div class="lab-marker">Akkermansia muciniphila</div><div class="lab-range">Detected (adequate)</div><div class="lab-note">Keystone species. Lines and repairs the gut mucosal layer. Low Akkermansia = leaky gut, metabolic syndrome risk, poor immune regulation. Supported by polyphenols, pomegranate extract, and intermittent fasting.</div></div>
+    <div class="lab-row"><div class="lab-marker">Faecalibacterium prausnitzii</div><div class="lab-range">Detected (adequate)</div><div class="lab-note">Primary butyrate-producing organism. Low = reduced colonocyte fuel, increased gut inflammation. Depleted by antibiotics, stress, low-fiber diet. Prebiotic fiber + resistant starch restores F. prausnitzii.</div></div>
+    <div class="lab-row"><div class="lab-marker">Bifidobacterium · Lactobacillus</div><div class="lab-range">Detected (adequate)</div><div class="lab-note">Core commensal bacteria. Depletion indicates dysbiosis, antibiotic damage, or poor dietary diversity. Support through multi-strain probiotics (25–50B CFU) after clearance phase.</div></div>
+    <div class="lab-row"><div class="lab-marker">Beta-Glucuronidase</div><div class="lab-range">&lt; 365 U/mL</div><div class="lab-note">Elevated = dysbiotic bacteria reactivating deconjugated estrogens → estrogen recirculation. Key in hormone-sensitive conditions (estrogen dominance, breast health). Calcium D-Glucarate 1.5g/day inhibits this enzyme.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">GI-MAP — Gut Immune &amp; Permeability Markers</div>
+    <div class="lab-row"><div class="lab-marker">Secretory IgA (SIgA)</div><div class="lab-range">510–2,010 mcg/mL</div><div class="lab-note">Front-line mucosal immune defense. Low = compromised gut immunity, susceptibility to recurrent infections and dysbiosis. High = acute immune activation or stress response. Colostrum, Vitamin D, and zinc support SIgA production.</div></div>
+    <div class="lab-row"><div class="lab-marker">Calprotectin</div><div class="lab-range">&lt; 50 mcg/g</div><div class="lab-note">GI inflammation marker. Released by neutrophils. Elevated in IBD (Crohn's, UC), infection, active dysbiosis. Differentiates true inflammatory bowel disease from functional/IBS presentation.</div></div>
+    <div class="lab-row"><div class="lab-marker">Zonulin</div><div class="lab-range">&lt; 107 ng/mL</div><div class="lab-note">Intestinal permeability marker (leaky gut). Produced by enterocytes in response to gluten, dysbiosis, and stress. Elevated = tight junctions opening. Most useful as a directional marker — not a precise quantifier.</div></div>
+    <div class="lab-row"><div class="lab-marker">Anti-Gliadin IgA</div><div class="lab-range">Not elevated</div><div class="lab-note">Immune response to gliadin (gluten protein) in the gut mucosa. Elevated = gut immune activation to gluten — even if celiac disease blood markers (tTG-IgA) are negative. Important in the leaky gut picture.</div></div>
+    <div class="lab-row"><div class="lab-marker">Elastase-1 (Pancreatic)</div><div class="lab-range">&gt; 200 mcg/g</div><div class="lab-note">Pancreatic exocrine function marker. Low = pancreatic enzyme insufficiency — fat malabsorption, nutrient depletion. Gut dysbiosis can secondarily impair pancreatic output. Supplement with pancreatic enzymes if low.</div></div>
+  </div>
+
+  <!-- ─── GI EFFECTS SECTION ─── -->
+  <div class="section-label" style="margin-top:32px;">GI Effects™ Fundamentals (Genova Diagnostics) — Culture + Metabolites Stool Test</div>
+  <p class="muted" style="margin-bottom:12px;">Stool test. Culture-based (not PCR) — grows organisms in lab to identify and test sensitivity. Adds digestion/absorption markers, short-chain fatty acid metabolites, and antimicrobial sensitivity testing not available on GI-MAP. Use when you want organism sensitivity data or richer metabolic picture.</p>
+  <div class="info-box" style="margin-bottom:16px;"><strong>When to choose GI Effects over GI-MAP:</strong> (1) You want to know which natural agents (Berberine, Oregano, Caprylic Acid) will specifically inhibit the Candida or bacteria isolated from THIS patient — GI Effects tests this directly. (2) You want digestion markers (Pancreatic Elastase, Fecal Fat, SCFA breakdown). (3) You want to confirm and quantify butyrate production. GI-MAP is superior for H. pylori virulence/resistance and pathogen quantification. <strong>Ideal:</strong> both tests together.</div>
+
+  <div class="lab-section">
+    <div class="lab-title">GI Effects — Digestion &amp; Absorption Markers</div>
+    <div class="lab-row"><div class="lab-marker">Pancreatic Elastase 1</div><div class="lab-range">&gt; 200 mcg/g</div><div class="lab-note">Gold-standard non-invasive marker for pancreatic exocrine function. Low = pancreatic enzyme insufficiency → fat malabsorption → nutrient depletion. Values below 100 = severe insufficiency requiring enzyme replacement. Normal is &gt;200 mcg/g.</div></div>
+    <div class="lab-row"><div class="lab-marker">Fecal Fat (Total)</div><div class="lab-range">3.2–38.6 mg/g</div><div class="lab-note">Total fat in stool — includes triglycerides, long-chain fatty acids, cholesterol, phospholipids. Elevated = fat malabsorption from pancreatic, biliary, or intestinal dysfunction. Component breakdown distinguishes the source.</div></div>
+    <div class="lab-row"><div class="lab-marker">Triglycerides</div><div class="lab-range">0.3–2.8 mg/g</div><div class="lab-note">Elevated stool triglycerides specifically suggest pancreatic lipase deficiency — undigested dietary fats passing through intact.</div></div>
+    <div class="lab-row"><div class="lab-marker">Long-Chain Fatty Acids</div><div class="lab-range">1.2–29.1 mg/g</div><div class="lab-note">Elevated = fat malabsorption. Suggests impaired bile acid or pancreatic lipase function. Bile acid support (TUDCA, phosphatidylcholine) + enzyme replacement targets this.</div></div>
+    <div class="lab-row"><div class="lab-marker">Products of Protein Breakdown</div><div class="lab-range">1.8–9.9 µmol/g</div><div class="lab-note">Valerate, Isobutyrate, Isovalerate — branched-chain SCFAs from protein fermentation. Elevated = excess undigested protein reaching the colon → fermented by bacteria. Signals low stomach acid, protease insufficiency, or rapid transit.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">GI Effects — Gut Microbiome Metabolites (SCFAs)</div>
+    <p class="muted" style="margin-bottom:10px;font-size:.79rem;">Short-chain fatty acids are the metabolic output of beneficial bacteria fermenting fiber. Butyrate specifically fuels colonocytes. These numbers directly reflect the functional health of the microbiome.</p>
+    <div class="lab-row"><div class="lab-marker">SCFAs (Total)</div><div class="lab-range">≥ 23.3 µmol/g</div><div class="lab-note">Sum of acetate, n-butyrate, and propionate. Low total SCFA = depleted microbiome, low fiber fermentation, poor colonocyte fuel supply. Drive recovery with prebiotic fiber diversity + spore-based probiotics.</div></div>
+    <div class="lab-row"><div class="lab-marker">n-Butyrate Concentration</div><div class="lab-range">≥ 3.6 µmol/g</div><div class="lab-note"><strong>Most important SCFA.</strong> Butyrate fuels colonocytes, suppresses gut inflammation, maintains tight junctions, and reduces cancer risk. Low = depleted Faecalibacterium prausnitzii and Roseburia. Target: butyrate supplementation + resistant starch.</div></div>
+    <div class="lab-row"><div class="lab-marker">n-Butyrate %</div><div class="lab-range">11.8–33.3%</div><div class="lab-note">Proportion of SCFA pool that is butyrate. Below 11.8% = relative butyrate deficiency even when total SCFAs are adequate. Microbiome composition issue — butyrate-producing species depleted.</div></div>
+    <div class="lab-row"><div class="lab-marker">Acetate %</div><div class="lab-range">48.1–69.2%</div><div class="lab-note">Most abundant SCFA. Primarily produced by Bifidobacterium. Acetate serves as fuel for other bacteria and as a substrate for butyrate production. Imbalance suggests Bifidobacterium depletion.</div></div>
+    <div class="lab-row"><div class="lab-marker">Propionate %</div><div class="lab-range">≤ 29.3%</div><div class="lab-note">Produced by Bacteroides, Prevotella, and others. Important for glucose regulation and immune signaling. Elevated propionate % with low butyrate = dysbiosis pattern — wrong organisms dominating.</div></div>
+    <div class="lab-row"><div class="lab-marker">Beta-Glucuronidase</div><div class="lab-range">368–6,266 U/g</div><div class="lab-note">Note: GI Effects range is wider than GI-MAP. Above 6,266 U/g = dysbiotic estrogen recirculation. Calcium D-Glucarate is the specific inhibitor. Cross-reference with hormone panels if estrogen dominance is suspected.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">GI Effects — Inflammation &amp; Immunology</div>
+    <div class="lab-row"><div class="lab-marker">Calprotectin</div><div class="lab-range">&lt; 50 mcg/g</div><div class="lab-note">Same reference range as GI-MAP. Elevated in active IBD, infection, or inflammatory dysbiosis. Values above 200 mcg/g warrant gastroenterology evaluation for Crohn's or UC.</div></div>
+    <div class="lab-row"><div class="lab-marker">Eosinophil Protein X (EPX)</div><div class="lab-range">≤ 2.7 mcg/g</div><div class="lab-note">Eosinophil activation marker. Elevated in allergic GI disease, parasitic infection, eosinophilic esophagitis/gastroenteritis, or food hypersensitivity. Not available on GI-MAP — unique to GI Effects.</div></div>
+    <div class="lab-row"><div class="lab-marker">Fecal Secretory IgA</div><div class="lab-range">≤ 2,040 mcg/mL</div><div class="lab-note">Mucosal immune defense. Low = compromised gut immunity. GI Effects range is different from GI-MAP (mcg/mL vs. mcg/mL normalization). Both measure mucosal IgA — compare within the same lab.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">GI Effects — Culture &amp; Sensitivity (Unique Feature)</div>
+    <p class="muted" style="margin-bottom:10px;font-size:.79rem;">GI Effects grows organisms in culture, then tests THIS PATIENT'S organisms against specific natural and pharmaceutical agents. The inhibition data is patient-specific — tells you what will actually work for their strain.</p>
+    <div class="lab-row"><div class="lab-marker">Candida albicans (Culture)</div><div class="lab-range">Not detected / &lt;1+</div><div class="lab-note">Culture-based growth quantified 1+ to 4+. 3+ or 4+ = significant overgrowth. Sensitivity panel tests: Nystatin (non-absorbed), Fluconazole, Voriconazole (population-level), and natural agents (Berberine, Caprylic Acid, Garlic, Undecylenic Acid, Uva-Ursi) — patient-specific inhibition data.</div></div>
+    <div class="lab-row"><div class="lab-marker">Klebsiella pneumoniae (Culture)</div><div class="lab-range">Not detected / &lt;1+</div><div class="lab-note">Potential pathogen — significant at 3+ or 4+. Sensitivity panel tests prescriptive agents (Ampicillin, Amox/Clav, Ciprofloxacin, Tetracycline, Trimethoprim/Sulfa) + natural agents (Berberine, Oregano, Uva-Ursi). Resistance to Ampicillin is common — sensitivity data guides treatment selection.</div></div>
+    <div class="lab-row"><div class="lab-marker">Bacteriology (Culture): Lactobacillus, E. coli, Bifidobacterium</div><div class="lab-range">Various</div><div class="lab-note">Quantified 1+ to 4+. Lactobacillus: No Growth = microbiome depletion. Bifidobacterium (anaerobic culture) below 3+ = low beneficial flora. E. coli at 4+ NP = normal range for non-pathogenic strains.</div></div>
+    <div class="lab-row"><div class="lab-marker">Parasitology (Microscopic O&amp;P + PCR)</div><div class="lab-range">Not detected</div><div class="lab-note">GI Effects includes both microscopic O&amp;P AND PCR for protozoa (Blastocystis, Cryptosporidium, Cyclospora, Dientamoeba fragilis, Entamoeba histolytica, Giardia). Dientamoeba fragilis is often missed — significant in IBS-like presentations. Treatment: Metronidazole or Nitazoxanide.</div></div>
+    <div class="lab-row"><div class="lab-marker">Zonulin Family Peptide</div><div class="lab-range">22.3–161.1 ng/mL</div><div class="lab-note">Genova's leaky gut marker. Note: this EIA kit detects a zonulin family peptide (possibly properdin) — not true zonulin. Genova data shows association with stool inflammation markers. Use as directional only — not diagnostic for leaky gut alone.</div></div>
+  </div>
+
+  <!-- ─── SIBO ─── -->
+  <div class="section-label" style="margin-top:32px;">SIBO Breath Test (3-Hour Lactulose)</div>
+
+  <div class="lab-section">
+    <div class="lab-title">SIBO Breath Test — Gases</div>
+    <div class="lab-row"><div class="lab-marker">Hydrogen (H2)</div><div class="lab-range">&lt; 20 ppm rise</div><div class="lab-note">Rise &gt;20 ppm above baseline = positive hydrogen SIBO. Small intestinal bacteria fermenting lactulose. Rifaximin is primary treatment. Peak in first 90 minutes = jejunal/proximal small bowel. Peak at 2 hours = ileal involvement.</div></div>
+    <div class="lab-row"><div class="lab-marker">Methane (CH4)</div><div class="lab-range">&lt; 10 ppm at any time</div><div class="lab-note">Any methane &gt;10 ppm = IMO (Intestinal Methanogen Overgrowth). Archaeal organisms (Methanobrevibacter smithii). Constipation-dominant. Requires Rifaximin + Neomycin combination (methanogens are not bacteria — different treatment target).</div></div>
+    <div class="lab-row"><div class="lab-marker">Hydrogen Sulfide (H2S)</div><div class="lab-range">Not elevated</div><div class="lab-note">Newer SIBO subtype. Diarrhea-predominant, often foul-smelling gas. Requires TrioSmart breath test — not measured on standard hydrogen/methane tests. Low-sulfur diet is initial dietary intervention.</div></div>
+  </div>
+
+  <!-- ─── STANDARD LABS ─── -->
+  <div class="section-label" style="margin-top:32px;">Standard Labs — Gut-Relevant (Order Through Any Physician)</div>
+  <p class="muted" style="margin-bottom:16px;">These labs are covered by most insurance plans and available through any standard lab (Quest, Labcorp). They provide the essential context for gut health and are the foundation before adding functional testing.</p>
+
+  <div class="lab-section">
+    <div class="lab-title">Standard Labs — Liver &amp; Bile Panel</div>
+    <p class="muted" style="margin-bottom:10px;font-size:.79rem;">The liver produces bile acids. Bile flow is essential for fat digestion, toxin elimination, gut motility, and antifungal defense. Gut dysbiosis — especially Candida and mold — stresses liver bile production. These markers tell you how well the bile system is functioning.</p>
+    <div class="lab-row"><div class="lab-marker">Total Bilirubin</div><div class="lab-range">0.1–1.2 mg/dL<br><span style="color:#f5a623;font-size:.72rem;">Optimal: 0.4–1.0</span></div><div class="lab-note">Overall bile clearance indicator. Elevated = liver congestion, hemolysis, or bile duct obstruction. Low = insufficient bile acid production. Bilirubin is also a potent antioxidant — very low levels may reflect oxidative stress.</div></div>
+    <div class="lab-row"><div class="lab-marker">Direct (Conjugated) Bilirubin</div><div class="lab-range">0.0–0.3 mg/dL</div><div class="lab-note">Bilirubin that has been processed by the liver (conjugated). Elevated direct bilirubin = liver is processing but can't excrete into bile (intrahepatic obstruction, hepatocellular damage). Key for distinguishing liver vs. pre-hepatic cause.</div></div>
+    <div class="lab-row"><div class="lab-marker">Indirect (Unconjugated) Bilirubin</div><div class="lab-range">0.1–0.9 mg/dL</div><div class="lab-note">Bilirubin not yet processed by the liver. Elevated indirect = excessive red blood cell breakdown (hemolysis) or impaired liver conjugation. Also elevated in Gilbert's syndrome — a benign variant that can make bilirubin interpretation complex.</div></div>
+    <div class="lab-row"><div class="lab-marker">ALT (SGPT)</div><div class="lab-range">7–40 U/L<br><span style="color:#f5a623;font-size:.72rem;">Functional optimal: &lt;25</span></div><div class="lab-note">Liver cell damage marker. ALT is liver-specific. Elevation signals hepatocyte stress — from antifungal medications (monitor with Itraconazole), mold toxins, or NAFLD. Trend over time matters more than single values.</div></div>
+    <div class="lab-row"><div class="lab-marker">AST (SGOT)</div><div class="lab-range">10–40 U/L<br><span style="color:#f5a623;font-size:.72rem;">Functional optimal: &lt;25</span></div><div class="lab-note">Liver and muscle damage marker (less liver-specific than ALT). AST:ALT ratio above 2:1 suggests alcoholic liver disease. High AST with normal ALT = muscle source (check CK). Elevated during intensive exercise — context matters.</div></div>
+    <div class="lab-row"><div class="lab-marker">GGT (Gamma-Glutamyl Transferase)</div><div class="lab-range">9–48 U/L<br><span style="color:#f5a623;font-size:.72rem;">Optimal: &lt;30 (men), &lt;20 (women)</span></div><div class="lab-note">Most sensitive marker for bile duct stress, alcohol exposure, and hepatic toxin load. Elevated GGT with normal ALT/AST = often toxic or biliary origin — think mycotoxins, alcohol, or medication exposure. A key early warning marker in mold cases.</div></div>
+    <div class="lab-row"><div class="lab-marker">Alkaline Phosphatase (ALP)</div><div class="lab-range">44–147 U/L<br><span style="color:#f5a623;font-size:.72rem;">Optimal: 50–90</span></div><div class="lab-note">Bile duct marker and bone marker. Elevated = biliary obstruction (gallstones, bile sludge), liver disease, or rapid bone turnover. Isolated ALP elevation with normal bilirubin often = biliary congestion without full obstruction.</div></div>
+    <div class="lab-row"><div class="lab-marker">Albumin</div><div class="lab-range">3.5–5.0 g/dL<br><span style="color:#f5a623;font-size:.72rem;">Optimal: &gt;4.0</span></div><div class="lab-note">Liver synthesis marker and nutritional protein status. Albumin takes weeks to change — it's not an acute marker. Low albumin = malnutrition, malabsorption, or chronic liver insufficiency. Critical in leaky gut patients with multiple food sensitivities and nutrient depletion.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">Standard Labs — Inflammation Markers</div>
+    <div class="lab-row"><div class="lab-marker">hsCRP (high-sensitivity CRP)</div><div class="lab-range">&lt; 1.0 mg/L<br><span style="color:#f5a623;font-size:.72rem;">Optimal: &lt;0.5 mg/L</span></div><div class="lab-note">Systemic inflammation signal. Gut dysbiosis, leaky gut, and ongoing infection all drive CRP elevation. As gut healing progresses, hsCRP should drop. Values above 3.0 mg/L are associated with significant cardiovascular and chronic disease risk.</div></div>
+    <div class="lab-row"><div class="lab-marker">Ferritin</div><div class="lab-range">12–300 ng/mL (men)<br>12–150 ng/mL (women)<br><span style="color:#f5a623;font-size:.72rem;">Functional optimal: 50–150</span></div><div class="lab-note">Iron storage protein AND acute-phase reactant. Ferritin rises in inflammation even when iron stores are low — masking iron deficiency in the presence of gut inflammation. Very low ferritin (&lt;20) in gut dysbiosis often reflects true iron depletion from malabsorption.</div></div>
+    <div class="lab-row"><div class="lab-marker">ESR (Erythrocyte Sedimentation Rate)</div><div class="lab-range">&lt; 20 mm/hr (&lt;50 yrs)<br>&lt; 30 mm/hr (&gt;50 yrs)</div><div class="lab-note">Non-specific systemic inflammation marker. Slower to respond than CRP — useful for tracking chronic inflammatory processes over weeks. Elevated in autoimmune conditions, chronic infections, and ongoing dysbiosis-driven inflammation.</div></div>
+    <div class="lab-row"><div class="lab-marker">Homocysteine</div><div class="lab-range">5–15 µmol/L<br><span style="color:#f5a623;font-size:.72rem;">Optimal: &lt;8 µmol/L</span></div><div class="lab-note">Methylation and B-vitamin status marker. Elevated homocysteine = B12, B6, or folate insufficiency, or MTHFR variant expression. Gut dysbiosis impairs B12 absorption → elevated homocysteine. Also an independent cardiovascular risk marker. Treat with methylcobalamin + methylfolate + P5P.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">Standard Labs — Nutritional Baseline</div>
+    <div class="lab-row"><div class="lab-marker">Vitamin D (25-OH)</div><div class="lab-range">30–100 ng/mL<br><span style="color:#f5a623;font-size:.72rem;">Optimal: 60–80 ng/mL</span></div><div class="lab-note">Critical for gut immune defense, tight junction protein expression, SIgA production, and mucosal healing. Low D = recurrent gut infections and impaired gut barrier. Supplement D3 (not D2) + K2 MK-7. Recheck at 3 months.</div></div>
+    <div class="lab-row"><div class="lab-marker">B12 (Serum)</div><div class="lab-range">200–900 pg/mL<br><span style="color:#f5a623;font-size:.72rem;">Functional optimal: &gt;600</span></div><div class="lab-note">Serum B12 overestimates functional status — "normal" on standard labs does not mean adequate. Cross-reference with OAT methylmalonic acid for functional assessment. Gut dysbiosis (H. pylori, Clostridia) directly impairs B12 absorption. Methylcobalamin preferred.</div></div>
+    <div class="lab-row"><div class="lab-marker">Zinc (Serum)</div><div class="lab-range">70–120 mcg/dL</div><div class="lab-note">Gut lining integrity, wound healing, immune function. Depleted by Candida, gut inflammation, and malabsorption. Serum zinc is a rough proxy — RBC zinc is more accurate but less commonly available. Supplement with zinc picolinate or bisglycinate for best absorption.</div></div>
+    <div class="lab-row"><div class="lab-marker">Magnesium (RBC, not serum)</div><div class="lab-range">4.2–6.8 mg/dL<br><span style="color:#f5a623;font-size:.72rem;">Note: serum Mg is not reliable</span></div><div class="lab-note"><strong>Order RBC magnesium</strong> — not serum magnesium. Serum can be "normal" while intracellular stores are significantly depleted (98% of body Mg is intracellular). Magnesium is required for 300+ enzymatic reactions including Krebs cycle steps seen on OAT. Bisglycinate form for best GI tolerance.</div></div>
+    <div class="lab-row"><div class="lab-marker">Folate (RBC or Serum)</div><div class="lab-range">RBC: &gt;400 ng/mL<br>Serum: 2–20 ng/mL</div><div class="lab-note">RBC folate reflects long-term status (preferred). Serum folate reflects recent dietary intake. Elevated homocysteine + low folate = MTHFR expression or dietary depletion. Supplement with methylfolate (L-5-MTHF) — not folic acid — especially in MTHFR+ individuals.</div></div>
+  </div>
+
+  <div class="note-box"><strong>Testing order for most members:</strong> (1) Standard labs first — bilirubin/liver panel + hsCRP + ferritin + Vitamin D + B12 + magnesium RBC. Insurance-covered, gives essential baseline. (2) Add OAT for the metabolic/systemic picture — best starting functional test. (3) Add GI-MAP if H. pylori, parasites, or specific pathogens are suspected, or if OAT is normal but gut symptoms persist. (4) Add GI Effects if you want sensitivity data (which natural agents will inhibit this patient's Candida) or richer digestion/SCFA metabolic data. (5) SIBO breath test if upper bloating worsens within 1–2 hours of meals. (6) Cyrex Array 2 if autoimmune conditions or rapid food sensitivity accumulation is present.</div>
+</div>
+
+<!-- ═══════════════ MEDICATIONS ═══════════════ -->
+<div id="meds" class="section">
+  <div class="warning-box" style="margin-bottom:20px;"><strong>Physician oversight required for all items in this section.</strong> These are provided for educational purposes and to support informed conversations with your treating physician. As a physician mentor, Dr. Yoshi helps members understand the reasoning behind these agents — not prescribe them directly.</div>
+
+  <div class="section-label">Antifungals</div>
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">Itraconazole</div>
+      <div class="med-dose">200mg once or twice daily · Oral capsule · 8–12 weeks</div>
+      <div class="med-why"><strong>Best for:</strong> Aspergillus (mold) in gut. Also effective for Candida. Pharmaceutical-grade required — herbal antifungals are insufficient for Aspergillus species. Pulsed dosing for sensitive patients (2 weeks on, 1 week off).</div>
+      <div class="med-when">WHEN TO USE: Multiple Aspergillus markers elevated on OAT (Tartaric, 5-OH-methylfuroic, Furan-2,5-dicarboxylic). Mold exposure history. Concurrent TUDCA + binders essential. Monitor liver enzymes (LFTs) at baseline and 4–6 weeks.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Nystatin</div>
+      <div class="med-dose">500,000–1,000,000 IU · 2–4x daily · Oral · 4–8 weeks</div>
+      <div class="med-why"><strong>Best for:</strong> Intestinal Candida (non-systemic). Nystatin is not absorbed — it acts locally in the GI tract. Minimal systemic side effects. Good first-line option for straightforward Candida without mold burden.</div>
+      <div class="med-when">WHEN TO USE: Arabinose elevated, Aspergillus markers normal. No mold exposure history. Well-tolerated by sensitive patients. Often used with herbal adjuncts (caprylic acid, berberine).</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Fluconazole</div>
+      <div class="med-dose">100–200mg daily · OR 150mg weekly · Oral · 4–8 weeks</div>
+      <div class="med-why"><strong>Best for:</strong> Systemic Candida, recurrent vaginal Candida, esophageal Candida. Systemic absorption — broader coverage than Nystatin. Not effective for Aspergillus (Aspergillus is inherently resistant).</div>
+      <div class="med-when">WHEN TO USE: Moderate–severe Arabinose on OAT, or confirmed systemic Candida. Monitor LFTs with extended use. Drug interactions with many CYP3A4 substrates.</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">SIBO Antibiotics</div>
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">Rifaximin (Xifaxan)</div>
+      <div class="med-dose">550mg · 3x daily · 14 days</div>
+      <div class="med-why"><strong>Best for:</strong> Hydrogen-dominant SIBO. Non-absorbed antibiotic — acts locally in small intestine with minimal systemic effects. Excellent safety profile. Reduces hydrogen-producing bacteria (mostly Gram-negative).</div>
+      <div class="med-when">WHEN TO USE: SIBO breath test positive for hydrogen. Upper bloating within 1–2 hours of eating, belching. May require 2 courses for complete resolution. Consider herbal alternative if cost is prohibitive.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Rifaximin + Neomycin</div>
+      <div class="med-dose">Rifaximin 550mg + Neomycin 500mg · 3x daily · 14 days</div>
+      <div class="med-why"><strong>Best for:</strong> Methane-dominant SIBO (IMO — Intestinal Methanogen Overgrowth). Neomycin targets Archaea (methane-producing organisms) that Rifaximin alone doesn't fully address. Constipation-predominant presentation.</div>
+      <div class="med-when">WHEN TO USE: Methane &gt;10 ppm on breath test. Constipation-dominant bowel pattern. More intensive than hydrogen protocol — monitor for GI side effects of Neomycin.</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">H. Pylori Eradication</div>
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">Triple Therapy (H. pylori)</div>
+      <div class="med-dose">PPI + Amoxicillin 1g + Clarithromycin 500mg · Twice daily · 14 days</div>
+      <div class="med-why"><strong>First-line eradication.</strong> PPI (proton pump inhibitor) reduces stomach acid to allow antibiotics to work. Clarithromycin resistance is increasing — confirm no prior Clarithromycin use before selecting this regimen.</div>
+      <div class="med-when">WHEN TO USE: H. pylori confirmed on GI-MAP or urea breath test. Symptomatic (epigastric pain, nausea, early satiety). Concurrent S. boulardii to reduce antibiotic-associated diarrhea. Retest at 4+ weeks post-treatment.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Bismuth Quadruple Therapy</div>
+      <div class="med-dose">Bismuth subsalicylate + Tetracycline + Metronidazole + PPI · 10–14 days</div>
+      <div class="med-why"><strong>Second-line or Clarithromycin-resistant cases.</strong> Higher eradication rate than triple therapy when resistance is present. Bismuth has direct anti-H. pylori and mucosal-protective effects.</div>
+      <div class="med-when">WHEN TO USE: Prior Clarithromycin exposure, prior triple therapy failure, or geographic area with high resistance. Heavier side effect profile — bismuth causes black stools (normal, not GI bleed).</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">Antiparasitics &amp; Other</div>
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">Metronidazole (Flagyl)</div>
+      <div class="med-dose">250–750mg · 3x daily · 7–10 days</div>
+      <div class="med-why"><strong>Broad antiparasitic and antibacterial.</strong> Effective for Giardia, Blastocystis, C. difficile (mild), Trichomonas, and some anaerobic bacterial overgrowth. Also used in Clostridia dysbiosis protocols.</div>
+      <div class="med-when">WHEN TO USE: Giardia or Blastocystis on GI-MAP. Avoid alcohol during and 48 hours after (disulfiram-like reaction). Nausea common — take with food.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Nitazoxanide (Alinia)</div>
+      <div class="med-dose">500mg · 2x daily · 3 days (parasites) OR 14 days (extended)</div>
+      <div class="med-why"><strong>Broad-spectrum antiparasitic.</strong> Effective against Giardia, Cryptosporidium, and a range of intestinal pathogens. Well-tolerated. Broader coverage than Metronidazole for complex parasite presentations.</div>
+      <div class="med-when">WHEN TO USE: Multiple parasites identified. Cryptosporidium (Metronidazole is ineffective here). Blastocystis hominis that hasn't responded to Metronidazole.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Low-Dose Naltrexone (LDN)</div>
+      <div class="med-dose">1.5–4.5mg · Nightly · Long-term</div>
+      <div class="med-why"><strong>Gut motility + immune modulation.</strong> LDN transiently blocks opioid receptors, causing rebound endorphin surge that modulates the immune system, reduces intestinal inflammation, and improves gut motility. Used in IBD, IBS, SIBO with motility issues.</div>
+      <div class="med-when">WHEN TO USE: Slow gut motility (SIBO recurrence, constipation-dominant). Inflammatory bowel conditions. Autoimmune overlap. Compounded — requires Rx. Start at 1.5mg, titrate up over 4 weeks.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Oral Vancomycin</div>
+      <div class="med-dose">125–500mg · 4x daily · 10–14 days</div>
+      <div class="med-why"><strong>C. difficile treatment.</strong> Not absorbed — acts locally in the colon. First-line for moderate–severe C. difficile colitis. Also used in pulsed/tapered regimens for recurrent C. diff.</div>
+      <div class="med-when">WHEN TO USE: Confirmed C. difficile (4-Cresol very elevated + positive C. diff on GI-MAP). Severe Clostridia dysbiosis. Concurrent S. boulardii and post-treatment fecal microbiome restoration essential.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SUPPLEMENTS ═══════════════ -->
+<div id="supplements" class="section">
+  <div class="note-box" style="margin-bottom:20px;"><strong>Organization:</strong> Supplements are grouped by function. Use Phase 1–4 sequence from the Overview tab to determine timing. Binders and drainage support come first; lining repair concurrent; probiotics after clearance.</div>
+
+  <div class="section-label">Drainage &amp; Detox Support (Phase 1)</div>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">TUDCA (Tauroursodeoxycholic Acid)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg/day</span><span class="dose-tag moderate">Moderate: 500mg/day</span><span class="dose-tag heavy">Heavy: 750mg–1g/day</span></div>
+      <div class="supp-why">Bile acid support, liver protection, fat-soluble vitamin absorption, gut motility, neuroprotection. Take with meals. Critical when mycotoxins are present — they disrupt bile chemistry. Also neuroprotective in cognitive presentations. Reduces liver stress from antifungal Rx.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">GI Detox / Activated Charcoal Binder</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 1 cap</span><span class="dose-tag moderate">Moderate: 2 caps</span><span class="dose-tag heavy">Heavy: 3 caps</span></div>
+      <div class="supp-why">Clay + charcoal + zeolite complex. Binds mycotoxins, endotoxins, and die-off byproducts in gut lumen before recirculation. Take 30–60 min before meals OR at bedtime. MUST be separated from all supplements and Rx by 2+ hours — will bind and inactivate them.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">NAC (N-Acetyl Cysteine)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 600mg/day</span><span class="dose-tag moderate">Moderate: 1,200mg/day</span><span class="dose-tag heavy">Heavy: 1,800–2,400mg/day</span></div>
+      <div class="supp-why">Glutathione precursor. Critical in mold/mycotoxin burden — mycotoxins deplete glutathione. Take away from meals. Also disrupts biofilm (Candida and H. pylori both form biofilms). Supports liver detoxification.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Liposomal Glutathione</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg/day</span><span class="dose-tag moderate">Moderate: 500mg/day</span><span class="dose-tag heavy">Heavy: 500mg 2x/day</span></div>
+      <div class="supp-why">Master antioxidant. Depleted by mycotoxins, gut inflammation, and poor diet. Liposomal form bypasses gut metabolism for superior absorption. Use alongside NAC — NAC builds glutathione, liposomal provides immediate supply. Priority in mold and heavy-burden cases.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Magnesium Bisglycinate</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 150–200mg/day</span><span class="dose-tag moderate">Moderate: 300–400mg/day</span><span class="dose-tag heavy">Heavy: 500mg/day</span></div>
+      <div class="supp-why">Bowel regularity, muscle relaxation, HPA axis support. Bisglycinate form — minimal GI effects, superior absorption. Take PM before bed. Constipation blocks toxin clearance — adequate magnesium is foundational. Loose stool = dose is too high; reduce by 100mg.</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">Clearance Adjuncts (Phase 2)</div>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">Caprylic Acid (C8 Fatty Acid)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 600mg/day</span><span class="dose-tag moderate">Moderate: 1,800mg/day</span><span class="dose-tag heavy">Heavy: 3,600mg/day</span></div>
+      <div class="supp-why">Anti-Candida fatty acid. Disrupts Candida cell membrane. Best for intestinal Candida (not Aspergillus). Often combined with berberine and oregano oil in herbal antifungal protocols. Take with meals. Derived from coconut oil — MCT oil is a food-form source.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Saccharomyces boulardii</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg/day</span><span class="dose-tag moderate">Moderate: 500mg 2x/day</span><span class="dose-tag heavy">Heavy: 500mg 3x/day</span></div>
+      <div class="supp-why">Non-pathogenic yeast. Competes directly with Candida for adhesion sites. Well-tolerated during antifungal therapy. Reduces C. difficile recurrence. Improves H. pylori eradication rates when given concurrent with antibiotics. Reduces antibiotic-associated diarrhea.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Bismuth Subsalicylate</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 262mg 2x/day</span><span class="dose-tag moderate">Moderate: 524mg 2x/day</span><span class="dose-tag heavy">Heavy: 524mg 4x/day</span></div>
+      <div class="supp-why">Anti-H. pylori, mucosal protectant, anti-diarrheal. Bismuth has direct bactericidal activity against H. pylori. Used as adjunct to antibiotic therapy or solo for mild cases. Black stools are normal and expected — not a sign of GI bleed.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Phosphatidylcholine</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg/day</span><span class="dose-tag moderate">Moderate: 1g/day</span><span class="dose-tag heavy">Heavy: 2g/day</span></div>
+      <div class="supp-why">Bile composition support, liver membrane integrity. Mold and dysbiosis disrupt phospholipid metabolism. Particularly useful with TUDCA for bile flow optimization. Also supports intestinal mucosa and acts as methyl donor (MTHFR support).</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">Gut Lining Repair (Phase 3)</div>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">L-Glutamine</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 2–5g/day</span><span class="dose-tag moderate">Moderate: 5–10g/day</span><span class="dose-tag heavy">Heavy: 10–20g/day</span></div>
+      <div class="supp-why">Primary fuel for intestinal enterocytes. Essential for gut lining repair and tight junction integrity (leaky gut). Take on empty stomach — fasted absorption goes directly to gut mucosa. Powder form most cost-effective. Stack with Zinc carnosine and butyrate for synergy.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Zinc Carnosine (PepZin GI)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 75mg/day</span><span class="dose-tag moderate">Moderate: 75mg 2x/day</span><span class="dose-tag heavy">Heavy: 150mg 2x/day</span></div>
+      <div class="supp-why">Gut-specific zinc delivery. Adheres to the gastric and intestinal mucosa, reducing inflammation and supporting lining repair. Evidence for H. pylori adjunct treatment and leaky gut. More effective than plain zinc for gut lining — the carnosine chelate concentrates zinc at the mucosa.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Butyrate (Sodium / Calcium-Magnesium Butyrate)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 300–600mg/day</span><span class="dose-tag moderate">Moderate: 600mg–1.2g/day</span><span class="dose-tag heavy">Heavy: 1.2–3g/day</span></div>
+      <div class="supp-why">Primary fuel for colonocytes. Supports tight junction proteins, reduces intestinal inflammation, and promotes a healthy microbiome environment. Key in leaky gut repair. Produced naturally by beneficial bacteria fermenting fiber — low in dysbiosis. Take with meals.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Colostrum (Bovine)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg/day</span><span class="dose-tag moderate">Moderate: 1–2g/day</span><span class="dose-tag heavy">Heavy: 2–4g/day</span></div>
+      <div class="supp-why">Rich in immunoglobulins (IgA, IgG, IgM), lactoferrin, and growth factors. Supports SIgA levels, mucosal immune defense, and gut lining integrity. Research shows significant reduction in intestinal permeability. Particularly useful when SIgA is low on GI-MAP.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Vitamin D3 + K2</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 2,000 IU</span><span class="dose-tag moderate">Moderate: 5,000 IU</span><span class="dose-tag heavy">Heavy: 8–10,000 IU</span></div>
+      <div class="supp-why">Critical for tight junction protein expression, mucosal immune defense, SIgA production, and antimicrobial peptide synthesis. Low D = recurrent dysbiosis and gut infections. Take with largest fat-containing meal. Target serum level 60–80 ng/mL. K2 as MK-7 with all doses above 2,000 IU.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Omega-3 Fish Oil (EPA + DHA)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 1g/day</span><span class="dose-tag moderate">Moderate: 2–3g/day</span><span class="dose-tag heavy">Heavy: 3–4g/day</span></div>
+      <div class="supp-why">Reduces intestinal inflammation, supports tight junction integrity, modulates the gut immune response. Triglyceride form preferred over ethyl ester. Take with food. Omega-3 Index target &gt;8% — test via OmegaQuant. Essential in any inflammatory gut presentation.</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">Microbiome Reseeding (Phase 4)</div>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">MegaSporeBiotic (Bacillus spore-based)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 1 cap/day</span><span class="dose-tag moderate">Moderate: 2 caps/day</span><span class="dose-tag heavy">Heavy: 2 caps 2x/day</span></div>
+      <div class="supp-why">Spore-forming Bacillus species (licheniformis, indicus, subtilis, clausii, coagulans). Survives stomach acid intact. Promotes broad microbiome diversity rather than colonizing with single strains. Published data on leaky gut (reduces LPS, IgG markers). Start here for sensitive patients. Best introduced after initial clearance phase.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Multi-Strain Probiotic (Lactobacillus / Bifidobacterium)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 5–10B CFU</span><span class="dose-tag moderate">Moderate: 25–50B CFU</span><span class="dose-tag heavy">Heavy: 100–200B CFU</span></div>
+      <div class="supp-why">Add after 4–6 weeks of spore-based probiotic. Strain specificity matters more than CFU count. Key strains: L. rhamnosus GG (leaky gut), L. acidophilus NCFM (Candida), B. longum (IBS, anxiety), L. plantarum 299v (SIBO post-clearance). Rotate brands every 2–3 months. NOT for use during active SIBO treatment.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Prebiotic Fiber (Diversified Rotation)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 5g/day</span><span class="dose-tag moderate">Moderate: 10–15g/day</span><span class="dose-tag heavy">Heavy: 20–30g/day</span></div>
+      <div class="supp-why">Prebiotic fibers feed beneficial bacteria and promote diversity. Rotate sources: inulin (FOS), partially hydrolyzed guar gum (PHGG), resistant starch (green banana, cooked-cooled potato), psyllium husk, arabinoxylan. Start low and increase slowly — GI symptoms at initiation = microbial die-off shifting, not intolerance. AVOID during active SIBO.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ HERBAL SUPPORT ═══════════════ -->
+<div id="herbals" class="section">
+  <div class="info-box" style="margin-bottom:20px;"><strong>Evidence tiers:</strong> ★★★ = Multiple RCTs, consistent results · ★★☆ = Some human trials or strong mechanistic data · ★☆☆ = Emerging/traditional with plausibility. Herbals are powerful — not "gentle." Use at therapeutic doses and with awareness of interactions.</div>
+
+  <div class="section-label">Primary Antimicrobials &amp; Antifungals</div>
+  <div class="herb-grid">
+    <div class="herb-card">
+      <div class="herb-name">Berberine</div>
+      <div class="herb-tier">★★★ · Multiple RCTs · Condition tags: <span class="condition-tag tag-candida">Candida</span><span class="condition-tag tag-sibo">SIBO</span><span class="condition-tag tag-hpylori">H. pylori</span><span class="condition-tag tag-general">Dysbiosis</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg/day</span><span class="dose-tag moderate">Moderate: 1,000mg/day</span><span class="dose-tag heavy">Heavy: 1,500mg/day</span></div>
+      <div class="herb-why">Broad-spectrum antimicrobial, anti-Candida, AMPK activator. Rivals Rifaximin in SIBO studies. Anti-H. pylori via multiple mechanisms. Splits into 3 doses with meals. Competes with metformin for insulin sensitivity — do not combine. Berberine HCl or dihydroberberine for better absorption.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Oil of Oregano (Carvacrol-standardized)</div>
+      <div class="herb-tier">★★☆ · Strong antimicrobial data · <span class="condition-tag tag-candida">Candida</span><span class="condition-tag tag-sibo">SIBO</span><span class="condition-tag tag-parasite">Parasites</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 100mg/day</span><span class="dose-tag moderate">Moderate: 200mg 2x/day</span><span class="dose-tag heavy">Heavy: 200mg 3x/day</span></div>
+      <div class="herb-why">Carvacrol disrupts Candida, bacterial, and some parasitic membranes. Standardized to 80%+ carvacrol. Enteric-coated caps delay release to small intestine (better for SIBO). Take with food to minimize GI irritation. Powerful — start low. Disruptive to beneficial bacteria at high doses; cycle 3–4 weeks then break.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Allicin (Stabilized Garlic Extract)</div>
+      <div class="herb-tier">★★★ · H. pylori RCTs · <span class="condition-tag tag-hpylori">H. pylori</span><span class="condition-tag tag-sibo">SIBO</span><span class="condition-tag tag-parasite">Parasites</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 180mg/day</span><span class="dose-tag moderate">Moderate: 450mg/day</span><span class="dose-tag heavy">Heavy: 900mg/day</span></div>
+      <div class="herb-why">Allicin is the active compound in garlic — but only stable in specialized preparations (Allimed, AlliMax). Significant H. pylori inhibition data. Effective in methane SIBO protocols. Also antiparasitic. Stabilized allicin retains efficacy; standard garlic supplements do not. Blood-thinning at high doses.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Mastic Gum (Pistacia lentiscus)</div>
+      <div class="herb-tier">★★☆ · H. pylori human trials · <span class="condition-tag tag-hpylori">H. pylori</span><span class="condition-tag tag-leaky">Leaky Gut</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg/day</span><span class="dose-tag moderate">Moderate: 1g/day</span><span class="dose-tag heavy">Heavy: 2g/day</span></div>
+      <div class="herb-why">RCT evidence for H. pylori inhibition and symptom reduction even without full eradication. Anti-inflammatory, mucosal-protective, promotes ulcer healing. Take 30 min before meals for best H. pylori effect. Can be used as standalone for mild H. pylori or as adjunct to antibiotic triple therapy to improve eradication rates.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Wormwood / Black Walnut / Clove (Parasite Triad)</div>
+      <div class="herb-tier">★☆☆ · Traditional + mechanistic · <span class="condition-tag tag-parasite">Parasites</span><span class="condition-tag tag-candida">Candida</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: Individual herbs 500mg each</span><span class="dose-tag moderate">Moderate: 1g each 2x/day</span><span class="dose-tag heavy">Heavy: 1g each 3x/day</span></div>
+      <div class="herb-why">The classic herbal antiparasitic triad. Artemisinin (wormwood) disrupts parasite membranes. Juglone (black walnut hulls) antiparasitic and antifungal. Eugenol (clove) kills parasite eggs. 30-day protocol with 2-week rest, then second 30-day course. Combine with binders — die-off toxins are significant. Not for use in pregnancy.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Peppermint Oil (Enteric-Coated)</div>
+      <div class="herb-tier">★★★ · IBS RCTs · <span class="condition-tag tag-sibo">SIBO</span><span class="condition-tag tag-general">IBS</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 180mg/day</span><span class="dose-tag moderate">Moderate: 180mg 2x/day</span><span class="dose-tag heavy">Heavy: 180mg 3x/day</span></div>
+      <div class="herb-why">Enteric-coated capsule is critical — non-coated releases in stomach causing heartburn. Reaches small intestine for IBS and SIBO effect. Antispasmodic for bowel cramping. Reduces bloating and abdominal pain. One of the best-evidenced herbals for IBS. Take 30–60 min before meals.</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">Gut Lining &amp; Soothing Herbs</div>
+  <div class="herb-grid">
+    <div class="herb-card">
+      <div class="herb-name">DGL Licorice (Deglycyrrhizinated)</div>
+      <div class="herb-tier">★★☆ · Gastric protection data · <span class="condition-tag tag-hpylori">H. pylori</span><span class="condition-tag tag-leaky">Leaky Gut</span><span class="condition-tag tag-general">IBS</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 380mg before meals</span><span class="dose-tag moderate">Moderate: 760mg before meals</span><span class="dose-tag heavy">Heavy: 760mg 3x/day</span></div>
+      <div class="herb-why">DGL form removes glycyrrhizin (the compound that raises blood pressure in regular licorice). Promotes mucus secretion, protects gastric lining, has direct H. pylori inhibition. Take as chewable tablets before meals for best mucosal contact. Safe for long-term use in DGL form.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Slippery Elm Bark</div>
+      <div class="herb-tier">★★☆ · Traditional + supportive data · <span class="condition-tag tag-leaky">Leaky Gut</span><span class="condition-tag tag-general">IBS</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 400mg/day</span><span class="dose-tag moderate">Moderate: 800mg/day</span><span class="dose-tag heavy">Heavy: 1,600mg/day</span></div>
+      <div class="herb-why">Mucilaginous bark that coats and soothes the GI tract. Reduces mucosal irritation, supports lining repair. Take 2 hours away from other supplements (binds and delays absorption). Can also be mixed as a powder in water — the thick consistency is the medicine. Soothing for IBS and leaky gut symptoms.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Marshmallow Root</div>
+      <div class="herb-tier">★★☆ · Mucilage mechanism · <span class="condition-tag tag-leaky">Leaky Gut</span><span class="condition-tag tag-general">IBS</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 400mg/day</span><span class="dose-tag moderate">Moderate: 800mg/day</span><span class="dose-tag heavy">Heavy: 1,600mg/day</span></div>
+      <div class="herb-why">High mucilage content — forms a protective gel over mucous membranes. Reduces gut wall irritation and inflammation. Pairs well with Slippery Elm. Best as cold-water extract (avoid hot water — damages mucilage). Use for symptom relief during clearance phases.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Triphala</div>
+      <div class="herb-tier">★★☆ · Microbiome diversity data · <span class="condition-tag tag-general">Dysbiosis</span><span class="condition-tag tag-general">IBS</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg PM</span><span class="dose-tag moderate">Moderate: 1g PM</span><span class="dose-tag heavy">Heavy: 2g PM</span></div>
+      <div class="herb-why">Ayurvedic triad of three fruits (Amalaki, Bibhitaki, Haritaki). Promotes bowel regularity, microbiome diversity, and antioxidant defense. PM dosing for bowel effects. Gentle — appropriate for long-term maintenance. Evidence for Bifidobacterium promotion and overall microbiome diversity improvement.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Ginger (Zingiber officinale)</div>
+      <div class="herb-tier">★★★ · Motility + anti-nausea RCTs · <span class="condition-tag tag-sibo">SIBO</span><span class="condition-tag tag-general">IBS</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg/day</span><span class="dose-tag moderate">Moderate: 500mg 2x/day</span><span class="dose-tag heavy">Heavy: 1g 3x/day</span></div>
+      <div class="herb-why">Prokinetic — stimulates gastric motility and reduces transit time. Critical for SIBO recurrence prevention (slow motility is the root cause in most SIBO cases). Also antiemetic, anti-inflammatory, anti-H. pylori. Take before meals. Use standardized extract (5% gingerols) or fresh ginger tea.</div>
+    </div>
+    <div class="herb-card">
+      <div class="herb-name">Broccoli Sprout Extract (Sulforaphane)</div>
+      <div class="herb-tier">★★★ · H. pylori clinical data · <span class="condition-tag tag-hpylori">H. pylori</span><span class="condition-tag tag-leaky">Leaky Gut</span></div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 30mg/day</span><span class="dose-tag moderate">Moderate: 60mg/day</span><span class="dose-tag heavy">Heavy: 100mg/day</span></div>
+      <div class="herb-why">Sulforaphane has strong H. pylori inhibition in human clinical trials — reduces burden even without full eradication. Also activates Nrf2 pathway (master antioxidant defense), supports gut detoxification, reduces gut inflammation. Myrosinase-activated form required. Avmacol or SGS-standardized extracts preferred.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ NUTRITION ═══════════════ -->
+<div id="nutrition" class="section">
+  <div class="note-box" style="margin-bottom:24px;"><strong>Foundational principle:</strong> Diet is not a restriction protocol — it's terrain management. The goal is removing the fuel sources for pathogens while building the substrate for beneficial bacteria. What you remove matters as much as what you add.</div>
+
+  <div class="section-label">Universal Gut Healing Foundation</div>
+  <div class="phase-card c-green" id="nu0">
+    <div class="phase-header" onclick="togglePhase(&#39;nu0&#39;)">
+      <div class="phase-num" style="font-size:.7rem;">ALL</div>
+      <div style="flex:1"><div class="phase-title">Foundation — Applies to Every Gut Condition</div><div class="phase-sub">Non-negotiable baseline · Start here before anything else</div></div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <h3>Remove (during active healing — minimum 8 weeks)</h3>
+      <ul class="action-list">
+        <li>Sugar in all forms — the primary fuel for Candida, Aspergillus, and dysbiotic bacteria</li>
+        <li>Alcohol — directly damages intestinal permeability and depletes glutathione</li>
+        <li>Processed and ultra-processed foods — seed oils, additives, emulsifiers disrupt the mucosal layer</li>
+        <li>Gluten — triggers zonulin release → tight junction opening → leaky gut in susceptible individuals</li>
+        <li>Conventional dairy — casein A1 and lactose are inflammatory for many with gut dysfunction</li>
+        <li>NSAIDs (ibuprofen, naproxen) — directly increase intestinal permeability</li>
+      </ul>
+      <h3 style="margin-top:16px;">Emphasize</h3>
+      <ul class="action-list">
+        <li>Clean proteins: pasture-raised eggs, wild-caught fish, grass-fed beef, organic chicken</li>
+        <li>Non-starchy vegetables: all leafy greens, broccoli, zucchini, cucumber, asparagus, artichoke</li>
+        <li>Healthy fats: avocado, olive oil, coconut oil (C8 MCTs), ghee (if dairy-tolerant)</li>
+        <li>Bone broth: daily if possible — glycine, proline, collagen for lining repair</li>
+        <li>Fermented foods (post-clearance): sauerkraut, kimchi, kefir (if tolerated) — introduce slowly after Phase 2</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:20px;">Condition-Specific Dietary Protocols</div>
+
+  <div class="phase-card c-orange" id="nu1">
+    <div class="phase-header" onclick="togglePhase(&#39;nu1&#39;)">
+      <div class="phase-num" style="font-size:.7rem;word-break:break-all;">CAND</div>
+      <div style="flex:1"><div class="phase-title">Anti-Candida Diet</div><div class="phase-sub">Arabinose elevated on OAT · Candida confirmed</div></div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <ul class="action-list">
+        <li>PHASE 1 (weeks 1–4): No fruit at all, no grains, no legumes, no vinegar, no mushrooms, no yeast-containing foods (bread, beer, nutritional yeast)</li>
+        <li>PHASE 2 (weeks 4–8): Reintroduce low-sugar berries (blueberries, raspberries) in small amounts if Arabinose improving</li>
+        <li>Coconut oil daily — C8/C10 MCTs have direct anti-Candida activity</li>
+        <li>Garlic (raw, crushed, 10 min rest before eating) — allicin is anti-Candida</li>
+        <li>Apple cider vinegar: controversial — has some anti-Candida data but contains trace alcohol and acetaldehyde; use cautiously or omit in sensitive patients</li>
+        <li>Avoid: all sweeteners including honey, maple syrup, agave, coconut sugar during Phase 1</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-card c-red" id="nu2">
+    <div class="phase-header" onclick="togglePhase(&#39;nu2&#39;)">
+      <div class="phase-num" style="font-size:.7rem;word-break:break-all;">MOLD</div>
+      <div style="flex:1"><div class="phase-title">Low-Mold Diet</div><div class="phase-sub">Aspergillus markers elevated on OAT · Mold exposure history</div></div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <ul class="action-list">
+        <li>Remove all high-mold foods: peanuts, corn, dried fruit, aged cheeses, wine, beer, pickled foods, vinegar-containing foods, leftovers &gt;2 days old</li>
+        <li>Grains to avoid: wheat, corn, oats (all can carry Aspergillus mycotoxins)</li>
+        <li>Fresh is key: eat freshly prepared foods; refrigerate immediately; avoid restaurant food where possible during clearance</li>
+        <li>Prioritize: fresh organic produce, fresh proteins, clean fats, filtered water</li>
+        <li>Coffee: controversial — green coffee beans can be contaminated with Aspergillus; choose tested brands (Bulletproof, Purity Coffee) or avoid during active clearance</li>
+        <li>Address your home: if Aspergillus is dominant in gut, an environmental mold source is almost always present — ERMI test your home</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-card c-blue" id="nu3">
+    <div class="phase-header" onclick="togglePhase(&#39;nu3&#39;)">
+      <div class="phase-num" style="font-size:.7rem;word-break:break-all;">SIBO</div>
+      <div style="flex:1"><div class="phase-title">Low-FODMAP Diet</div><div class="phase-sub">SIBO confirmed · IBS · Bloating within 1–2 hours of eating</div></div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <div class="note-box"><strong>Low-FODMAP is a diagnostic and temporary tool</strong> — not a long-term diet. Use during active SIBO treatment to reduce symptoms. Then reintroduce systematically to identify individual triggers.</div>
+      <ul class="action-list" style="margin-top:10px;">
+        <li>AVOID (high-FODMAP): garlic, onion, wheat, rye, apples, pears, watermelon, milk, soft cheeses, legumes, cashews, pistachios, honey, high-fructose corn syrup</li>
+        <li>INCLUDE: eggs, meat, fish, hard cheeses (if tolerated), rice, oats (small portions), firm tofu, most leafy greens, blueberries, strawberries, oranges, grapes, cucumber, zucchini, eggplant</li>
+        <li>SIBO-specific: avoid fermented foods during active treatment — they feed the overgrowth</li>
+        <li>Meal spacing: 4–5 hours between meals (migrating motor complex needs fasted periods to sweep the small intestine)</li>
+        <li>Do not snack: constant food = constant substrate for bacteria = SIBO maintenance</li>
+        <li>After SIBO clearance: systematically reintroduce one FODMAP group at a time over 8 weeks; most people can tolerate most foods once SIBO is resolved</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-card c-green" id="nu4">
+    <div class="phase-header" onclick="togglePhase(&#39;nu4&#39;)">
+      <div class="phase-num" style="font-size:.7rem;word-break:break-all;">H.P.</div>
+      <div style="flex:1"><div class="phase-title">H. Pylori Support Diet</div><div class="phase-sub">H. pylori confirmed on GI-MAP · Epigastric symptoms</div></div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <ul class="action-list">
+        <li>Broccoli sprouts daily (2–3 Tbsp): highest food source of sulforaphane — clinically shown to suppress H. pylori</li>
+        <li>Manuka honey (UMF 10+ or higher): direct H. pylori inhibition in vitro, use 1 tsp before meals</li>
+        <li>Green tea: catechins (EGCG) inhibit H. pylori adhesion and growth</li>
+        <li>Cranberry juice (unsweetened): prevents H. pylori adhesion to gastric mucosa</li>
+        <li>Reduce: spicy foods, acidic foods, coffee, alcohol — all increase gastric irritation</li>
+        <li>Smaller, more frequent meals: reduces acid load and gastric discomfort</li>
+        <li>Probiotics (post-antibiotic): Lactobacillus reuteri ATCC 55730 has specific H. pylori inhibition data</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ROVIVE METHOD ═══════════════ -->
+<div id="rovive" class="section">
+  <div class="info-box" style="margin-bottom:24px;"><strong>The RoVive lens on gut health:</strong> Gut dysfunction is never just a gut problem. It's a systems failure — an expression of terrain conditions that allowed overgrowth, permeability, or motility dysfunction to establish. The RoVive Method addresses roots, not just symptoms.</div>
+
+  <div class="roots-grid">
+    <div class="roots-card">
+      <div class="roots-label r-roots">ROOTS — Foundational Inputs</div>
+      <p class="muted">The gut cannot heal in a chronically stressed, sleep-deprived, nutrient-depleted system. These are not lifestyle suggestions — they are biological requirements for gut terrain restoration:</p>
+      <ul class="action-list" style="margin-top:10px;">
+        <li><strong>Sleep:</strong> 7–9 hours. The gut repairs overnight — short sleep = persistent inflammation and impaired mucosal integrity</li>
+        <li><strong>Stress / HPA axis:</strong> Cortisol directly disrupts gut motility, increases intestinal permeability, and alters microbiome diversity. Chronic stress is a gut pathogen</li>
+        <li><strong>Stomach acid:</strong> Low HCl = inadequate pathogen killing in stomach = downstream dysbiosis. Consider Betaine HCl if SIBO recurs or H. pylori risk exists</li>
+        <li><strong>Circadian rhythm:</strong> The gut microbiome has its own circadian rhythm — disrupted sleep patterns shift microbial populations toward dysbiosis</li>
+        <li><strong>Clean water:</strong> Filtered water removes chlorine and fluoride that can disrupt beneficial microbiota</li>
+        <li><strong>Movement:</strong> Regular walking (20–30 min/day) directly improves gut motility — the most underused prokinetic available</li>
+      </ul>
+    </div>
+
+    <div class="roots-card">
+      <div class="roots-label r-reveal">REVEAL — Testing Layers</div>
+      <p class="muted"><strong>Layer 1 — Standard (Quest/Labcorp):</strong> CMP, CBC, hsCRP, Vitamin D 25-OH, B12, Zinc (serum), Ferritin, Homocysteine. These provide baseline metabolic and nutritional context.</p>
+      <p class="muted" style="margin-top:10px;"><strong>Layer 2 — Functional (Rupa Health):</strong></p>
+      <ul class="action-list">
+        <li>OAT (Great Plains / Mosaic) — yeast, fungal, bacterial markers, mitochondrial function, neurotransmitter metabolites</li>
+        <li>GI-MAP (Diagnostic Solutions) — PCR stool test; H. pylori, parasites, fungi, zonulin, SIgA, calprotectin</li>
+        <li>SIBO Breath Test (3-hour lactulose) — hydrogen + methane</li>
+        <li>Cyrex Array 2 — intestinal permeability (if autoimmune overlap or multiple food sensitivities)</li>
+        <li>NutrEval (Genova) — if comprehensive nutritional depletion suspected</li>
+      </ul>
+      <p class="muted" style="margin-top:10px;"><strong>Layer 3 — Advanced (refractory cases):</strong></p>
+      <ul class="action-list">
+        <li>Metabolomics (Aristotle Health) — 1,000+ metabolites; maps invisible metabolic bottlenecks</li>
+        <li>Cyrex Arrays 3/5 — gluten reactivity, multiple autoimmune reactivity screening</li>
+        <li>Food Sensitivity Panel (MRT or Vibrant America) — if elimination diet inconclusive</li>
+      </ul>
+    </div>
+
+    <div class="roots-card">
+      <div class="roots-label r-refine">REFINE — Lifestyle Levers Specific to Gut Health</div>
+      <ul class="action-list" style="margin-top:8px;">
+        <li><strong>Meal spacing:</strong> 4–5 hour gaps between meals activates the migrating motor complex (MMC) — the small intestine's sweeping mechanism that prevents SIBO. Constant grazing disables it</li>
+        <li><strong>Chew thoroughly:</strong> Digestion begins in the mouth. Insufficient chewing → larger food particles → fermentation substrate in the colon</li>
+        <li><strong>Cold exposure:</strong> Brief cold showers or plunges reduce gut inflammation via vagal nerve activation and reduce cortisol reactivity</li>
+        <li><strong>Sauna:</strong> Heat therapy promotes mycotoxin elimination through sweat — particularly relevant in mold-burden cases</li>
+        <li><strong>Vagal tone:</strong> Humming, gargling, slow breathing, cold water on face — all activate the vagus nerve and directly improve gut motility and reduce gut inflammation</li>
+        <li><strong>Reduce PPI use:</strong> Proton pump inhibitors long-term suppress HCl → increased SIBO and H. pylori risk. Work toward discontinuation under physician guidance</li>
+        <li><strong>Environmental mold assessment:</strong> ERMI test for Aspergillus and other molds. If dominant gut mold = Aspergillus, assume environmental exposure until proven otherwise</li>
+      </ul>
+    </div>
+
+    <div class="roots-card">
+      <div class="roots-label r-rise">RISE — What Success Looks Like</div>
+      <p class="muted">Success in gut healing is not just lab numbers — it's the reclaimed capacity to thrive:</p>
+      <ul class="action-list" style="margin-top:8px;">
+        <li>OAT markers within reference range — Arabinose &lt;29, all Aspergillus normalized, Clostridia cleared</li>
+        <li>GI-MAP: pathogens absent, SIgA optimal, calprotectin &lt;50, zonulin normal</li>
+        <li>Digestion regular, comfortable, predictable — 1–2 formed bowel movements daily</li>
+        <li>Energy sustained through the day without post-meal crashes</li>
+        <li>Brain fog resolved or significantly reduced</li>
+        <li>Food tolerance broadened — able to eat a diverse diet without reaction</li>
+        <li>Mood and motivation stable — Clostridia markers down = dopamine pathway restored</li>
+        <li>Skin, immune resilience, and sleep quality improved as downstream benefits of gut restoration</li>
+        <li>No longer dependent on binders, antifungals, or digestive aids — maintaining with diet, diverse probiotics, and foundational supplements only</li>
+      </ul>
+      <div class="success-box" style="margin-top:12px;"><strong>Questions about applying this to your specific picture?</strong> Bring your OAT or GI-MAP to your next RoVive Wisdom Circle session, or open the RoVive Guide and ask: "Can you help me interpret my gut labs using the RoVive Method?"</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ AHA MOMENTS ═══════════════ -->
+<div id="aha" class="section">
+  <div class="note-box" style="margin-bottom:24px;"><strong>For live delivery:</strong> Drop the question. Pause 3–5 full seconds. Let the weight land. Then answer. The silence is the teaching moment. For Circle calls: "Type your reaction in chat" before answering. These are the moments members remember and tell their friends about.</div>
+
+  <div class="section-label">Organism &amp; Microbiology</div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 1 · Organism / Microbiology</div>
+    <div class="scenario-title">What if your sugar cravings aren't your cravings?</div>
+    <div class="scenario-finding">Candida albicans produces acetaldehyde — a metabolic byproduct that directly manipulates host behavior to increase carbohydrate consumption. The organism has evolved to essentially "hack" the appetite signals of its host. Your Candida is hungry. It's using your brain to feed itself.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Voigt N, et al. "Gut microbiota-brain axis and the central nervous system." <em>Gut Microbes</em>, 2015; also Mukherjee PK et al., Candida biofilm and host interaction, <em>FEMS Microbiology Reviews</em>, 2006.</li>
+      <li><strong>Delivery tip:</strong> Drop it, pause, then: "If you've ever felt like your sugar cravings had a will of their own — they literally did. And we can change that."</li>
+      <li><strong>Best placed:</strong> Opening hook or immediately after introducing Arabinose on the OAT.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 2 · Brain-Body Connection</div>
+    <div class="scenario-title">What if your mood disorder is actually a Clostridia problem — and no psychiatrist is testing for it?</div>
+    <div class="scenario-finding">Clostridia bacteria produce HPHPA and 4-Cresol — two compounds that directly inhibit dopamine beta-hydroxylase, the enzyme that converts dopamine to norepinephrine. The result is a dopamine conversion failure that presents as low motivation, ADHD, OCD patterns, or flat mood. This shows on the OAT. It does not show on any standard psychiatric workup. Conventional medicine is treating the symptom while the gut infection goes untreated.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Shaw W. "Increased urinary excretion of a 3-(3-hydroxyphenyl)-3-hydroxypropionic acid (HPHPA), an abnormal phenylalanine metabolite of Clostridia spp. in the gastrointestinal tract, in urine samples from patients with autism and schizophrenia." <em>Nutritional Neuroscience</em>, 2010.</li>
+      <li><strong>Delivery tip:</strong> "How many people in this room — or people you love — have been told they have a 'chemical imbalance' and handed an antidepressant? What if the chemical imbalance is in the gut?"</li>
+      <li><strong>Best placed:</strong> After introducing Clostridia markers or during the WHY section of any gut-mood related session.</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Systems Thinking</div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 3 · Systems Thinking</div>
+    <div class="scenario-title">What if your joint pain, kidney stones, and chronic fatigue are all the same problem — and that problem is growing in your gut right now?</div>
+    <div class="scenario-finding">Aspergillus species in the gut produce oxalic acid directly as a metabolic byproduct. Elevated mold burden = elevated oxalates = oxalate crystal deposition in three simultaneous locations: joints (pain, arthritis-like symptoms), kidneys (stones), and mitochondria (impaired energy production → fatigue). One organism. Three organ systems. All showing on the OAT if you know to look. A rheumatologist, a urologist, and an internist might each see one piece of this — and none of them would connect them.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Morozov VN, et al. "Oxalic acid and oxalates in ecology, biology, and medicine." <em>Environmental Research</em>, 2020. Also: Liebman M, Al-Wahsh IA. "Probiotics and other key determinants of dietary oxalate absorption." <em>Advances in Nutrition</em>, 2011.</li>
+      <li><strong>Delivery tip:</strong> "Three different doctors, three different diagnoses, all the same root. This is what the RoVive Method does — it connects the dots that conventional medicine was never designed to connect."</li>
+      <li><strong>Best placed:</strong> After introducing oxalate markers on the OAT, or when discussing mold presentations.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 4 · Systems Thinking</div>
+    <div class="scenario-title">What if your gut bacteria already decided your cancer treatment outcome — before your oncologist did?</div>
+    <div class="scenario-finding">In 2018, the journal Science published research showing that pre-treatment gut microbiome composition — specifically Akkermansia muciniphila and Faecalibacterium prausnitzii levels — predicted patient response to PD-1 immune checkpoint inhibitors (immunotherapy) for melanoma and other cancers. Patients with high Akkermansia responded. Those with low Akkermansia did not. The gut microbiome was outpredicting the oncologist. We don't have a GI-MAP for cancer staging yet — but the science is saying we probably should.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Gopalakrishnan V, et al. "Gut microbiome modulates response to anti-PD-1 immunotherapy in melanoma patients." <em>Science</em>, 359(6371):97–103, 2018.</li>
+      <li><strong>Delivery tip:</strong> Drop it and let the room sit with it. Then: "This is why we look at Akkermansia on the GI-MAP. It's not just about digestion."</li>
+      <li><strong>Best placed:</strong> When introducing keystone bacteria markers on the GI-MAP, or in any broader health optimization context.</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Timeline &amp; Causality</div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 5 · Timeline / Causality</div>
+    <div class="scenario-title">What if Parkinson's disease starts in your gut — 10 to 20 years before the first tremor?</div>
+    <div class="scenario-finding">Heiko Braak's landmark research proposed that alpha-synuclein — the pathological protein that defines Parkinson's disease — may originate in the enteric nervous system (your gut's neural network) and travel up the vagus nerve to the brainstem and substantia nigra over a period of years to decades. The Parkinson's diagnosis comes at the end of a neurological migration that began in the gut. Vagotomy (surgical cutting of the vagus nerve) in earlier research appeared to reduce Parkinson's risk. The tremor you see is the 20-year downstream consequence.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Braak H, et al. "Staging of brain pathology related to sporadic Parkinson's disease." <em>Neurobiology of Aging</em>, 24(2):197–211, 2003. Also: Svensson E, et al. "Vagotomy and subsequent risk of Parkinson's disease." <em>Annals of Neurology</em>, 78(4):522–529, 2015.</li>
+      <li><strong>Delivery tip:</strong> "The tremor is not when Parkinson's starts. That's when you finally see it. This is why gut health is not a digestion conversation — it's a neurological future conversation."</li>
+      <li><strong>Best placed:</strong> Closing moment, or when discussing the gut-brain connection and why we take the enteric nervous system seriously.</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Conventional Medicine Blind Spots</div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 6 · Conventional Medicine Blind Spot</div>
+    <div class="scenario-title">What if H. pylori's greatest damage has nothing to do with ulcers — and it starts decades before anyone tests for it?</div>
+    <div class="scenario-finding">H. pylori disrupts parietal cell function in the stomach — progressively destroying the cells that produce both hydrochloric acid AND intrinsic factor. Intrinsic factor is required for B12 absorption. Long-term H. pylori infection = progressive B12 depletion over years, often while stomach acid tests appear "normal." B12 deficiency presents as cognitive decline, peripheral neuropathy, elevated homocysteine, and cardiovascular risk — none of which will be connected to H. pylori in standard care. The ulcer is the least of it.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Kaptan K, et al. "Helicobacter pylori — is it a novel causative agent in Vitamin B12 deficiency?" <em>Archives of Internal Medicine</em>, 160(9):1349–1353, 2000. Also: Serin E, et al. <em>Journal of Gastroenterology</em>, 37(3):187–190, 2002.</li>
+      <li><strong>Delivery tip:</strong> "If you have H. pylori and your doctor said 'just take the antibiotics and you're done' — you need to know this. The downstream consequences go on for years."</li>
+      <li><strong>Best placed:</strong> When discussing H. pylori scenarios or after presenting the GI-MAP section.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 7 · Conventional Medicine Blind Spot</div>
+    <div class="scenario-title">What if 90% of your serotonin is made in your gut — and your antidepressant is treating the wrong organ?</div>
+    <div class="scenario-finding">Approximately 90% of the body's serotonin is synthesized in enterochromaffin cells of the gut epithelium — not in the brain. The gut microbiome directly regulates this production. Specific bacterial species (including Clostridia, Lactobacillus, and Bifidobacterium) influence tryptophan availability and the enzymes that convert it to serotonin. An SSRIs mechanism — blocking serotonin reuptake in the brain — does nothing about the gut-level serotonin production deficit. Meanwhile, the quinolinic acid pathway (visible on OAT) shows exactly where the tryptophan is being shunted instead. Treating the gut changes the serotonin precursor supply — something no antidepressant does.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Yano JM, et al. "Indigenous bacteria from the gut microbiota regulate host serotonin biosynthesis." <em>Cell</em>, 161(2):264–276, 2015.</li>
+      <li><strong>Delivery tip:</strong> "I'm not saying antidepressants are wrong. I'm saying they address downstream chemistry without touching the gut that makes 90% of the upstream chemical. That's worth knowing."</li>
+      <li><strong>Best placed:</strong> When introducing neurotransmitter metabolites on the OAT, or in any mental health + gut session.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════ QUICK REFERENCE ═══════════════ -->
+<div id="quickref" class="section">
+  <div class="note-box" style="margin-bottom:20px;"><strong>Print or screenshot this tab</strong> for a one-page reference of the complete protocol.</div>
+
+  <div class="qr-grid">
+    <div class="qr-block">
+      <div class="qr-title">Phase Timeline</div>
+      <div class="qr-item"><strong>Phase 0</strong> — Assess: OAT + GI-MAP + SIBO breath test (1–2 weeks)</div>
+      <div class="qr-item"><strong>Phase 1</strong> — Prepare: Binders + TUDCA + Diet (2–4 weeks)</div>
+      <div class="qr-item"><strong>Phase 2</strong> — Clear: Organism-specific antimicrobial/antifungal (4–12 weeks)</div>
+      <div class="qr-item"><strong>Phase 3</strong> — Replace: Enzymes + lining repair (concurrent with Phase 2)</div>
+      <div class="qr-item"><strong>Phase 4</strong> — Reseed: Spore-based probiotics → multi-strain (3–6 months)</div>
+      <div class="qr-item"><strong>Phase 5</strong> — Maintain: Retest OAT at 6 months. Terrain diet long-term</div>
+    </div>
+
+    <div class="qr-block">
+      <div class="qr-title">Key OAT Markers &amp; Targets</div>
+      <div class="qr-item"><strong>Arabinose</strong> ≤ 29 mmol/mol (Candida)</div>
+      <div class="qr-item"><strong>Tartaric</strong> ≤ 4.5 mmol/mol (Aspergillus)</div>
+      <div class="qr-item"><strong>5-OH-Methylfuroic</strong> ≤ 14 mmol/mol (Aspergillus)</div>
+      <div class="qr-item"><strong>HPHPA</strong> ≤ 208 mmol/mol (Clostridia)</div>
+      <div class="qr-item"><strong>4-Cresol</strong> ≤ 75 mmol/mol (Clostridia / C. diff)</div>
+      <div class="qr-item"><strong>Zonulin (GI-MAP)</strong> &lt; 107 ng/mL (leaky gut)</div>
+      <div class="qr-item"><strong>SIgA (GI-MAP)</strong> 510–2,010 mcg/mL (gut immunity)</div>
+    </div>
+
+    <div class="qr-block">
+      <div class="qr-title">Core Supplement Stack (All Conditions)</div>
+      <div class="qr-item"><strong>TUDCA</strong> 250–500mg with meals (bile + liver)</div>
+      <div class="qr-item"><strong>Binders (GI Detox)</strong> 1–3 caps — 2 hrs away from all else</div>
+      <div class="qr-item"><strong>Digestive Enzymes</strong> 1–2 caps with each meal</div>
+      <div class="qr-item"><strong>L-Glutamine</strong> 5–10g fasted (gut lining)</div>
+      <div class="qr-item"><strong>Zinc Carnosine</strong> 75mg 2x/day (mucosal repair)</div>
+      <div class="qr-item"><strong>Vitamin D3</strong> 5,000 IU with fat (immune + tight junctions)</div>
+      <div class="qr-item"><strong>Magnesium Bisglycinate</strong> 300–400mg PM (bowel + HPA)</div>
+      <div class="qr-item"><strong>MegaSporeBiotic</strong> 2 caps/day (after clearance)</div>
+      <div class="qr-item"><strong>Saccharomyces boulardii</strong> 500mg 2x/day (concurrent with clearance)</div>
+    </div>
+
+    <div class="qr-block">
+      <div class="qr-title">Medications by Condition</div>
+      <div class="qr-item"><strong>Candida:</strong> Nystatin or Fluconazole (Rx)</div>
+      <div class="qr-item"><strong>Aspergillus:</strong> Itraconazole 200mg 1–2x/day (Rx)</div>
+      <div class="qr-item"><strong>Hydrogen SIBO:</strong> Rifaximin 550mg 3x/day x 14d (Rx)</div>
+      <div class="qr-item"><strong>Methane SIBO:</strong> Rifaximin + Neomycin x 14d (Rx)</div>
+      <div class="qr-item"><strong>H. pylori:</strong> Triple or Quadruple Therapy (Rx)</div>
+      <div class="qr-item"><strong>Parasites:</strong> Nitazoxanide or Metronidazole (Rx)</div>
+      <div class="qr-item"><strong>C. difficile:</strong> Oral Vancomycin (Rx)</div>
+      <div class="qr-item"><strong>Motility:</strong> LDN 1.5–4.5mg nightly (Rx)</div>
+    </div>
+
+    <div class="qr-block">
+      <div class="qr-title">Top 5 Failure Points</div>
+      <div class="qr-item">1. Starting clearance before drainage is open → herx reactions → patient quits</div>
+      <div class="qr-item">2. Using herbal antifungals for Aspergillus → insufficient coverage → no improvement</div>
+      <div class="qr-item">3. Reseeding before clearance is complete → probiotics feed the overgrowth</div>
+      <div class="qr-item">4. Continuing environmental mold exposure during Aspergillus treatment</div>
+      <div class="qr-item">5. Treating gut without addressing motility → SIBO recurs within weeks</div>
+    </div>
+
+    <div class="qr-block">
+      <div class="qr-title">RoVive Core Principle</div>
+      <div class="qr-item" style="padding-top:10px;padding-bottom:10px;"><em style="color:#f5a623;font-size:.9rem;">"The gut is not a problem to fix. It's a terrain to tend."</em></div>
+      <div class="qr-item">Read Your Map → Name Your Invaders → Clear the Terrain → Replace What's Missing → Reseed the Garden</div>
+      <div class="qr-item">Bring your OAT or GI-MAP to the RoVive Guide: "Help me interpret my gut labs using the RoVive Method"</div>
+    </div>
+  </div>
+</div>
+
+<div class="protocol-footer">
+  ROVIVE METHOD · DR. YOSHI RAHM, D.O. · <a href="https://dryoshi.com/" target="_blank" style="color:#f5a623;font-weight:700;">DrYoshi.com</a><br>
+  FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE<br>
+  Questions about this protocol? Bring them to your next RoVive Wisdom Circle Q&amp;A, or open the RoVive Guide.
+</div>
+
+<script>
+function showTab(name, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  el.classList.add('active');
+}
+function togglePhase(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const first = document.querySelector('.phase-card');
+  if (first) first.classList.add('open');
+});
+</script>
+
+
+<scribe-shadow id="crxjs-ext" data-crx="okfkdaglfjjjfefdcppliegebpoegaii" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 2147483647; overflow: visible; visibility: visible;"><template shadowrootmode="open"><div id="root-scribe-elem" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; overflow: visible; color: rgb(21, 24, 30);"><div style="display: contents;"><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;"><ol tabindex="-1" class="fixed bottom-auto right-0 top-0 z-[999999] flex max-h-screen w-[400px] max-w-full p-4 pointer-events-none"></ol></div></div></div><link rel="stylesheet" href="chrome-extension://okfkdaglfjjjfefdcppliegebpoegaii/assets/style.css"></template></scribe-shadow></body><grammarly-desktop-integration data-grammarly-shadow-root="true" style="visibility: visible !important;"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
