@@ -1,0 +1,1167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immune Overdrive Syndrome — RoVive Method</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:100vh;padding:32px 24px 60px;}
+.header{text-align:center;margin-bottom:48px;}
+.rovive-badge{display:inline-block;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);border-radius:6px;padding:4px 14px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:#f5a623;text-transform:uppercase;margin-bottom:14px;}
+.header h1{font-size:2.4rem;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.1;}
+.header h1 span{color:#f5a623;}
+.header p{margin-top:10px;color:#7a7a8a;font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;}
+.disclaimer{margin-top:6px;font-size:.72rem;color:#4a4a5a;font-family:'DM Mono',monospace;letter-spacing:.06em;}
+.tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;justify-content:center;}
+.tab{background:#1a1d26;border:1px solid #2a2d3a;color:#7a7a8a;padding:10px 20px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.05em;transition:all .2s;text-transform:uppercase;user-select:none;}
+.tab:hover{border-color:#f5a623;color:#f5a623;}
+.tab.active{background:#f5a623;color:#0d0f14;border-color:#f5a623;font-weight:600;}
+.section{display:none;} .section.active{display:block;}
+.phase-grid{display:grid;gap:16px;}
+.phase-card{background:#131620;border:1px solid #1e2130;border-radius:12px;overflow:hidden;}
+.phase-header{display:flex;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;background:#181b28;border-bottom:1px solid #1e2130;transition:background .2s;}
+.phase-header:hover{background:#1e2233;}
+.phase-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;flex-shrink:0;}
+.phase-title{font-size:1rem;font-weight:700;flex:1;}
+.phase-sub{font-size:.78rem;color:#7a7a8a;font-family:'DM Mono',monospace;margin-top:2px;}
+.phase-toggle{color:#7a7a8a;font-size:1.4rem;transition:transform .2s;line-height:1;}
+.phase-card.open .phase-toggle{transform:rotate(90deg);}
+.phase-body{display:none;padding:20px;} .phase-card.open .phase-body{display:block;}
+.c-orange .phase-num{background:rgba(245,166,35,.15);color:#f5a623;} .c-orange .phase-header{border-left:3px solid #f5a623;}
+.c-blue .phase-num{background:rgba(99,179,237,.15);color:#63b3ed;} .c-blue .phase-header{border-left:3px solid #63b3ed;}
+.c-green .phase-num{background:rgba(104,211,145,.15);color:#68d391;} .c-green .phase-header{border-left:3px solid #68d391;}
+.c-purple .phase-num{background:rgba(183,148,244,.15);color:#b794f4;} .c-purple .phase-header{border-left:3px solid #b794f4;}
+.c-red .phase-num{background:rgba(252,129,129,.15);color:#fc8181;} .c-red .phase-header{border-left:3px solid #fc8181;}
+.med-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px;}
+.med-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:16px;}
+.med-name{font-weight:700;font-size:.95rem;color:#fff;margin-bottom:6px;}
+.med-dose{font-family:'DM Mono',monospace;font-size:.78rem;color:#f5a623;margin-bottom:8px;background:rgba(245,166,35,.08);padding:5px 9px;border-radius:4px;display:inline-block;line-height:1.5;}
+.med-why{font-size:.82rem;color:#9a9aaa;line-height:1.55;margin-top:6px;}
+.med-when{font-size:.78rem;color:#7a7a8a;margin-top:8px;padding-top:8px;border-top:1px solid #1e2130;font-family:'DM Mono',monospace;line-height:1.5;}
+.supp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px;}
+.supp-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:14px;}
+.supp-name{font-weight:700;font-size:.88rem;color:#68d391;margin-bottom:4px;}
+.supp-why{font-size:.8rem;color:#9a9aaa;line-height:1.55;}
+.dose-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+.dose-tag{font-family:'DM Mono',monospace;font-size:.74rem;padding:3px 8px;border-radius:4px;display:inline-block;}
+.dose-tag.mild{background:rgba(104,211,145,.08);color:#68d391;}
+.dose-tag.moderate{background:rgba(245,166,35,.08);color:#f5a623;}
+.dose-tag.heavy{background:rgba(252,129,129,.1);color:#fc8181;}
+.lab-section{margin-bottom:28px;}
+.lab-title{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;font-family:'DM Mono',monospace;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(245,166,35,.2);}
+.lab-row{display:grid;grid-template-columns:220px 160px 1fr;align-items:start;gap:12px;padding:10px 12px;border-radius:8px;margin-bottom:6px;background:#0d0f14;border:1px solid #1a1d26;}
+@media(max-width:640px){.lab-row{grid-template-columns:1fr;}}
+.lab-marker{font-weight:700;font-size:.85rem;color:#e8e4dc;}
+.lab-range{font-family:'DM Mono',monospace;font-size:.78rem;color:#68d391;}
+.lab-note{font-size:.78rem;color:#7a7a8a;line-height:1.5;}
+.scenario{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:12px;}
+.scenario-label{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#7a7a8a;text-transform:uppercase;margin-bottom:6px;}
+.scenario-title{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:10px;}
+.scenario-finding{font-size:.82rem;color:#b794f4;font-family:'DM Mono',monospace;background:rgba(183,148,244,.08);padding:6px 10px;border-radius:6px;margin-bottom:10px;line-height:1.55;}
+.action-list{list-style:none;}
+.action-list li{font-size:.83rem;color:#c8c4bc;padding:5px 0 5px 18px;position:relative;line-height:1.5;}
+.action-list li::before{content:'→';position:absolute;left:0;color:#f5a623;}
+.note-box{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#c8c4bc;line-height:1.65;margin-top:12px;}
+.note-box strong{color:#f5a623;}
+.warning-box{background:rgba(252,129,129,.06);border:1px solid rgba(252,129,129,.25);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#fca5a5;line-height:1.65;margin-top:12px;}
+.warning-box strong{color:#fc8181;}
+.info-box{background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#bee3f8;line-height:1.65;margin-top:12px;}
+.info-box strong{color:#63b3ed;}
+.success-box{background:rgba(104,211,145,.06);border:1px solid rgba(104,211,145,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#c6f6d5;line-height:1.65;margin-top:12px;}
+.success-box strong{color:#68d391;}
+/* PEPTIDE CARD — dual option layout */
+.pep-card{background:#0d0f14;border:1px solid #1e2130;border-radius:12px;overflow:hidden;margin-bottom:14px;}
+.pep-header{padding:14px 18px;background:#181b28;border-bottom:1px solid #1e2130;}
+.pep-name{font-weight:800;font-size:1rem;color:#fff;}
+.pep-tagline{font-size:.78rem;color:#b794f4;font-family:'DM Mono',monospace;margin-top:3px;}
+.pep-body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+@media(max-width:640px){.pep-body{grid-template-columns:1fr;}}
+.pep-option{padding:16px 18px;border-right:1px solid #1e2130;}
+.pep-option:last-child{border-right:none;}
+.pep-option-label{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:10px;}
+.opt-inject{background:rgba(183,148,244,.12);color:#b794f4;border:1px solid rgba(183,148,244,.3);}
+.opt-oral{background:rgba(104,211,145,.1);color:#68d391;border:1px solid rgba(104,211,145,.3);}
+.pep-dose{font-family:'DM Mono',monospace;font-size:.78rem;color:#f5a623;background:rgba(245,166,35,.08);padding:5px 9px;border-radius:4px;display:inline-block;margin-bottom:8px;line-height:1.5;}
+.pep-detail{font-size:.8rem;color:#9a9aaa;line-height:1.6;}
+/* HERBAL TABLE */
+.herb-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:10px;}
+.herb-name{font-weight:700;font-size:.92rem;color:#68d391;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+.herb-stars{color:#f5a623;font-size:.8rem;}
+.herb-mech{font-size:.8rem;color:#9a9aaa;margin-bottom:10px;line-height:1.5;}
+/* FOOD BLOCKS */
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+@media(max-width:600px){.food-grid{grid-template-columns:1fr;}}
+.food-block{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:14px;}
+.food-block-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+.food-list{list-style:none;}
+.food-list li{font-size:.8rem;color:#9a9aaa;padding:5px 0;border-bottom:1px solid #1a1d26;display:flex;gap:8px;line-height:1.4;}
+.food-list li:last-child{border-bottom:none;}
+.food-list li::before{content:'—';color:#4a4a5a;flex-shrink:0;}
+/* MACRO ROW */
+.macro-row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;}
+.macro-chip{background:#181b28;border:1px solid #1e2130;border-radius:8px;padding:8px 14px;text-align:center;min-width:90px;}
+.macro-val{font-family:'DM Mono',monospace;font-size:.92rem;font-weight:500;color:#f5a623;}
+.macro-label{font-size:.72rem;color:#7a7a8a;margin-top:2px;}
+/* ROVIVE METHOD */
+.method-step{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:12px;border-left:3px solid #f5a623;}
+.method-step:nth-child(2){border-color:#63b3ed;}
+.method-step:nth-child(3){border-color:#68d391;}
+.method-step:nth-child(4){border-color:#b794f4;}
+.method-label{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#f5a623;margin-bottom:6px;}
+.method-step:nth-child(2) .method-label{color:#63b3ed;}
+.method-step:nth-child(3) .method-label{color:#68d391;}
+.method-step:nth-child(4) .method-label{color:#b794f4;}
+.method-title{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:8px;}
+.method-body{font-size:.84rem;color:#9a9aaa;line-height:1.7;}
+/* QR TABLE */
+.qr-table{width:100%;border-collapse:collapse;margin-bottom:20px;}
+.qr-table th{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#7a7a8a;text-align:left;padding:8px 12px;border-bottom:1px solid #1e2130;background:#181b28;}
+.qr-table td{font-size:.82rem;padding:9px 12px;border-bottom:1px solid #1a1d26;vertical-align:top;line-height:1.5;color:#c8c4bc;}
+.qr-table tr:hover td{background:#131620;}
+.qr-table td:first-child{font-weight:700;color:#e8e4dc;}
+.qr-table td:nth-child(2){font-family:'DM Mono',monospace;font-size:.78rem;color:#f5a623;}
+/* TIMELINE */
+.timeline{display:flex;gap:0;margin-bottom:28px;flex-wrap:wrap;}
+.tl-step{flex:1;min-width:100px;padding:14px 16px;border-right:1px solid #1e2130;position:relative;}
+.tl-step:last-child{border-right:none;}
+.tl-num{font-family:'DM Mono',monospace;font-size:.7rem;color:#7a7a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.tl-name{font-weight:700;font-size:.88rem;margin-bottom:3px;}
+.tl-weeks{font-family:'DM Mono',monospace;font-size:.68rem;color:#4a4a5a;}
+.divider{height:1px;background:#1e2130;margin:24px 0;}
+h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
+.muted{font-size:.82rem;color:#9a9aaa;line-height:1.6;}
+.screening-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:12px;}
+.screen-item{background:#0d0f14;border:1px solid #1e2130;border-radius:8px;padding:10px 14px;font-size:.82rem;color:#9a9aaa;line-height:1.45;cursor:pointer;transition:all .2s;display:flex;gap:10px;align-items:flex-start;}
+.screen-item.checked{border-color:#f5a623;background:rgba(245,166,35,.06);color:#e8e4dc;}
+.check-box{width:16px;height:16px;border:1.5px solid #2a2d3a;border-radius:4px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#f5a623;transition:all .15s;}
+.screen-item.checked .check-box{background:rgba(245,166,35,.15);border-color:#f5a623;}
+.score-bar{background:#181b28;border:1px solid #1e2130;border-radius:8px;padding:12px 16px;margin-top:12px;font-family:'DM Mono',monospace;font-size:.82rem;transition:all .3s;}
+.protocol-footer{margin-top:48px;padding-top:20px;border-top:1px solid #1e2130;text-align:center;font-family:'DM Mono',monospace;font-size:.72rem;color:#4a4a5a;letter-spacing:.06em;line-height:1.8;}
+.protocol-footer a{color:#f5a623;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="rovive-badge">RoVive Method · Dr. Yoshi Rahm, D.O.</div>
+  <h1>Immune Overdrive <span>Syndrome</span></h1>
+  <p>The Root Driver Behind Weight Resistance, Hormone Resistance & Chronic Inflammation</p>
+  <p>Roots → Reveal → Refine → Rise · Functional &amp; Integrative Medicine</p>
+  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE · <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="showTab('overview',this)">Overview</div>
+  <div class="tab" onclick="showTab('screening',this)">Screening</div>
+  <div class="tab" onclick="showTab('labs',this)">Labs</div>
+  <div class="tab" onclick="showTab('meds',this)">Medications</div>
+  <div class="tab" onclick="showTab('peptides',this)">Peptides</div>
+  <div class="tab" onclick="showTab('supps',this)">Supplements</div>
+  <div class="tab" onclick="showTab('herbals',this)">Herbal Support</div>
+  <div class="tab" onclick="showTab('nutrition',this)">Nutrition</div>
+  <div class="tab" onclick="showTab('movement',this)">Movement &amp; Lifestyle</div>
+  <div class="tab" onclick="showTab('aha',this)">Aha Moments</div>
+  <div class="tab" onclick="showTab('rovive',this)">RoVive Method</div>
+  <div class="tab" onclick="showTab('qr',this)">Quick Reference</div>
+</div>
+
+<!-- ═══════════════════════════ OVERVIEW ═══════════════════════════ -->
+<div id="overview" class="section active">
+
+  <div class="note-box" style="margin-bottom:24px;">
+    <strong>What is Immune Overdrive Syndrome (IOS)?</strong><br>
+    IOS is the condition underneath the condition. It's what happens when your immune system — designed to protect you — gets stuck in a state of chronic activation it can't switch off. Every named diagnosis you've been given (PCOS, Hashimoto's, weight loss resistance, brain fog, hormonal chaos) is just the downstream expression of this deeper pattern. We don't treat the label. We work at the source.
+  </div>
+
+  <div class="timeline">
+    <div class="tl-step" style="border-left:3px solid #f5a623;">
+      <div class="tl-num">Phase 1</div>
+      <div class="tl-name" style="color:#f5a623;">Flush</div>
+      <div class="tl-weeks">Weeks 1–8</div>
+    </div>
+    <div class="tl-step" style="border-left:3px solid #63b3ed;">
+      <div class="tl-num">Phase 2</div>
+      <div class="tl-name" style="color:#63b3ed;">Feed</div>
+      <div class="tl-weeks">Weeks 8–16</div>
+    </div>
+    <div class="tl-step" style="border-left:3px solid #68d391;">
+      <div class="tl-num">Phase 3</div>
+      <div class="tl-name" style="color:#68d391;">Fast</div>
+      <div class="tl-weeks">Weeks 16–24</div>
+    </div>
+    <div class="tl-step" style="border-left:3px solid #b794f4;">
+      <div class="tl-num">Phase 4</div>
+      <div class="tl-name" style="color:#b794f4;">Function</div>
+      <div class="tl-weeks">Week 24+</div>
+    </div>
+  </div>
+
+  <div class="phase-grid">
+
+    <div class="phase-card c-orange open">
+      <div class="phase-header" onclick="togglePhase('p1')">
+        <div class="phase-num">1</div>
+        <div><div class="phase-title">Flush — Remove the Immune Burden</div><div class="phase-sub">Weeks 1–8 · No restriction · No hard training · Nervous system safety first</div></div>
+        <div class="phase-toggle" id="p1-toggle">›</div>
+      </div>
+      <div class="phase-body" id="p1">
+        <p class="muted" style="margin-bottom:14px;">Your immune system has been fighting something real — and it needs the assault to stop before it can stand down. This phase is not about pushing. It's about removing. We clear the foods, toxins, and signals that are keeping your immune system locked in alarm mode. Think of it as taking your hand off the horn.</p>
+        <div class="success-box"><strong>Phase 1 Goal:</strong> hs-CRP trending down · HRV trending up · Sleep improving · Gut symptoms reducing by 50%+. Do NOT advance until criteria met. If not met at Week 8, extend by 4 weeks.</div>
+        <div class="divider"></div>
+        <h3>Core Actions</h3>
+        <ul class="action-list">
+          <li>Full MRT (Most Reactive Trigger) food elimination — gluten, conventional dairy, seed oils, refined sugar, alcohol, artificial sweeteners, conventional soy</li>
+          <li>Begin Rapamycin (weekly) and LDN (nightly) — the two foundational immune rebalancers</li>
+          <li>High-dose fish oil / SPMs daily — activating the resolution phase your immune system has stopped reaching</li>
+          <li>Biofilm disruption — clearing the protective shields that hide latent pathogens from your immune system</li>
+          <li>Adaptogenic stress support — telling your nervous system it's safe to stand down</li>
+          <li>Thyroid conversion support — immune inflammation is already suppressing your T4→T3 conversion before your TSH budges</li>
+          <li>If estrogen is suppressed or patient is on hormonal birth control: introduce estradiol patch 0.05mg (2x/week, rotate sites) — estrogen is anti-inflammatory and its absence amplifies IOS</li>
+          <li>Sauna 3–4x/week + red light daily + 8–9 hrs sleep — these are therapeutic, not optional</li>
+          <li>Gentle daily walks only — no resistance training, no HIIT. Training in IOS amplifies the immune alarm.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card c-blue">
+      <div class="phase-header" onclick="togglePhase('p2')">
+        <div class="phase-num">2</div>
+        <div><div class="phase-title">Feed — Rebuild the Gut-Immune Axis</div><div class="phase-sub">Weeks 8–16 · 16:8 intermittent fasting begins · Microbiome restoration</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="p2">
+        <p class="muted" style="margin-bottom:14px;">Now that the immune burden is lighter, we address the architecture. Your gut houses 70% of your immune system — and right now it's leaky, overgrown, and under-defended. This phase rebuilds the mucosal immune barrier (sIgA), clears latent pathogens, reseeds beneficial bacteria, and replenishes the glutathione your system has been depleting for years fighting this battle quietly.</p>
+        <div class="info-box"><strong>Phase 2 Gate:</strong> Do NOT begin Phase 3 fasting until gut symptoms are absent during fasting windows, sIgA is trending up, and fasting insulin is below 10. Fasting in a leaky gut = immune re-activation.</div>
+        <div class="divider"></div>
+        <h3>Core Actions</h3>
+        <ul class="action-list">
+          <li>Introduce Tirzepatide (weekly injection) OR Berberine + Myo-Inositol (oral alternative) — metabolic signaling, insulin sensitization, and direct anti-inflammatory effects</li>
+          <li>Thymosin Alpha-1 (injection 2x/week) OR AHCC + Thymus Glandular (oral alternative) — re-educates T-regulatory cells, suppresses latent viral reactivation</li>
+          <li>Amantadine — antiviral + dopaminergic support, especially important if post-viral history or brain fog is prominent</li>
+          <li>Glutathione loading — your master antioxidant is depleted. Replenish via IV push or liposomal oral daily.</li>
+          <li>Elemental formula on fasting days — pre-digested, zero immune burden, total gut rest</li>
+          <li>Biofilm resolution continued + colloidal silver — targeting pathogens now exposed by Phase 1 biofilm clearing</li>
+          <li>Feast/fast cycling: 16:8 protocol 4–5 days/week. Eating window 10am–6pm or 12pm–8pm.</li>
+          <li>Introduce light resistance training 1x/week (Week 12+ only) — monitor HRV 48hrs post session</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card c-green">
+      <div class="phase-header" onclick="togglePhase('p3')">
+        <div class="phase-num">3</div>
+        <div><div class="phase-title">Fast — Cellular Cleanup &amp; Renewal</div><div class="phase-sub">Weeks 16–24 · Extended fasting · Senescent cell clearance · Mitochondrial renewal</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="p3">
+        <p class="muted" style="margin-bottom:14px;">This is where the deep work happens. Your immune system is now calm enough to direct its attention inward — clearing out the senescent "zombie cells" that have been accumulating and driving inflammation, and renewing the mitochondria that power everything. Extended fasting in a CDR-resolved body is cellular renewal. Extended fasting in a CDR-active body is accelerated muscle breakdown. Phases 1 and 2 existed entirely to make this phase safe.</p>
+        <div class="warning-box"><strong>Do not skip to this phase.</strong> Fasting in an immune-overdriven body = your immune system cannibaling muscle to fuel itself. The 4F sequence is not optional.</div>
+        <div class="divider"></div>
+        <h3>Core Actions</h3>
+        <ul class="action-list">
+          <li>Extend fasting windows progressively: 16:8 → 20:4 → 24-hour fasts</li>
+          <li>1 hour fasted walking daily — activates AMPK (the fat-burning, cellular-cleanup pathway your body has been blocked from accessing)</li>
+          <li>Oxandrolone 5mg daily (Rx) — low-dose lean mass preservation during extended fasting. This is the protocol's key differentiator.</li>
+          <li>SS-31 (injection) OR MitoQ + CoQ10 Ubiquinol stack (oral) — protect and renew mitochondria during cellular cleanup</li>
+          <li>Epithalon (injection, 10-day course) OR Astragalus / TA-65 (oral) — telomere support and senescent cell modulation</li>
+          <li>FOX04-DRI (injection, monthly pulse) OR Fisetin + Quercetin high-dose pulse (oral) — senolytic clearing</li>
+          <li>Ketogenic eating window: fat-dominant, low protein during fasting days (high protein re-activates mTOR and blocks autophagy)</li>
+          <li>Resistance training max 1x/week — Oxandrolone supports lean mass so you don't need more</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card c-purple">
+      <div class="phase-header" onclick="togglePhase('p4')">
+        <div class="phase-num">4</div>
+        <div><div class="phase-title">Function — Restore &amp; Rebuild</div><div class="phase-sub">Week 24 onwards · FMD cycling · Full training · Body composition transforms</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="p4">
+        <p class="muted" style="margin-bottom:14px;">This is what you've been building toward. Your immune system is regulated. Your gut is healed. Your cells have been cleaned out and renewed. Now mTOR — the growth and building pathway — can be fully activated safely. The Fasting Mimicking Diet cycling protocol gives you monthly deep cellular renewal while the 25-day maintenance windows are where your body truly transforms. This is where you rebuild stronger.</p>
+        <div class="success-box"><strong>The FMD Research:</strong> 3 rounds of 5-day FMD + 25-day maintenance = 2.5-year biological age reduction, near-zero lean muscle loss, major inflammatory marker reduction. (Longo et al., <em>Cell Metabolism</em>, 2015)</div>
+        <div class="divider"></div>
+        <h3>FMD Protocol — Repeat Every 30 Days</h3>
+        <ul class="action-list">
+          <li><strong>Day 1:</strong> ~1,100 cal · high fat · very low protein (&lt;20g) · plant-based soups, olives, nuts</li>
+          <li><strong>Days 2–5:</strong> ~725 cal · same macro profile · vegetable broth, small amounts of nuts/olives, herbal tea, electrolytes</li>
+          <li><strong>Days 6–8 (Critical — do not skip):</strong> Refeeding window. Drive carbohydrates UP to 200–250g/day. This is the only way to restore free T3. Without carbohydrates post-FMD, your thyroid stays suppressed. Soft foods first, then full carb refeeding.</li>
+          <li><strong>Days 9–30 (Maintenance):</strong> Full calories. High protein (150–200g/day). Carbohydrates at 40–50% of intake. Resistance training 3–4x/week. This is your building window — use it.</li>
+          <li>Fasted walking during FMD days (1 hour). No resistance training during the 5-day FMD window.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SCREENING ═══════════════════════════ -->
+<div id="screening" class="section">
+  <h3 style="margin-bottom:8px;font-size:1rem;">IOS Indicator Checklist</h3>
+  <p class="muted" style="margin-bottom:4px;">Answer YES to 5 or more: Immune Overdrive Syndrome is very likely driving your symptoms — regardless of what you've been told the diagnosis is.</p>
+  <div class="screening-grid" id="screenGrid">
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Hormone resistance — BHRT or thyroid meds work initially then plateau or stop working</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Weight loss resistance — doing everything "right" and the scale doesn't move</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Autoimmune diagnosis or positive ANA, even a low titer</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Rashes, hives, histamine reactions, or chronic skin flares</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Unexplained swelling, puffiness, or edema</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Hair loss or chronic shedding — not explained by iron or thyroid alone</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Prolonged, unexplained fatigue — tired even after sleep</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Anxiety, brain fog, or mood instability not explained by stress alone</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Metabolic syndrome, insulin resistance, or blood sugar dysregulation</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Tried multiple doctors, programs, diets — with little lasting success</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>History of mono (EBV), Lyme, mold exposure, CMV, or chronic SIBO</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>Never (or rarely) get sick with a cold or flu — immune exhaustion, not resilience</span></div>
+    <div class="screen-item" onclick="scoreCheck(this)"><div class="check-box">✓</div><span>On-and-off gut issues, food sensitivities, or digestive unpredictability</span></div>
+  </div>
+  <div class="score-bar" id="scoreBar">Select your symptoms above to see your IOS likelihood score.</div>
+  <div class="divider"></div>
+  <h3>Conditions We Now See as Immune Overdrive Expressions</h3>
+  <p class="muted" style="margin-bottom:12px;">When you look at these through the IOS lens, they stop being separate diagnoses and become one conversation about one system that needs regulation.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;">
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">PCOS</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Hashimoto's</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Endometriosis</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">SIBO / Gut Dysbiosis</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Long COVID / Post-Viral</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Eczema / Psoriasis</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Chronic Fatigue</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Lyme / EBV Reactivation</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Hormone Resistance</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Weight Loss Resistance</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Infertility</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Cardiovascular Inflammation</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Mold Toxicity</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Joint Pain / Inflammation</span>
+    <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Interstitial Cystitis</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ LABS ═══════════════════════════ -->
+<div id="labs" class="section">
+  <div class="warning-box" style="margin-bottom:20px;"><strong>The 20% Rule — Read This First:</strong> Only 20% of your immune cell activity and cytokines are in your bloodstream. The other 80% is in your tissues. This means your labs can look completely normal while your immune system is actively in overdrive. Normal labs do NOT rule out IOS. We interpret them alongside your symptom picture and your genetics.</div>
+
+  <div class="lab-section">
+    <div class="lab-title">Layer 1 — Standard Blood Panel (Order at Baseline)</div>
+    <div class="lab-row"><div class="lab-marker">hs-CRP</div><div class="lab-range">&lt; 1.0 mg/L optimal</div><div class="lab-note">Use high-sensitivity CRP. General "normal" of &lt;3 is not optimal. Can be falsely normal in chronic low-grade IOS.</div></div>
+    <div class="lab-row"><div class="lab-marker">CBC with Differential</div><div class="lab-range">WBC 5–8 · diff balanced</div><div class="lab-note">Look at the differential — not just total count. Elevated eosinophils or lymphopenia signal IOS. Suppressed WBC = immune exhaustion (common in over-trainers).</div></div>
+    <div class="lab-row"><div class="lab-marker">Fasting Insulin</div><div class="lab-range">2–6 µIU/mL optimal</div><div class="lab-note">The standard "normal" of up to 25 is dangerously wide. Fasting insulin above 10 = immune-driven metabolic dysfunction. Must be drawn fasting.</div></div>
+    <div class="lab-row"><div class="lab-marker">Free T3 + Free T4 + TSH</div><div class="lab-range">Free T3: 3.5–4.2 pg/mL</div><div class="lab-note">Never interpret thyroid without dietary context. Low free T3 with normal TSH = conversion failure from IOS or carbohydrate restriction. Not primary thyroid disease.</div></div>
+    <div class="lab-row"><div class="lab-marker">TPO + TGA Antibodies</div><div class="lab-range">TPO &lt;35 · TGA &lt;20 IU/mL</div><div class="lab-note">Elevated in the majority of IOS female patients. Present years before TSH changes. This is the earliest detectable signal of thyroid autoimmunity.</div></div>
+    <div class="lab-row"><div class="lab-marker">ANA Titer</div><div class="lab-range">Negative · if pos → titer matters</div><div class="lab-note">Even 1:40 warrants monitoring and IOS protocol consideration. Positive ANA does not require a named autoimmune diagnosis to be clinically significant.</div></div>
+    <div class="lab-row"><div class="lab-marker">Vitamin D3 (25-OH)</div><div class="lab-range">60–80 ng/mL optimal</div><div class="lab-note">Vitamin D is a hormone, not a vitamin. Anything under 50 is insufficient for immune regulation. The conventional "normal" of 30+ is too low.</div></div>
+    <div class="lab-row"><div class="lab-marker">DHEA-S</div><div class="lab-range">Upper quartile for age</div><div class="lab-note">Adrenal reserve marker. Chronically depleted in IOS — adrenals are overworked sustaining the immune demand. Low DHEA-S + low cortisol = adrenal exhaustion stage.</div></div>
+    <div class="lab-row"><div class="lab-marker">Sex Hormones (E2, P4, T, SHBG)</div><div class="lab-range">Phase-specific for women</div><div class="lab-note">Low estrogen in premenopausal women = oxidative catabolism, not deficiency. Low progesterone = unresolved inflammation (progesterone IS anti-inflammatory). Estradiol patch indicated when E2 suppressed.</div></div>
+    <div class="lab-row"><div class="lab-marker">CMP + Lipid Panel</div><div class="lab-range">Glucose &lt;90 · Trigs &lt;80</div><div class="lab-note">High triglycerides = metabolic inflammation. Low HDL = inflammatory burden. Fasting glucose above 90 warrants CGM evaluation.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">Layer 2 — Functional Labs (via Rupa Health LabShop)</div>
+    <div class="lab-row"><div class="lab-marker">GI-MAP (Diagnostic Solutions)</div><div class="lab-range">Baseline + Phase 2 repeat</div><div class="lab-note">PCR stool test. Maps pathogens, commensal imbalance, beta-glucuronidase, and stool sIgA. Identifies specific targets for Phase 2 antimicrobials. Most important gut test we run.</div></div>
+    <div class="lab-row"><div class="lab-marker">Secretory IgA (saliva)</div><div class="lab-range">80–350 µg/mL</div><div class="lab-note">Mucosal immune gate. Low sIgA = open door for dysbiosis and food reactivity. Phase 2 rebuilds this. Do not advance to Phase 3 fasting until sIgA is trending up.</div></div>
+    <div class="lab-row"><div class="lab-marker">Organic Acids Test (OAT)</div><div class="lab-range">Within reference ranges</div><div class="lab-note">Reveals mitochondrial dysfunction, B-vitamin status, yeast/bacterial metabolite patterns, and oxidative stress markers. Guides Phase 3 mitochondrial support priorities.</div></div>
+    <div class="lab-row"><div class="lab-marker">DUTCH Complete</div><div class="lab-range">Baseline for all women</div><div class="lab-note">Maps cortisol curve, estrogen metabolites (2-OH vs 16-OH pathways), progesterone, and androgens with context. Essential before hormonal interventions. Guides estradiol patch dosing.</div></div>
+    <div class="lab-row"><div class="lab-marker">IL-6 / TNF-alpha</div><div class="lab-range">IL-6 &lt;3.1 pg/mL</div><div class="lab-note">Pro-inflammatory cytokines. Elevated = neuroinflammation active. Guides SPM and fish oil dosing intensity. Repeat every 8 weeks to track immune resolution.</div></div>
+    <div class="lab-row"><div class="lab-marker">Cyrex Array 2 (Intestinal Permeability)</div><div class="lab-range">Negative / within range</div><div class="lab-note">Leaky gut confirmation. If positive, Phase 2 gut healing is prioritized even more aggressively before any fasting protocols begin.</div></div>
+    <div class="lab-row"><div class="lab-marker">Continuous Glucose Monitor (CGM)</div><div class="lab-range">14-day wear, pre-protocol</div><div class="lab-note">Reveals glucose variability, dawn phenomenon, and metabolic flexibility. Repeat in Phase 3 and Phase 4. Flat low during fasting = AMPK not engaging. High variability = CDR still active.</div></div>
+    <div class="lab-row"><div class="lab-marker">EBV / CMV IgG Panel</div><div class="lab-range">IgG titer context</div><div class="lab-note">Latent viral burden. Positive high-titer IgG with symptoms = active reactivation. Prioritizes Thymosin Alpha-1 and Amantadine in Phase 2.</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">3x4 Blueprint Genetics Panel · The IOS Personalization Layer</div>
+
+    <div class="note-box" style="margin-bottom:14px;">
+      <strong>Why 3x4 Blueprint for the IOS Protocol:</strong> The 3x4 Blueprint covers 130+ SNPs across 36 metabolic pathways in 6 health categories — the most comprehensive clinically validated genetics panel available. Its color-coded impact scoring (Very High → Low) makes results readable by patients and practitioners alike, so RWC members can engage with their own report as part of their IOS journey. For this protocol, 3x4 maps not just the cellular and immune drivers of Immune Overdrive, but also the metabolic, hormonal, cardiovascular, nutritional, and activity dimensions that determine how each person expresses IOS — and how aggressively each phase needs to be applied to their unique biology. Done once. Informs every phase and every supplement priority.
+    </div>
+
+    <div style="background:#0d0f14;border:1px solid #1e2130;border-radius:12px;overflow:hidden;margin-bottom:14px;">
+      <div style="background:#181b28;padding:12px 18px;border-bottom:1px solid #1e2130;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div style="font-weight:800;font-size:.95rem;color:#fff;">3x4 Blueprint Genetics Panel</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:#f5a623;padding:3px 10px;border-radius:4px;">130+ SNPS</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(183,148,244,.1);border:1px solid rgba(183,148,244,.3);color:#b794f4;padding:3px 10px;border-radius:4px;">36 PATHWAYS</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(99,179,237,.1);border:1px solid rgba(99,179,237,.3);color:#63b3ed;padding:3px 10px;border-radius:4px;">6 CATEGORIES</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.3);color:#68d391;padding:3px 10px;border-radius:4px;">DONE ONCE</span>
+        </div>
+      </div>
+
+      <div style="padding:18px;">
+
+        <!-- Category 1: CELLULAR -->
+        <div style="border:1px solid #1e2130;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+          <div style="background:#181b28;padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #1e2130;">
+            <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(252,129,129,.12);color:#fc8181;border:1px solid rgba(252,129,129,.3);padding:2px 8px;border-radius:4px;white-space:nowrap;">CELLULAR</span>
+            <span style="font-weight:700;font-size:.88rem;color:#fff;">Methylation · Inflammation · Oxidative Stress · Detoxification</span>
+          </div>
+          <div style="padding:12px 16px;font-size:.8rem;color:#9a9aaa;line-height:1.65;">
+            <strong style="color:#fc8181;">The core IOS drivers — start here.</strong> Methylation (MTHFR 677 &amp; 1298, MTR, MTRR, COMT, CBS) determines DNA repair, neurotransmitter balance, and gene expression regulation — the master switch for everything in the protocol. Drives B-complex formulation, methylfolate dose, and homocysteine monitoring decisions. Inflammation SNPs (TNF-alpha, IL-6, IL-1, CRP, ENOS) reveal genetic inflammatory amplification — Very High impact here = longer Phase 1, higher SPM doses, slower phase transitions. Oxidative stress variants (MNSOD, NQO1, GPX1, CAT, HO-1, PPARGC1A) set the antioxidant baseline and determine glutathione loading urgency. Detoxification (GSTM1, GSTP1, GSTT1; CYP450 series, NAT1, NAT2, SULT1A1) governs clearance of inflammatory metabolites and estrogen — GSTM1 deletion is common, clinically significant, and requires prioritized Phase 2 glutathione loading at the heavy tier.
+          </div>
+        </div>
+
+        <!-- Category 2: ENERGY -->
+        <div style="border:1px solid #1e2130;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+          <div style="background:#181b28;padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #1e2130;">
+            <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(252,129,129,.12);color:#fc8181;border:1px solid rgba(252,129,129,.3);padding:2px 8px;border-radius:4px;white-space:nowrap;">ENERGY</span>
+            <span style="font-weight:700;font-size:.88rem;color:#fff;">Pro-inflammatory Fat · Adipogenesis · Weight Resistance · Exercise Response · Energy Expenditure</span>
+          </div>
+          <div style="padding:12px 16px;font-size:.8rem;color:#9a9aaa;line-height:1.65;">
+            <strong style="color:#fc8181;">The metabolic IOS presentation — explains the weight picture.</strong> Pro-inflammatory fat (ADIPOQ, TNF-alpha, IL-6R, CRP, IL-1) reveals whether adipose tissue itself is a source of ongoing immune activation — inflamed fat is a CDR amplifier, not just a cosmetic concern. Adipogenesis and Weight Resistance (FTO, TCF7L2, PPARG, LEPR x3, MC4R, ADRB2 x2, ADRB3, PLIN, APOA2, APOA5, CLOCK) identifies patients genetically predisposed to store fat easily and release it slowly — compounding IOS weight loss resistance significantly. Energy Expenditure (UCP1/2/3, PPARGC1A, ADRB3, CLOCK, LEPR) determines whether suppressed resting metabolic rate is genetic or purely protocol-related. Very High impact across this category = Phase 3 Oxandrolone is non-negotiable and FMD cycling is the primary body composition tool.
+          </div>
+        </div>
+
+        <!-- Category 3: SYSTEMS -->
+        <div style="border:1px solid #1e2130;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+          <div style="background:#181b28;padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #1e2130;">
+            <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(245,166,35,.12);color:#f5a623;border:1px solid rgba(245,166,35,.3);padding:2px 8px;border-radius:4px;white-space:nowrap;">SYSTEMS</span>
+            <span style="font-weight:700;font-size:.88rem;color:#fff;">Glucose/Insulin · Brain Health · Mood · Hormone Balance · Histamine · Collagen &amp; Joints</span>
+          </div>
+          <div style="padding:12px 16px;font-size:.8rem;color:#9a9aaa;line-height:1.65;">
+            <strong style="color:#f5a623;">The downstream IOS expressions — where symptoms live.</strong> Glucose &amp; insulin (MTNR1B, TCF7L2, PPARGC1A, FTO, IRS1, ADIPOQ, DIO2, TNFA) frames insulin resistance as an immune-metabolic event. Memory &amp; brain health (BDNF Val66Met, APOE, TOMM40, COMT, MTHFR, ENOS) identifies neuroinflammation vulnerability — Very High here = Lion's Mane and Amantadine are Phase 2 priorities. Mood &amp; behaviour (COMT, MAOA, DRD1/3/4, 5HT2A x3, BDNF, MTHFR, GAD1, OXTR) confirms the neuroinflammatory basis of anxiety, addiction patterns, and mood instability in IOS. Hormone balance (CYP1B1, CYP17A1, CYP19A1, SHBG x2, SRD5A1, UGT2B15/17, SULT1A1, MTHFR) directly informs estradiol patch dosing and aromatization risk. Histamine (DAO x2, HNMT x2) — critical when rashes, hives, or GI histamine symptoms are part of the picture. Collagen &amp; joints (COL1A1, COL3A1, COL12A1, MMP1, MMP3, GDF5, VEGFA) quantifies connective tissue vulnerability — relevant for Phase 3 movement protocol.
+          </div>
+        </div>
+
+        <!-- Category 4: CARDIOVASCULAR -->
+        <div style="border:1px solid #1e2130;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+          <div style="background:#181b28;padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #1e2130;">
+            <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(99,179,237,.12);color:#63b3ed;border:1px solid rgba(99,179,237,.3);padding:2px 8px;border-radius:4px;white-space:nowrap;">CARDIOVASCULAR</span>
+            <span style="font-weight:700;font-size:.88rem;color:#fff;">Vascular Health · Blood Pressure · Blood Clotting · Cholesterol</span>
+          </div>
+          <div style="padding:12px 16px;font-size:.8rem;color:#9a9aaa;line-height:1.65;">
+            <strong style="color:#63b3ed;">Critical for medication safety decisions.</strong> Blood clotting (F2 prothrombin 20210, F5 Factor V Leiden Arg506Gln, HPA-1) directly impacts estradiol patch prescribing — known clotting variants require conservative patch dosing, additional monitoring, and shared decision-making before any hormonal intervention. Blood pressure (ACE Ins/Del, ACE2 x2, AGT, AGTR1, REN, ENOS) informs whether sodium restriction and ACE-pathway support are protocol priorities. Vascular health (ENOS, CRP, TOMM40, MTHFR, HO-1, LPL, CETP, ALDH2, APOA5, PPARA) identifies inflammatory vascular vulnerability amplified under IOS-driven systemic inflammation. These results also inform whether nattokinase or targeted cardiovascular support has a role as a protocol adjunct.
+          </div>
+        </div>
+
+        <!-- Category 5: ACTIVITY -->
+        <div style="border:1px solid #1e2130;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+          <div style="background:#181b28;padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #1e2130;">
+            <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(104,211,145,.12);color:#68d391;border:1px solid rgba(104,211,145,.3);padding:2px 8px;border-radius:4px;white-space:nowrap;">ACTIVITY</span>
+            <span style="font-weight:700;font-size:.88rem;color:#fff;">Injury Risk · Endurance · Recovery · Power · Training Response</span>
+          </div>
+          <div style="padding:12px 16px;font-size:.8rem;color:#9a9aaa;line-height:1.65;">
+            <strong style="color:#68d391;">Personalizes the movement protocol for every phase.</strong> Injury risk (COL1A1, COL3A1, COL12A1, MMP1, MMP3, GDF5, VEGFA, TNFA) — Very High = more conservative Phase 2 resistance reintroduction, mandatory mobility work before loading in Phase 4. Recovery (CRP, IL-6, IL-1, GPX1, CAT, MNSOD, IL-6R) — High/Very High recovery need = longer rest intervals between Phase 4 sessions, mandatory active recovery days built in. Training response (ACE II genotype — the starred variant, AMPD1, PPARGC1A, CKM) — patients with Low training response need VO2 max-focused work before body composition changes are expected, preventing the frustrating "doing everything right but not seeing results" pattern in Phase 4. Endurance (ACE, PPARA, AGTR2, VEGFR2, ADRB2, ACTN3, NRF2, PPARD) — informs whether Zone 2 cardio or resistance training should dominate the Phase 4 maintenance window.
+          </div>
+        </div>
+
+        <!-- Category 6: NUTRIENTS -->
+        <div style="border:1px solid #1e2130;border-radius:8px;overflow:hidden;margin-bottom:0;">
+          <div style="background:#181b28;padding:10px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #1e2130;">
+            <span style="font-family:'DM Mono',monospace;font-size:.7rem;background:rgba(104,211,145,.12);color:#68d391;border:1px solid rgba(104,211,145,.3);padding:2px 8px;border-radius:4px;white-space:nowrap;">NUTRIENTS</span>
+            <span style="font-weight:700;font-size:.88rem;color:#fff;">Vitamin B12 · Folate · Choline · Vitamin D · Caffeine · Fatty Acids · Gluten · Iron</span>
+          </div>
+          <div style="padding:12px 16px;font-size:.8rem;color:#9a9aaa;line-height:1.65;">
+            <strong style="color:#68d391;">Precision-tunes the supplement protocol for each patient.</strong> Vitamin B12 (TCN2, FUT2) — Very High impact means B12 absorption and transport are genetically impaired; sublingual methylcobalamin or injectable is indicated over standard oral. Folate (MTHFR 677 &amp; 1298, MTHFD1) — compound variants require higher methylfolate doses and dietary folate emphasis from Phase 1 onward. Choline (PEMT, BHMT, CHDH) — increased choline requirement is common and directly supports methylation, liver detox, and brain health in Phase 2. Vitamin D (VDR Fok1, Taq1, Bsm1; CYP2R1, GC) — VDR variants impair D3 activation and utilization; some patients need 8,000–10,000 IU to reach the 60–80 ng/mL optimal target. Fatty acids (FADS1, FADS2, ELOVL2 x2) — informs EPA/DHA conversion efficiency and whether higher fish oil doses are needed for equivalent SPM output. Gluten (HLA-DQ2.2/DQ2.5/DQ8) — if DQ2 or DQ8 alleles present, celiac risk is elevated and strict elimination is warranted even in the absence of symptoms.
+          </div>
+        </div>
+
+      </div><!-- /padding -->
+    </div><!-- /3x4 card -->
+
+    <div class="lab-row"><div class="lab-marker">TruAge Epigenetic Clock (TruDiagnostic)</div><div class="lab-range">Biological age vs. chronological age</div><div class="lab-note">DNA methylation-based biological age. Baseline before Phase 1 + repeat after completing 3 rounds of Phase 4 FMD. The most objective measure of whether cellular renewal is actually occurring. A 2–3 year biological age reduction is a realistic and documented outcome of the full protocol.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ MEDICATIONS ═══════════════════════════ -->
+<div id="meds" class="section">
+  <div class="info-box" style="margin-bottom:20px;"><strong>Note:</strong> All Rx medications require physician supervision and prescribing. These are used within the IOS protocol at specific phases and doses. Your physician will determine appropriateness for your individual case.</div>
+
+  <h3>Phase 1 — Begin at Week 1</h3>
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">Rapamycin <span style="font-size:.72rem;background:rgba(245,166,35,.1);color:#f5a623;border:1px solid rgba(245,166,35,.3);border-radius:4px;padding:2px 6px;font-family:'DM Mono',monospace;margin-left:6px;">Rx</span></div>
+      <div class="med-dose">6 mg · once weekly · oral</div>
+      <div class="med-why">mTOR inhibitor. At this weekly dose, Rapamycin rebalances an overactive immune system rather than suppressing it — a critical distinction. It extends the healthy lifespan of immune cells, reduces pro-inflammatory cytokine production, and supports the cellular cleanup your body has stopped reaching. This is the backbone of the protocol for the first three phases.</div>
+      <div class="med-when">TIMING: Same day every week (e.g., Sunday). Take with a fat-containing meal for absorption. Hold if any active infection. Reduce to every 2 weeks in Phase 4 maintenance.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Low Dose Naltrexone (LDN) <span style="font-size:.72rem;background:rgba(245,166,35,.1);color:#f5a623;border:1px solid rgba(245,166,35,.3);border-radius:4px;padding:2px 6px;font-family:'DM Mono',monospace;margin-left:6px;">Rx</span></div>
+      <div class="med-dose">4.5 mg · nightly · oral</div>
+      <div class="med-why">The most elegant immune rebalancer we have access to. LDN briefly blocks opioid receptors at night → the body responds with an endorphin surge → this upregulates T-regulatory cells, reduces IL-6 and TNF-alpha, and gradually resets immune balance. Think of it as a nightly immune recalibration. Works differently from any anti-inflammatory medication — it teaches the system to regulate, not just suppress.</div>
+      <div class="med-when">TIMING: 9–10 PM on an empty stomach. The endorphin rebound must occur during sleep to work. Start at 1.5mg and titrate to 4.5mg over 4 weeks if you're sensitive. Vivid dreams at onset — transient, not a reason to stop. Do not combine with opioid medications within 4 hours.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Phase 2 — Add at Week 8</h3>
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">Tirzepatide <span style="font-size:.72rem;background:rgba(245,166,35,.1);color:#f5a623;border:1px solid rgba(245,166,35,.3);border-radius:4px;padding:2px 6px;font-family:'DM Mono',monospace;margin-left:6px;">Rx · Injection</span></div>
+      <div class="med-dose">2.5 mg/wk → titrate q4 wks → 5–10 mg/wk</div>
+      <div class="med-why">Dual GLP-1/GIP agonist. Beyond blood sugar: directly reduces IL-6 and CRP, improves insulin sensitivity, and reduces the metabolic component of the Cell Danger Response. Think of it as turning down the metabolic alarm so the immune system has less to react to. See Peptides tab for oral alternative.</div>
+      <div class="med-when">TIMING: Weekly subcutaneous injection, same day each week (e.g., Monday). Rotate sites: abdomen, thigh, upper arm. Refrigerate. If nausea: keep meals small and low-fat near injection day, stay hydrated. Reduce to 2.5–5mg in Phase 4 maintenance once metabolic goals met.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Amantadine <span style="font-size:.72rem;background:rgba(245,166,35,.1);color:#f5a623;border:1px solid rgba(245,166,35,.3);border-radius:4px;padding:2px 6px;font-family:'DM Mono',monospace;margin-left:6px;">Rx · Oral</span></div>
+      <div class="med-dose">100 mg · twice daily · oral</div>
+      <div class="med-why">Antiviral support targeting latent viral reactivation (EBV, CMV, influenza) plus dopaminergic neuroprotection. If your IOS was triggered or amplified by COVID or any viral illness, or if brain fog, anhedonia, or motivation loss are prominent, Amantadine addresses the dopaminergic neuron stress component that pure immune protocols miss.</div>
+      <div class="med-when">TIMING: Morning + Noon with food. Do NOT take in the afternoon or evening — stimulating and will disrupt sleep. Typical course: 4–8 weeks in Phase 2. Particularly important for post-viral or neurological symptom presentations.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Phase 3 — Add at Week 16</h3>
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">Oxandrolone <span style="font-size:.72rem;background:rgba(245,166,35,.1);color:#f5a623;border:1px solid rgba(245,166,35,.3);border-radius:4px;padding:2px 6px;font-family:'DM Mono',monospace;margin-left:6px;">Rx · Oral</span></div>
+      <div class="med-dose">5 mg · once daily · oral</div>
+      <div class="med-why">At this low dose, Oxandrolone's one job is lean mass preservation during extended fasting. This is the protocol's key differentiator from standard fasting approaches. Without lean mass protection, extended fasting in any body — even a well-prepared one — will sacrifice muscle to fuel basic immune function. 5mg is conservative, therapeutic, and targeted. This is not a performance dose.</div>
+      <div class="med-when">TIMING: Morning with a small amount of food. Monitor liver enzymes (ALT/AST) monthly. For women: physician may start at 2.5mg and monitor for virilization (rare at 5mg). Maximum 8–12 week course, then cycle off. Not appropriate with active liver disease.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Estradiol Patch <span style="font-size:.72rem;background:rgba(245,166,35,.1);color:#f5a623;border:1px solid rgba(245,166,35,.3);border-radius:4px;padding:2px 6px;font-family:'DM Mono',monospace;margin-left:6px;">Rx · Transdermal</span></div>
+      <div class="med-dose">0.05–0.1 mg/day · patch changed 2x/week</div>
+      <div class="med-why">Estrogen is one of the most powerful anti-inflammatory hormones in your body. When IOS is driving oxidative stress, your system catabolizes estrogen — creating what looks like "estrogen dominance" on labs but is actually estrogen being destroyed. For premenopausal women with suppressed estradiol, or any woman transitioning off hormonal birth control, the patch restores the immune brake. Preferred over oral — avoids hepatic first-pass and inflammatory liver burden.</div>
+      <div class="med-when">TIMING: Apply to clean, dry skin on lower abdomen or buttocks. Rotate sites each application. Change every 3–4 days (2x/week). Begin in Phase 1 for birth control patients or when E2 is confirmed suppressed. Adjust dose based on DUTCH + symptom response.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ PEPTIDES ═══════════════════════════ -->
+<div id="peptides" class="section">
+  <div class="note-box" style="margin-bottom:20px;"><strong>Two paths, same destination.</strong> Every peptide below has a non-injection alternative. The injection route is more bioavailable and typically faster — but the oral/topical alternatives are genuinely effective and the right choice for those who prefer to avoid needles. Your physician will help you choose the right path for your situation and phase.</div>
+
+  <div class="pep-card">
+    <div class="pep-header">
+      <div class="pep-name">Thymosin Alpha-1 (TA-1)</div>
+      <div class="pep-tagline">Phase 2 · Immune Re-Education · T-Regulatory Cell Restoration</div>
+    </div>
+    <div class="pep-body">
+      <div class="pep-option">
+        <span class="pep-option-label opt-inject">Injection Protocol</span>
+        <div class="pep-dose">1.6 mg · 2× per week sub-Q<br>Monday + Thursday · morning</div>
+        <p class="pep-detail">Reconstitute with bacteriostatic water. Insulin syringe (31g). Subcutaneous abdomen or thigh. Refrigerate after reconstitution. 8–12 week courses. Can extend to 3x/week for severe EBV/CMV or profound immune dysregulation. Most direct route to T-regulatory cell upregulation.</p>
+      </div>
+      <div class="pep-option">
+        <span class="pep-option-label opt-oral">Oral Alternative</span>
+        <div class="pep-dose">AHCC 3g/day + Thymus Glandular 500mg + Beta-1,3-D-Glucan 500mg</div>
+        <p class="pep-detail">AHCC (Active Hexose Correlated Compound) is the most clinically studied oral immune modulator — multiple RCTs in immune restoration. Thymus glandular provides thymic peptide substrates orally. Beta-glucan activates NK cells and T-regulatory pathways. Combined, this stack addresses the same T-cell re-education goal. Take AHCC away from food; others with meals.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pep-card">
+    <div class="pep-header">
+      <div class="pep-name">SS-31 (Elamipretide)</div>
+      <div class="pep-tagline">Phase 3 · Mitochondrial Protection · Inner Membrane Antioxidant</div>
+    </div>
+    <div class="pep-body">
+      <div class="pep-option">
+        <span class="pep-option-label opt-inject">Injection Protocol</span>
+        <div class="pep-dose">1–3 mg · daily sub-Q · morning<br>Start 1mg → titrate to 3mg over 2 weeks</div>
+        <p class="pep-detail">Targets the inner mitochondrial membrane directly — reduces mitochondrial ROS during fasting-induced oxidative stress. Protects mitochondrial integrity while cellular cleanup proceeds. Start at 1mg, increase to 3mg if well-tolerated. In Phase 4, use only during 5-day FMD window monthly.</p>
+      </div>
+      <div class="pep-option">
+        <span class="pep-option-label opt-oral">Oral Alternative</span>
+        <div class="pep-dose">MitoQ 10–20mg + Ubiquinol CoQ10 300–400mg + PQQ 20mg</div>
+        <p class="pep-detail">MitoQ is a mitochondria-targeted CoQ10 — absorbed directly into the mitochondrial membrane. Combined with Ubiquinol (reduced CoQ10) and PQQ (mitochondrial biogenesis signal), this stack addresses the same mitochondrial protection goal via oral route. Take MitoQ on empty stomach AM; CoQ10 and PQQ with fat-containing meal.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pep-card">
+    <div class="pep-header">
+      <div class="pep-name">Epithalon</div>
+      <div class="pep-tagline">Phase 3 · Telomere Support · Senescent Cell Modulation · Pineal Peptide</div>
+    </div>
+    <div class="pep-body">
+      <div class="pep-option">
+        <span class="pep-option-label opt-inject">Injection Protocol</span>
+        <div class="pep-dose">10 mg/day · 10 consecutive days<br>Sub-Q · morning · one course per protocol cycle</div>
+        <p class="pep-detail">Tetrapeptide (Ala-Glu-Asp-Gly) from the pineal gland. Activates telomerase, supports telomere length, induces apoptosis in senescent cells. Given as a 10-day consecutive course. Can do a second course 6 months later for ongoing longevity support. Minimal side effects. Refrigerate reconstituted solution.</p>
+      </div>
+      <div class="pep-option">
+        <span class="pep-option-label opt-oral">Oral Alternative</span>
+        <div class="pep-dose">Astragalus / TA-65 (Astragaloside IV) 25–50mg + NMN 500mg/day</div>
+        <p class="pep-detail">TA-65 (Astragaloside IV) is the only commercially available oral telomerase activator with human studies supporting telomere length support. NMN supports NAD+ for cellular energy and DNA repair signaling. Together these address the longevity and cellular renewal goals of Epithalon through oral pathways. Take TA-65 with fat; NMN in the morning.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pep-card">
+    <div class="pep-header">
+      <div class="pep-name">FOX04-DRI</div>
+      <div class="pep-tagline">Phase 3 · Senolytic · Zombie Cell Clearance · Monthly Pulse Only</div>
+    </div>
+    <div class="pep-body">
+      <div class="pep-option">
+        <span class="pep-option-label opt-inject">Injection Protocol</span>
+        <div class="pep-dose">1–2 mg/kg · 3 consecutive days/month<br>Sub-Q · time with FMD Days 1–3</div>
+        <p class="pep-detail">Disrupts the FOX04-p53 protein complex that keeps senescent cells alive. Selectively triggers apoptosis in zombie cells without harming healthy cells. Pulse dosing only — not a daily agent. Brief fatigue or inflammation during pulse is expected (senescent cell clearance) and resolves in 2–3 days. Time with FMD for synergistic autophagy effect.</p>
+      </div>
+      <div class="pep-option">
+        <span class="pep-option-label opt-oral">Oral Alternative</span>
+        <div class="pep-dose">Fisetin 1,000mg + Quercetin 1,000mg<br>2 consecutive days/month (senolytic pulse)</div>
+        <p class="pep-detail">The Fisetin + Quercetin combination is the best-studied oral senolytic protocol — validated in human pilot trials (Kirkland et al., EBioMedicine, 2019). On non-pulse days: Fisetin 300mg daily maintenance for ongoing anti-inflammatory and Nrf2 activation. Take both with fat for absorption. Time the monthly pulse alongside the FMD window.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-box"><strong>Regarding Tirzepatide oral alternative:</strong> For those who prefer not to inject, the best oral combination is Berberine 500mg 3× daily with meals + Myo-Inositol 2g + D-Chiro-Inositol 50mg daily. Berberine activates the AMPK pathway comparably to metformin and directly reduces inflammatory signaling. Myo-inositol improves insulin sensitivity and is particularly effective for PCOS-pattern IOS presentations. This combination addresses the same metabolic-immune bridge as Tirzepatide, through a purely oral, non-prescription route.</div>
+</div>
+
+<!-- ═══════════════════════════ SUPPLEMENTS ═══════════════════════════ -->
+<div id="supps" class="section">
+  <p class="muted" style="margin-bottom:20px;">All supplements below use three-tier dosing: mild (maintenance/prevention), moderate (active therapeutic support), heavy (confirmed need or directed use — physician supervision at heavy tier). Start mild unless otherwise directed.</p>
+
+  <h3>Phase 1 Core Stack</h3>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">Fish Oil / SPMs</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 2g EPA+DHA/day</span><span class="dose-tag moderate">Moderate: 4g/day</span><span class="dose-tag heavy">Heavy: 6g/day + separate SPMs</span></div>
+      <div class="supp-why">This isn't just "anti-inflammatory." High-dose EPA/DHA is the substrate for Specialized Pro-resolving Mediators — the signaling molecules that tell your immune system to complete Phase 2 resolution. Triglyceride form only. Take with fat-containing meals. SPMs (resolvins, protectins) can be added separately for enhanced resolution signaling.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Vitamin D3 + K2 (MK-7)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 2,000 IU D3 + 100mcg K2</span><span class="dose-tag moderate">Moderate: 5,000 IU + 200mcg K2</span><span class="dose-tag heavy">Heavy: 10,000 IU + 200mcg K2</span></div>
+      <div class="supp-why">Vitamin D is an immune hormone, not a vitamin. It directly regulates T-cell function, reduces inflammatory cytokine output, and is almost universally deficient in IOS patients. Target serum level 60–80 ng/mL — well above the conventional "sufficient" threshold of 30. Always pair with K2 MK-7 to direct calcium correctly. Take with your fattiest meal of the day.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Magnesium Bisglycinate</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 200mg elemental PM</span><span class="dose-tag moderate">Moderate: 400mg PM</span><span class="dose-tag heavy">Heavy: 600mg split AM/PM</span></div>
+      <div class="supp-why">Cofactor for 300+ enzymatic reactions. Calms the nervous system, improves deep sleep architecture (critical — Phase 2 immune resolution happens primarily during sleep), and activates Vitamin D. Bisglycinate form is best tolerated — least laxative effect. Loose stool = dose too high, reduce by 100mg. Do not use magnesium oxide.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Methylated B-Complex</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 1 cap with methylfolate 400mcg</span><span class="dose-tag moderate">Moderate: 1 cap with 800mcg</span><span class="dose-tag heavy">Heavy: methylfolate 1–2mg (MTHFR+)</span></div>
+      <div class="supp-why">Mandatory if MTHFR variant confirmed on genetics. Supports methylation cycle, homocysteine clearance, neurotransmitter synthesis, and immune cell DNA repair. Always use methylated forms — methylcobalamin, methylfolate, P5P (not folic acid, not cyanocobalamin). Take in the morning — energizing.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Biofilm Resolve</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 1 cap 2x/day</span><span class="dose-tag moderate">Moderate: 2 caps 2x/day</span><span class="dose-tag heavy">Heavy: 2 caps 3x/day</span></div>
+      <div class="supp-why">Enzyme complex that disrupts the biofilm shields protecting pathogens from immune clearance. Must be taken away from food (30 min before or 2 hours after). Die-off reactions possible in the first 1–2 weeks — transient fatigue, mild GI changes. These are expected signals that the protocol is working. Drink extra water throughout the day.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Zinc Picolinate</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 15–25mg with food</span><span class="dose-tag moderate">Moderate: 30–50mg</span><span class="dose-tag heavy">Heavy: 75mg (add 2mg copper)</span></div>
+      <div class="supp-why">Essential for T-cell function, thyroid conversion, and mucosal immunity. Severely depleted in IOS. Take with food to avoid GI upset. At doses above 50mg, always supplement 2mg copper daily (taken away from zinc, in the evening) to prevent copper depletion.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Phase 2 Additions</h3>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">Glutathione (Liposomal)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg AM fasted</span><span class="dose-tag moderate">Moderate: 500mg AM fasted</span><span class="dose-tag heavy">Heavy: 1,000mg oral or IV push</span></div>
+      <div class="supp-why">Your master antioxidant — and it's severely depleted in IOS. Every oxidative battle your immune system has been fighting has drawn down your glutathione reserve. Liposomal form is far superior to standard oral capsules. IV push (1,000–2,000mg per session, 1–2x/week) achieves rapid repletion for severe cases. IV is a heavy-dose option and requires physician supervision.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">NAC (N-Acetyl Cysteine)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 600mg/day</span><span class="dose-tag moderate">Moderate: 1,200mg/day</span><span class="dose-tag heavy">Heavy: 1,800mg/day</span></div>
+      <div class="supp-why">Precursor to glutathione — taken alongside liposomal glutathione, this builds your endogenous production capacity rather than just supplementing from outside. Also directly reduces IL-6 and TNF-alpha and supports the mucolytic breakdown of biofilms. Take away from meals.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">L-Glutamine</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 5g AM fasted</span><span class="dose-tag moderate">Moderate: 10g split AM/PM</span><span class="dose-tag heavy">Heavy: 20g/day during gut repair</span></div>
+      <div class="supp-why">Primary fuel for the enterocytes lining your gut wall. Essential for healing leaky gut and restoring the mucosal barrier. Take in the morning on an empty stomach for maximum gut uptake. Continue through all phases — the gut never stops benefiting from glutamine support during the IOS protocol.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Probiotic — Multi-Strain</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 25 billion CFU PM</span><span class="dose-tag moderate">Moderate: 50 billion CFU PM</span><span class="dose-tag heavy">Heavy: 100 billion CFU + S. boulardii</span></div>
+      <div class="supp-why">Reseeding beneficial bacteria as pathogens are cleared. Multi-strain — Lactobacillus and Bifidobacterium species — with Saccharomyces boulardii added at the heavy tier (protective during biofilm die-off). Refrigerated, live culture only. Take in the evening, 2 hours away from colloidal silver or any antibiotic agents. Rotate strains every 60–90 days.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Phase 3 Additions — Cellular Renewal Stack</h3>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="supp-name">Fisetin</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 100–300mg daily (maintenance)</span><span class="dose-tag moderate">Moderate: 500mg daily</span><span class="dose-tag heavy">Heavy: 1,000–2,000mg × 2 days/month (senolytic pulse)</span></div>
+      <div class="supp-why">The most potent naturally occurring senolytic compound. At maintenance dose: anti-inflammatory, Nrf2 activator, neuroprotective. At the monthly pulse dose: selectively triggers apoptosis in senescent "zombie" cells. Take with fat for absorption (fat-soluble flavonoid). Time the monthly pulse with the FOX04-DRI injection pulse (or alone at heavy dose for oral path) and FMD Days 1–2.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Urolithin A</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg/day</span><span class="dose-tag moderate">Moderate: 500mg/day</span><span class="dose-tag heavy">Heavy: 1,000mg/day</span></div>
+      <div class="supp-why">Triggers mitophagy — the selective removal and recycling of damaged mitochondria. Your mitochondria are like your cellular power plants. IOS and aging leave many damaged ones running, producing more waste than energy. Urolithin A clears these out so new ones can be built. Daily use in Phase 3. Continue as a longevity agent in Phase 4. Take in the morning.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Lithium Orotate (Low-Dose)</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 5mg elemental lithium PM</span><span class="dose-tag moderate">Moderate: 10mg PM</span><span class="dose-tag heavy">Heavy: 20mg PM</span></div>
+      <div class="supp-why">This is NOT the high-dose psychiatric medication. At micro-dose, lithium orotate inhibits GSK-3β, which activates autophagy pathways, protects dopaminergic neurons, reduces neuroinflammation, and supports BDNF. Particularly important for IOS patients with neurological symptoms, brain fog, or post-COVID dopaminergic stress. Evening dosing supports sleep. Safe at these doses in healthy individuals.</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">CoQ10 / Ubiquinol</div>
+      <div class="dose-tags"><span class="dose-tag mild">Mild: 100–200mg AM</span><span class="dose-tag moderate">Moderate: 200–400mg split AM/PM</span><span class="dose-tag heavy">Heavy: 400–600mg split (statin use, severe depletion)</span></div>
+      <div class="supp-why">Essential in the mitochondrial electron transport chain. Depleted by IOS, aging, and statin use. Ubiquinol form (reduced CoQ10) is ~8x more bioavailable than ubiquinone. Take with fat-containing meal. Forms the mitochondrial support triad with SS-31 (or MitoQ) and Urolithin A in Phase 3.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ HERBAL SUPPORT ═══════════════════════════ -->
+<div id="herbals" class="section">
+  <p class="muted" style="margin-bottom:20px;">Evidence tiers: ★★★ Multiple RCTs · ★★☆ Some human trials · ★☆☆ Mechanistic/emerging. Herbals are woven throughout the phases — adaptogens in Phase 1, anti-inflammatory and antimicrobial in Phase 2, autophagy-supporting and neuroprotective in Phases 3–4.</p>
+
+  <h3>HPA Axis / Stress Adaptation — Phase 1 Priority</h3>
+  <div class="herb-card">
+    <div class="herb-name">Ashwagandha (Sensoril or KSM-66) <span class="herb-stars">★★★</span></div>
+    <div class="herb-mech">Cortisol reduction via CRH suppression. The most studied adaptogen for HPA axis regulation. Sensoril for cortisol lowering; KSM-66 for testosterone support. Do not use generic ashwagandha — standardization matters.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 125mg Sensoril</span><span class="dose-tag moderate">Moderate: 250mg</span><span class="dose-tag heavy">Heavy: 500mg</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">Take PM or split AM/PM · 8–12 weeks for full effect · Cycle off for 4 weeks after 3 months</div>
+  </div>
+  <div class="herb-card">
+    <div class="herb-name">Rhodiola Rosea <span class="herb-stars">★★★</span></div>
+    <div class="herb-mech">HPA axis normalization, anti-fatigue, mild immune modulation. Stimulating — take in the morning only. 3% rosavins, 1% salidroside standardization required.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 100mg AM</span><span class="dose-tag moderate">Moderate: 300mg AM</span><span class="dose-tag heavy">Heavy: 500mg AM</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">Morning only · stimulating in PM · particularly helpful for fatigue-dominant IOS presentations</div>
+  </div>
+  <div class="herb-card">
+    <div class="herb-name">Reishi (Ganoderma lucidum) <span class="herb-stars">★★☆</span></div>
+    <div class="herb-mech">Immune modulation (bidirectional — calms overactive, supports underactive), sleep quality improvement, adaptogenic. Dual extraction (water + alcohol) is required; triterpene-standardized.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg PM</span><span class="dose-tag moderate">Moderate: 1,000mg PM</span><span class="dose-tag heavy">Heavy: 2,000mg split AM/PM</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">Evening dosing for sleep benefits · excellent pairing with LDN for immune rebalancing</div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Anti-Inflammatory Resolution Support — Phase 1–2</h3>
+  <div class="herb-card">
+    <div class="herb-name">Curcumin (BCM-95, Meriva, or Longvida form) <span class="herb-stars">★★★</span></div>
+    <div class="herb-mech">NF-kB and COX-2 inhibition — two of the central inflammatory drivers in IOS. Do NOT use generic turmeric — bioavailability is near zero without a lipid matrix or phospholipid delivery form.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg with fat</span><span class="dose-tag moderate">Moderate: 1,000mg split</span><span class="dose-tag heavy">Heavy: 2,000mg split (active inflammatory flare)</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">Always with food containing fat · BCM-95 or Meriva preferred · pair with black pepper extract if using standard turmeric</div>
+  </div>
+  <div class="herb-card">
+    <div class="herb-name">Boswellia (AKBA standardized — AprèsFlex or Shoden) <span class="herb-stars">★★★</span></div>
+    <div class="herb-mech">5-LOX pathway inhibition — the inflammatory pathway that curcumin doesn't fully address. Joint and gut inflammation specific. Pair with curcumin for synergistic effect. 30%+ AKBA standardization required.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 100mg AKBA</span><span class="dose-tag moderate">Moderate: 200mg AKBA</span><span class="dose-tag heavy">Heavy: 400mg AKBA</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">With food · particularly effective for joint pain, IBD, and gut-pattern IOS</div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Gut Antimicrobial / Microbiome — Phase 2 Specific</h3>
+  <div class="herb-card">
+    <div class="herb-name">Berberine <span class="herb-stars">★★★</span></div>
+    <div class="herb-mech">Gut microbiome rebalancing, AMPK activation (same pathway as metformin), anti-dysbiosis, insulin sensitization. Also serves as the oral alternative to Tirzepatide's metabolic signaling effects. Split dosing reduces GI side effects.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg with 1 meal</span><span class="dose-tag moderate">Moderate: 500mg with 2 meals</span><span class="dose-tag heavy">Heavy: 500mg 3x/day with meals</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">Always with meals · GI side effects common at start — titrate slowly · can cause medication interactions (check with physician)</div>
+  </div>
+  <div class="herb-card">
+    <div class="herb-name">Quercetin (Phytosome form) <span class="herb-stars">★★☆</span></div>
+    <div class="herb-mech">Mast cell stabilization (histamine responses, hives), antiviral, AMPK activation, and at high monthly pulse dose — senolytic (clears senescent cells). The synergistic partner for Fisetin in the oral senolytic protocol.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg daily</span><span class="dose-tag moderate">Moderate: 500mg daily</span><span class="dose-tag heavy">Heavy: 1,000mg × 2-day monthly pulse (senolytic)</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">Phytosome form for absorption · pairs with bromelain for anti-inflammatory synergy · combine with Fisetin for monthly senolytic pulse</div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Neuroprotective — Phase 2–3 for Brain Fog and Post-Viral</h3>
+  <div class="herb-card">
+    <div class="herb-name">Lion's Mane (Hericium erinaceus — Dual Extract) <span class="herb-stars">★★★</span></div>
+    <div class="herb-mech">NGF (Nerve Growth Factor) upregulation — rebuilds neuronal density and myelin. The most evidence-supported herb for neuroinflammation, brain fog, and cognitive recovery in IOS. Fruiting body, dual extraction (water + alcohol) required.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 500mg AM</span><span class="dose-tag moderate">Moderate: 1,000mg AM</span><span class="dose-tag heavy">Heavy: 2,000mg split AM/PM</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">AM dosing for cognitive benefit · 8+ weeks for full neurological effect · pairs well with Amantadine for comprehensive neuro-IOS support</div>
+  </div>
+  <div class="herb-card">
+    <div class="herb-name">Cat's Claw — TOA-Free Extract (Uncaria tomentosa) <span class="herb-stars">★★☆</span></div>
+    <div class="herb-mech">NF-kB inhibition, immunomodulatory (bidirectional like reishi), antiviral with specific activity against latent herpesviruses (EBV, HSV). TOA-free (tetracyclic oxindole alkaloid-free) extract is required for immunomodulatory vs. immunostimulatory activity.</div>
+    <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg</span><span class="dose-tag moderate">Moderate: 500mg</span><span class="dose-tag heavy">Heavy: 1,000mg</span></div>
+    <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">TOA-free extract only · particularly valuable for EBV/CMV-positive IOS presentations in Phase 2</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ NUTRITION ═══════════════════════════ -->
+<div id="nutrition" class="section">
+  <div class="note-box" style="margin-bottom:20px;"><strong>The central nutrition principle in IOS:</strong> Your immune system controls your metabolic rate — not the other way around. Caloric restriction in an immune-overdriven body does not create fat loss. It creates muscle loss, metabolic suppression, and deeper CDR activation. We do not restrict calories in Phase 1. We do not go low-carb in Phase 1. We earn the fasting phases by resolving immune overdrive first.</div>
+
+  <div class="phase-grid">
+    <div class="phase-card c-orange open">
+      <div class="phase-header" onclick="togglePhase('n1')">
+        <div class="phase-num">1</div>
+        <div><div class="phase-title">Phase 1 Nutrition — The Safety Signal</div><div class="phase-sub">MRT elimination · Maintenance calories · Do NOT restrict</div></div>
+        <div class="phase-toggle" id="n1-toggle">›</div>
+      </div>
+      <div class="phase-body" id="n1">
+        <div class="macro-row"><div class="macro-chip"><div class="macro-val">2,000–2,300</div><div class="macro-label">Calories</div></div><div class="macro-chip"><div class="macro-val">120–150g</div><div class="macro-label">Protein</div></div><div class="macro-chip"><div class="macro-val">180–220g</div><div class="macro-label">Carbs (do not cut)</div></div><div class="macro-chip"><div class="macro-val">70–90g</div><div class="macro-label">Fat (quality)</div></div></div>
+        <div class="food-grid">
+          <div class="food-block">
+            <div class="food-block-title" style="color:#68d391;">✓ Emphasize — Anti-Inflammatory Base</div>
+            <ul class="food-list">
+              <li>Wild-caught fatty fish (salmon, sardines, mackerel) 3–4×/week</li>
+              <li>Root vegetables — sweet potato, beets, squash, carrots</li>
+              <li>Olive oil as primary cooking fat — extra virgin, cold-press</li>
+              <li>Avocado daily — oleic acid, anti-inflammatory</li>
+              <li>Blueberries, cherries, pomegranate — resolution-supporting polyphenols</li>
+              <li>Bone broth daily — gut lining support, L-glutamine source</li>
+              <li>Cooked cruciferous (cooked, not raw during gut healing)</li>
+              <li>Fermented foods in small amounts — sauerkraut, kimchi, coconut kefir</li>
+              <li>Whole grains tolerated — rice, oats, quinoa</li>
+              <li>Turmeric + black pepper in food daily</li>
+            </ul>
+          </div>
+          <div class="food-block">
+            <div class="food-block-title" style="color:#fc8181;">✗ Eliminate — MRT Triggers</div>
+            <ul class="food-list">
+              <li>Gluten — complete elimination</li>
+              <li>Conventional dairy (A1 casein) — test A2 tolerance</li>
+              <li>Seed and vegetable oils (canola, soy, corn, sunflower, safflower)</li>
+              <li>Refined sugar and high-fructose corn syrup</li>
+              <li>Alcohol — complete in Phase 1</li>
+              <li>Ultra-processed foods — all categories</li>
+              <li>Artificial sweeteners (dysbiosis and immune reactivity)</li>
+              <li>Conventional soy (xenoestrogenic)</li>
+              <li>Any food confirmed reactive on IgG panel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card c-blue">
+      <div class="phase-header" onclick="togglePhase('n2')">
+        <div class="phase-num">2</div>
+        <div><div class="phase-title">Phase 2 Nutrition — Feast/Fast Cycling Begins</div><div class="phase-sub">16:8 intermittent fasting 4–5 days/week · Gut healing priority</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="n2">
+        <div class="macro-row"><div class="macro-chip"><div class="macro-val">1,800–2,200</div><div class="macro-label">Calories (eating window)</div></div><div class="macro-chip"><div class="macro-val">130–160g</div><div class="macro-label">Protein</div></div><div class="macro-chip"><div class="macro-val">16:8</div><div class="macro-label">Fasting window</div></div><div class="macro-chip"><div class="macro-val">10am–6pm</div><div class="macro-label">Eating window</div></div></div>
+        <ul class="action-list" style="margin-top:12px;">
+          <li>Introduce 16:8 intermittent fasting on 4–5 days/week. Eating window: 10am–6pm or 12pm–8pm.</li>
+          <li>Add microbiome-priority foods: resistant starch (cooked and cooled rice/potatoes), artichokes, leeks, green plantains</li>
+          <li>Elemental formula on gut-rest days — replaces all solid food 2–3 days/month for complete antigen-free gut healing</li>
+          <li>Bone broth remains daily — gut lining continues to heal throughout Phase 2</li>
+          <li>Diverse plant intake — target 30+ different plant types per week for microbiome diversity</li>
+          <li>Fasting windows: water, electrolytes, black coffee or herbal tea only</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card c-green">
+      <div class="phase-header" onclick="togglePhase('n3')">
+        <div class="phase-num">3</div>
+        <div><div class="phase-title">Phase 3 Nutrition — Extended Fasting + Ketogenic Window</div><div class="phase-sub">20:4 → 24-hour fasts · Protein low during fasting · Ketone monitoring</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="n3">
+        <div class="macro-row"><div class="macro-chip"><div class="macro-val">20:4–24hr</div><div class="macro-label">Fasting window target</div></div><div class="macro-chip"><div class="macro-val">&lt;30g</div><div class="macro-label">Protein on fast days</div></div><div class="macro-chip"><div class="macro-val">0.8–2.0</div><div class="macro-label">Blood ketones mmol/L</div></div></div>
+        <div class="warning-box"><strong>The most important Phase 3 nutrition rule:</strong> Keep protein LOW during fasting windows and on fasting days. High protein re-activates mTOR and blocks autophagy — the entire cellular cleanup process. This is counterintuitive if you've been told "always eat high protein," but it is mechanistically essential.</div>
+        <ul class="action-list" style="margin-top:12px;">
+          <li>Fasting window: water, electrolytes (sodium, potassium, magnesium), black coffee or plain tea. Nothing else.</li>
+          <li>Eating window (4–6 hours): high fat, moderate protein (~100–130g), very low carbohydrate</li>
+          <li>Open eating window with bone broth — protects gut lining as you break the fast</li>
+          <li>Monitor blood ketones with a ketone meter — target 0.8+ mmol/L during fasting window by Day 3</li>
+          <li>CGM monitoring: fasting glucose target below 85 mg/dL. High variability = CDR still partly active.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card c-purple">
+      <div class="phase-header" onclick="togglePhase('n4')">
+        <div class="phase-num">4</div>
+        <div><div class="phase-title">Phase 4 Nutrition — FMD Cycling</div><div class="phase-sub">5-day FMD + 25-day maintenance · T3 restoration after every FMD</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="n4">
+        <div class="warning-box" style="margin-bottom:12px;"><strong>The T3 Rule — Non-Negotiable After Every FMD:</strong> Free T3 is suppressed during the 5-day FMD. It will NOT restore without carbohydrate refeeding. Days 6–8 after FMD: drive carbohydrates to 200–250g/day minimum. This takes 3 days to normalize thyroid function. Missing this step = prolonged thyroid suppression that mirrors hypothyroidism on labs.</div>
+        <ul class="action-list">
+          <li><strong>FMD Day 1:</strong> ~1,100 cal · very low protein (&lt;20g) · high fat · olives, small amount of nuts, vegetable soup</li>
+          <li><strong>FMD Days 2–5:</strong> ~725 cal · same profile · vegetable broth, small olives/nuts, herbal tea, electrolytes. Monitor ketones (target 1.0+ mmol/L by Day 3)</li>
+          <li><strong>Day 6–8 (Refeeding):</strong> Soft foods → fruit → cooked grains. Drive carbs to 200–250g/day. Protein builds from 60g (Day 6) to full dose (Day 8+)</li>
+          <li><strong>Days 9–30 (Maintenance):</strong> Full calories 2,200–2,600 · protein 150–200g · carbs 40–50% · this is your building window — mTOR is now fully activated and safe</li>
+          <li>Resistance training 3–4x/week during Days 9–30. Use the food. Build the muscle.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ MOVEMENT & LIFESTYLE ═══════════════════════════ -->
+<div id="movement" class="section">
+  <div class="warning-box" style="margin-bottom:20px;"><strong>The over-training trap:</strong> If you're exercising 6+ days a week and feel worse, weight isn't changing, or you're exhausted — this is not a discipline problem. This is IOS. In an immune-overdriven body, high training volume is a threat signal. It amplifies cortisol, activates CDR, cannibals muscle for immune fuel, and worsens every IOS marker. The protocol here is designed to reverse this without you losing ground.</div>
+
+  <div class="phase-grid">
+    <div class="phase-card c-orange open">
+      <div class="phase-header" onclick="togglePhase('m1')">
+        <div class="phase-num">1</div><div><div class="phase-title">Phase 1 Movement — Recovery IS the Work</div><div class="phase-sub">No resistance training · Parasympathetic priority · HRV as guide</div></div>
+        <div class="phase-toggle" id="m1-toggle">›</div>
+      </div>
+      <div class="phase-body" id="m1">
+        <ul class="action-list">
+          <li><strong>Daily gentle walk:</strong> 20–30 minutes. Conversational pace. Not vigorous. Stimulates lymphatic flow and mild nervous system regulation.</li>
+          <li><strong>Sauna:</strong> 3–4x/week, 20 minutes. Infrared or traditional. Heat shock proteins, mitochondrial support, lymphatic drainage. This is therapeutic.</li>
+          <li><strong>Red light therapy:</strong> Daily, 10–20 minutes. Mitochondrial support, inflammation reduction, circadian rhythm regulation.</li>
+          <li><strong>Cold therapy:</strong> 15 minutes total/week (not per session). Cold shower 2–3 minutes, or cold plunge. Vagal activation, norepinephrine, immune modulation.</li>
+          <li><strong>No resistance training, no HIIT, no classes:</strong> These are stimulus signals your system interprets as threat in Phase 1. They worsen IOS markers.</li>
+          <li><strong>HRV monitoring:</strong> Measure every morning before looking at your phone. It is your daily guide. Trending up = nervous system recovering. Trending down = something in the protocol needs adjustment.</li>
+          <li><strong>Sleep:</strong> 8–9 hours is the target. Non-negotiable. Phase 2 immune resolution happens primarily during sleep. Cut here and the protocol stalls.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-card c-blue">
+      <div class="phase-header" onclick="togglePhase('m2')">
+        <div class="phase-num">2</div><div><div class="phase-title">Phase 2 Movement — Careful Reintroduction</div><div class="phase-sub">1x/week resistance training from Week 12 only</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="m2">
+        <ul class="action-list">
+          <li>Continue daily walks (now 30 minutes). Fasted morning walk is fine and encouraged.</li>
+          <li>Continue sauna + red light. These never stop being therapeutic in this protocol.</li>
+          <li><strong>Resistance training introduction (Week 12 ONLY):</strong> 1 full-body session/week. Compound movements (squat, hinge, press, row). Sub-maximal load — 60% of working weight. 45 minutes maximum. Monitor HRV for 48 hours after — if it drops more than 15%, reduce to every 10 days instead of weekly.</li>
+          <li>If HRV drops consistently after training, the gut is not healed enough to support the inflammatory demand. Stay in Phase 2 longer.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-card c-green">
+      <div class="phase-header" onclick="togglePhase('m3')">
+        <div class="phase-num">3</div><div><div class="phase-title">Phase 3 Movement — 1 Hour Fasted Walking Daily</div><div class="phase-sub">AMPK activation · Max 1x/week resistance</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="m3">
+        <ul class="action-list">
+          <li><strong>1 hour fasted walking every morning:</strong> This is the AMPK activation protocol. Walking during a fasting window activates the fat-burning, cellular-cleanup pathway that IOS has been blocking. Conversational pace — not vigorous. Think steady, grounded movement, not cardio.</li>
+          <li><strong>Resistance training: 1 session/week maximum.</strong> Oxandrolone is protecting your lean mass so you don't need frequency — you need the stimulus signal. Keep sessions under 45 minutes, sub-maximal effort.</li>
+          <li>No additional cardio or classes. The fasted walk IS your cardio. Adding more is re-activating CDR.</li>
+          <li>Sauna continues 3–4x/week. Timing it after fasted walking enhances heat shock protein and mitochondrial benefit.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-card c-purple">
+      <div class="phase-header" onclick="togglePhase('m4')">
+        <div class="phase-num">4</div><div><div class="phase-title">Phase 4 Movement — Earn the Training Window</div><div class="phase-sub">3–4x/week resistance in maintenance · Fasted walk on FMD days only</div></div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body" id="m4">
+        <ul class="action-list">
+          <li><strong>Maintenance Window (Days 9–30):</strong> 3–4 full resistance training sessions per week. Progressive overload. Full effort. High protein + carbohydrates to support building. mTOR is now your friend and fully activated — use it to build the strongest version of your body.</li>
+          <li><strong>FMD Window (Days 1–5):</strong> Return to 1-hour fasted walks only. No resistance training during the 5-day FMD. The fasted walk + FMD is peak AMPK activation — don't interrupt it with mTOR-activating training.</li>
+          <li>Zone 2 cardio (walking, light cycling) 2–3x/week in maintenance window supports mitochondrial biogenesis alongside the training. 30–45 minutes at conversational pace.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Lifestyle Anchors — Every Phase</h3>
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">Circadian Rhythm Reset</div>
+      <div class="med-why">Morning sunlight exposure within 30 minutes of waking (10 minutes minimum) anchors cortisol timing, melatonin, and immune cell rhythm. Evening screens off or blue-light blocking 90 minutes before bed. Your immune system runs on a circadian schedule — disrupting it disrupts everything we're trying to build here.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Breathwork / Nervous System Regulation</div>
+      <div class="med-why">5 minutes of slow diaphragmatic breathing (4-7-8 or box breathing) activates the vagus nerve and directly shifts the immune system toward resolution. Do this before meals, after stressors, and before sleep. This is not soft medicine — vagal tone is a measurable immune parameter.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Emotional Stress as a Biological Input</div>
+      <div class="med-why">Chronic resentment, fear, and unresolved emotional patterns produce the same cytokine signatures as a physical infection. This is not metaphor — it is measured immunology. The IOS protocol works more slowly in a person whose nervous system is in constant alarm from relational or psychological stress. Address both. The body cannot separate them.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Toxin Reduction</div>
+      <div class="med-why">All medications are xenoestrogenic. Plastics, conventional personal care products, pesticides, and environmental chemicals add to the total immune load. We don't ask for perfection — we ask for reduction. Filter your water, switch to glass where possible, choose fragrance-free personal care products, eat organic on the Dirty Dozen. Each reduction lowers your total load.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ AHA MOMENTS ═══════════════════════════ -->
+<div id="aha" class="section">
+  <p class="muted" style="margin-bottom:20px;">These questions are designed for live delivery in Wisdom Circle sessions — drop them, pause, then answer. Or use them as standalone social content. Each one challenges something your audience has been told is settled truth.</p>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 1 · Conventional Medicine Blind Spot</div>
+    <div class="scenario-title">What if 80% of what your immune system is doing right now can't be detected in any standard blood test?</div>
+    <div class="scenario-finding">Only 20% of lymphocyte activity and circulating cytokines are in your bloodstream. The remaining 80% is occurring in your lymph nodes, gut wall, spleen, and tissues. This means a completely normal CBC and CRP can coexist with severe immune overdrive — and it happens in patients every single day. "Your labs are fine" has never meant what we thought it meant.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Janeway CA et al., <em>Immunobiology: The Immune System in Health and Disease</em>, 6th ed., Garland Science, 2005</li>
+      <li><strong>Delivery tip:</strong> Drop it. Pause 5 seconds. Then: "So when someone tells you your labs are fine — now you know what that actually means."</li>
+      <li><strong>Best placed:</strong> Opening of any IOS session — reframes everything that follows</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 2 · Timeline / Causality</div>
+    <div class="scenario-title">What if your Hashimoto's — diagnosed last year — actually started a decade ago?</div>
+    <div class="scenario-finding">Autoantibodies against self-tissue can be detected in blood samples up to 9.4 years before the clinical diagnosis is made. The disease was present and building long before any physician recognized it. The trigger you remember — the stressful year, the viral illness, the pregnancy — wasn't the beginning. It was just the moment the already-loaded system finally tipped into a detectable state.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Arbuckle MR et al., "Development of autoantibodies before the clinical onset of systemic lupus erythematosus," <em>New England Journal of Medicine</em>, 349(16), 2003</li>
+      <li><strong>Delivery tip:</strong> Ask the room: "How many of you can trace back a 'stressful period' that preceded your first major symptom by years?" Watch the hands go up.</li>
+      <li><strong>Best placed:</strong> After the IOS origin story; connects personal history to biology</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 3 · Brain-Body Connection</div>
+    <div class="scenario-title">What if your anxiety and brain fog aren't mental health issues — they're your immune system's distress signals being transmitted to your brain?</div>
+    <div class="scenario-finding">IL-6 and TNF-alpha — the same cytokines driving systemic IOS inflammation — cross the blood-brain barrier and directly suppress serotonin synthesis while upregulating the glutamate system. This produces anxiety, low mood, cognitive slowing, and fear without any psychological trigger. It is not weakness or a mental health diagnosis. It is neuroinflammation. And it resolves when the immune system resolves.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Capuron L & Miller AH, "Immune system to brain signaling: neuropsychopharmacological implications," <em>Pharmacology & Therapeutics</em>, 130(2), 2011</li>
+      <li><strong>Delivery tip:</strong> This one lands hard. Pause after "it is not weakness." Let that breathe for a full 5 seconds.</li>
+      <li><strong>Best placed:</strong> After discussing neuroinflammation; powerful moment for members who have been dismissed by mental health providers</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 4 · Conventional Medicine Blind Spot</div>
+    <div class="scenario-title">What if every restrictive diet you tried didn't just fail — it permanently altered your metabolism in ways that made the next attempt harder?</div>
+    <div class="scenario-finding">The Minnesota Starvation Experiment (6 months at 1,600 cal) produced a 40% drop in metabolic rate. The Biggest Loser study tracked contestants 6 years post-competition: their metabolic rates were 500 calories/day lower than matched controls — and 13 of 14 had regained all their weight. Every caloric restriction cycle fires the Cell Danger Response and sacrifices 29% lean muscle. Each cycle makes the next one less effective. This is not a willpower problem. It is a biology problem caused by the wrong tool.</div>
+    <ul class="action-list">
+      <li><strong>Citations:</strong> Keys A et al., <em>The Biology of Human Starvation</em>, 1950; Fothergill E et al., "Persistent metabolic adaptation 6 years after The Biggest Loser competition," <em>Obesity</em>, 24(8), 2016</li>
+      <li><strong>Delivery tip:</strong> "Type in chat how many diets you've tried. I'll wait." Use the chat activity to build the room before delivering the answer.</li>
+      <li><strong>Best placed:</strong> Before introducing Phase 4 FMD — reframes why this approach is different</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 5 · Systems Thinking</div>
+    <div class="scenario-title">What if the bacteria your doctor told you to eliminate from your gut have actually been living there since the day you were born — and they only became a problem because your immune system stopped watching them?</div>
+    <div class="scenario-finding">Commensal bacteria — including many labeled as "overgrown" in SIBO and dysbiosis — have coexisted with humans since birth. Secretory IgA and mucosal macrophages keep them in balance. When IOS suppresses both of these, commensal bacteria overgrow not because of what you ate or didn't eat — but because the immune oversight system failed. Treating only the bacteria without restoring immune surveillance is guaranteed recurrence. The SIBO keeps coming back because the root hasn't changed.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Macpherson AJ & Uhr T, "Induction of protective IgA by intestinal dendritic cells carrying commensal bacteria," <em>Science</em>, 303(5664), 2004</li>
+      <li><strong>Delivery tip:</strong> For members who've done multiple rounds of SIBO treatment and it keeps returning — this is their moment of recognition. Let them have it.</li>
+      <li><strong>Best placed:</strong> During or after the Gut section discussion; lands especially well with the gut-pattern IOS population</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 6 · Organism / Microbiology</div>
+    <div class="scenario-title">What if the virus you had five years ago is still quietly reactivating and driving your current hormone problems, fatigue, and immune reactions — and no one ever checked?</div>
+    <div class="scenario-finding">Epstein-Barr virus (the cause of mono) establishes latency in B-cells for life. Under chronic immune stress — the exact condition IOS creates — EBV reactivates, drives further immune activation, suppresses T-regulatory cells, and has been found in the thyroid tissue of Hashimoto's patients. EBV IgG titers can reveal active reactivation. Yet standard workups almost never include a full EBV panel. The viral load you carry is part of your total immune burden — and it can be addressed.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Draborg AH et al., "Epstein-Barr virus in systemic autoimmune diseases," <em>Clinical and Developmental Immunology</em>, 2013</li>
+      <li><strong>Delivery tip:</strong> "Raise your hand — or type YES — if you had mono at some point in your life." The response will surprise you. Then: "That virus never fully left."</li>
+      <li><strong>Best placed:</strong> Opening of a session about viral triggers or Phase 2 discussion</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ ROVIVE METHOD ═══════════════════════════ -->
+<div id="rovive" class="section">
+  <div class="note-box" style="margin-bottom:24px;"><strong>The RoVive Method applied to Immune Overdrive Syndrome.</strong> We don't add health. We remove what's blocking it. IOS is not a disease you acquire — it's a state your system arrives at after years of accumulation. The Roots → Reveal → Refine → Rise framework maps exactly onto how we resolve it.</div>
+
+  <div class="method-step">
+    <div class="method-label">Roots — What's underneath this</div>
+    <div class="method-title">The Immune System Got Stuck in Alarm Mode</div>
+    <div class="method-body">Your body's roots — the foundational systems of cellular communication, immune balance, and metabolic regulation — have been disrupted. Not by any single thing. By decades of accumulation: xenoestrogen exposure, antibiotic rounds, chronic stress, viral load, nutrient depletion, xenoestrogenic medications, seed oil consumption, disrupted sleep. Each one alone is manageable. Together, they overloaded your immune system past the point where it could self-regulate. The root is not a diagnosis — it is a system pushed beyond its capacity to return to baseline. Understanding this changes everything. You are not broken. You are overloaded.</div>
+  </div>
+
+  <div class="method-step">
+    <div class="method-label">Reveal — What the data actually shows</div>
+    <div class="method-title">The Pattern Hidden Below the Diagnosis Names</div>
+    <div class="method-body">Standard medicine sees the downstream expressions: the PCOS, the Hashimoto's, the SIBO, the hormone resistance. We reveal what's underneath all of them: elevated oxidative stress, suppressed sIgA, dysregulated cortisol, depleted glutathione, impaired thyroid conversion, senescent cell accumulation, mitochondrial dysfunction, and a nervous system locked in sympathetic alarm. The labs we run — hs-CRP, fasting insulin, free T3, IL-6, sIgA, DUTCH, GI-MAP — map the current state of your system. The 3x4 Blueprint Genetics Panel maps why your system arrived there: which inflammatory pathways are genetically amplified, which detox enzymes are compromised, how your hormones are processed, and where your metabolic resistance comes from. Together, these don't diagnose a single disease. They answer the question that makes this protocol work: where exactly is your system stuck, and what does it need to move? We're not treating the name. We're working the map.</div>
+  </div>
+
+  <div class="method-step">
+    <div class="method-label">Refine — The precision intervention</div>
+    <div class="method-title">The 4F Protocol — Flush, Feed, Fast, Function</div>
+    <div class="method-body">Refine is where we do the work — precisely, in sequence, with a reason for every step and every timing decision. Phase 1 (Flush) removes the immune triggers so the alarm can quiet. Phase 2 (Feed) rebuilds the gut-immune axis and clears latent pathogens so the immune system can stand down completely. Phase 3 (Fast) activates autophagy, clears senescent cells, and renews mitochondria — the cellular level cleanup that most protocols never reach. Phase 4 (Function) is where the reconstruction happens: metabolic flexibility restored, body composition changing, biological age reducing. Each phase is a prerequisite for the next. The sequence is the protocol. The protocol is the sequence.</div>
+  </div>
+
+  <div class="method-step">
+    <div class="method-label">Rise — What becomes possible</div>
+    <div class="method-title">A Body That Works With You, Not Against You</div>
+    <div class="method-body">Rise is not a destination — it's a new baseline. Hormones that respond to therapy they previously ignored. Metabolism that moves because the immune system is no longer governing it. Energy that doesn't require willpower to sustain. Gut that processes food without constant negotiation. Skin that's clear. Cycles that normalize. Brain that's present. Senescent cells cleared. Mitochondria renewed. Biological age markers improving. This is not a fantasy — it's the outcome when we work at the actual root. We don't add health. We remove what was blocking it. And once it's removed, health is what the body naturally expresses.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ QUICK REFERENCE ═══════════════════════════ -->
+<div id="qr" class="section">
+  <div class="info-box" style="margin-bottom:20px;"><strong>One-page summary of the complete IOS protocol.</strong> Print this. Screenshot it. Bring it to appointments. This is the map.</div>
+
+  <h3 style="color:#f5a623;margin-bottom:10px;">Phase Timeline</h3>
+  <div class="timeline" style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:20px;">
+    <div class="tl-step" style="border-left:3px solid #f5a623;"><div class="tl-num">Phase 1</div><div class="tl-name" style="color:#f5a623;">Flush</div><div class="tl-weeks">Wks 1–8 · Remove immune burden · No restriction</div></div>
+    <div class="tl-step" style="border-left:3px solid #63b3ed;"><div class="tl-num">Phase 2</div><div class="tl-name" style="color:#63b3ed;">Feed</div><div class="tl-weeks">Wks 8–16 · Gut rebuild · 16:8 fasting begins</div></div>
+    <div class="tl-step" style="border-left:3px solid #68d391;"><div class="tl-num">Phase 3</div><div class="tl-name" style="color:#68d391;">Fast</div><div class="tl-weeks">Wks 16–24 · Extended fasting · Cellular cleanup</div></div>
+    <div class="tl-step" style="border-left:3px solid #b794f4;"><div class="tl-num">Phase 4</div><div class="tl-name" style="color:#b794f4;">Function</div><div class="tl-weeks">Wk 24+ · FMD cycling · Full training · Rebuild</div></div>
+  </div>
+
+  <h3 style="margin-bottom:10px;">All Rx Medications</h3>
+  <table class="qr-table">
+    <thead><tr><th>Agent</th><th>Dose</th><th>Phase</th><th>Timing</th></tr></thead>
+    <tbody>
+      <tr><td>Rapamycin</td><td>6 mg weekly → 6mg every 2 wks (Ph4)</td><td>1–4</td><td>Weekly, with fat-containing meal</td></tr>
+      <tr><td>LDN (Low Dose Naltrexone)</td><td>4.5 mg nightly</td><td>1–4</td><td>9–10 PM on empty stomach</td></tr>
+      <tr><td>Tirzepatide (injection) or Berberine + Inositol (oral)</td><td>2.5 mg/wk → titrate · or Berberine 500mg 3x/day</td><td>2–4</td><td>Weekly injection Monday · Berberine with meals</td></tr>
+      <tr><td>Amantadine</td><td>100 mg × 2</td><td>2</td><td>Morning + Noon with food; 4–8 week course</td></tr>
+      <tr><td>Oxandrolone</td><td>5 mg daily (2.5mg for women)</td><td>3</td><td>Morning with food; 8–12 week course</td></tr>
+      <tr><td>Estradiol Patch</td><td>0.05–0.1 mg/day</td><td>1+ (when indicated)</td><td>Change 2x/week, rotate sites, lower abdomen/buttocks</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-bottom:10px;">Peptides — Injection + Oral Alternatives</h3>
+  <table class="qr-table">
+    <thead><tr><th>Peptide</th><th>Injection Dose</th><th>Oral Alternative</th><th>Phase</th></tr></thead>
+    <tbody>
+      <tr><td>Thymosin Alpha-1</td><td>1.6 mg 2×/wk sub-Q</td><td>AHCC 3g + Thymus Glandular 500mg + Beta-Glucan 500mg</td><td>2</td></tr>
+      <tr><td>SS-31 (Elamipretide)</td><td>1–3 mg daily sub-Q</td><td>MitoQ 10–20mg + Ubiquinol 300mg + PQQ 20mg</td><td>3 (FMD days in Ph4)</td></tr>
+      <tr><td>Epithalon</td><td>10 mg/day × 10 days sub-Q</td><td>TA-65 (Astragaloside IV) 25–50mg + NMN 500mg</td><td>3 (semi-annual in Ph4)</td></tr>
+      <tr><td>FOX04-DRI</td><td>1–2 mg/kg × 3 days/month sub-Q</td><td>Fisetin 1,000mg + Quercetin 1,000mg × 2 days/month</td><td>3–4 (monthly pulse)</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-bottom:10px;">Core Supplements — All Phases</h3>
+  <table class="qr-table">
+    <thead><tr><th>Supplement</th><th>Moderate Dose</th><th>Timing</th></tr></thead>
+    <tbody>
+      <tr><td>Fish Oil / SPMs</td><td>4g EPA+DHA/day</td><td>Split with meals</td></tr>
+      <tr><td>Vitamin D3 + K2 (MK-7)</td><td>5,000 IU + 200mcg</td><td>With fattiest meal</td></tr>
+      <tr><td>Magnesium Bisglycinate</td><td>400mg elemental</td><td>Evening / before bed</td></tr>
+      <tr><td>Methylated B-Complex</td><td>1 cap (methylfolate form)</td><td>Morning with breakfast</td></tr>
+      <tr><td>Biofilm Resolve</td><td>2 caps × 2/day</td><td>Between meals, with water</td></tr>
+      <tr><td>Glutathione (Liposomal)</td><td>500mg AM</td><td>Fasted morning (Phase 2+)</td></tr>
+      <tr><td>NAC</td><td>600–1,200mg/day</td><td>Away from meals</td></tr>
+      <tr><td>L-Glutamine</td><td>5–10g/day</td><td>Morning fasted (gut)</td></tr>
+      <tr><td>Fisetin</td><td>300mg daily + 1,000mg pulse 2d/mo</td><td>With fat; pulse with FMD</td></tr>
+      <tr><td>Urolithin A</td><td>500mg/day</td><td>Morning (Phase 3+)</td></tr>
+      <tr><td>CoQ10 / Ubiquinol</td><td>200–400mg</td><td>Split with fat (Phase 3+)</td></tr>
+      <tr><td>Lithium Orotate</td><td>10mg PM</td><td>Evening (Phase 3+)</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-bottom:10px;">Key Lab Targets</h3>
+  <table class="qr-table">
+    <thead><tr><th>Marker</th><th>Optimal Target</th><th>Signal If Off</th></tr></thead>
+    <tbody>
+      <tr><td>hs-CRP</td><td>&lt; 1.0 mg/L</td><td>Active inflammatory load</td></tr>
+      <tr><td>Fasting Insulin</td><td>2–6 µIU/mL</td><td>&gt;10 = immune-driven metabolic dysfunction</td></tr>
+      <tr><td>Free T3</td><td>3.5–4.2 pg/mL</td><td>Low = conversion failure or carb restriction; retest after refeeding</td></tr>
+      <tr><td>Vitamin D3</td><td>60–80 ng/mL</td><td>&lt;50 = immune dysregulation risk</td></tr>
+      <tr><td>sIgA (saliva)</td><td>80–350 µg/mL</td><td>Low = mucosal immune failure; do not advance to Phase 3</td></tr>
+      <tr><td>Blood Ketones</td><td>0.8–3.0 mmol/L (fasting Phase 3)</td><td>0 = AMPK not engaging; CDR possibly still active</td></tr>
+      <tr><td>HRV (morning avg)</td><td>Above personal baseline</td><td>Declining HRV = too much demand on the system; reduce protocol intensity</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box"><strong>Top 3 Failure Points in This Protocol:</strong><br>
+  1. Starting Phase 3 fasting before Phase 2 gut healing is complete — produces immune reactivation, not cellular renewal.<br>
+  2. Staying low-carb after the Phase 4 FMD window — keeps free T3 suppressed and stalls thyroid, metabolism, and muscle building.<br>
+  3. Adding high training volume before Phase 4 maintenance window — training 6x/week in Phases 1–3 re-activates CDR and reverses every phase's work.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="protocol-footer">
+  ROVIVE METHOD · DR. YOSHI RAHM, D.O. · <a href="https://DrYoshi.com" target="_blank">DrYoshi.com</a><br>
+  FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE<br>
+  Questions about this protocol? Bring them to your next <a href="https://DrYoshi.com" target="_blank">RoVive Wisdom Circle</a> Q&amp;A.
+</div>
+
+<script>
+function showTab(name, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function togglePhase(id) {
+  const card = document.getElementById(id).closest('.phase-card');
+  card.classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.phase-card')[0]?.classList.add('open');
+});
+function scoreCheck(el) {
+  el.classList.toggle('checked');
+  const total = document.querySelectorAll('.screen-item').length;
+  const count = document.querySelectorAll('.screen-item.checked').length;
+  const bar = document.getElementById('scoreBar');
+  if (count === 0) { bar.style.color='#7a7a8a'; bar.textContent = 'Select your symptoms above to see your IOS likelihood score.'; return; }
+  if (count < 3) { bar.style.color='#9a9aaa'; bar.textContent = `Score: ${count}/${total} — Low IOS probability. Monitor symptoms. Address foundational factors.`; }
+  else if (count < 5) { bar.style.color='#63b3ed'; bar.textContent = `Score: ${count}/${total} — Moderate likelihood. Deeper investigation warranted. Consider a full workup.`; }
+  else if (count < 8) { bar.style.color='#f5a623'; bar.textContent = `Score: ${count}/${total} — HIGH likelihood. IOS is very likely driving your symptoms. This protocol is indicated.`; }
+  else { bar.style.color='#fc8181'; bar.textContent = `Score: ${count}/${total} — VERY HIGH. Immune overdrive is almost certainly the root driver. Begin the protocol with physician guidance.`; }
+}
+</script>
+</body>
+</html>
