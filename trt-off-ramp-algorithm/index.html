@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRT Off-Ramp Protocol — Clinical Algorithm</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:100vh;padding:32px 24px 60px;}
+
+.header{text-align:center;margin-bottom:48px;}
+.header h1{font-size:2.4rem;font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.1;}
+.header h1 span{color:#f5a623;}
+.header p{margin-top:10px;color:#7a7a8a;font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;}
+
+.tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;justify-content:center;}
+.tab{background:#1a1d26;border:1px solid #2a2d3a;color:#7a7a8a;padding:10px 20px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;transition:all .2s;text-transform:uppercase;user-select:none;}
+.tab:hover{border-color:#f5a623;color:#f5a623;}
+.tab.active{background:#f5a623;color:#0d0f14;border-color:#f5a623;font-weight:600;}
+
+.section{display:none;}
+.section.active{display:block;}
+
+.phase-grid{display:grid;gap:16px;}
+.phase-card{background:#131620;border:1px solid #1e2130;border-radius:12px;overflow:hidden;}
+.phase-header{display:flex;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;background:#181b28;border-bottom:1px solid #1e2130;transition:background .2s;}
+.phase-header:hover{background:#1e2233;}
+.phase-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;flex-shrink:0;}
+.phase-title{font-size:1rem;font-weight:700;flex:1;}
+.phase-sub{font-size:.78rem;color:#7a7a8a;font-family:'DM Mono',monospace;margin-top:2px;}
+.phase-toggle{color:#7a7a8a;font-size:1.4rem;transition:transform .2s;line-height:1;}
+.phase-card.open .phase-toggle{transform:rotate(90deg);}
+.phase-body{display:none;padding:20px;}
+.phase-card.open .phase-body{display:block;}
+
+.c-orange .phase-num{background:rgba(245,166,35,.15);color:#f5a623;}
+.c-orange .phase-header{border-left:3px solid #f5a623;}
+.c-blue .phase-num{background:rgba(99,179,237,.15);color:#63b3ed;}
+.c-blue .phase-header{border-left:3px solid #63b3ed;}
+.c-green .phase-num{background:rgba(104,211,145,.15);color:#68d391;}
+.c-green .phase-header{border-left:3px solid #68d391;}
+.c-red .phase-num{background:rgba(252,129,129,.15);color:#fc8181;}
+.c-red .phase-header{border-left:3px solid #fc8181;}
+.c-purple .phase-num{background:rgba(183,148,244,.15);color:#b794f4;}
+.c-purple .phase-header{border-left:3px solid #b794f4;}
+
+.med-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px;}
+.med-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:16px;}
+.med-name{font-weight:700;font-size:.95rem;color:#fff;margin-bottom:6px;}
+.med-dose{font-family:'DM Mono',monospace;font-size:.78rem;color:#f5a623;margin-bottom:8px;background:rgba(245,166,35,.08);padding:5px 9px;border-radius:4px;display:inline-block;line-height:1.5;}
+.med-why{font-size:.82rem;color:#9a9aaa;line-height:1.55;margin-top:6px;}
+.med-when{font-size:.78rem;color:#7a7a8a;margin-top:8px;padding-top:8px;border-top:1px solid #1e2130;font-family:'DM Mono',monospace;line-height:1.5;}
+
+.lab-section{margin-bottom:28px;}
+.lab-title{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;font-family:'DM Mono',monospace;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(245,166,35,.2);}
+.lab-row{display:grid;grid-template-columns:220px 150px 1fr;align-items:start;gap:12px;padding:10px 12px;border-radius:8px;margin-bottom:6px;background:#0d0f14;border:1px solid #1a1d26;}
+.lab-marker{font-weight:700;font-size:.85rem;color:#e8e4dc;}
+.lab-range{font-family:'DM Mono',monospace;font-size:.78rem;color:#68d391;}
+.lab-note{font-size:.78rem;color:#7a7a8a;line-height:1.5;}
+
+.scenario{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:12px;}
+.scenario-label{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#7a7a8a;text-transform:uppercase;margin-bottom:6px;}
+.scenario-title{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:10px;}
+.scenario-finding{font-size:.82rem;color:#b794f4;font-family:'DM Mono',monospace;background:rgba(183,148,244,.08);padding:6px 10px;border-radius:6px;margin-bottom:10px;}
+.action-list{list-style:none;}
+.action-list li{font-size:.83rem;color:#c8c4bc;padding:5px 0 5px 18px;position:relative;line-height:1.5;}
+.action-list li::before{content:'→';position:absolute;left:0;color:#f5a623;}
+
+.supp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px;}
+.supp-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:14px;}
+.supp-name{font-weight:700;font-size:.88rem;color:#68d391;margin-bottom:4px;}
+.supp-dose-tag{font-family:'DM Mono',monospace;font-size:.74rem;background:rgba(104,211,145,.1);color:#68d391;padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:6px;}
+.supp-why{font-size:.8rem;color:#9a9aaa;line-height:1.55;}
+
+.note-box{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#c8c4bc;line-height:1.65;margin-top:12px;}
+.note-box strong{color:#f5a623;}
+.warning-box{background:rgba(252,129,129,.06);border:1px solid rgba(252,129,129,.25);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#fca5a5;line-height:1.65;margin-top:12px;}
+.warning-box strong{color:#fc8181;}
+.divider{height:1px;background:#1e2130;margin:24px 0;}
+h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
+
+.taper-wrap{margin:20px 0;}
+.taper-bar{display:flex;align-items:flex-end;gap:10px;height:130px;margin-bottom:8px;}
+.taper-col{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;}
+.taper-fill{width:100%;border-radius:6px 6px 0 0;}
+.taper-label{font-size:.7rem;color:#7a7a8a;font-family:'DM Mono',monospace;text-align:center;}
+.taper-mg{font-size:.78rem;font-weight:700;color:#e8e4dc;}
+
+@media(max-width:640px){
+  .lab-row{grid-template-columns:1fr 1fr;}.lab-note{grid-column:1/-1;}
+  .header h1{font-size:1.7rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="display:inline-block;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);border-radius:6px;padding:4px 14px;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;color:#f5a623;text-transform:uppercase;margin-bottom:14px;">RoVive Method · Dr. Yoshi Rahm</div>
+  <h1>TRT Off-Ramp <span>Algorithm</span></h1>
+  <p>Roots → Reveal → Refine → Rise · Functional &amp; Integrative Medicine</p>
+  <p style="margin-top:6px;font-size:.72rem;color:#4a4a5a;font-family:'DM Mono',monospace;letter-spacing:.06em;">FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · rovivemethod.com</p>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('overview',this)">Overview</div>
+  <div class="tab" onclick="showTab('meds',this)">Medications</div>
+  <div class="tab" onclick="showTab('labs',this)">Labs &amp; Targets</div>
+  <div class="tab" onclick="showTab('decisions',this)">Decision Tree</div>
+  <div class="tab" onclick="showTab('supps',this)">Supplements</div>
+  <div class="tab" onclick="showTab('herbals',this)">Herbal Support</div>
+  <div class="tab" onclick="showTab('rovive',this)">RoVive Method</div>
+</div>
+
+<!-- ===== OVERVIEW ===== -->
+<div id="overview" class="section active">
+<div class="phase-grid">
+
+  <div class="phase-card c-orange" id="p0">
+    <div class="phase-header" onclick="togglePhase('p0')">
+      <div class="phase-num">0</div>
+      <div style="flex:1">
+        <div class="phase-title">Pre-Flight: Baseline Labs</div>
+        <div class="phase-sub">4 weeks on current TRT — don't change a thing yet</div>
+      </div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:12px;">Before touching your dose, you need a full map of where you actually are. Run the complete panel while still at steady-state on your current dose.</p>
+      <div class="note-box"><strong>Required markers:</strong> Total Testosterone, Free Testosterone, LH, FSH, E2 (sensitive assay — not standard), Prolactin, SHBG, Cortisol AM + PM, Hematocrit, Fasting Glucose, Fasting Insulin, Ferritin, Vitamin D3, TSH, Free T3, Free T4, Mineral Panel (Ferritin, Copper, Selenium).</div>
+      <div class="warning-box" style="margin-top:12px;"><strong>⚠️ Gate Check:</strong> If cortisol is inverted (high at night, low in the morning) — STOP. Fix the cortisol pattern before attempting any TRT cessation. High cortisol is the antithesis to testosterone. Your HPG axis cannot recover while your HPA axis is dominant.</div>
+    </div>
+  </div>
+
+  <div class="phase-card c-blue" id="p1">
+    <div class="phase-header" onclick="togglePhase('p1')">
+      <div class="phase-num">1</div>
+      <div style="flex:1">
+        <div class="phase-title">Start the Bridge (While Still on TRT)</div>
+        <div class="phase-sub">Weeks 1–4: Begin support protocol before tapering</div>
+      </div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:14px;">Before you drop a single mg of testosterone, get the factory ready to run on its own. These meds run concurrently while you're still on full dose.</p>
+      <div class="med-grid">
+        <div class="med-card">
+          <div class="med-name">HCG</div>
+          <div class="med-dose">500 IU · 3x/week · SubQ</div>
+          <div class="med-why">LH mimetic. Tells Leydig cells to stay alive. Without this, Leydig cells enter apoptosis (programmed cell death). This is what you should have been on from day one of TRT.</div>
+          <div class="med-when">Start immediately. Continue through entire taper. Monitor E2 at week 4.</div>
+        </div>
+        <div class="med-card">
+          <div class="med-name">Enclomiphene Citrate</div>
+          <div class="med-dose">6.25 mg · Daily · Morning · Oral</div>
+          <div class="med-why">SERM — blocks estrogen at hypothalamus and pituitary, removing negative feedback. Signals brain to ramp up LH. Clean, short half-life. NOT the same as Clomid (which accumulates over 38 hrs).</div>
+          <div class="med-when">Start Week 1 alongside taper prep. Escalate to 12.5mg if LH flat at 4 weeks.</div>
+        </div>
+        <div class="med-card">
+          <div class="med-name">Kisspeptin-10</div>
+          <div class="med-dose">100 mcg · Daily · SubQ</div>
+          <div class="med-why">Top-of-axis signal. Forces hypothalamus GnRH neuron firing. Kisspeptin = Level 1. Enclomiphene = Levels 2–3. Together they're synergistic across the full HPTA axis.</div>
+          <div class="med-when">Combine with enclomiphene from the start. Don't add one without the other.</div>
+        </div>
+      </div>
+      <div class="note-box" style="margin-top:14px;"><strong>Also start all supplements now (see Supplements tab):</strong> Zinc 50mg, Magnesium Bisglycinate 500mg, D3 (to target), Boron 6–10mg, L-Theanine 300mg, DIM 200mg.</div>
+    </div>
+  </div>
+
+  <div class="phase-card c-green" id="p2">
+    <div class="phase-header" onclick="togglePhase('p2')">
+      <div class="phase-num">2</div>
+      <div style="flex:1">
+        <div class="phase-title">Testosterone Taper</div>
+        <div class="phase-sub">Weeks 5–8: Graduated reduction, not cold turkey</div>
+      </div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:16px;">Cold turkey = cortisol nuclear bomb. A graduated taper gives the pituitary time to wake up gradually. Example based on 180mg/week starting dose:</p>
+      <div class="taper-wrap">
+        <div class="taper-bar">
+          <div class="taper-col"><div class="taper-mg">180mg</div><div class="taper-fill" style="background:#f5a623;height:108px;"></div><div class="taper-label">Baseline</div></div>
+          <div class="taper-col"><div class="taper-mg">140mg</div><div class="taper-fill" style="background:#e8921e;height:84px;"></div><div class="taper-label">Week 5</div></div>
+          <div class="taper-col"><div class="taper-mg">100mg</div><div class="taper-fill" style="background:#ca7010;height:60px;"></div><div class="taper-label">Week 6</div></div>
+          <div class="taper-col"><div class="taper-mg">50mg</div><div class="taper-fill" style="background:#a04d08;height:30px;"></div><div class="taper-label">Week 7</div></div>
+          <div class="taper-col"><div class="taper-mg">0mg</div><div class="taper-fill" style="background:#2a2d3a;height:4px;"></div><div class="taper-label">Week 8</div></div>
+        </div>
+      </div>
+      <p style="font-size:.8rem;color:#7a7a8a;font-family:'DM Mono',monospace;margin-bottom:14px;">Scale proportionally to your actual dose. The key is the gradient, not the exact mg numbers.</p>
+      <div class="med-grid">
+        <div class="med-card">
+          <div class="med-name">CJC-1295 (No DAC)</div>
+          <div class="med-dose">100 mcg · Nightly · SubQ · 4hr fasted</div>
+          <div class="med-why">GHRH analog. Prevents the GH axis crash that accompanies testosterone cessation. No DAC version only — clears daily, no accumulation. DAC version has 30-day half-life and causes problems.</div>
+          <div class="med-when">Add at taper start. Stack with Ipamorelin every night, same injection, same time. 4 hours empty stomach minimum.</div>
+        </div>
+        <div class="med-card">
+          <div class="med-name">Ipamorelin</div>
+          <div class="med-dose">100 mcg · Nightly · SubQ · with CJC</div>
+          <div class="med-why">GH secretagogue via ghrelin receptor. Synergistic with CJC-1295 No DAC — two different mechanisms, one result: preserved GH secretion, prevented muscle wasting, maintained metabolic rate.</div>
+          <div class="med-when">Always stack with CJC. Same syringe, same time. Every single night.</div>
+        </div>
+      </div>
+      <div class="warning-box" style="margin-top:14px;"><strong>Expect this for first 90 days:</strong> Lower mood, reduced motivation, slower training recovery, loss of anhedonia (interest in activities). These are neurochemical recalibrations — not a sign the protocol is failing. Push through with data, not feelings.</div>
+    </div>
+  </div>
+
+  <div class="phase-card c-purple" id="p3">
+    <div class="phase-header" onclick="togglePhase('p3')">
+      <div class="phase-num">3</div>
+      <div style="flex:1">
+        <div class="phase-title">Monitor &amp; Adjust</div>
+        <div class="phase-sub">Months 2–6: Labs every 4–8 weeks, interpret and respond</div>
+      </div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:14px;">The restart is a biological project, not a light switch. Check labs and adjust based on what you find. See the Decision Tree tab for full scenario protocols.</p>
+      <div class="note-box">
+        <strong>Green light:</strong> LH ↑ FSH ↑ Total T ↑ → Stay the course.<br><br>
+        <strong>Yellow flag:</strong> E2 spiking &gt;55 → Reduce HCG first. Add zinc/DIM. AI (aromatase inhibitor — anastrozole 0.125–0.25mg every 72hrs) is the last resort only.<br><br>
+        <strong>Red flag:</strong> LH and FSH still at zero at 8 weeks → Escalate enclomiphene to 12.5mg + kisspeptin to 200mcg. Check prolactin and cortisol.<br><br>
+        <strong>Timeline:</strong> Allow 6–12 months. Do not declare failure at 8 weeks.
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-card c-red" id="p4">
+    <div class="phase-header" onclick="togglePhase('p4')">
+      <div class="phase-num">4</div>
+      <div style="flex:1">
+        <div class="phase-title">6-Month Decision Point</div>
+        <div class="phase-sub">Accept the data. Make the mature call.</div>
+      </div>
+      <div class="phase-toggle">›</div>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:12px;">After 6 months of executing the protocol, the data will tell you which of three failure points you may have hit — or whether you're in the clear.</p>
+      <div class="warning-box">
+        <strong>Failure Point 1 — Testicular Atrophy:</strong> Ultrasound volume &lt;12mL or &gt;50% reduction from baseline. Leydig cells replaced by fibrosis. Once fibrosis sets in, no protocol rebuilds dead tissue. If you had hCG throughout TRT, this risk was largely prevented.<br><br>
+        <strong>Failure Point 2 — Pituitary Desensitization:</strong> LH/FSH remain flat at 12 weeks despite maxed support. GnRH receptor density may never fully recover after &gt;10 years of suppression without HCG. The pituitary can't hear the signal anymore.<br><br>
+        <strong>Failure Point 3 — Cortisol Ceiling:</strong> Chronically elevated cortisol that cannot be modified by lifestyle or intervention. HPA axis dominates HPG. No enclomiphene or HCG overcomes a nervous system locked in threat mode. Cortisol is the antithesis to testosterone.
+      </div>
+      <div class="note-box" style="margin-top:12px;"><strong>If Total T remains below 350–400 at 6 months:</strong> You've hit your biological threshold. Accept TRT as your permanent physiological anchor. Optimize it. There is no moral victory in chronic hypogonadism. The goal was always an extraordinary life — not natural testosterone.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== MEDS ===== -->
+<div id="meds" class="section">
+<div class="med-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));">
+
+  <div class="med-card" style="border-color:#f5a62340;">
+    <div class="med-name" style="color:#f5a623;">HCG (Human Chorionic Gonadotropin)</div>
+    <div class="med-dose">Start: 500 IU · 3x/week · SubQ<br>Reduce to 250 IU · 3x/week if E2 &gt;50<br>Reduce further to 250 IU · 2x/week if still elevated</div>
+    <div class="med-why"><strong>Mechanism:</strong> LH mimetic. Binds directly to Leydig cell LH receptors. Activates cAMP/PKA signaling cascade → testosterone synthesis from cholesterol. Keeps Leydig cells metabolically active, prevents apoptosis, maintains testicular volume and Sertoli function.<br><br><strong>Why it matters:</strong> Without LH signal (zeroed out by TRT), Leydig cells down-regulate all steroidogenic machinery and undergo involution. Within 6–12 months without HCG: average 45% testicular volume loss. At 3 years: 60% loss. Some is irreversible.</div>
+    <div class="med-when">WHEN TO USE: Should have been running throughout TRT. Start at bridge phase regardless. Monitor E2 at week 4 — HCG causes intra-testicular aromatization. Find minimum effective dose that maintains testicular fullness and libido without E2 spike above 50.</div>
+  </div>
+
+  <div class="med-card" style="border-color:#63b3ed40;">
+    <div class="med-name" style="color:#63b3ed;">Enclomiphene Citrate</div>
+    <div class="med-dose">Start: 6.25 mg · Daily · Oral · Morning<br>Escalate: 12.5 mg/day if LH flat at 4 weeks</div>
+    <div class="med-why"><strong>Mechanism:</strong> Active isomer SERM. Blocks estrogen receptors at hypothalamus and pituitary, removing the negative feedback that suppresses GnRH. Result: pituitary releases more LH and FSH. Works at axis Levels 2–3.<br><br><strong>NOT Clomid:</strong> Clomid has a 38-hour half-life and accumulates. Enclomiphene is the clean active isomer only — short half-life, no accumulation, no visual side effects reported with Clomid.</div>
+    <div class="med-when">WHEN TO USE: Start at Week 1 of bridge phase. Take every morning. If LH doesn't respond in 4 weeks, double to 12.5mg. Do not substitute Clomid. Do not exceed 12.5mg without lab justification — risk of GnRH receptor desensitization from over-stimulation.</div>
+  </div>
+
+  <div class="med-card" style="border-color:#b794f440;">
+    <div class="med-name" style="color:#b794f4;">Kisspeptin-10</div>
+    <div class="med-dose">Start: 100 mcg · Daily · SubQ<br>Escalate: 200 mcg/day if pituitary non-responsive at 8 weeks</div>
+    <div class="med-why"><strong>Mechanism:</strong> Top-of-axis neuropeptide. Activates GnRH neurons in the hypothalamus directly → pulsatile GnRH release → LH + FSH from pituitary. Works at Level 1 of the HPTA axis. Enclomiphene works at Levels 2–3. Combined = synergistic coverage of the entire axis.<br><br><strong>Hierarchy:</strong> Kisspeptin → hypothalamus GnRH → pituitary LH/FSH → Leydig cells → testosterone.</div>
+    <div class="med-when">WHEN TO USE: Start alongside enclomiphene from Week 1. These two are always paired. At 8 weeks if LH/FSH still zero, escalate to 200mcg/day. Do NOT combine with GnRH agonist drugs simultaneously — risk of homologous desensitization (receptor internalization).</div>
+  </div>
+
+  <div class="med-card" style="border-color:#68d39140;">
+    <div class="med-name" style="color:#68d391;">CJC-1295 (No DAC version only)</div>
+    <div class="med-dose">100 mcg · Every night · SubQ · Minimum 4 hours fasted</div>
+    <div class="med-why"><strong>Mechanism:</strong> GHRH (Growth Hormone Releasing Hormone) analog. Stimulates the pituitary somatotrope cells to release GH in a pulsatile pattern. Prevents the GH axis crash that accompanies testosterone cessation (GH is synergistic with testosterone).<br><br><strong>No DAC vs DAC:</strong> No DAC version clears in 24 hours — pulsatile, clean. With DAC version has 30-day half-life and accumulates → disrupts pulsatile biology → diminishing returns. Always use No DAC for this protocol.</div>
+    <div class="med-when">WHEN TO USE: Add at start of taper phase (Week 5). Take every night at same time, minimum 4 hours fasted. Always stacked with Ipamorelin in the same injection. Without GH support during cessation: expect ~20lb lean mass loss.</div>
+  </div>
+
+  <div class="med-card" style="border-color:#68d39140;">
+    <div class="med-name" style="color:#68d391;">Ipamorelin</div>
+    <div class="med-dose">100 mcg · Every night · SubQ · with CJC-1295 No DAC</div>
+    <div class="med-why"><strong>Mechanism:</strong> GH secretagogue — acts on ghrelin receptors in the pituitary. Different receptor pathway than CJC-1295, making them synergistic. Together they produce significantly greater GH release than either alone. Preserves lean body mass, maintains metabolic rate, preserves insulin sensitivity during the testosterone void.</div>
+    <div class="med-when">WHEN TO USE: Always stack with CJC-1295 No DAC. Same syringe, every night, same time. 4 hours fasted. Never split them apart or use one without the other in this protocol. Continue throughout the full 6-month restart period.</div>
+  </div>
+
+  <div class="med-card" style="border-color:#fc818140;">
+    <div class="med-name" style="color:#fc8181;">Anastrozole — AI (Aromatase Inhibitor) · Last Resort Only</div>
+    <div class="med-dose">Start: 0.125 mg · Every 72 hours · Oral<br>Max: 0.25 mg · Every 72 hours<br>Target E2: 25–40 pg/mL · Never crash to zero</div>
+    <div class="med-why"><strong>Mechanism:</strong> Aromatase inhibitor. Blocks conversion of testosterone → estradiol. This is the nuclear option — it should only appear in this protocol after HCG reduction, zinc, DIM, diet, and insulin management have all been attempted and failed.<br><br><strong>Warning signs you're overusing it:</strong> Needing it weekly = your testosterone dose is too high or your metabolic health is poor. Fix the root cause, not the symptom.</div>
+    <div class="med-when">WHEN TO USE: Only if E2 confirmed &gt;60 on SENSITIVE assay WITH symptoms: gynecomastia, severe water retention, erectile dysfunction, emotional volatility. Start at 0.125mg every 72 hours. Retest E2 in 2 weeks. Adjust toward 25–40 target. If requiring an AI (aromatase inhibitor) every week long-term → protocol reset required. Lower the testosterone dose — don't add more drugs.</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== LABS ===== -->
+<div id="labs" class="section">
+
+  <div class="lab-section">
+    <div class="lab-title">Target Ranges While Still On TRT (Baseline — Example: 180mg/week)</div>
+    <div class="lab-row"><div class="lab-marker">Total Testosterone</div><div class="lab-range">900–1200 ng/dL</div><div class="lab-note">Your output baseline at current dose. Map where you are before any changes.</div></div>
+    <div class="lab-row"><div class="lab-marker">Free Testosterone</div><div class="lab-range">20–30 pg/mL</div><div class="lab-note">Biologically active fraction. The number that actually matters for function.</div></div>
+    <div class="lab-row"><div class="lab-marker">E2 — Estradiol (SENSITIVE assay)</div><div class="lab-range">25–40 pg/mL</div><div class="lab-note">Must use sensitive assay. Standard assay insufficient. If high: see estrogen hierarchy.</div></div>
+    <div class="lab-row"><div class="lab-marker">Cortisol AM (7–9am)</div><div class="lab-range">15–25 mcg/dL</div><div class="lab-note">Should be highest point of the day. Healthy morning cortisol = healthy HPA axis.</div></div>
+    <div class="lab-row"><div class="lab-marker">Cortisol PM (4–6pm)</div><div class="lab-range">&lt;10 mcg/dL</div><div class="lab-note">CRITICAL: High PM cortisol with low AM = inverted pattern. Fix this BEFORE attempting cessation. No restart is possible with inverted cortisol.</div></div>
+    <div class="lab-row"><div class="lab-marker">Fasting Insulin</div><div class="lab-range">&lt;6 µIU/mL</div><div class="lab-note">High insulin → high aromatase → excess E2 conversion. Fix diet before reaching for an AI (aromatase inhibitor).</div></div>
+  </div>
+
+  <div class="lab-section">
+    <div class="lab-title">Full Panel — Run At Baseline + Every 6–8 Weeks During Restart</div>
+    <div class="lab-row"><div class="lab-marker">LH (Luteinizing Hormone)</div><div class="lab-range">Rising trend</div><div class="lab-note">Will be near zero on TRT. Goal is to see this climb. If flat at 8 weeks → escalate protocol.</div></div>
+    <div class="lab-row"><div class="lab-marker">FSH (Follicle Stimulating Hormone)</div><div class="lab-range">Rising trend</div><div class="lab-note">Follows LH. Reflects pituitary waking up. Slower pulses (every 2–3hrs) favor FSH release.</div></div>
+    <div class="lab-row"><div class="lab-marker">Prolactin (sensitive assay)</div><div class="lab-range">&lt;12–15 ng/mL</div><div class="lab-note">Silent killer. Suppresses GnRH. Check if LH/FSH refuse to move. If &gt;18 and non-responsive to dopamine agonists: rule out pituitary microadenoma or structural issue before any restart.</div></div>
+    <div class="lab-row"><div class="lab-marker">SHBG</div><div class="lab-range">Assess individually</div><div class="lab-note">High SHBG = testosterone bound and biologically unavailable. Magnesium and boron help free it up.</div></div>
+    <div class="lab-row"><div class="lab-marker">Hematocrit</div><div class="lab-range">&lt;52%</div><div class="lab-note">TRT thickens blood. Safety check before and during protocol.</div></div>
+    <div class="lab-row"><div class="lab-marker">Fasting Glucose</div><div class="lab-range">&lt;100 mg/dL</div><div class="lab-note">Metabolic foundation. Elevated glucose signals insulin resistance → elevated aromatase.</div></div>
+    <div class="lab-row"><div class="lab-marker">Ferritin</div><div class="lab-range">100–200 ng/mL</div><div class="lab-note">Raw material for hormone synthesis. Low ferritin = suppressed testosterone production.</div></div>
+    <div class="lab-row"><div class="lab-marker">Vitamin D3</div><div class="lab-range">&gt;60 ng/mL</div><div class="lab-note">Steroid hormone precursor. Below 40 = ~50% reduced hormonal capacity. Dose to target, not by weight.</div></div>
+    <div class="lab-row"><div class="lab-marker">TSH / Free T3 / Free T4</div><div class="lab-range">Optimal thyroid range</div><div class="lab-note">Thyroid dysfunction compounds hormonal suppression across the board. Non-negotiable to assess.</div></div>
+    <div class="lab-row"><div class="lab-marker">Mineral Panel (Copper, Selenium)</div><div class="lab-range">Within optimal range</div><div class="lab-note">Deficiency in any one mineral suppresses testosterone production. Most men eating modern diets are deficient in multiple.</div></div>
+  </div>
+
+  <div class="note-box" style="margin-top:4px;"><strong>Imaging:</strong> If LH and FSH are rising but Total T remains below 400 at 8–12 weeks → order testicular ultrasound. Volume &lt;12mL or &gt;50% baseline reduction = structural damage (fibrosis). This is the failure point — no protocol recovers dead tissue.</div>
+</div>
+
+<!-- ===== DECISIONS ===== -->
+<div id="decisions" class="section">
+
+  <div class="scenario">
+    <div class="scenario-label">Lab Scenario 1 — Best Case ✓</div>
+    <div class="scenario-title">LH ↑ &nbsp; FSH ↑ &nbsp; Total T ↑</div>
+    <div class="scenario-finding">Pituitary waking up. Testicles responding. You're in the sweet spot.</div>
+    <ul class="action-list">
+      <li>Stay the course. Zero changes needed.</li>
+      <li>Recheck labs every 6–8 weeks to confirm upward trend continues.</li>
+      <li>Maintain full stack: HCG + Enclomiphene + Kisspeptin + CJC/Ipamorelin + all supplements.</li>
+      <li>Continue this trajectory for full 6-month evaluation period before declaring success.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Lab Scenario 2 — Testicular Failure</div>
+    <div class="scenario-title">LH ↑ &nbsp; FSH ↑ &nbsp; Total T still &lt;400</div>
+    <div class="scenario-finding">Pituitary signaling. Testicles not responding. → Leydig cell dysfunction or atrophy confirmed.</div>
+    <ul class="action-list">
+      <li>Increase HCG to 500 IU 3x/week if not already there.</li>
+      <li>Extend restart timeline to 9–12 months minimum before giving up.</li>
+      <li>Order testicular ultrasound — assess volume vs. baseline and presence of fibrosis.</li>
+      <li>If volume &lt;12mL or fibrosis confirmed: prognosis for natural recovery is very poor. Begin discussing permanent TRT acceptance.</li>
+      <li>No Leydig cells = no testosterone. No peptide or signal changes this biological fact.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Lab Scenario 3 — Estrogen Spike</div>
+    <div class="scenario-title">LH ↑ &nbsp; FSH ↑ &nbsp; Total T ↑ &nbsp; E2 &gt;55 pg/mL</div>
+    <div class="scenario-finding">Testosterone is being produced but aromatizing excessively. Work through hierarchy in order.</div>
+    <ul class="action-list">
+      <li><strong>Step 1:</strong> Reduce HCG — drop from 500 to 250 IU 3x/week. Wait 4 weeks. Retest. If still elevated → 250 IU 2x/week.</li>
+      <li><strong>Step 2:</strong> Increase Zinc to 100mg/day. Add DIM 200mg/day if not already on it.</li>
+      <li><strong>Step 3:</strong> Check body composition. High body fat = high aromatase. Full carnivore diet + 1-mile daily walk at 16-min pace. Fix insulin (fasting insulin &lt;6).</li>
+      <li><strong>Step 4 (Last resort):</strong> If E2 confirmed &gt;60 on sensitive assay WITH symptoms (gyno, ED, water retention, mood swings): <strong>Anastrozole [AI — aromatase inhibitor] 0.125–0.25mg every 72 hours.</strong> Retest E2 in 2 weeks. Target 25–40 pg/mL.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Lab Scenario 4 — Pituitary Non-Response</div>
+    <div class="scenario-title">LH = 0 &nbsp; FSH = 0 &nbsp; at 8 weeks</div>
+    <div class="scenario-finding">Pituitary not responding. GnRH receptor desensitization or suppression. Full escalation required.</div>
+    <ul class="action-list">
+      <li>Escalate Enclomiphene to 12.5 mg/day immediately.</li>
+      <li>Escalate Kisspeptin to 200 mcg/day.</li>
+      <li>Check Prolactin — if elevated (&gt;15), it is suppressing GnRH. Investigate and treat root cause (dopamine agonist trial, rule out microadenoma).</li>
+      <li>Check Cortisol AM and PM — if inverted or chronically elevated, this is your primary block. Cortisol suppresses GnRH neuron firing. Fix stress physiology first.</li>
+      <li>If LH and FSH still don't move after 12 weeks of maxed support → pituitary feedback loop is permanently altered. Accept TRT as permanent.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Lab Scenario 5 — Point of No Return</div>
+    <div class="scenario-title">Total T &lt;350–400 at 6 months, despite rising LH/FSH</div>
+    <div class="scenario-finding">Biological threshold reached. System cannot sustain natural production. Testicles are the failure point.</div>
+    <ul class="action-list">
+      <li><strong>Option 1 (Recommended):</strong> Accept TRT as your permanent physiological anchor. Optimize the protocol. Run your biology like a machine and your life like a champion.</li>
+      <li><strong>Option 2:</strong> Continue aggressive protocol for another 6 months — radically diminished odds of success. Data-driven decision only.</li>
+      <li><strong>Do not choose:</strong> Chronic hypogonadism in the name of "going natural." There is no biological or moral virtue in walking around with broken hormone production.</li>
+      <li>The goal was always an extraordinary life — not natural testosterone. Sometimes extraordinary lives have pharmaceutical support. That is not failure. That is wisdom.</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ===== SUPPLEMENTS ===== -->
+<div id="supps" class="section">
+
+  <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:6px;">Non-negotiable raw materials. Your body cannot manufacture hormones without these building blocks. Start all at Phase 0. Most men are deficient in multiple.</p>
+  <div class="note-box" style="margin-bottom:20px;"><strong>Dosing Tiers:</strong> Mild = maintenance / prevention. Moderate = active restart support. Heavy = therapeutic intervention for confirmed deficiency or elevated E2. Always test before pushing to heavy range. More is not always better — find your minimum effective dose.</div>
+
+  <div class="supp-grid">
+
+    <div class="supp-card">
+      <div class="supp-name">Zinc Monomethionine</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 25–30 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 50 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 75–100 mg/day</span>
+      </div>
+      <div class="supp-why">Required for first step of steroidogenesis: cholesterol → pregnenolone via P450scc. Without zinc, the entire hormone cascade is broken before it starts. Most men sweating regularly are chronically depleted. Natural mild aromatase inhibitor at higher doses. <strong>Take with food. Never exceed 100mg long-term without copper co-supplementation (2mg/day) — zinc depletes copper.</strong></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-name">Magnesium Bisglycinate</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 200–300 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 400 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 500–600 mg/day</span>
+      </div>
+      <div class="supp-why">Lowers SHBG, frees bound testosterone. Critical for cortisol management. Bisglycinate form only — glycinate chelate crosses the blood-brain barrier and is absorbed without GI distress. Take at end of day. Pairs with L-Theanine for complete cortisol suppression. <strong>Loose stool = dose is too high. Back down 100mg.</strong></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-name">Vitamin D3 + K2</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 2,000–4,000 IU/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 5,000 IU/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 8,000–10,000 IU/day</span>
+      </div>
+      <div class="supp-why">Steroid hormone precursor. Co-factor for multiple testosterone synthesis steps. Below 40 ng/mL serum = ~50% reduced hormonal capacity. <strong>Always pair with K2 (MK-7, 100–200mcg) to direct calcium properly. Test serum level; dose to target &gt;60 ng/mL. Heavy dose requires lab monitoring every 90 days.</strong></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-name">Boron (as Calcium Fructoborate)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 3 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 6 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 10–12 mg/day</span>
+      </div>
+      <div class="supp-why">Inhibits SHBG, raises free testosterone. Reduces estradiol when E2 is elevated. Studies show 10mg/day boron for 7 days raised free T by 28% and reduced E2 by 39%. Most underrated mineral in androgen optimization. <strong>Take in the morning with fat — fat-soluble absorption is superior.</strong></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-name">L-Theanine</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 100–200 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 300 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 400–600 mg/day</span>
+      </div>
+      <div class="supp-why">Increases GABA without sedation. Directly targets HPA axis stress response. Combined with magnesium bisglycinate = complete cortisol management system. During TRT cessation, cortisol is your primary biological enemy — this is your first line of defense. <strong>Split heavy doses AM and PM. No ceiling toxicity reported.</strong></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-name">DIM (Diindolylmethane)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 100 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 200 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 300–400 mg/day</span>
+      </div>
+      <div class="supp-why">Estrogen metabolism optimizer — not an AI (aromatase inhibitor). Shifts estrogen toward safe 2-OH pathway, away from harmful 4-OH and 16-OH metabolites. Use before reaching for anastrozole. <strong>Take with food and fat for absorption. Some men experience vivid dreams at heavy dose — normal and transient.</strong></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-name">Omega-3 (EPA/DHA)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 1–2 g/day EPA+DHA</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 3 g/day EPA+DHA</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 4–6 g/day EPA+DHA</span>
+      </div>
+      <div class="supp-why">Reduces cortisol-induced inflammation. Improves Leydig cell membrane fluidity — LH receptor signaling requires healthy cell membranes. Reduces SHBG. Anti-inflammatory foundation for the entire restart. <strong>Look for triglyceride-form fish oil, not ethyl ester. Take with meals. &gt;3g/day requires monitoring if on blood thinners.</strong></div>
+    </div>
+
+    <div class="supp-card">
+      <div class="supp-name">Vitamin C (Ascorbic Acid)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 500 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 1,000 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 2,000–3,000 mg/day</span>
+      </div>
+      <div class="supp-why">Reduces cortisol output from adrenal glands directly. Protects Leydig cells from oxidative damage during the restart window when they are most vulnerable. Supports adrenal function. Often overlooked in hormonal protocols. <strong>Split doses through the day. Loose stool = reduce dose. Buffered form preferred for GI sensitivity.</strong></div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+  <h3>Estrogen Management Hierarchy — Follow In Order</h3>
+  <div class="scenario">
+    <ul class="action-list">
+      <li><strong>Step 1 — Titrate HCG:</strong> If E2 &gt;60, HCG is likely the primary driver (intra-testicular aromatization). Drop from 500 IU 3x/week → 250 IU 3x/week. Wait 4 weeks. Retest. If still high → 250 IU 2x/week.</li>
+      <li><strong>Step 2 — Lifestyle:</strong> Remove all processed carbs. Go full carnivore. High insulin = high aromatase = more estrogen. Walk 1 mile at 16-minute pace daily — activates skeletal muscle glucose disposal system. Fix insulin resistance at the root.</li>
+      <li><strong>Step 3 — Supplement:</strong> Zinc 75–100mg/day + DIM 200–300mg/day + Boron 10mg/day. Give it a minimum of 4–6 weeks before evaluating impact. This alone resolves most E2 issues when diet is clean.</li>
+      <li><strong>Step 4 — Last Resort — AI (Aromatase Inhibitor):</strong> Only if E2 confirmed &gt;60 on sensitive assay WITH clinical symptoms. <strong>Anastrozole: 0.125–0.25mg every 72 hours maximum.</strong> Target: 25–40 pg/mL. Never crash E2 to zero.</li>
+    </ul>
+  </div>
+
+  <div class="note-box" style="margin-top:16px;"><strong>Run a Mineral Panel:</strong> Check ferritin, copper, and selenium when running your labs. Deficiency in any single mineral suppresses testosterone production at the enzymatic level. Most men eating modern diets are deficient in multiple. Supplementing hormones while remaining mineral deficient is building a house on sand.</div>
+</div>
+
+<!-- ===== HERBALS ===== -->
+<div id="herbals" class="section">
+
+  <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:6px;">Best-researched botanical compounds for testosterone support. These are not replacements for pharmaceutical restart protocols — they are upstream amplifiers that work synergistically with the full stack. Graded by evidence quality.</p>
+  <div class="note-box" style="margin-bottom:24px;"><strong>Evidence Tier Key:</strong> <span style="color:#68d391;">★★★</span> = Multiple RCTs in humans, consistent results. <span style="color:#f5a623;">★★☆</span> = Some human trials, promising but limited data. <span style="color:#b794f4;">★☆☆</span> = Animal data + mechanistic plausibility, emerging human evidence.</div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+
+    <div class="med-card" style="border-color:#68d39130;">
+      <div class="med-name" style="color:#68d391;">Ashwagandha (KSM-66 or Sensoril) <span style="font-size:.75rem;color:#68d391;">★★★</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 300 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 600 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 600 mg 2x/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> Adaptogen that directly reduces cortisol by modulating HPA axis signaling. RCT (Wankhede 2015): 300mg KSM-66 2x/day raised testosterone 17% and reduced cortisol 27% in 8 weeks in resistance-trained men. Reduces stress-induced LH suppression by lowering CRH → ACTH → cortisol cascade. <strong>This is your most powerful cortisol-control herbal.</strong></div>
+      <div class="med-when">Take with meals. Sensoril = best cortisol reduction. KSM-66 = best testosterone + performance data. Cycle 8 weeks on, 2 weeks off for long-term use.</div>
+    </div>
+
+    <div class="med-card" style="border-color:#68d39130;">
+      <div class="med-name" style="color:#68d391;">Tongkat Ali (Eurycoma longifolia) <span style="font-size:.75rem;color:#68d391;">★★★</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 100–200 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 400 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 600–800 mg/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> Active quassinoids (eurycomanone) inhibit SHBG binding → frees testosterone from its prison. Also stimulates steroidogenesis in Leydig cells directly. RCT (Tambi 2012): 200mg/day standardized extract raised total T by 46% and free T significantly in hypogonadal men after 1 month. Works even in men with compromised axis — acts at Leydig cell level. <strong>Standardized to 1% eurycomanone minimum.</strong></div>
+      <div class="med-when">Take in the morning. Use standardized root extract — not powder or whole root. Best studied at 200–400mg daily for 4–12 weeks. Stack well with boron and zinc.</div>
+    </div>
+
+    <div class="med-card" style="border-color:#68d39130;">
+      <div class="med-name" style="color:#68d391;">Fadogia Agrestis <span style="font-size:.75rem;color:#68d391;">★★☆</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 425 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 600 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 1,000 mg/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> Acts as an LH mimetic — directly stimulates Leydig cells independent of the pituitary. Animal data shows significant testosterone elevation via direct testicular stimulation. Increasingly used in human protocols for axis restart support. <strong>Important note: animal studies show potential testicular toxicity at very high doses. Do not exceed 1,000mg/day. Cycle — do not use continuously long-term without breaks. Monitor labs.</strong></div>
+      <div class="med-when">Cycle 8 weeks on, 4 weeks off. Take with meals. Pairs well with Tongkat Ali (stack commonly used). Monitor testicular sensitivity and E2. Quality sourcing is critical — significant contamination risk in cheap products.</div>
+    </div>
+
+    <div class="med-card" style="border-color:#f5a62330;">
+      <div class="med-name" style="color:#f5a623;">Shilajit (Purified / Fulvic Acid &gt;50%) <span style="font-size:.75rem;color:#f5a623;">★★☆</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 250 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 500 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 500 mg 2x/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> Fulvic acid and dibenzo-alpha-pyrones enhance mitochondrial function in Leydig cells, improve CoQ10 recycling, and upregulate steroidogenic gene expression. RCT (Pandit 2016): 250mg 2x/day raised total T 23.5% and free T 19% in healthy men over 90 days. Also raises FSH — particularly relevant during axis restart. <strong>Must be purified resin — raw shilajit contains heavy metals.</strong></div>
+      <div class="med-when">Take with warm water or milk in the morning. Ancient Vedic medicine now validated by modern RCTs. Excellent synergy with D3 and zinc. Avoid low-cost powders — purity is non-negotiable.</div>
+    </div>
+
+    <div class="med-card" style="border-color:#f5a62330;">
+      <div class="med-name" style="color:#f5a623;">Fenugreek (Testofen / 50% Fenusides) <span style="font-size:.75rem;color:#f5a623;">★★☆</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 300 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 500–600 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 600 mg 2x/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> Saponins (protodioscin) inhibit 5-alpha-reductase and aromatase, preserving testosterone from conversion. Also appears to inhibit SHBG binding. RCT (Steels 2011): 600mg/day Testofen raised free testosterone significantly and improved libido, energy, and wellbeing scores over 12 weeks. <strong>Standardized extract only — not whole seed powder.</strong></div>
+      <div class="med-when">Take with meals — GI sensitivity common on empty stomach. Can cause maple syrup body odor (harmless). Useful during restart for preserving free testosterone while axis is recovering.</div>
+    </div>
+
+    <div class="med-card" style="border-color:#f5a62330;">
+      <div class="med-name" style="color:#f5a623;">Panax Ginseng (Ginsenoside Rg1 &gt;4%) <span style="font-size:.75rem;color:#f5a623;">★★☆</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 200 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 400 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 600–800 mg/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> Ginsenosides stimulate nitric oxide production, improve Leydig cell mitochondrial function, and modulate HPA axis — reducing corticosterone response to stress. Improves LH pulsatility in animal models. Clinical data supports improved erectile function, energy, and mood during low-testosterone states. <strong>Use Korean Red Ginseng (steamed Panax) for highest ginsenoside content.</strong></div>
+      <div class="med-when">Take in the morning — stimulating at higher doses. Cycle 3 months on, 1 month off. Synergistic with ashwagandha (complementary adaptogen mechanisms).</div>
+    </div>
+
+    <div class="med-card" style="border-color:#b794f430;">
+      <div class="med-name" style="color:#b794f4;">Mucuna Pruriens (15–40% L-DOPA) <span style="font-size:.75rem;color:#b794f4;">★★☆</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 250 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 500 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 1,000 mg/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> L-DOPA → dopamine → suppresses prolactin from the pituitary. Elevated prolactin is a silent GnRH killer. Mucuna also raises LH and testosterone directly in infertile men (Shukla 2010: significant T increase alongside reduced cortisol and prolactin). <strong>Critical if prolactin is elevated — this is your natural dopamine agonist.</strong></div>
+      <div class="med-when">Take in the morning away from protein meals (competes with amino acids for transport). If prolactin is elevated (&gt;15), this becomes a priority addition alongside standard protocol. Monitor dopamine-related effects at heavy dose.</div>
+    </div>
+
+    <div class="med-card" style="border-color:#b794f430;">
+      <div class="med-name" style="color:#b794f4;">Tribulus Terrestris (Protodioscin &gt;45%) <span style="font-size:.75rem;color:#b794f4;">★☆☆</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 250 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 500–750 mg/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 1,000–1,500 mg/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> Protodioscins may increase LH receptor sensitivity and support libido/sexual function. Evidence in healthy men for testosterone elevation is weak — most RCTs show no significant total T change. However, consistently improves libido, sexual function, and wellbeing scores. Best used for symptomatic support (mood, libido) during the low-testosterone restart window rather than as a primary testosterone driver. <strong>Bulgarian extract (Tribestan) has the strongest evidence base.</strong></div>
+      <div class="med-when">Use for quality-of-life support during the rough first 90 days. Do not rely on it as a primary testosterone-raising agent — the evidence doesn't support that claim.</div>
+    </div>
+
+    <div class="med-card" style="border-color:#b794f430;">
+      <div class="med-name" style="color:#b794f4;">Pine Pollen (Raw Androgens) <span style="font-size:.75rem;color:#b794f4;">★☆☆</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="supp-dose-tag" style="background:rgba(104,211,145,.08);color:#68d391;">Mild: 1–2 g/day (powder)</span>
+        <span class="supp-dose-tag" style="background:rgba(245,166,35,.08);color:#f5a623;">Moderate: 1–2 mL tincture/day</span>
+        <span class="supp-dose-tag" style="background:rgba(252,129,129,.1);color:#fc8181;">Heavy: 2–3 mL tincture/day</span>
+      </div>
+      <div class="med-why"><strong>Primary mechanism:</strong> Contains exogenous androgens (testosterone, DHEA, androstenedione) in small concentrations. Tincture form bypasses GI degradation — sublingual delivery improves bioavailability. Mechanistically interesting during the lowest-testosterone window of restart (weeks 5–12) as a micro-androgenic bridge. <strong>Evidence base is largely anecdotal. May partially suppress LH if androgen load is meaningful. Use cautiously — monitor LH/FSH if adding this during restart.</strong></div>
+      <div class="med-when">Use tincture sublingually (under tongue 60 seconds) for best absorption. Powder has minimal androgenic effect — mainly nutritional. Not for long-term continuous use during axis restart. Short-term symptomatic bridge only.</div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="note-box">
+    <strong>Recommended Herbal Stacks by Goal:</strong><br><br>
+    <strong style="color:#68d391;">Cortisol Domination (Priority #1):</strong> Ashwagandha KSM-66 600mg + L-Theanine 400mg + Magnesium Bisglycinate 500mg + Panax Ginseng 400mg<br><br>
+    <strong style="color:#f5a623;">Leydig Cell Stimulation:</strong> Tongkat Ali 400mg + Fadogia Agrestis 600mg + Shilajit 500mg + Zinc 50mg<br><br>
+    <strong style="color:#b794f4;">Free Testosterone Liberation:</strong> Boron 10mg + Fenugreek 600mg + DIM 200mg + Tongkat Ali 400mg<br><br>
+    <strong style="color:#63b3ed;">Prolactin Suppression (if elevated):</strong> Mucuna Pruriens 500–1,000mg + Zinc 75mg + Vitamin B6 (P5P form) 50mg<br><br>
+    <strong style="color:#fc8181;">Note:</strong> These herbals work best when the foundational minerals (zinc, magnesium, D3, boron) are already optimized. Don't stack herbals onto a depleted mineral foundation.
+  </div>
+</div>
+
+<!-- ===== ROVIVE METHOD ===== -->
+<div id="rovive" class="section">
+
+  <div style="text-align:center;margin-bottom:32px;">
+    <div style="display:inline-block;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.25);border-radius:8px;padding:8px 20px;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;color:#f5a623;text-transform:uppercase;margin-bottom:10px;">The RoVive Approach</div>
+    <p style="font-size:.9rem;color:#c8c4bc;max-width:600px;margin:0 auto;line-height:1.7;">This protocol exists within a larger framework. Hormonal optimization is one pillar — not the whole house. The RoVive Method integrates ancient wisdom with precision medicine to address the full architecture of your biology.</p>
+  </div>
+
+  <div class="phase-grid">
+
+    <div class="phase-card c-orange" id="rv1">
+      <div class="phase-header" onclick="togglePhase('rv1')">
+        <div class="phase-num" style="font-size:.7rem;">R</div>
+        <div style="flex:1">
+          <div class="phase-title">Roots — The Foundation Beneath the Protocol</div>
+          <div class="phase-sub">What needs to be in place before any hormone work succeeds</div>
+        </div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:14px;">No TRT off-ramp protocol survives a broken foundation. These are the non-negotiables the RoVive Method addresses before adding any pharmaceutical or nutraceutical layer.</p>
+        <div class="supp-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+          <div class="supp-card">
+            <div class="supp-name" style="color:#f5a623;">Sleep Architecture</div>
+            <div class="supp-why">70% of daily testosterone is produced during deep sleep. If you are not hitting 7–9 hours with quality REM and deep sleep cycles, no protocol on earth compensates. Fix sleep before adding herbals or peptides. Tools: magnesium bisglycinate, L-theanine, dark room, 65°F bedroom, consistent wake time.</div>
+          </div>
+          <div class="supp-card">
+            <div class="supp-name" style="color:#f5a623;">Nutritional Density</div>
+            <div class="supp-why">Testosterone synthesis requires cholesterol, saturated fat, zinc, magnesium, selenium, and vitamin D as raw inputs. A low-fat diet is a low-testosterone diet. Minimum: 0.8–1g protein per lb bodyweight. Saturated fat is not the enemy — insulin resistance is. Prioritize: eggs, red meat, organ meats, wild-caught fish, raw dairy.</div>
+          </div>
+          <div class="supp-card">
+            <div class="supp-name" style="color:#f5a623;">Circadian Rhythm</div>
+            <div class="supp-why">Cortisol and testosterone are circadian hormones — they follow the same clock. Disrupted circadian rhythm = disrupted hormonal rhythm. Non-negotiable: morning sunlight (10 min within 30 min of waking), consistent sleep-wake cycle, no blue light 90 min before bed, no eating after 8pm.</div>
+          </div>
+          <div class="supp-card">
+            <div class="supp-name" style="color:#f5a623;">Gut-Hormone Axis</div>
+            <div class="supp-why">Estrogens are excreted through the gut via conjugation. Poor microbiome diversity (specifically beta-glucuronidase overexpression) uncouples estrogen and re-circulates it into blood. Fix gut health: fermented foods, fiber, eliminate alcohol, consider targeted probiotics. High estrogen with good diet = look at gut first.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card c-blue" id="rv2">
+      <div class="phase-header" onclick="togglePhase('rv2')">
+        <div class="phase-num" style="font-size:.7rem;">Re</div>
+        <div style="flex:1">
+          <div class="phase-title">Reveal — Diagnostics Beyond Standard Labs</div>
+          <div class="phase-sub">What most TRT clinics never test — and why it matters</div>
+        </div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:14px;">Standard TRT clinics run total testosterone and call it a day. The RoVive approach reveals the full picture before making a single clinical decision.</p>
+        <div class="lab-section" style="margin-top:0;">
+          <div class="lab-row"><div class="lab-marker">Salivary Cortisol x4</div><div class="lab-range">4-point curve</div><div class="lab-note">Waking, noon, 4pm, bedtime. Reveals HPA axis pattern that single AM blood draw misses. Inverted curve = restart will fail without intervention first.</div></div>
+          <div class="lab-row"><div class="lab-marker">DUTCH Complete Panel</div><div class="lab-range">Urine metabolites</div><div class="lab-note">Maps cortisol, androgens, and estrogen metabolites including 2-OH, 4-OH, 16-OH pathways. Shows where your estrogen metabolism is going wrong — serum E2 alone doesn't tell you that.</div></div>
+          <div class="lab-row"><div class="lab-marker">Comprehensive Metabolic Panel</div><div class="lab-range">Liver + kidney</div><div class="lab-note">Liver metabolizes estrogen. Compromised liver function = estrogen dominance regardless of protocol. Must be assessed before and during restart.</div></div>
+          <div class="lab-row"><div class="lab-marker">RBC Magnesium</div><div class="lab-range">&gt;5.5 mg/dL</div><div class="lab-note">Serum magnesium is NOT a reliable measure — it stays normal until you're severely depleted. RBC magnesium shows true intracellular status.</div></div>
+          <div class="lab-row"><div class="lab-marker">Omega-3 Index</div><div class="lab-range">&gt;8%</div><div class="lab-note">Reflects cell membrane quality. Low omega-3 index = poor LH receptor signaling and inflammatory baseline. Target &gt;8% for optimal hormone receptor function.</div></div>
+          <div class="lab-row"><div class="lab-marker">hs-CRP (Inflammation)</div><div class="lab-range">&lt;1.0 mg/L</div><div class="lab-note">Systemic inflammation suppresses the HPG axis. Elevated CRP = your body is fighting something — hormones will be deprioritized. Must be below 1.0 for a viable restart environment.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card c-green" id="rv3">
+      <div class="phase-header" onclick="togglePhase('rv3')">
+        <div class="phase-num" style="font-size:.7rem;">Rf</div>
+        <div style="flex:1">
+          <div class="phase-title">Refine — Lifestyle as Medicine</div>
+          <div class="phase-sub">The inputs that no prescription can replace</div>
+        </div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:14px;">These are not soft suggestions. These are biological levers that directly modulate the same axis you are trying to restart.</p>
+        <div class="supp-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+          <div class="supp-card">
+            <div class="supp-name" style="color:#68d391;">Resistance Training Protocol</div>
+            <div class="supp-why">Compound lifts (squat, deadlift, press) acutely raise LH and testosterone by 15–25% post-exercise. Frequency matters: 3–4x/week with progressive overload. High-volume endurance training chronically lowers testosterone — balance is everything. Don't train to exhaustion during restart; train to stimulate.</div>
+          </div>
+          <div class="supp-card">
+            <div class="supp-name" style="color:#68d391;">Cold Exposure</div>
+            <div class="supp-why">Cold water immersion (50–60°F, 2–4 min) raises norepinephrine 300% and increases testosterone receptor sensitivity. Also improves testicular temperature regulation — optimal testicular temperature is 2–3°C below core body temp. Avoid prolonged heat (hot tubs, saunas &gt;20 min daily) during the restart window.</div>
+          </div>
+          <div class="supp-card">
+            <div class="supp-name" style="color:#68d391;">Fasting Protocols</div>
+            <div class="supp-why">16:8 intermittent fasting raises GH pulse amplitude significantly. Combined with the CJC/Ipamorelin protocol, it synergizes GH output. Avoid prolonged fasting (&gt;24hrs) during restart — creates excessive cortisol spike that suppresses the axis you're trying to recover.</div>
+          </div>
+          <div class="supp-card">
+            <div class="supp-name" style="color:#68d391;">Stress Sovereignty</div>
+            <div class="supp-why">Your nervous system is either in growth mode or survival mode — it cannot do both simultaneously. Non-negotiable practices: daily meditation or breathwork (10 min minimum), time in nature, meaningful social connection, purposeful work. These are not luxuries. They are the environment your hormonal system lives in.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card c-purple" id="rv4">
+      <div class="phase-header" onclick="togglePhase('rv4')">
+        <div class="phase-num" style="font-size:.7rem;">↑</div>
+        <div style="flex:1">
+          <div class="phase-title">Rise — What Success Actually Looks Like</div>
+          <div class="phase-sub">The goal was never a lab number</div>
+        </div>
+        <div class="phase-toggle">›</div>
+      </div>
+      <div class="phase-body">
+        <p style="font-size:.85rem;color:#9a9aaa;margin-bottom:14px;">The RoVive Method measures success differently than a standard clinic. A number on a lab report is a proxy — not the destination.</p>
+        <div class="note-box">
+          <strong>You are succeeding when:</strong><br><br>
+          You wake up with energy you don't have to manufacture through caffeine.<br>
+          Your mind is sharp and your motivation is self-generating.<br>
+          Your body composition is moving without heroic effort.<br>
+          Your relationships are fueled by presence, not performance anxiety.<br>
+          Your libido is a reflection of vitality, not desperation.<br>
+          Your labs are trending in the right direction — but you already knew that from how you feel.<br><br>
+          <strong>The mission of RoVive is not optimization in the clinical sense. It is radical aliveness — biology in full expression, at every age.</strong>
+        </div>
+        <div class="warning-box" style="margin-top:14px;">
+          <strong>If you want personalized guidance on this protocol:</strong> The RoVive Wisdom Circle provides access to direct physician mentorship, protocol customization, lab interpretation, and the full RoVive Method framework. This document is educational — your biology is individual. Cookie-cutter protocols produce cookie-cutter results.<br><br>
+          <strong>rovivemethod.com</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showTab(name, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  el.classList.add('active');
+}
+function togglePhase(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+document.getElementById('p0').classList.add('open');
+</script>
+</body>
+</html>
