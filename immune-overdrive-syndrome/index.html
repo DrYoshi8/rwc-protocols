@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,6 +140,21 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
 .score-bar{background:#181b28;border:1px solid #1e2130;border-radius:8px;padding:12px 16px;margin-top:12px;font-family:'DM Mono',monospace;font-size:.82rem;transition:all .3s;}
 .protocol-footer{margin-top:48px;padding-top:20px;border-top:1px solid #1e2130;text-align:center;font-family:'DM Mono',monospace;font-size:.72rem;color:#4a4a5a;letter-spacing:.06em;line-height:1.8;}
 .protocol-footer a{color:#f5a623;text-decoration:none;}
+
+/* ══ RoVive Protocol Builder v2.1 additions ══ */
+.female-box{background:rgba(236,72,153,.06);border:1px solid rgba(236,72,153,.25);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.female-box-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#f9a8d4;margin-bottom:8px;}
+.indicators-box{background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.assumption-box{background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:6px;padding:14px 18px;margin:20px 0;}
+.assumption-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px;}
+.emotional-root-box{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.dig-deeper-toggle{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:8px 8px 0 0;padding:10px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:12px 0 0;color:#f5a623;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;width:100%;}
+.dig-deeper-toggle::after{content:"BC";font-size:.6rem;transition:transform .2s;}
+.dig-deeper-toggle.open::after{transform:rotate(180deg);}
+.dig-deeper-content{display:none;background:rgba(255,255,255,.02);border:1px solid rgba(245,166,35,.1);border-top:none;border-radius:0 0 8px 8px;padding:14px 18px;color:#9a9aaa;font-size:.9rem;line-height:1.7;}
+.dig-deeper-content.open{display:block;}
+.cutting-edge-badge{display:inline-block;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.3);color:#06b6d4;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:8px;}
+.lab-store-tag{display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;}
 </style>
 </head>
 <body>
@@ -150,7 +164,7 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
   <div class="rovive-badge">RoVive Method · Dr. Yoshi Rahm, D.O.</div>
   <h1>Immune Overdrive <span>Syndrome</span></h1>
   <p>The Root Driver Behind Weight Resistance, Hormone Resistance & Chronic Inflammation</p>
-  <p>Roots → Reveal → Refine → Rise · Functional &amp; Integrative Medicine</p>
+  <p>Roots &#8594; Reveal &#8594; Refine &#8594; Rise · RoVive Method</p>
   <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE · <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
 </div>
 
@@ -158,13 +172,15 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
 <div class="tabs">
   <div class="tab active" onclick="showTab('overview',this)">Overview</div>
   <div class="tab" onclick="showTab('screening',this)">Screening</div>
+  <div class="tab" onclick="showTab('pillars',this)">Great 8 Pillars</div>
   <div class="tab" onclick="showTab('labs',this)">Labs</div>
   <div class="tab" onclick="showTab('meds',this)">Medications</div>
   <div class="tab" onclick="showTab('peptides',this)">Peptides</div>
   <div class="tab" onclick="showTab('supps',this)">Supplements</div>
-  <div class="tab" onclick="showTab('herbals',this)">Herbal Support</div>
+  <div class="tab" onclick="showTab('herbals',this)">Herbals &amp; Homeopathy</div>
   <div class="tab" onclick="showTab('nutrition',this)">Nutrition</div>
   <div class="tab" onclick="showTab('movement',this)">Movement &amp; Lifestyle</div>
+  <div class="tab" onclick="showTab('cutting-edge',this)">Cutting-Edge</div>
   <div class="tab" onclick="showTab('aha',this)">Aha Moments</div>
   <div class="tab" onclick="showTab('rovive',this)">RoVive Method</div>
   <div class="tab" onclick="showTab('qr',this)">Quick Reference</div>
@@ -172,6 +188,26 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
 
 <!-- ═══════════════════════════ OVERVIEW ═══════════════════════════ -->
 <div id="overview" class="section active">
+
+  <!-- DOES THIS RESONATE — v2.1 -->
+  <div class="indicators-box" style="margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:10px;">&#9670; DOES THIS RESONATE?</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">You might be living this pattern if...</p>
+    <ul style="color:#e8e4dc;margin:0;padding-left:18px;line-height:1.8;">
+      <li>You've been told your labs are "normal" — but you feel anything but</li>
+      <li>You've done everything right — cleanest diets, best supplements — and still can't lose weight or feel well</li>
+      <li>Your hormones worked briefly, then plateaued or stopped responding entirely</li>
+      <li>You carry two or more diagnoses (PCOS, Hashimoto's, SIBO, chronic fatigue) your doctors treat as unrelated</li>
+      <li>You had a significant illness — viral, Lyme, mold — and never fully came back to yourself</li>
+    </ul>
+  </div>
+
+  <!-- ASSUMPTION WORTH QUESTIONING — v2.1 -->
+  <div class="assumption-box" style="margin-bottom:24px;">
+    <div class="assumption-label">&#9670; The Assumption Worth Questioning</div>
+    <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:6px;">"If your labs are normal, there's nothing wrong."</p>
+    <p style="color:#9a9aaa;font-size:.9rem;">Only 20% of your immune system's activity circulates in your blood. The remaining 80% lives in your tissues, gut wall, lymph nodes, and spleen — invisible to standard testing. A completely normal CBC, CRP, and TSH can coexist with severe immune overdrive. The most common reassurance in medicine — "your labs are fine" — has never meant what we assumed. What would change for you if "normal labs" stopped being the end of the conversation?</p>
+  </div>
 
   <div class="note-box" style="margin-bottom:24px;">
     <strong>What is Immune Overdrive Syndrome (IOS)?</strong><br>
@@ -298,6 +334,13 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
     </div>
 
   </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════ SCREENING ═══════════════════════════ -->
@@ -339,6 +382,177 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
     <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Mold Toxicity</span>
     <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Joint Pain / Inflammation</span>
     <span style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:5px 12px;font-size:.78rem;color:#c8c4bc;">Interstitial Cystitis</span>
+  </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════ GREAT 8 PILLARS ═══════════════════════════ -->
+<div id="pillars" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:6px;">&#9670; THE GREAT 8 PILLARS — RANKED FOR IOS</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">Ranked by direct relevance to Immune Overdrive Syndrome. All 8 are essential — the ranking shows where your highest leverage points are for this specific pattern.</div>
+  </div>
+
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px 16px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:6px;">&#9670; HOW TO READ THIS LIST</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">All 8 pillars matter — always. The ranking reflects where the highest leverage is for <em>this specific protocol</em>. Your weakest pillar is often your biggest opportunity, regardless of its rank here.</div>
+  </div>
+
+  <!-- #1 FOOD -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;flex-shrink:0;">#1</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Food</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Food antigens are the primary ongoing immune triggers in IOS. Every bite of a Most Reactive Trigger food re-signals the immune system to stay on high alert. The MRT elimination protocol is the single most impactful early action — not because of calories, but because it removes the alarm signal. Your immune system controls your metabolic rate; not the other way around. Caloric restriction in an immune-overdriven body does not create fat loss — it creates muscle loss and deeper CDR activation.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Phase 1: Full MRT elimination (gluten, conventional A1 dairy, seed oils, refined sugar, alcohol, artificial sweeteners, conventional soy). Maintenance calories — do NOT restrict. Anti-inflammatory base: wild-caught fatty fish 3-4x/week, olive oil as primary fat, bone broth daily, polyphenol-rich berries, root vegetables.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper — Phase-by-Phase Nutrition Protocol</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#f5a623;">Phase 1 (Weeks 1–8):</strong> Calories 2,000–2,300. Protein 120–150g. Carbs 180–220g — do not cut. Fat 70–90g quality fats. Emphasize: wild-caught fatty fish 3-4x/week, root vegetables, bone broth daily, berries and cherries (SPM-supporting polyphenols), cooked cruciferous, small amounts of fermented foods, tolerated whole grains.</p>
+      <p style="margin-top:10px;"><strong style="color:#63b3ed;">Phase 2 (Weeks 8–16):</strong> 16:8 intermittent fasting 4-5 days/week (10am–6pm or 12pm–8pm eating window). Add microbiome foods: resistant starch (cooked and cooled rice/potatoes), artichokes, leeks, green plantains. Elemental formula 2-3 days/month for complete gut rest. Target 30+ different plant types weekly.</p>
+      <p style="margin-top:10px;"><strong style="color:#68d391;">Phase 3 (Weeks 16–24):</strong> Progress to 20:4 then 24-hour fasts. Eating window: high fat, moderate protein (~100–130g), very low carbohydrate. CRITICAL: keep protein LOW on fasting days — high protein re-activates mTOR and blocks autophagy. Monitor blood ketones (target 0.8+ mmol/L by Day 3).</p>
+      <p style="margin-top:10px;"><strong style="color:#b794f4;">Phase 4 FMD + T3 Rule:</strong> 5-day FMD (Day 1: ~1,100 cal very low protein; Days 2-5: ~725 cal fat-dominant). CRITICAL — Days 6-8 post-FMD: drive carbohydrates to 200–250g/day to restore free T3. Maintenance (Days 9-30): full calories, high protein 150-200g, carbs 40-50%. This is your building window.</p>
+      <div class="female-box" style="margin-top:16px;">
+        <div class="female-box-title">&#9792; Female-Specific Food Considerations</div>
+        <p>IOS skews heavily female because estrogen is anti-inflammatory — when IOS suppresses estrogen, IOS amplifies. Support estrogen metabolism: cruciferous vegetables (DIM precursors), fiber 30g+/day, ground flaxseed (lignans). Reduce xenoestrogenic load: choose organic on the Dirty Dozen, avoid plastic food packaging, replace conventional beauty products with clean alternatives.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- #2 SLEEP & LIGHT -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;flex-shrink:0;">#2</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Sleep &amp; Light</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Phase 2 immune resolution — where inflammation is actively cleared — occurs primarily during deep sleep. The glymphatic system (brain immune cleanup) only activates during deep sleep. Growth hormone, released in pulses during slow-wave sleep, is the primary tissue repair signal. Melatonin is a potent immunomodulator that directly regulates NK cell activity and T-regulatory cell function. Disrupted sleep in IOS is a clinical barrier to recovery, not an inconvenience. 8-9 hours is the therapeutic target.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">8–9 hours every night — non-negotiable in all phases. Morning sunlight within 30 minutes of waking (10 minutes minimum). Evening blue light off or blocked 90 minutes before bed. Red light therapy daily (10–20 min) for mitochondrial support and circadian regulation.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper — Sleep Architecture, Light Protocols &amp; Circadian Timing</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#f5a623;">Why 8-9 Hours in IOS Specifically:</strong> Every hour of lost sleep increases circulating IL-6 and TNF-alpha — the same cytokines driving IOS. A single night of 6-hour sleep produces measurable inflammatory marker elevation. Sleep is not passive during the IOS protocol — it is the primary immune resolution window.</p>
+      <p style="margin-top:10px;"><strong style="color:#63b3ed;">Light Protocol:</strong> Morning sunlight within 30 minutes of waking sets the cortisol awakening response and anchors melatonin timing ~14 hours later. On overcast days, still go outside — ambient outdoor light significantly outperforms indoor lighting. Evening: blue-light blocking glasses or screen warmth modes after 8pm. Complete darkness for sleep.</p>
+      <p style="margin-top:10px;"><strong style="color:#68d391;">Red Light Therapy:</strong> 630–850nm wavelengths penetrate tissue and stimulate cytochrome c oxidase in mitochondria, increasing ATP production and reducing inflammatory signaling. Use daily, 10–20 minutes. Morning timing doubles as circadian anchor. In Phase 1, this is therapeutic — not optional lifestyle optimization.</p>
+    </div>
+  </div>
+
+  <!-- #3 SPIRIT & PURPOSE -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;flex-shrink:0;">#3</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Spirit &amp; Purpose</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Chronic unresolved stress produces measurably the same cytokine profile — elevated IL-6, TNF-alpha, CRP — as active infection. Whether that's God, your higher self, a deep belief in yourself, or simply what gets you out of bed before the alarm — this is your animating force. Unresolved grief, resentment, fear, and purposelessness are physiological IOS drivers. This pillar is often the reason the protocol stalls when everything else is in place.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Identify your primary chronic stressor — not manage it, address it. That may mean a relationship conversation, a therapeutic process, a career decision, or a daily meaning-making practice. Daily 5-minute intentional practice connecting to purpose reduces cortisol measurably. The body cannot separate psychological threat from physical threat.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper — Stress, Cytokines &amp; IOS</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#f5a623;">The Cytokine-Emotion Connection:</strong> Pennebaker's expressive writing studies showed 20 minutes of writing about difficult emotional experiences reduced IL-6 and improved T-cell function over 6 weeks. Kiecolt-Glaser's marital conflict studies showed that hostile interactions produced NK cell suppression and elevated pro-inflammatory cytokines comparable to a mild infection. Emotional state is not soft data in IOS — it is a primary input to the inflammatory signaling cascade.</p>
+      <p style="margin-top:10px;"><strong style="color:#63b3ed;">Purpose as Longevity Biology:</strong> Purpose in life reduces all-cause mortality independently of physical health. The mechanism is multi-factorial: lower cortisol awakening response, higher HRV, better sleep architecture, and direct neuroimmune effects. Ikigai (Japanese concept of life purpose) correlates inversely with CRP and IL-6 in longitudinal studies. This is not philosophy — it is physiology.</p>
+    </div>
+  </div>
+
+  <!-- #4 AIR -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#4</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Air — Breathwork &amp; Air Quality</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Breathwork is the fastest available pathway to shift the autonomic nervous system from sympathetic (immune alarm) to parasympathetic (immune resolution). Vagal tone is a direct immune parameter — higher vagal tone correlates with lower systemic inflammation. 5 minutes of slow diaphragmatic breathing (4-7-8 or box: 4-4-4-4) before each meal activates the vagus nerve and directly signals immune resolution. For mold-sensitive or histamine-reactive IOS, air quality (HEPA filtration) is a primary trigger-reduction strategy.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper — Vagal Tone, Breathwork &amp; Air Quality</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#f5a623;">Vagal Tone &amp; Immune Regulation:</strong> The cholinergic anti-inflammatory pathway (vagus → acetylcholine → macrophage suppression of TNF-alpha) was described by Kevin Tracey et al. Slow breathing directly activates this pathway. In IOS, the vagus is consistently under-activated — the sympathetic-dominant state locks out the primary immune resolution signal.</p>
+      <p style="margin-top:10px;"><strong style="color:#63b3ed;">Protocols:</strong> 4-7-8: inhale 4 counts through nose, hold 7, exhale 8 through mouth. 5-10 repetitions. Box breathing: 4 counts each side. Resonant frequency breathing: 5.5-second inhale / 5.5-second exhale (~5.5 breaths/min) — maximizes HRV and vagal tone. Physiological sigh: double inhale (sniff-sniff), long exhale through mouth — immediate stress release.</p>
+      <p style="margin-top:10px;"><strong style="color:#68d391;">Air Quality for IOS:</strong> Mold and mycotoxins are among the most potent immune overdrive triggers — small chronic exposures can maintain IOS regardless of protocol adherence. HEPA air filtration in the bedroom is the highest-yield investment. Assess for mold in your living environment if suspected. VOC reduction from building materials and personal care products compounds this benefit.</p>
+    </div>
+  </div>
+
+  <!-- #5 WATER -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#5</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Water — Purity, Hydration &amp; Lymphatic Support</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Unfiltered water contains xenoestrogens — endocrine-disrupting compounds from agricultural runoff, pharmaceutical residues, and plastic leaching — that add to the immune load IOS is already struggling to clear. Adequate clean water is essential for lymphatic drainage, the immune system's primary waste clearance route. Target 2–3 liters of filtered water daily. Electrolytes (sodium, potassium, magnesium) during fasting windows are critical for adrenal and immune function.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper — Filtration, Xenoestrogens &amp; Lymphatic Drainage</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#f5a623;">Filtration Priority:</strong> Reverse osmosis + remineralization removes xenoestrogens, heavy metals, chlorine, fluoride, and pharmaceutical residues. If RO is inaccessible, high-quality spring water in glass bottles is next best. Avoid plastic bottles — BPA and BPS leach into water, particularly when exposed to heat. The xenoestrogenic load from plastic water bottles is clinically significant for female IOS patients.</p>
+      <p style="margin-top:10px;"><strong style="color:#63b3ed;">Lymphatic Drainage:</strong> Lymph has no pump — it moves through breathing, movement, and hydration. Dry body brushing (5 min before shower, brushing toward the heart) mechanically moves lymph. Rebounding (mini-trampoline, 10 min daily) is the most effective single lymphatic drainage tool available without clinical equipment.</p>
+      <p style="margin-top:10px;"><strong style="color:#68d391;">Fasting Window Hydration:</strong> During fasting (Phase 2-4), add: ¼ tsp sea salt + ¼ tsp potassium chloride + magnesium malate 200mg to water. Without this, adrenal stress hormones rise to maintain electrolyte balance — directly re-activating HPA alarm. This maintains electrolyte balance without breaking the fast.</p>
+    </div>
+  </div>
+
+  <!-- #6 MOVEMENT -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#6</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Movement — Phase-Specific &amp; Precisely Timed</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Movement adds nearly 7 years to life expectancy — but in IOS, the <em>wrong</em> movement at the <em>wrong</em> phase is actively harmful. High-volume training in Phases 1-3 amplifies cortisol, re-activates the Cell Danger Response, and cannibalizes muscle for immune fuel. The phase-specific movement protocol is precise: walking in Phase 1, careful reintroduction in Phase 2, fasted walking for AMPK activation in Phase 3, and full training only in Phase 4 maintenance. Zone 2 cardio (brisk walking where you can hold a full conversation, easy cycling, light swimming) is the primary cardio tool throughout.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper — AMPK, HRV Monitoring &amp; Phase-by-Phase Protocol</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#f5a623;">AMPK Activation (Phase 3):</strong> AMPK activates autophagy, fat oxidation, and mitochondrial biogenesis simultaneously. It is activated by low glucose (fasting) + low energy state + moderate movement. The 1-hour fasted walk in Phase 3 hits all three signals simultaneously — this is why it is specifically prescribed. Steady walking in a fasted state, every morning.</p>
+      <p style="margin-top:10px;"><strong style="color:#63b3ed;">HRV as Movement Guide:</strong> Measure every morning before standing up. Trending up = system adapting positively. Trending down = demand exceeds recovery capacity. In Phase 2, if HRV drops more than 15% in 48 hours after resistance training, the gut is not healed enough to support the inflammatory demand — stay in Phase 2 longer.</p>
+      <p style="margin-top:10px;"><strong style="color:#68d391;">Sauna as Phase 1 Movement Substitute:</strong> When resistance training and HIIT are contraindicated, sauna (infrared or traditional, 20 min 3-4x/week) provides comparable cardiovascular benefit: increased heart rate, heat shock protein induction (directly protects mitochondria and muscle), and lymphatic drainage — therapeutically, not as lifestyle optimization.</p>
+    </div>
+  </div>
+
+  <!-- #7 ELECTRICAL -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#7</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Electrical — Light, Grounding &amp; Mitochondrial Charge</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Mitochondria respond to specific wavelengths of light (photobiomodulation), pulsed electromagnetic fields (PEMF), and the Earth's natural electromagnetic frequency (grounding/earthing). Red and near-infrared light (630–850nm) directly stimulates cytochrome c oxidase in the mitochondrial electron transport chain, increasing ATP and reducing inflammatory ROS — documented in multiple RCTs. In IOS, mitochondrial dysfunction is a core feature. The Electrical pillar directly addresses it through non-pharmaceutical, non-invasive means.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper — Photobiomodulation, PEMF &amp; Grounding</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#f5a623;">Red Light Protocol for IOS:</strong> Device delivering 630–670nm (red) and 810–850nm (near-infrared) at ≥50 mW/cm². Daily use, 10–20 minutes, 6–12 inches distance. Target areas: torso, thyroid (for Hashimoto's presentations), joints (for joint-pattern IOS). Morning timing for circadian benefit. In Phase 1, daily use without exception.</p>
+      <p style="margin-top:10px;"><strong style="color:#63b3ed;">PEMF:</strong> Devices delivering extremely low-frequency electromagnetic pulses align with the Earth's Schumann resonance (~7.83Hz). Associated with deep sleep, cell membrane normalization, and reduced inflammatory signaling. Particularly valuable for mold-sensitive or EMF-hypersensitive IOS presentations.</p>
+      <p style="margin-top:10px;"><strong style="color:#68d391;">Grounding / Earthing:</strong> Ghaly &amp; Teplitz (2004) showed measurable reductions in cortisol, improved sleep architecture, and reduced pain with grounded sleep. Mechanism: the Earth's surface carries free electrons that act as natural antioxidants. 20+ minutes barefoot on soil, grass, sand, or rock. Grounding mats and sheets extend this indoors during sleep.</p>
+    </div>
+  </div>
+
+  <!-- #8 COMMUNITY & CONNECTION -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#8</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Community &amp; Connection — The Most Underestimated Pillar</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Social isolation drives the same inflammatory markers as IOS — elevated IL-6, CRP, cortisol, with suppressed NK cell activity. The Roseto Effect (a Pennsylvania town with dramatically lower heart disease attributed entirely to close community bonds) is one of the most striking natural experiments in medicine. The nervous system requires relational safety to fully exit sympathetic alarm. Healing is physiologically faster in community. Loneliness is not a soft concern in IOS — it is a measurable immune burden.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper — Social Biology &amp; Nervous System Safety</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#f5a623;">The Inflammation-Loneliness Link:</strong> Cacioppo &amp; Hawkley (2010) showed perceived social isolation produced higher circulating IL-6 and lower NK cell activity across 5 years — comparable to chronic mild disease. Cole's gene expression studies showed lonely individuals had upregulated pro-inflammatory gene expression and downregulated antiviral immune responses — a pattern that maps precisely onto IOS.</p>
+      <p style="margin-top:10px;"><strong style="color:#63b3ed;">Co-Regulation &amp; Nervous System Safety:</strong> Polyvagal theory describes how the nervous system looks to the social environment for safety cues. The presence of a safe, attuned other person directly activates the ventral vagal complex — the same pathway that enables immune resolution. This is the neurobiological basis for why healing in community produces better outcomes than healing alone.</p>
+      <p style="margin-top:10px;"><strong style="color:#68d391;">Practical Actions:</strong> One meaningful, present connection per week — not digital, not transactional. Reduce social media (it provides the appearance of connection with the inflammatory effect of comparison). Join a healing community. Service to others activates the same neurological pathways as receiving care, with additional purpose-activation benefits.</p>
+    </div>
+  </div>
+
+  <div class="female-box" style="margin-top:20px;">
+    <div class="female-box-title">&#9792; IOS &amp; Female Biology — The Amplification Loop</div>
+    <p>IOS skews heavily female. Estrogen is profoundly anti-inflammatory — it directly suppresses NF-kB signaling and IL-6 production. When IOS drives estrogen down, the anti-inflammatory brake is removed, which amplifies IOS further. This creates a self-reinforcing loop: IOS suppresses estrogen → lower estrogen amplifies IOS → more IOS. Perimenopause can begin as early as 35, and the declining estrogen of this transition is a well-established IOS trigger. The DUTCH test is essential to understand where in the estrogen metabolism pathway the disruption is occurring — not all "low estrogen" looks the same or responds the same to intervention.</p>
+  </div>
+
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
   </div>
 </div>
 
@@ -463,6 +677,13 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
 
     <div class="lab-row"><div class="lab-marker">TruAge Epigenetic Clock (TruDiagnostic)</div><div class="lab-range">Biological age vs. chronological age</div><div class="lab-note">DNA methylation-based biological age. Baseline before Phase 1 + repeat after completing 3 rounds of Phase 4 FMD. The most objective measure of whether cellular renewal is actually occurring. A 2–3 year biological age reduction is a realistic and documented outcome of the full protocol.</div></div>
   </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════ MEDICATIONS ═══════════════════════════ -->
@@ -517,6 +738,13 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
       <div class="med-why">Estrogen is one of the most powerful anti-inflammatory hormones in your body. When IOS is driving oxidative stress, your system catabolizes estrogen — creating what looks like "estrogen dominance" on labs but is actually estrogen being destroyed. For premenopausal women with suppressed estradiol, or any woman transitioning off hormonal birth control, the patch restores the immune brake. Preferred over oral — avoids hepatic first-pass and inflammatory liver burden.</div>
       <div class="med-when">TIMING: Apply to clean, dry skin on lower abdomen or buttocks. Rotate sites each application. Change every 3–4 days (2x/week). Begin in Phase 1 for birth control patients or when E2 is confirmed suppressed. Adjust dose based on DUTCH + symptom response.</div>
     </div>
+  </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
   </div>
 </div>
 
@@ -601,6 +829,13 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
   </div>
 
   <div class="note-box"><strong>Regarding Tirzepatide oral alternative:</strong> For those who prefer not to inject, the best oral combination is Berberine 500mg 3× daily with meals + Myo-Inositol 2g + D-Chiro-Inositol 50mg daily. Berberine activates the AMPK pathway comparably to metformin and directly reduces inflammatory signaling. Myo-inositol improves insulin sensitivity and is particularly effective for PCOS-pattern IOS presentations. This combination addresses the same metabolic-immune bridge as Tirzepatide, through a purely oral, non-prescription route.</div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════ SUPPLEMENTS ═══════════════════════════ -->
@@ -690,6 +925,13 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
       <div class="supp-why">Essential in the mitochondrial electron transport chain. Depleted by IOS, aging, and statin use. Ubiquinol form (reduced CoQ10) is ~8x more bioavailable than ubiquinone. Take with fat-containing meal. Forms the mitochondrial support triad with SS-31 (or MitoQ) and Urolithin A in Phase 3.</div>
     </div>
   </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════ HERBAL SUPPORT ═══════════════════════════ -->
@@ -759,6 +1001,34 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
     <div class="herb-mech">NF-kB inhibition, immunomodulatory (bidirectional like reishi), antiviral with specific activity against latent herpesviruses (EBV, HSV). TOA-free (tetracyclic oxindole alkaloid-free) extract is required for immunomodulatory vs. immunostimulatory activity.</div>
     <div class="dose-tags"><span class="dose-tag mild">Mild: 250mg</span><span class="dose-tag moderate">Moderate: 500mg</span><span class="dose-tag heavy">Heavy: 1,000mg</span></div>
     <div style="font-size:.78rem;color:#7a7a8a;margin-top:6px;font-family:'DM Mono',monospace;">TOA-free extract only · particularly valuable for EBV/CMV-positive IOS presentations in Phase 2</div>
+  </div>
+
+  <div style="border-top:1px solid #1e2130;margin:32px 0 24px;"></div>
+  <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:#b794f4;margin-bottom:20px;">&#9670; HOMEOPATHIC OPTIONS TO CONSIDER</div>
+  <div style="background:rgba(183,148,244,.06);border:1px solid rgba(183,148,244,.2);border-radius:10px;padding:14px 18px;margin-bottom:8px;">
+    <div style="color:#9a9aaa;font-size:.85rem;margin-bottom:12px;font-style:italic;">Classical homeopathy is highly individualized. Options below are common classical choices for IOS patterns. A trained homeopath will refine to your specific case.</div>
+
+    <div style="background:#0d0f14;border:1px solid rgba(183,148,244,.15);border-radius:8px;padding:14px;margin-bottom:10px;">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Arsenicum Album — 30C or 200C</div>
+      <div style="color:#9a9aaa;font-size:.88rem;">Deep restlessness, anxiety, and exhaustion — worse after midnight. Recurrent viral-like illness, sensitivity to cold. Classically indicated when the IOS pattern has a significant anxiety-fatigue axis: meticulous, fearful of disease, easily exhausted. Particularly relevant for EBV-reactivation and long COVID IOS patterns.</div>
+    </div>
+
+    <div style="background:#0d0f14;border:1px solid rgba(183,148,244,.15);border-radius:8px;padding:14px;margin-bottom:10px;">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Natrum Muriaticum — 30C or 200C</div>
+      <div style="color:#9a9aaa;font-size:.88rem;">The classic remedy for suppressed grief and its physical sequelae. Autoimmune IOS presentations — especially Hashimoto's and skin-pattern — where there is a clear emotional watershed event in the history. Holds emotion internally, dislikes sympathy, craves salt. Natrum Mur addresses the emotional architecture underneath the immune pattern in a way biochemical interventions cannot.</div>
+    </div>
+
+    <div style="background:#0d0f14;border:1px solid rgba(183,148,244,.15);border-radius:8px;padding:14px;">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Sulphur — 30C (short course, periodic)</div>
+      <div style="color:#9a9aaa;font-size:.88rem;">The classic "unlocking" remedy in chronic disease. Indicated when multiple approaches have partially worked but plateaued — the system is stuck. Skin involvement (rashes, eczema, psoriasis-pattern IOS), heat sensitivity, philosophical nature. Often used as a single dose to restart the healing response in sluggish chronic cases.</div>
+    </div>
+  </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
   </div>
 </div>
 
@@ -865,6 +1135,13 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
       </div>
     </div>
   </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════ MOVEMENT & LIFESTYLE ═══════════════════════════ -->
@@ -952,6 +1229,90 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
       <div class="med-why">All medications are xenoestrogenic. Plastics, conventional personal care products, pesticides, and environmental chemicals add to the total immune load. We don't ask for perfection — we ask for reduction. Filter your water, switch to glass where possible, choose fragrance-free personal care products, eat organic on the Dirty Dozen. Each reduction lowers your total load.</div>
     </div>
   </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ CUTTING-EDGE THERAPIES ═══════════════════════════ -->
+<div id="cutting-edge" class="section">
+
+  <div style="background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#06b6d4;margin-bottom:6px;">&#9670; EMERGING &amp; ADVANCED THERAPIES FOR IOS</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">These therapies sit at the frontier of immune regulation, cellular renewal, and regenerative medicine. Evidence tiers vary — noted for each. All require physician oversight. Where injectable options exist, nutraceutical alternatives are provided.</div>
+  </div>
+
+  <span class="cutting-edge-badge">Additional Peptides</span>
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:10px;">
+    <div style="font-weight:700;color:#fff;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">BPC-157 — Body Protection Compound</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;color:#b794f4;margin-bottom:8px;">Phase 2 · Gut healing &amp; tissue repair · Off-label</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px;">Accelerates healing of intestinal mucosa, reduces intestinal permeability, and modulates the gut-brain axis. Particularly relevant in Phase 2 when gut healing is the primary target. Also supports tendon and ligament healing — relevant for IOS patients with joint involvement.</p>
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;color:#f5a623;margin-bottom:8px;">Injectable: 250–500mcg sub-Q daily · OR oral capsules: 250mcg twice daily</div>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#e8e4dc;font-size:.88rem;">Zinc carnosine 75mg + L-glutamine 10g + colostrum 2g + aloe vera inner leaf 200mg — comprehensive mucosal repair stack targeting the same leaky gut mechanism through complementary pathways</div>
+    </div>
+  </div>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:20px;">
+    <div style="font-weight:700;color:#fff;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">KPV — Tripeptide (Lys-Pro-Val)</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;color:#b794f4;margin-bottom:8px;">Phase 1-2 · Anti-inflammatory · Off-label</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px;">C-terminal fragment of alpha-MSH. Powerfully anti-inflammatory with specific activity in the gut (reduces intestinal NF-kB signaling) and skin (eczema, psoriasis patterns of IOS). No immunosuppression, no HPA axis disruption. Available orally — oral: 500mcg–1mg daily throughout Phases 1 and 2.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#e8e4dc;font-size:.88rem;">Palmitoylethanolamide (PEA) 600–1,200mg/day — endogenous anti-inflammatory lipid mediator with documented NF-kB inhibition and mast cell stabilization; relevant for skin and gut IOS patterns</div>
+    </div>
+  </div>
+
+  <span class="cutting-edge-badge">Ozone &amp; Oxidative Therapies</span>
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:20px;margin-top:8px;">
+    <div style="font-weight:700;color:#fff;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Major Autohemotherapy (MAH) / EBOO</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;color:#b794f4;margin-bottom:8px;">Phase 2–3 · Immune modulation + latent viral clearance · Clinical administration required</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px;">Ozone therapy (blood withdrawn, ozonated, re-infused) and EBOO (Extracorporeal Blood Oxygenation and Ozonation) produce tri-phasic immune effects: initial oxidative burst followed by antioxidant upregulation and immune rebalancing. Particularly effective for latent viral loads (EBV, CMV) driving immune overdrive.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#e8e4dc;font-size:.88rem;">Vitamin C (liposomal 4–6g/day or IV 25–50g weekly) + NAC 1,200mg/day + alpha-lipoic acid 600mg — produces comparable oxidative signaling cascade and antioxidant rebound</div>
+    </div>
+  </div>
+
+  <span class="cutting-edge-badge">Regenerative Medicine</span>
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:10px;margin-top:8px;">
+    <div style="font-weight:700;color:#fff;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Exosomes — IV or Targeted Delivery</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;color:#b794f4;margin-bottom:8px;">Phase 3–4 · Immune reprogramming · Investigational</div>
+    <p style="color:#9a9aaa;font-size:.88rem;">Nano-sized vesicles from mesenchymal stem cells carrying growth factors, microRNAs, and signaling proteins that directly reprogram immune cell behavior — shifting macrophages from M1 (pro-inflammatory) to M2 (anti-inflammatory, reparative) phenotype. Best used after Phase 2 immune preparation; administering exosomes into a CDR-active environment risks unpredictable signaling.</p>
+  </div>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:20px;">
+    <div style="font-weight:700;color:#fff;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Hyperbaric Oxygen Therapy (HBOT)</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;color:#b794f4;margin-bottom:8px;">Phase 2–4 · Neuroinflammation &amp; long COVID IOS · Clinical administration</div>
+    <p style="color:#9a9aaa;font-size:.88rem;">High-pressure oxygen (1.5–2.0 ATA, 60–90 min sessions) delivers enhanced O2 to hypoxic tissue, stimulates stem cell mobilization, and directly reduces neuroinflammation. Strong evidence in long COVID neurological IOS (Efrati et al., 2022). Protocol: 40 sessions (5/week × 8 weeks) for post-viral IOS. Nutraceutical bridge: methylene blue 0.5–1mg/kg improves mitochondrial oxygen utilization via cytochrome c oxidase activation — similar mitochondrial target to HBOT.</p>
+  </div>
+
+  <span class="cutting-edge-badge">Microbiome</span>
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:20px;margin-top:8px;">
+    <div style="font-weight:700;color:#fff;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">FMT — Fecal Microbiota Transplant</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;color:#b794f4;margin-bottom:8px;">Phase 2–3 · Gut-immune axis · FDA-approved for C. diff; investigational for IOS</div>
+    <p style="color:#9a9aaa;font-size:.88rem;">Transplant of curated donor microbiome. The gut microbiome represents ~70% of immune education in the body — FMT is arguably the most direct immune system reset available. Best pursued only after Phase 1 and Phase 2 have prepared the gut environment. Nutraceutical alternative: Akkermansia muciniphila supplementation + targeted prebiotic stacking (arabinogalactan + partially hydrolyzed guar gum) to restore keystone species.</p>
+  </div>
+
+  <span class="cutting-edge-badge">Vagus Nerve &amp; Neuromodulation</span>
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:8px;margin-top:8px;">
+    <div style="font-weight:700;color:#fff;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Non-Invasive Vagus Nerve Stimulation (nVNS)</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.75rem;color:#b794f4;margin-bottom:8px;">All phases · Immune regulation via cholinergic pathway · FDA-cleared (gammaCore)</div>
+    <p style="color:#9a9aaa;font-size:.88rem;">External transcutaneous VNS (devices like gammaCore) delivers electrical stimulation to the cervical vagus nerve, activating the cholinergic anti-inflammatory pathway. Published evidence in rheumatoid arthritis (Koopman et al., 2016): 87% of patients showed reduction in disease activity and inflammatory markers. Use alongside — not instead of — breathwork. They are complementary pathways to the same immune resolution signal.</p>
+  </div>
+
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════ AHA MOMENTS ═══════════════════════════ -->
@@ -1023,10 +1384,60 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
       <li><strong>Best placed:</strong> Opening of a session about viral triggers or Phase 2 discussion</li>
     </ul>
   </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════ ROVIVE METHOD ═══════════════════════════ -->
 <div id="rovive" class="section">
+
+  <!-- MEDICINE 1.0 / 2.0 / 3.0 — v2.1 -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;">
+    <div style="background:#181b28;border:1px solid #2a2d3e;border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#9a9aaa;margin-bottom:8px;">MEDICINE 1.0</div>
+      <div style="font-weight:700;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em;">Conventional</div>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:16px;margin-bottom:12px;">
+        <li>Sees Hashimoto's, PCOS, and chronic fatigue as separate unrelated conditions</li>
+        <li>Treats downstream: thyroid medication, birth control for PCOS, antidepressants for brain fog</li>
+        <li>Considers labs "normal" and the case closed</li>
+      </ul>
+      <div style="background:rgba(245,166,35,.05);border-left:2px solid rgba(245,166,35,.3);padding:8px 10px;border-radius:3px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#f5a623;letter-spacing:.08em;margin-bottom:4px;">ASSUMPTION WORTH QUESTIONING</div>
+        <div style="color:#9a9aaa;font-size:.82rem;">"Normal labs mean no underlying problem — treat symptoms as they appear."</div>
+      </div>
+    </div>
+    <div style="background:#181b28;border:1px solid #2a2d3e;border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:8px;">MEDICINE 2.0</div>
+      <div style="font-weight:700;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em;">Standard Functional</div>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:16px;margin-bottom:12px;">
+        <li>Identifies gut-immune connection and food sensitivities</li>
+        <li>Adds: DUTCH, GI-MAP, food elimination, adrenal support, foundational supplements</li>
+        <li>Often misses: the CDR sequencing problem — attempting fasting or restriction before the immune burden is cleared</li>
+      </ul>
+      <div style="background:rgba(245,166,35,.05);border-left:2px solid rgba(245,166,35,.3);padding:8px 10px;border-radius:3px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#f5a623;letter-spacing:.08em;margin-bottom:4px;">ASSUMPTION WORTH QUESTIONING</div>
+        <div style="color:#9a9aaa;font-size:.82rem;">"Remove triggers and support detox pathways — the body will heal in roughly the same sequence for most patients."</div>
+      </div>
+    </div>
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#f5a623;margin-bottom:8px;">MEDICINE 3.0</div>
+      <div style="font-weight:700;color:#f5a623;margin-bottom:8px;overflow:visible;padding-bottom:0.1em;">RoVive Method</div>
+      <ul style="color:#e8e4dc;font-size:.9rem;padding-left:16px;margin-bottom:12px;">
+        <li>Names IOS as one unified mechanism connecting all downstream diagnoses</li>
+        <li>Adds: phase-gated 4F sequence (Flush → Feed → Fast → Function) with specific advancement criteria</li>
+        <li>Adds: 3x4 Blueprint genetics for true personalization of every phase</li>
+        <li>Adds: senolytic clearing, biological age tracking (TruAge), Oxandrolone for lean mass preservation</li>
+        <li>Goes all the way: Emotional Root, Spirit &amp; Purpose, homeopathy, frequency medicine</li>
+      </ul>
+      <div style="color:#9a9aaa;font-size:.82rem;font-style:italic;border-top:1px solid rgba(245,166,35,.15);padding-top:10px;">RoVive 3.0 always questions. Always pushes the boundaries while simplifying and going within. No protocol is complete without asking <em>why</em>.</div>
+    </div>
+  </div>
+
   <div class="note-box" style="margin-bottom:24px;"><strong>The RoVive Method applied to Immune Overdrive Syndrome.</strong> We don't add health. We remove what's blocking it. IOS is not a disease you acquire — it's a state your system arrives at after years of accumulation. The Roots → Reveal → Refine → Rise framework maps exactly onto how we resolve it.</div>
 
   <div class="method-step">
@@ -1052,10 +1463,70 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
     <div class="method-title">A Body That Works With You, Not Against You</div>
     <div class="method-body">Rise is not a destination — it's a new baseline. Hormones that respond to therapy they previously ignored. Metabolism that moves because the immune system is no longer governing it. Energy that doesn't require willpower to sustain. Gut that processes food without constant negotiation. Skin that's clear. Cycles that normalize. Brain that's present. Senescent cells cleared. Mitochondria renewed. Biological age markers improving. This is not a fantasy — it's the outcome when we work at the actual root. We don't add health. We remove what was blocking it. And once it's removed, health is what the body naturally expresses.</div>
   </div>
+
+  <!-- EMOTIONAL ROOT — v2.1 -->
+  <div style="margin-top:36px;border-top:1px solid #1e2130;padding-top:28px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:#fbbf24;margin-bottom:16px;">&#9670; THE EMOTIONAL ROOT</div>
+    <div class="emotional-root-box">
+      <div style="color:#e8e4dc;font-size:.92rem;">Physical symptoms are real. And they often have an emotional architecture beneath them — not as weakness, but as the body's intelligence. Unresolved emotional patterns, stored stress, and unconscious adaptations can maintain the very physiology we're trying to change. In IOS specifically, chronic HPA axis activation from unprocessed stress produces measurably the same cytokine profile as active infection. This isn't about blame. It's about completeness.</div>
+    </div>
+    <h3 style="color:#fbbf24;font-family:'Syne',sans-serif;overflow:visible;padding-bottom:0.1em;margin:16px 0 10px;">The Emotional Pattern in IOS</h3>
+    <p style="color:#9a9aaa;margin-bottom:16px;">The most consistent emotional pattern in IOS is long-held chronic stress that was never allowed to resolve — not a single acute trauma, but years of accumulated physiological alarm the nervous system normalized into a baseline. The body learns to live in fight-or-flight, and the immune system mirrors this: permanently on guard, unable to stand down. The IOS patient often describes being "fine" emotionally while physically exhausted — because the adaptation has become invisible to them. The immune system has not adapted. It is still responding to what the nervous system classified as danger, years ago.</p>
+    <p style="color:#9a9aaa;font-style:italic;margin:0 0 16px;">The best approach is the one you believe will work and will actually do. Different people respond to entirely different modalities — that's not noise, it's biology.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Somatic Experiencing (SE) / TRE</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">Addresses the physiology of stored stress directly — through the body, not talk. SE works with incomplete defensive responses stored in the nervous system. TRE uses the body's natural tremor mechanism to release stored muscular tension. Both discharge the physiological charge of chronic stress that standard talk therapy cannot reach.</div>
+      </div>
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">EMDR — Eye Movement Desensitization &amp; Reprocessing</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">Gold-standard trauma processing with multiple RCTs and measurable immune effects post-treatment. Reduces cortisol, improves HRV, and restores the nervous system's ability to complete the stress response cycle. Particularly indicated in IOS with a clear "never well since" history around a specific event or period.</div>
+      </div>
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Expressive Writing / Journaling</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">Pennebaker's foundational studies showed 20 minutes of writing about difficult emotional experiences, three days in a row, reduced IL-6, improved T-cell function, and reduced physician visits over 6 months. The lowest-barrier, evidence-strongest emotional tool available.</div>
+      </div>
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">IFS — Internal Family Systems</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">Works with the internal "parts" that carry stored emotional burdens. Particularly effective for IOS patients with complex adaptive patterns — perfectionism, people-pleasing, chronic anxiety — that represent protective parts developed in response to earlier stress. Creates access to the Self-energy beneath these protections.</div>
+      </div>
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Therapeutic Breathwork</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">Deeper modalities (Holotropic, Clarity Breathwork, Rebirthing) work with the emotional body through sustained altered breathing patterns. Can access and release stored emotional material not available to conscious processing — producing demonstrable nervous system shifts. Best done with a trained facilitator.</div>
+      </div>
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Nervous System Regulation — Polyvagal Practices</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">Titrated daily practices that build the nervous system's capacity to remain in the ventral vagal (safe and connected) state: slow social engagement, safe touch, co-regulation with a trusted person or animal, nature immersion, music that feels safe. The goal is to expand the window of tolerance — not eliminate stress.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════ QUICK REFERENCE ═══════════════════════════ -->
 <div id="qr" class="section">
+
+  <!-- WHERE TO START — v2.1 -->
+  <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);border-radius:10px;padding:16px 20px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px;">&#9670; WHERE TO START</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#68d391;letter-spacing:.08em;margin-bottom:6px;">NEW TO THIS PROTOCOL</div>
+        <div style="color:#e8e4dc;font-size:.9rem;">Do the Screening checklist (Screening tab). If 5+ YES: begin Phase 1 this week. First 7 days: (1) Remove gluten, conventional dairy, seed oils, refined sugar, and alcohol completely. (2) Start Vitamin D3 5,000 IU + K2 200mcg, Fish Oil 4g EPA+DHA, Magnesium bisglycinate 400mg PM. (3) Work toward physician partnership for LDN and Rapamycin.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;letter-spacing:.08em;margin-bottom:6px;">ALREADY DOING THE BASICS</div>
+        <div style="color:#e8e4dc;font-size:.9rem;">Get your baseline labs: hs-CRP, fasting insulin, free T3, sIgA (saliva), IL-6, DUTCH Complete, GI-MAP, TruAge epigenetic clock. Then: 3x4 Blueprint genetics panel — done once, it personalizes every phase, every supplement priority, and every medication decision. The genetics panel is the upgrade that turns a good protocol into YOUR protocol.</div>
+      </div>
+    </div>
+  </div>
+
   <div class="info-box" style="margin-bottom:20px;"><strong>One-page summary of the complete IOS protocol.</strong> Print this. Screenshot it. Bring it to appointments. This is the map.</div>
 
   <h3 style="color:#f5a623;margin-bottom:10px;">Phase Timeline</h3>
@@ -1127,16 +1598,22 @@ h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
   1. Starting Phase 3 fasting before Phase 2 gut healing is complete — produces immune reactivation, not cellular renewal.<br>
   2. Staying low-carb after the Phase 4 FMD window — keeps free T3 suppressed and stalls thyroid, metabolism, and muscle building.<br>
   3. Adding high training volume before Phase 4 maintenance window — training 6x/week in Phases 1–3 re-activates CDR and reverses every phase's work.</div>
+
+  <!-- PER-TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition — not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What's Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
 </div>
 
-<!-- FOOTER -->
-<div class="protocol-footer">
-  ROVIVE METHOD · DR. YOSHI RAHM, D.O. · <a href="https://DrYoshi.com" target="_blank">DrYoshi.com</a><br>
-  FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE<br>
-  Questions about this protocol? Bring them to your next <a href="https://DrYoshi.com" target="_blank">RoVive Wisdom Circle</a> Q&amp;A.
-</div>
+
 
 <script>
+function toggleDigDeeper(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
 function showTab(name, el) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
