@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,6 +123,18 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   .med-grid,.supp-grid{grid-template-columns:1fr;}
   .phase-seq{grid-template-columns:1fr 1fr;}
 }
+
+/* ===== v2.1 UPDATES ===== */
+h1,h2,h3,h4{overflow:visible;}
+.header h1{padding-bottom:0.25em;overflow:visible;line-height:1.15;}
+.assumption-box{background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:6px;padding:14px 18px;margin:20px 0;}
+.assumption-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px;}
+.rwc-lab-tag{display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;}
+.dig-deeper-toggle{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:10px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:12px 0 0;color:#f5a623;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;width:100%;}
+.dig-deeper-toggle::after{content:"\25BC";font-size:.6rem;transition:transform .2s;}
+.dig-deeper-toggle.open::after{transform:rotate(180deg);}
+.dig-deeper-content{display:none;background:rgba(255,255,255,.02);border:1px solid rgba(245,166,35,.1);border-top:none;border-radius:0 0 8px 8px;padding:14px 18px;color:#9a9aaa;font-size:.9rem;}
+.dig-deeper-content.open{display:block;}
 </style>
 </head>
 <body>
@@ -131,21 +142,42 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
 <div class="header">
   <div class="rovive-badge">RoVive Method &middot; Dr. Yoshi Rahm</div>
   <h1>The Longevity <span>Revolution</span></h1>
-  <p>Roots &rarr; Reveal &rarr; Refine &rarr; Rise &middot; The RoVive Method</p>
-  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY &middot; NOT MEDICAL ADVICE &middot; <a href="https://www.DrYoshi.com" style="color:#4a4a5a;text-decoration:none;">www.DrYoshi.com</a></p>
+  <p>Roots &#8594; Reveal &#8594; Refine &#8594; Rise &middot; RoVive Method</p>
+  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY &middot; NOT MEDICAL ADVICE &middot; NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE &middot; <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
 </div>
 
 <div class="tabs">
   <div class="tab active" onclick="showTab('overview',this)">Overview</div>
+  <div class="tab" onclick="showTab('pillars',this)">Great 8 Pillars</div>
   <div class="tab" onclick="showTab('patterns',this)"><span style="color:#fc8181;font-weight:900;">P</span><span style="color:#f5a623;font-weight:900;">A</span><span style="color:#ecc94b;font-weight:900;">T</span><span style="color:#68d391;font-weight:900;">T</span><span style="color:#38b2ac;font-weight:900;">E</span><span style="color:#b794f4;font-weight:900;">R</span><span style="color:#63b3ed;font-weight:900;">N</span><span style="color:#ec4899;font-weight:900;">S</span></div>
   <div class="tab" onclick="showTab('testing',this)">Testing Arsenal</div>
   <div class="tab" onclick="showTab('rovive',this)">RoVive Method</div>
   <div class="tab" onclick="showTab('cutting',this)">Cutting-Edge</div>
   <div class="tab" onclick="showTab('aha',this)">Aha Moments</div>
+  <div class="tab" onclick="showTab('quickref',this)">Quick Reference</div>
 </div>
 
 <!-- ===== OVERVIEW ===== -->
 <div id="overview" class="section active">
+  <!-- v2.1: DOES THIS RESONATE? -->
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:10px;">&#9670; DOES THIS RESONATE?</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">You might be living this pattern if...</p>
+    <ul style="color:#e8e4dc;margin:0;padding-left:18px;line-height:1.8;">
+      <li>You&rsquo;re told your labs are &ldquo;normal&rdquo; but feel nothing like the person you were 10 years ago</li>
+      <li>You&rsquo;re doing all the right things &mdash; eating well, exercising &mdash; but still aging faster than you should</li>
+      <li>Your energy, mental clarity, or body composition have shifted in ways that feel out of your control</li>
+      <li>You&rsquo;ve been prescribed medications to manage symptoms, but no one has asked <em>why</em> those symptoms started</li>
+      <li>You sense that the 16-year gap between healthspan and lifespan is real &mdash; and you refuse to accept it as inevitable</li>
+    </ul>
+  </div>
+  <!-- v2.1: ASSUMPTION WORTH QUESTIONING -->
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; The Assumption Worth Questioning</div>
+    <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:6px;">&ldquo;Aging is inevitable &mdash; it&rsquo;s just something that happens to us.&rdquo;</p>
+    <p style="color:#9a9aaa;font-size:.9rem;">The emerging science of longevity medicine says otherwise. Aging is a biological process with identifiable mechanisms, measurable markers, and addressable drivers. The question isn&rsquo;t whether we age &mdash; it&rsquo;s whether we&rsquo;re giving our biology the precision inputs it needs to slow that process. What would you do differently if you knew your biological age was measurable &mdash; and modifiable?</p>
+  </div>
+
   <div class="note-box" style="margin-bottom:24px;">
     <strong>The Central Question:</strong> Aging is not a collection of separate diseases. It is one unified biological process — measurable, addressable, and in meaningful ways reversible. The question is no longer <em>whether</em> aging can be slowed or reversed. The question is: <strong>which patterns are driving YOUR aging, and what specifically do we do about them?</strong>
   </div>
@@ -269,7 +301,179 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="note-box">
     <strong>Powerful Question:</strong> If you could look at your body&rsquo;s biological aging report card right now &mdash; your actual pace of aging at the cellular level &mdash; and it showed you were aging 6&ndash;8 years faster than your calendar age, what would you do differently starting tomorrow? That test exists. It is DNA methylation and represents your &lsquo;epigenetic clock&rsquo;. And it is modifiable.
   </div>
+  <!-- v2.1: TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
 </div>
+
+<!-- ===== GREAT 8 PILLARS ===== -->
+<div id="pillars" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:6px;">&#9670; THE GREAT 8 PILLARS &mdash; RANKED FOR THE LONGEVITY PROTOCOL</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">These are the eight foundational domains of human health in the RoVive Method. For the Longevity Protocol, they are ranked by their direct leverage on biological aging. All 8 matter &mdash; the ranking shows where to focus first when building your protocol sequence.</div>
+  </div>
+
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px 16px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:6px;">&#9670; HOW TO READ THIS LIST</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">All 8 pillars matter &mdash; always. The ranking reflects where the highest leverage points are for <em>this specific protocol</em>. Pillars ranked #4&ndash;8 are fully built out below; they simply have less direct impact on biological aging than the top three. Your weakest pillar is often your biggest opportunity, regardless of its rank here.</div>
+  </div>
+
+  <!-- PILLAR 1: SLEEP & LIGHT -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;">#1</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Sleep &amp; Light</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Sleep is the single most powerful longevity lever most people ignore. During slow-wave sleep, the glymphatic system clears amyloid-&beta; and tau &mdash; the same proteins that accumulate in Alzheimer&rsquo;s. Growth hormone secretion is 80% nocturnal. CLOCK and BMAL1 circadian genes regulate virtually every aging pathway from telomere maintenance to autophagy. Light exposure (morning sunlight in the first 30&ndash;60 minutes after waking) anchors the entire circadian rhythm and determines cortisol rhythmicity for the following 24 hours. You cannot optimize longevity on poor sleep &mdash; no supplement stack compensates for it.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Target 7&ndash;9 hours with at least 90 minutes of slow-wave sleep. Track with Oura Ring or WHOOP. Morning outdoor light within 30 minutes of waking. No bright overhead lighting after 8pm &mdash; use amber/red spectrum only. Address sleep apnea as a non-negotiable: untreated OSA accelerates biological age at a measurable rate.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Sleep Architecture &amp; Longevity Mechanisms</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Glymphatic System:</strong> The brain&rsquo;s lymphatic equivalent opens ~60% wider during sleep, flushing metabolic waste including amyloid-&beta; (Alzheimer&rsquo;s hallmark) and tau. This process requires adequate sleep depth &mdash; alcohol, benzodiazepines, and cannabis all suppress SWS and block glymphatic clearance.<br><br>
+      <strong style="color:#f5a623;">Circadian Clock Genes:</strong> CLOCK/BMAL1 heterodimers regulate expression of 40&ndash;80% of all protein-coding genes in a rhythmic fashion. When the circadian rhythm is disrupted (shift work, chronic late nights, no morning light), NF-&kappa;B activation increases, telomere attrition accelerates, and mTOR signaling becomes dysregulated.<br><br>
+      <strong style="color:#f5a623;">Growth Hormone Pulse:</strong> The largest HGH pulse of the day occurs in the first 2 hours of sleep, driven by delta-wave slow-wave sleep. HGH drives tissue repair, lipolysis, IGF-1 stimulation, and muscle protein synthesis. Inadequate SWS = inadequate HGH = accelerated body composition and recovery decline.<br><br>
+      <strong style="color:#f5a623;">Light as a Drug:</strong> Morning sunlight (10,000 lux equivalent, outdoor > indoor) sets the cortisol awakening response (CAR), which determines energy, immune function, and mood for the entire day. Evening blue light (phones, overhead LEDs) suppresses melatonin production by up to 99% for 3+ hours, delays circadian phase, and increases cortisol at night when it should be at its nadir.<br><br>
+      <strong style="color:#f5a623;">Interventions:</strong> Magnesium glycinate 300&ndash;500mg nightly (GABA receptor, cortisol regulation); apigenin 50mg (adenosine receptor, non-habit-forming); L-theanine 200mg (relaxation without sedation); melatonin 0.3&ndash;1mg (physiological dose &mdash; NOT 5&ndash;10mg); mouth tape for nasal breathing; cooler sleep environment (65&ndash;67&deg;F optimal); blackout curtains.
+    </div>
+  </div>
+
+  <!-- PILLAR 2: FOOD -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;">#2</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Food</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Food is metabolic signaling, not just fuel. Every meal either activates or suppresses the longevity pathways: mTOR (inhibit for autophagy), AMPK (activate for mitochondrial biogenesis), NRF2 (activate for antioxidant defense), and SIRT1 (activate for DNA repair and metabolic efficiency). Ultra-processed food is the single largest driver of all 8 Aging Patterns simultaneously &mdash; through insulin resistance, gut permeability, mitochondrial dysfunction, and systemic inflammaging. The precision target is not calorie counting &mdash; it is the hormonal and genetic response triggered by the quality, timing, and composition of what you eat.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Prioritize protein 1.2&ndash;1.6g/kg lean body mass (sarcopenia prevention, the #1 aging threat after cardiovascular disease). Eat 30&ndash;40 different plant foods per week (microbiome diversity, NRF2 activation). Time-restrict eating to 8&ndash;10 hours (mTOR inhibition, autophagy induction). Eliminate seed oils &mdash; replace with olive, avocado, butter, tallow. Focus senolytics: fisetin-rich strawberries, quercetin-rich apples and onions, resveratrol-rich grapes and blueberries.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Longevity Nutrition Framework</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">mTOR &amp; Autophagy:</strong> mTORC1 is the master regulator of cell growth and the primary brake on autophagy (cellular self-cleaning). Protein and leucine are the strongest mTOR activators. For longevity, strategic mTOR cycling matters: high protein POST-workout (30&ndash;60 min), time-restricted eating and fasting windows for autophagy induction. Rapamycin is the pharmacological extreme of this strategy.<br><br>
+      <strong style="color:#f5a623;">AMPK Activation:</strong> AMPK is the cellular energy sensor activated by caloric deficit, exercise, cold, and compounds like berberine, resveratrol, and metformin. AMPK activates mitochondrial biogenesis, fatty acid oxidation, and SIRT1. Fasting 12&ndash;16 hours activates AMPK reliably without pharmaceutical intervention.<br><br>
+      <strong style="color:#f5a623;">NRF2 &amp; Hormesis Foods:</strong> NRF2 is the master antioxidant regulator, activated by mildly stressful (hormetic) phytochemicals. Sulforaphane (broccoli sprouts &mdash; 50&ndash;100x more potent than mature broccoli), curcumin, EGCG (green tea), quercetin, and resveratrol are the primary dietary NRF2 activators. 2&ndash;3 tablespoons of fresh broccoli sprouts daily is one of the highest-leverage, lowest-cost longevity interventions available.<br><br>
+      <strong style="color:#f5a623;">Protein Timing &amp; Sarcopenia:</strong> After age 50, leucine threshold rises &mdash; you need 35&ndash;40g protein per meal to trigger muscle protein synthesis (vs 20&ndash;25g at younger ages). Distribute protein across meals rather than concentrating it in one sitting. Leucine-rich sources: whey, eggs, beef, fish, Greek yogurt.<br><br>
+      <strong style="color:#f5a623;">Time-Restricted Eating (TRE):</strong> Confining eating to an 8&ndash;10 hour window without caloric restriction improves insulin sensitivity, reduces hs-CRP, promotes mitochondrial fission/fusion cycling, and activates autophagy. The 12-hour minimum fasting window (7pm&ndash;7am) is the entry-level target for metabolic improvement.
+    </div>
+  </div>
+
+  <!-- PILLAR 3: MOVEMENT -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;">#3</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Movement</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Exercise is the most powerful anti-aging intervention known to science &mdash; adding nearly 7 years to life expectancy in consistent practitioners. It improves virtually every longevity biomarker simultaneously: VO2 max (the single best predictor of all-cause mortality), mitochondrial density, insulin sensitivity, brain-derived neurotrophic factor (BDNF), telomere length, and grip strength (a direct predictor of cardiovascular and cognitive longevity). The protocol is two-zone: Zone 2 for mitochondrial biogenesis + vascular health, resistance training for sarcopenia prevention and hormonal optimization.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Zone 2 cardio: 150&ndash;180 min/week at conversational pace (you can speak in full sentences, HR ~60&ndash;70% max). Resistance training: 2&ndash;4x/week prioritizing compound movements (squat, deadlift, press, pull). VO2 max training: 1x/week with 4&ndash;8 minutes at near-maximal effort (4x4 intervals). Grip strength target: men &gt;40kg, women &gt;25kg. Rucking (weighted walking) is an underrated Zone 2 option that adds resistance benefit simultaneously.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Movement Science for Longevity</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Zone 2 &amp; Mitochondrial Biogenesis:</strong> Zone 2 (lactate threshold 1, ~2 mmol/L) is the intensity that maximally stimulates PGC-1&alpha; &mdash; the master regulator of mitochondrial biogenesis. More mitochondria = more efficient energy production = less oxidative stress per unit of work. Zone 2 also preferentially trains fat oxidation, preserving glycogen and improving metabolic flexibility. Target: 150&ndash;180 min/week minimum, 200+ for significant mitochondrial adaptation.<br><br>
+      <strong style="color:#f5a623;">VO2 Max as a Biomarker:</strong> The Attia/JACC data: individuals in the top quartile of VO2 max have 5x lower all-cause mortality than those in the bottom quartile &mdash; a larger effect size than quitting smoking. VO2 max declines ~10% per decade after 30 without training. With consistent Zone 2 + high-intensity intervals, it can be maintained or improved at any age.<br><br>
+      <strong style="color:#f5a623;">Resistance Training &amp; Sarcopenia:</strong> Muscle mass loss (sarcopenia) begins in the 30s and accelerates dramatically after 60. Sarcopenia is directly correlated with all-cause mortality, falls, insulin resistance, and cognitive decline. Resistance training 2&ndash;4x/week maintains and builds muscle mass, stimulates testosterone and IGF-1, increases bone density, and drives BDNF production.<br><br>
+      <strong style="color:#f5a623;">Anti-inflammatory Myokines:</strong> Contracting muscle releases IL-6 (acutely anti-inflammatory in this context, opposite of chronic), irisin (neuroprotective, activates BDNF, promotes fat browning), BDNF itself (neuroplasticity, reduces Alzheimer&rsquo;s risk), and myostatin inhibitors (muscle growth regulation).<br><br>
+      <strong style="color:#f5a623;">Movement Nutrition Timing:</strong> Post-resistance training is the highest insulin-sensitivity window of the day. Prioritize protein + carbohydrate intake within 30&ndash;60 minutes post-training to maximize muscle protein synthesis and glycogen resynthesis.
+    </div>
+  </div>
+
+  <!-- PILLAR 4: SPIRIT & PURPOSE -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#4</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Spirit &amp; Purpose</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px;">Having a clear sense of purpose in life reduces all-cause mortality by 15&ndash;20% in prospective cohort studies and is associated with longer telomere length, lower cortisol, lower inflammatory markers, and better sleep quality. Whether that&rsquo;s God, your higher self, a deep belief in yourself, or simply what gets you out of bed before the alarm &mdash; this is your animating force. The Okinawan concept of <em>ikigai</em> (reason for being) is associated with significantly lower risk of cardiovascular and all-cause mortality. Identity-level shifts &mdash; moving from patient to health architect &mdash; produce behavioral changes that no supplement can replicate.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Purpose, Identity &amp; Biological Age</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Purpose &amp; Telomere Length:</strong> Higher sense of purpose is associated with longer telomere length (Hill &amp; Turiano, 2014; Boyle et al., 2009). The mechanism is thought to involve HPA axis regulation &mdash; people with strong purpose have more adaptive cortisol rhythmicity, lower chronic stress hormone exposure, and therefore less oxidative stress on telomeres.<br><br>
+      <strong style="color:#f5a623;">Identity as Protocol:</strong> In behavioral medicine, identity-level changes produce more durable lifestyle change than goal-setting. &ldquo;I am someone who exercises&rdquo; vs. &ldquo;I want to exercise more&rdquo; produces different neurological activation and follow-through. Part of the RoVive method is the identity shift from passive patient to active health architect.<br><br>
+      <strong style="color:#f5a623;">Mindset &amp; Immune Function:</strong> The psychoneuroimmunology literature consistently shows that chronic hopelessness and perceived lack of control suppress NK cell activity, reduce secretory IgA, and increase susceptibility to infection and cancer progression. Conversely, positive affect and sense of agency upregulate immune surveillance.
+    </div>
+  </div>
+
+  <!-- PILLAR 5: COMMUNITY & CONNECTION -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#5</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Community &amp; Connection</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px;">The Holt-Lunstad meta-analysis (2015, 148 studies, 300,000+ participants): social isolation increases mortality risk by 29% &mdash; equivalent to smoking 15 cigarettes per day. This is not a soft variable. Loneliness elevates cortisol, raises IL-6 and fibrinogen, suppresses NK cell activity, and accelerates biological age measurable on epigenetic clocks. The Blue Zone data consistently identifies strong social ties and community involvement as among the top longevity predictors &mdash; alongside purpose, diet, and movement. The RoVive Wisdom Circle is, in part, a structured intervention for this pillar.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Social Biology of Aging</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Inflammatory Mechanism:</strong> Chronic loneliness activates the conserved transcriptional response to adversity (CTRA) &mdash; upregulating pro-inflammatory NF-&kappa;B-driven gene expression and downregulating interferon antiviral response genes. In practical terms: lonely people have more inflammation, weaker antiviral immunity, and faster biological aging.<br><br>
+      <strong style="color:#f5a623;">Oxytocin &amp; Longevity:</strong> Social bonding releases oxytocin, which reduces cortisol, lowers blood pressure, inhibits NF-&kappa;B, and promotes parasympathetic nervous system dominance. Touch, laughter, and shared experiences all activate the oxytocin pathway. Physical presence amplifies this effect beyond digital connection.<br><br>
+      <strong style="color:#f5a623;">Accountability Effect:</strong> Social accountability for health behavior is one of the most robust predictors of long-term adherence. Community-based health programs consistently outperform individual-based ones over 12&ndash;24 month timelines.
+    </div>
+  </div>
+
+  <!-- PILLAR 6: ELECTRICAL -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#6</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Electrical</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px;">The body is an electrical system. Mitochondria generate voltage. Cells communicate via bioelectric signals. Light (photobiomodulation), grounding (earthing), PEMF, and red/near-infrared therapy all operate at the level of cellular voltage and electron transfer. Red light therapy (630&ndash;850nm) directly stimulates cytochrome c oxidase in the mitochondrial electron transport chain, increasing ATP production, reducing oxidative stress, and accelerating tissue repair. Morning sunlight exposure (UVA + infrared) is the free, high-leverage entry point. EMF overexposure (particularly non-native artificial light and RF radiation at night) disrupts melatonin synthesis and mitochondrial function.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Photobiomodulation &amp; Bioelectrical Health</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Red Light Therapy (PBM):</strong> 630&ndash;660nm (red) + 810&ndash;850nm (near-infrared) penetrate to different tissue depths. Red reaches superficial tissue (skin, fascia). NIR penetrates to bone, brain, and organs. The primary mechanism: photon absorption by cytochrome c oxidase (COX) in complex IV of the ETC &rarr; releases nitric oxide from COX &rarr; increases electron flow &rarr; more ATP with less ROS. Clinical applications: skin collagen, wound healing, neuroinflammation, testosterone production in testicular tissue, thyroid function.<br><br>
+      <strong style="color:#f5a623;">Grounding / Earthing:</strong> Direct skin-to-earth contact transfers electrons from the Earth&rsquo;s surface into the body. These free electrons act as antioxidants. Studies show grounding reduces cortisol rhythmicity normalization, lowers hs-CRP, reduces blood viscosity (zeta potential of red blood cells improves), and improves sleep onset. Minimum viable dose: 30 minutes barefoot on natural ground daily.<br><br>
+      <strong style="color:#f5a623;">PEMF:</strong> Pulsed electromagnetic field therapy entrains cellular oscillation at frequencies that enhance cellular repair, reduce inflammation, and improve mitochondrial membrane potential. Commonly used for bone healing, pain, and recovery acceleration. The Earth&rsquo;s own Schumann resonance (7.83 Hz) is the reference frequency.<br><br>
+      <strong style="color:#f5a623;">EMF Mitigation:</strong> Non-native EMF (phones, routers, dirty electricity) generates reactive oxygen species in mitochondria, disrupts melatonin synthesis, and in high-exposure scenarios has been linked to biological aging acceleration. Practical steps: phone airplane mode at night, no devices in bedroom, grounding during the day to counterbalance indoor EMF exposure.
+    </div>
+  </div>
+
+  <!-- PILLAR 7: AIR -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#7</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Air</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px;">Most people breathe all day without intention &mdash; and most are doing it wrong. Chronic mouth breathing bypasses the nasal nitric oxide system, reduces CO2 tolerance, activates sympathetic dominance, and impairs sleep quality. Nasal breathing is not a preference; it is a physiological requirement for optimal oxygen delivery and parasympathetic activation. At the environmental level, PM2.5 particulate air pollution accelerates biological aging measurably on epigenetic clocks and is a direct contributor to Patterns 1 (Inflammatory) and 7 (Vascular). Indoor air quality is frequently worse than outdoor in developed countries due to VOCs from building materials, cleaning products, and mold.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Breathwork &amp; Air Quality</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Nasal Nitric Oxide:</strong> The nasal sinuses produce nitric oxide (NO) at concentrations 100x higher than the rest of the airway. NO is a potent vasodilator, antimicrobial agent, and bronchodilator. Nasal breathing delivers NO to the lungs with each breath, improving oxygen uptake and reducing pathogen colonization. Mouth breathing bypasses this system entirely.<br><br>
+      <strong style="color:#f5a623;">CO2 Tolerance (Buteyko):</strong> CO2 is not just a waste gas &mdash; it is the primary trigger for the release of oxygen from hemoglobin (Bohr effect). Low CO2 tolerance (from overbreathing) = worse oxygen delivery to tissues despite normal SpO2 readings. Breathwork practices (4-7-8, box breathing, Buteyko) increase CO2 tolerance and improve HRV.<br><br>
+      <strong style="color:#f5a623;">HRV &amp; Breathing:</strong> Slow breathing at ~5.5&ndash;6 breaths/minute (resonant frequency breathing) maximally activates the baroreflex and increases HRV by entraining cardiorespiratory coupling. This is the highest-leverage breathwork for autonomic nervous system calibration.<br><br>
+      <strong style="color:#f5a623;">Air Quality Interventions:</strong> HEPA filtration (MERV 13+ or HEPA for bedrooms). VOC-reducing plants (not sufficient alone, but additive). Carbon monoxide and radon testing in older homes. Mold assessment &mdash; mycotoxins are a major and underdiagnosed driver of Pattern 3 (Toxic/Burdened). Air out your home daily by opening windows for 10&ndash;15 minutes even in winter.
+    </div>
+  </div>
+
+  <!-- PILLAR 8: WATER -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;">#8</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Water</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px;">Water quality matters as much as quantity. Municipal tap water in most U.S. cities contains chlorine, chloramines, fluoride, pharmaceutical residue, and microplastics. Chronic low-level exposure disrupts thyroid function (fluoride competes with iodine), gut microbiome (chlorine kills bacteria indiscriminately), and hormonal signaling (plastics act as endocrine disruptors). Optimal water is filtered, remineralized, and consumed in adequate quantity (minimum 0.5 oz per pound body weight, more during exercise or sweating). Emerging longevity research on deuterium-depleted water (DDW) suggests that reduced deuterium content optimizes mitochondrial ATP synthase rotation, improving cellular energy efficiency.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Water Quality &amp; Hydration Science</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Filtration:</strong> Reverse osmosis (RO) removes the broadest spectrum of contaminants (fluoride, chlorine, heavy metals, pharmaceuticals, microplastics). Always remineralize post-RO with a mineral concentrate (magnesium, calcium, potassium, trace minerals) since RO strips beneficial minerals alongside harmful ones.<br><br>
+      <strong style="color:#f5a623;">Mineralization:</strong> Magnesium is commonly depleted in municipal water and most people are already deficient. Mineral-rich water (San Pellegrino, Gerolsteiner, Evian) provides bioavailable trace minerals. Adding a pinch of high-quality sea salt or a magnesium bicarbonate solution improves electrolyte balance and hydration at the cellular level.<br><br>
+      <strong style="color:#f5a623;">Deuterium-Depleted Water (DDW):</strong> Deuterium is a heavy hydrogen isotope present in natural water at ~150 ppm. Research by L&oacute;csei and Krempels suggests that elevated deuterium impairs the mitochondrial F0F1-ATP synthase nano-motor, reducing rotational efficiency and ATP yield. DDW (25&ndash;105 ppm deuterium) is used clinically for oncology support and longevity optimization in central European medicine. Still emerging in U.S. functional medicine.<br><br>
+      <strong style="color:#f5a623;">Hydration &amp; Cognition:</strong> Even mild dehydration (1&ndash;2% body weight) measurably impairs short-term memory, attention, and psychomotor speed. For longevity, adequate hydration supports glymphatic function (waste clearance during sleep), joint lubrication, and cardiovascular efficiency. Morning hydration (16&ndash;24 oz upon waking) counteracts the relative dehydration of sleep.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- ===== END GREAT 8 PILLARS ===== -->
+
 
 <!-- ===== PATTERNS ===== -->
 <div id="patterns" class="section">
@@ -291,7 +495,7 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
         <div class="phase-num">1</div>
         <div style="flex:1">
           <div class="phase-title">Inflammatory Pattern &mdash; &ldquo;The Slow Burn&rdquo;</div>
-          <div class="phase-sub">Great 8 Pillars: Nutrition &middot; Immune System &middot; Gut Health &middot; Mind/Stress</div>
+          <div class="phase-sub">Primary Systems: Nutrition &middot; Immune Activation &middot; Gut Health &middot; Mind/Stress</div>
         </div>
         <div class="phase-toggle">&#8250;</div>
       </div>
@@ -366,7 +570,7 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
         <div class="phase-num">2</div>
         <div style="flex:1">
           <div class="phase-title">Atrophic Pattern &mdash; &ldquo;The Slow Disappearance&rdquo;</div>
-          <div class="phase-sub">Great 8 Pillars: Nutrition &middot; Hormones &middot; Energy/Mito &middot; Sleep</div>
+          <div class="phase-sub">Primary Systems: Hormones &middot; Energy/Mito &middot; Nutrition &middot; Sleep</div>
         </div>
         <div class="phase-toggle">&#8250;</div>
       </div>
@@ -459,7 +663,7 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
         <div class="phase-num">3</div>
         <div style="flex:1">
           <div class="phase-title">Toxic Pattern &mdash; &ldquo;The Hidden Burden&rdquo;</div>
-          <div class="phase-sub">Great 8 Pillars: Toxin Load &middot; Gut Health &middot; Energy/Mito</div>
+          <div class="phase-sub">Primary Systems: Toxin Load &middot; Detox Pathways &middot; Energy/Mito</div>
         </div>
         <div class="phase-toggle">&#8250;</div>
       </div>
@@ -549,7 +753,7 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
         <div class="phase-num">4</div>
         <div style="flex:1">
           <div class="phase-title">Metabolic Pattern &mdash; &ldquo;The Energy Crisis&rdquo;</div>
-          <div class="phase-sub">Great 8 Pillars: Energy/Mito &middot; Nutrition &middot; Sleep &middot; Hormones</div>
+          <div class="phase-sub">Primary Systems: Energy/Mito &middot; Metabolic Signaling &middot; Hormones &middot; Sleep</div>
         </div>
         <div class="phase-toggle">&#8250;</div>
       </div>
@@ -648,7 +852,7 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
         <div class="phase-num">5</div>
         <div style="flex:1">
           <div class="phase-title">Barrier Breakdown Pattern &mdash; &ldquo;The Leaky System&rdquo;</div>
-          <div class="phase-sub">Great 8 Pillars: Gut Health &middot; Immune System &middot; Toxin Load</div>
+          <div class="phase-sub">Primary Systems: Gut Barrier &middot; Microbiome &middot; Immune Interface</div>
         </div>
         <div class="phase-toggle">&#8250;</div>
       </div>
@@ -736,7 +940,7 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
         <div class="phase-num">6</div>
         <div style="flex:1">
           <div class="phase-title">Neuroendocrine Pattern &mdash; &ldquo;The Clock Disruption&rdquo;</div>
-          <div class="phase-sub">Great 8 Pillars: Sleep &middot; Hormones &middot; Mind/Stress &middot; Nutrition</div>
+          <div class="phase-sub">Primary Systems: Circadian Rhythms &middot; Hormones &middot; HPA Axis &middot; Sleep</div>
         </div>
         <div class="phase-toggle">&#8250;</div>
       </div>
@@ -825,7 +1029,7 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
         <div class="phase-num">7</div>
         <div style="flex:1">
           <div class="phase-title">Vascular Pattern &mdash; &ldquo;The Plumbing Problem&rdquo;</div>
-          <div class="phase-sub">Great 8 Pillars: Nutrition &middot; Energy/Mito &middot; Mind/Stress &middot; Hormones</div>
+          <div class="phase-sub">Primary Systems: Endothelial Health &middot; Lipid Metabolism &middot; Vascular Tone</div>
         </div>
         <div class="phase-toggle">&#8250;</div>
       </div>
@@ -913,7 +1117,7 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
         <div class="phase-num">8</div>
         <div style="flex:1">
           <div class="phase-title">Immune Pattern &mdash; &ldquo;The Silent Invader&rdquo;</div>
-          <div class="phase-sub">Great 8 Pillars: Immune System &middot; Gut Health &middot; Sleep &middot; Toxin Load</div>
+          <div class="phase-sub">Primary Systems: Immune Senescence &middot; Thymic Function &middot; Gut-Immune Axis</div>
         </div>
         <div class="phase-toggle">&#8250;</div>
       </div>
@@ -989,6 +1193,13 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
     </div>
 
   </div><!-- end phase-grid -->
+  <!-- v2.1: TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
 </div><!-- end patterns section -->
 
 <!-- ===== TESTING ARSENAL ===== -->
@@ -1016,11 +1227,11 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="lab-section">
     <div class="lab-title">Biological Age Clocks &mdash; Know Your True Pace of Aging</div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">TruAge Complete (TruDiagnostic) &mdash; DNA Methylation Clock</div><div class="lab-range">Biological age &lt; chronological age</div></div>
+      <div class="lab-card-header"><div class="lab-marker">TruAge Complete (TruDiagnostic) &mdash; DNA Methylation Clock <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Biological age &lt; chronological age</div></div>
       <div class="lab-card-note">The gold standard for measuring biological aging and whether your interventions are actually working. Tests your TruAge, DunedinPACE (rate of aging &mdash; how fast you are aging right now), and multiple tissue-specific age clocks. Retest every 6&ndash;12 months to track progress objectively. This is the most comprehensive commercially available epigenetic aging panel.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">DunedinPACE &mdash; Rate of Aging Clock</div><div class="lab-range">Optimal: &le;1.0 (1.0 = aging at chronological rate)</div></div>
+      <div class="lab-card-header"><div class="lab-marker">DunedinPACE &mdash; Rate of Aging Clock <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &le;1.0 (1.0 = aging at chronological rate)</div></div>
       <div class="lab-card-note">DunedinPACE measures your current speed of aging &mdash; not just your biological age, but how fast you are accumulating it. A score of 0.8 means you are aging 20% slower than your chronological rate; 1.2 means 20% faster. Highly responsive to lifestyle interventions. This is the clock that proves whether your protocol is working.</div>
     </div>
     <div class="lab-card">
@@ -1040,23 +1251,23 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="lab-section">
     <div class="lab-title">Inflammatory Burden</div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">hs-CRP (High-Sensitivity C-Reactive Protein)</div><div class="lab-range">Optimal: &lt;0.5 mg/L &middot; Acceptable: &lt;1.0 mg/L</div></div>
+      <div class="lab-card-header"><div class="lab-marker">hs-CRP (High-Sensitivity C-Reactive Protein) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &lt;0.5 mg/L &middot; Acceptable: &lt;1.0 mg/L</div></div>
       <div class="lab-card-note">Most widely available inflammation marker. Anything above 1.0 warrants attention; above 3.0 indicates significantly elevated cardiovascular and aging risk. Rises with infection, injury, and stress &mdash; retest after illness. One of the most responsive markers to dietary and lifestyle change. Retest every 3&ndash;6 months when actively reducing inflammation.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Homocysteine</div><div class="lab-range">Optimal: &lt;7 &micro;mol/L &middot; Acceptable: &lt;10 &micro;mol/L</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Homocysteine <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &lt;7 &micro;mol/L &middot; Acceptable: &lt;10 &micro;mol/L</div></div>
       <div class="lab-card-note">Elevated homocysteine damages blood vessel walls, contributes to brain atrophy, and independently predicts cardiovascular and Alzheimer&rsquo;s risk. Most commonly driven by B12, B6, folate, or riboflavin deficiency. Responds rapidly to methylated B vitamins. Often elevated in people eating &ldquo;healthy&rdquo; who have never checked B vitamin status.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">IL-6 (Interleukin-6)</div><div class="lab-range">Optimal: &lt;1.8 pg/mL</div></div>
+      <div class="lab-card-header"><div class="lab-marker">IL-6 (Interleukin-6) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &lt;1.8 pg/mL</div></div>
       <div class="lab-card-note">A key inflammaging cytokine. Elevated IL-6 predicts mortality risk, cognitive decline, and sarcopenia. Not always included in standard panels &mdash; request it specifically. Senescent cells (SASP) are a primary source and make this a Pattern 1 and Pattern 2 overlap marker.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Cytokine Panel: TNF-&alpha;, IL-1&beta;, IL-17</div><div class="lab-range">Within low-normal reference ranges</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Cytokine Panel: TNF-&alpha;, IL-1&beta;, IL-17 <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Within low-normal reference ranges</div></div>
       <div class="lab-card-note">Characterizes the specific inflammatory signature beyond a single marker. TNF-&alpha; is prominent in gut-driven and senescent cell-driven inflammation. IL-1&beta; drives neuroinflammation. IL-17 indicates Th17 overactivation often seen in Pattern 8. Knowing <em>which</em> cytokines are elevated directs the intervention.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Oxidized LDL (OxLDL)</div><div class="lab-range">Optimal: &lt;60 U/L</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Oxidized LDL (OxLDL) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &lt;60 U/L</div></div>
       <div class="lab-card-note">Standard LDL cholesterol does not indicate cardiovascular risk well. Oxidized LDL &mdash; LDL particles damaged by oxidative stress &mdash; is directly causative of atherosclerotic plaque formation. A far better cardiovascular risk marker than total LDL alone.</div>
     </div>
   </div>
@@ -1064,19 +1275,19 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="lab-section">
     <div class="lab-title">Metabolic &amp; Mitochondrial Function</div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Fasting Glucose + Fasting Insulin + HOMA-IR</div><div class="lab-range">Glucose: &lt;90 &middot; Insulin: &lt;5 &micro;IU/mL &middot; HOMA-IR: &lt;1.5</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Fasting Glucose + Fasting Insulin + HOMA-IR <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Glucose: &lt;90 &middot; Insulin: &lt;5 &micro;IU/mL &middot; HOMA-IR: &lt;1.5</div></div>
       <div class="lab-card-note">Fasting glucose alone misses early insulin resistance. Fasting insulin reveals this years earlier. HOMA-IR = (glucose &times; insulin) / 405. The most overlooked lab in medicine. Insulin of 10+ with &ldquo;normal&rdquo; glucose means insulin resistance is already present. This single test reframes the conversation for most Pattern 4 members.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">HbA1c (Glycated Hemoglobin)</div><div class="lab-range">Optimal: &lt;5.3% &middot; Acceptable: &lt;5.7%</div></div>
+      <div class="lab-card-header"><div class="lab-marker">HbA1c (Glycated Hemoglobin) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &lt;5.3% &middot; Acceptable: &lt;5.7%</div></div>
       <div class="lab-card-note">3-month average blood sugar picture. Above 5.7% = pre-diabetes (affects ~1 in 3 American adults). Optimal aging is below 5.3%. Every 0.1% increase above 5.4% is associated with measurable increases in cardiovascular, cognitive, and cancer risk. Highly modifiable through diet, exercise, and targeted supplementation.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Organic Acids Test (OAT)</div><div class="lab-range">Within reference ranges for all metabolites</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Organic Acids Test (OAT) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Within reference ranges for all metabolites</div></div>
       <div class="lab-card-note">Urine test assessing mitochondrial function (Krebs cycle intermediates, ETC dysfunction markers), neurotransmitter metabolism, B vitamin status, gut dysbiosis markers, and oxidative stress. One of the most information-rich functional labs available. A Pattern 4 essential that also reveals Pattern 3 and Pattern 6 overlap.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">CoQ10 (Serum)</div><div class="lab-range">Optimal: 1.0&ndash;2.5 &micro;g/mL</div></div>
+      <div class="lab-card-header"><div class="lab-marker">CoQ10 (Serum) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: 1.0&ndash;2.5 &micro;g/mL</div></div>
       <div class="lab-card-note">Mitochondrial electron carrier status. Critically important for anyone on statin medications (statins deplete CoQ10 via the same mevalonate pathway). Low CoQ10 directly impairs ATP production and is a correctable cause of statin-associated myopathy and fatigue.</div>
     </div>
     <div class="lab-card">
@@ -1092,19 +1303,19 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="lab-section">
     <div class="lab-title">Hormones &amp; Neuroendocrine</div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">DUTCH Complete (Dried Urine)</div><div class="lab-range">Cortisol awakening response: 2&ndash;3&times; baseline rise</div></div>
+      <div class="lab-card-header"><div class="lab-marker">DUTCH Complete (Dried Urine) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Cortisol awakening response: 2&ndash;3&times; baseline rise</div></div>
       <div class="lab-card-note">The most comprehensive hormone panel available. Maps free cortisol and cortisone across the full 24-hour cycle (including the critical cortisol awakening response), sex hormone metabolites (not just parent hormones), melatonin, and key neurotransmitter metabolites. This is the test that differentiates burnout, hyperactivation, and clearance issues in Pattern 6 &mdash; each requiring a different protocol.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Full Thyroid: TSH + Free T3 + Free T4 + Reverse T3 + TPO + TG Antibodies</div><div class="lab-range">Free T3 optimal: 3.5&ndash;4.2 pg/mL &middot; TSH: 1.0&ndash;2.0 &micro;IU/mL</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Full Thyroid: TSH + Free T3 + Free T4 + Reverse T3 + TPO + TG Antibodies <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Free T3 optimal: 3.5&ndash;4.2 pg/mL &middot; TSH: 1.0&ndash;2.0 &micro;IU/mL</div></div>
       <div class="lab-card-note">Most physicians test only TSH. A normal TSH can coexist with low Free T3 (the active hormone), elevated Reverse T3 (the blocking hormone), or autoimmune thyroiditis (elevated TPO antibodies). A single TSH number misses the most clinically relevant thyroid information. Always order the full panel.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Sex Hormones: Full Panel (Men and Women)</div><div class="lab-range">Men: Total T optimal 600&ndash;900+ ng/dL &middot; Women: phase-appropriate</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Sex Hormones: Full Panel (Men and Women) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Men: Total T optimal 600&ndash;900+ ng/dL &middot; Women: phase-appropriate</div></div>
       <div class="lab-card-note">Men: Total testosterone, free testosterone, SHBG, estradiol, LH, FSH. A total T of 280 ng/dL is a deficiency &mdash; conventional ranges include 80-year-olds. Women: Estradiol, progesterone, total T, free T, DHEA-S. All are relevant to muscle, bone, brain, mood, and metabolic health in perimenopause and beyond. Progesterone is the primary sleep hormone in women and often the first to decline.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">IGF-1 (Insulin-like Growth Factor-1)</div><div class="lab-range">Age-appropriate optimal ranges (not just &ldquo;normal&rdquo;)</div></div>
+      <div class="lab-card-header"><div class="lab-marker">IGF-1 (Insulin-like Growth Factor-1) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Age-appropriate optimal ranges (not just &ldquo;normal&rdquo;)</div></div>
       <div class="lab-card-note">GH axis proxy and regenerative capacity surrogate. Declines with age and is directly linked to muscle preservation, bone density, and tissue repair capacity (Pattern 2). IGF-1 at the lower end of &ldquo;normal&rdquo; in a 50-year-old may reflect a GH axis that is functionally compromised.</div>
     </div>
     <div class="lab-card">
@@ -1116,23 +1327,23 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="lab-section">
     <div class="lab-title">Barrier &amp; Microbiome</div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">GI-MAP (Comprehensive Stool PCR Analysis)</div><div class="lab-range">Diverse microbiome; no pathogens; optimal commensals</div></div>
+      <div class="lab-card-header"><div class="lab-marker">GI-MAP (Comprehensive Stool PCR Analysis) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Diverse microbiome; no pathogens; optimal commensals</div></div>
       <div class="lab-card-note">PCR-based stool analysis identifies pathogens (H. pylori, parasites, C. difficile), dysbiosis patterns (bacterial/yeast overgrowth), inflammatory markers (calprotectin), and immune markers (SIgA). Far more sensitive than culture-based stool testing. The Pattern 5 essential panel.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Zonulin (Intestinal Permeability)</div><div class="lab-range">Optimal: &lt;22 ng/mL</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Zonulin (Intestinal Permeability) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &lt;22 ng/mL</div></div>
       <div class="lab-card-note">Protein that regulates tight junctions in the gut lining. Elevated zonulin = increased gut permeability (&ldquo;leaky gut&rdquo;). Measurable in serum or stool. This single number explains the systemic inflammation, food sensitivities, and brain fog that conventional medicine attributes to separate conditions.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Calprotectin + SIgA</div><div class="lab-range">Calprotectin: &lt;50 &micro;g/g &middot; SIgA: within reference range</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Calprotectin + SIgA <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Calprotectin: &lt;50 &micro;g/g &middot; SIgA: within reference range</div></div>
       <div class="lab-card-note">Calprotectin quantifies intestinal inflammation (elevated in IBD, active dysbiosis, infection). SIgA is the primary mucosal immune defense protein &mdash; low SIgA indicates a vulnerable mucosal barrier. Together they characterize the inflammatory and immune state of the gut lining.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">LPS / Endotoxin Antibodies</div><div class="lab-range">Below reference threshold</div></div>
+      <div class="lab-card-header"><div class="lab-marker">LPS / Endotoxin Antibodies <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Below reference threshold</div></div>
       <div class="lab-card-note">Evidence of active bacterial LPS translocation from the gut into systemic circulation. The presence of LPS antibodies confirms active gut-driven inflammaging &mdash; the mechanism connecting leaky gut to cardiovascular disease, Alzheimer&rsquo;s, metabolic syndrome, and accelerated aging.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Food Sensitivity Panel (IgG/IgA)</div><div class="lab-range">Minimal high-reactivity foods</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Food Sensitivity Panel (IgG/IgA) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Minimal high-reactivity foods</div></div>
       <div class="lab-card-note">A secondary consequence of gut permeability &mdash; not a primary diagnostic tool. New-onset food sensitivities in adulthood virtually always reflect increased permeability, not new allergies. Used to guide an elimination protocol while barrier repair is underway. These sensitivities often resolve as the barrier is restored.</div>
     </div>
   </div>
@@ -1140,15 +1351,15 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="lab-section">
     <div class="lab-title">Cardiovascular Risk &mdash; Beyond Standard Lipids</div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">ApoB (Apolipoprotein B)</div><div class="lab-range">Optimal: &lt;70 mg/dL &middot; Low-risk: &lt;90 mg/dL</div></div>
+      <div class="lab-card-header"><div class="lab-marker">ApoB (Apolipoprotein B) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &lt;70 mg/dL &middot; Low-risk: &lt;90 mg/dL</div></div>
       <div class="lab-card-note">ApoB counts total atherogenic particle number &mdash; one ApoB per LDL, VLDL, and IDL particle. Far superior cardiovascular risk predictor than LDL-C. Someone can have &ldquo;normal&rdquo; LDL cholesterol with dangerously high ApoB if they have small, dense particles. The primary lipid marker worth optimizing according to current longevity medicine consensus.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Lp(a) &mdash; Lipoprotein (little-a)</div><div class="lab-range">Optimal: &lt;30 mg/dL &middot; Caution: &gt;50 mg/dL</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Lp(a) &mdash; Lipoprotein (little-a) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Optimal: &lt;30 mg/dL &middot; Caution: &gt;50 mg/dL</div></div>
       <div class="lab-card-note">A genetically determined cardiovascular risk factor not modifiable by standard diet or medications. Elevated Lp(a) (present in ~20% of the population) significantly increases heart attack and stroke risk. Everyone should know their Lp(a) &mdash; test once, as it does not change meaningfully with interventions.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">APOE Genotype</div><div class="lab-range">APOE3/3 most common (lowest risk)</div></div>
+      <div class="lab-card-header"><div class="lab-marker">APOE Genotype <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">APOE3/3 most common (lowest risk)</div></div>
       <div class="lab-card-note">Most significant known genetic risk factor for late-onset Alzheimer&rsquo;s disease. APOE4/4 carriers have 8&ndash;12&times; elevated Alzheimer&rsquo;s risk. Also modifies cardiovascular lipid metabolism significantly. APOE4 carriers benefit from different dietary strategies and earlier cognitive monitoring. Test once &mdash; not for fatalism, but for targeted prevention.</div>
     </div>
     <div class="lab-card">
@@ -1164,19 +1375,19 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="lab-section">
     <div class="lab-title">Genomic &amp; Epigenetic</div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">MTHFR + COMT + Full Methylation Panel</div><div class="lab-range">Identify variants; optimize accordingly</div></div>
+      <div class="lab-card-header"><div class="lab-marker">MTHFR + COMT + Full Methylation Panel <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Identify variants; optimize accordingly</div></div>
       <div class="lab-card-note">MTHFR variants impair folate/homocysteine metabolism &mdash; directly affecting methylation, DNA repair, and neurotransmitter synthesis. COMT variants affect dopamine/estrogen catabolism, stress response, and BDNF production. Full methylation pathway mapping identifies which specific nutrient cofactors are rate-limiting. Test once; apply for life.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Full SNP Panel (Epigenetic Biomarker Proxies)</div><div class="lab-range">Identify clinically actionable variants</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Full SNP Panel (Epigenetic Biomarker Proxies) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Identify clinically actionable variants</div></div>
       <div class="lab-card-note">Broader genetic screening beyond APOE and MTHFR. Identifies variants affecting detoxification capacity (CYP450 enzymes), vitamin D metabolism, omega-3 utilization, circadian gene function (CLOCK variants), and inflammatory response regulation. These inform lifetime protocol decisions &mdash; not weekly choices, but lifetime tendencies to work with.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Heavy Metals (Urine Provocation or RBC)</div><div class="lab-range">Below reference range for all metals</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Heavy Metals (Urine Provocation or RBC) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Below reference range for all metals</div></div>
       <div class="lab-card-note">Mercury, lead, arsenic, and cadmium accumulate silently over decades and drive significant mitochondrial dysfunction, immune disruption, and neurological damage. Provocation testing with DMPS or DMSA unmasks stored body burden more accurately than baseline blood or urine testing. Hair mineral analysis is useful for ongoing exposure patterns.</div>
     </div>
     <div class="lab-card">
-      <div class="lab-card-header"><div class="lab-marker">Mycotoxins (Urine)</div><div class="lab-range">Below detection limits for all major mycotoxins</div></div>
+      <div class="lab-card-header"><div class="lab-marker">Mycotoxins (Urine) <span style="display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;">&#10003; RWC Lab Store</span></div><div class="lab-range">Below detection limits for all major mycotoxins</div></div>
       <div class="lab-card-note">Mold toxins (ochratoxin A, trichothecenes, gliotoxin, aflatoxins) cause mitochondrial disruption, immune suppression, and neurological symptoms indistinguishable from other causes. Missed in virtually all conventional workups. Essential if any history of water-damaged building exposure, or if fatigue and brain fog persist despite other interventions.</div>
     </div>
   </div>
@@ -1184,6 +1395,13 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="success-box" style="margin-top:24px;">
     <strong>Sequencing Your Testing:</strong> Do not order everything at once. Start with the most impactful tier: hs-CRP + homocysteine + fasting insulin + HbA1c + full thyroid + sex hormones + Vitamin D + ApoB + Lp(a) + APOE. This foundational panel establishes your Pattern signatures. Add biological age clocks (TruDiagnostic or GlycanAge) to set your baseline. Expand with OAT, DUTCH, stool analysis, and genomic panels based on identified patterns. Use the RoVive Guide at <a href="https://www.DrYoshi.com" style="color:#68d391;">www.DrYoshi.com</a> to sequence your testing intelligently.
   </div>
+  <!-- v2.1: TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
 </div>
 
 <!-- ===== ROVIVE PROTOCOL METHOD ===== -->
@@ -1345,6 +1563,13 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
     <div class="lab-card-header"><div class="lab-marker">Ashwagandha KSM-66</div><div class="lab-range">600mg daily (evening) &middot; Cycle 8 weeks on / 2 weeks off</div></div>
     <div class="lab-card-note">Best-studied adaptogen for cortisol modulation. 600mg KSM-66 extract has been shown to reduce cortisol by 27&ndash;30%, increase testosterone in men, support thyroid function, and improve resistance training outcomes and recovery. Cycling prevents receptor desensitization. Particularly important in Pattern 6 (HPA dysregulation).</div>
   </div>
+  <!-- v2.1: TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
 </div>
 
 <!-- ===== CUTTING-EDGE THERAPIES ===== -->
@@ -1466,6 +1691,13 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="note-box" style="margin-top:24px;">
     <strong>RoVive Positioning:</strong> Cutting-edge therapies are Phase 3&ndash;4 tools. They do not replace Phase 1&ndash;2 foundational work. A plasmapheresis session on a sleep-deprived, hormonally deficient, nutrient-depleted body produces a fraction of the result it would on a body that has completed Phases 1 and 2. Sequence matters. Use the RoVive Guide to determine which of these tools belong in your protocol and when.
   </div>
+  <!-- v2.1: TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
 </div>
 
 <!-- ===== AHA MOMENTS ===== -->
@@ -1619,14 +1851,179 @@ p.body-text{font-size:.85rem;color:#c8c4bc;line-height:1.7;margin-bottom:10px;}
   <div class="success-box">
     <strong>How to use these insights:</strong> These are not conversation closers &mdash; they are conversation openers. Each one is a thread you can pull. Bring them to your RoVive Guide at <a href="https://www.DrYoshi.com" style="color:#68d391;">DrYoshi.com</a> and ask: &ldquo;Based on my patterns, which of these is most relevant to me? What should I do about it?&rdquo; The Guide will remember your history and give you a precision answer &mdash; not a generic one.
   </div>
+  <!-- v2.1: TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
 </div>
+
+<!-- ===== QUICK REFERENCE ===== -->
+<div id="quickref" class="section">
+
+  <div class="note-box" style="margin-bottom:24px;">
+    <strong>One-page summary.</strong> Everything you need at a glance — patterns, phases, top labs, core stack, and red flags. Screenshot or print this tab for your reference file.
+  </div>
+
+  <h4 style="margin-top:0;">The 8 Aging Patterns — At a Glance</h4>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-bottom:24px;">
+    <div style="background:#131620;border:1px solid #1e2130;border-left:3px solid #fc8181;border-radius:8px;padding:10px 12px;">
+      <div style="font-weight:700;font-size:.82rem;color:#fc8181;margin-bottom:3px;">P1 — Inflammatory</div>
+      <div style="font-size:.74rem;color:#9a9aaa;line-height:1.5;">NF-kB · SASP · gut endotoxemia<br><em>Key labs: hs-CRP, IL-6, homocysteine</em></div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-left:3px solid #f5a623;border-radius:8px;padding:10px 12px;">
+      <div style="font-weight:700;font-size:.82rem;color:#f5a623;margin-bottom:3px;">P2 &mdash; Atrophic</div>
+      <div style="font-size:.74rem;color:#9a9aaa;line-height:1.5;">Stem cell loss &middot; sarcopenia &middot; telomere attrition<br><em>Key labs: IGF-1, DEXA, grip strength</em></div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-left:3px solid #ecc94b;border-radius:8px;padding:10px 12px;">
+      <div style="font-weight:700;font-size:.82rem;color:#ecc94b;margin-bottom:3px;">P3 &mdash; Toxic / Burdened</div>
+      <div style="font-size:.74rem;color:#9a9aaa;line-height:1.5;">Autophagy failure &middot; ROS &middot; NRF2 suppression<br><em>Key labs: heavy metals, mycotoxins, OAT</em></div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-left:3px solid #68d391;border-radius:8px;padding:10px 12px;">
+      <div style="font-weight:700;font-size:.82rem;color:#68d391;margin-bottom:3px;">P4 &mdash; Metabolic</div>
+      <div style="font-size:.74rem;color:#9a9aaa;line-height:1.5;">AMPK-mTOR &middot; NAD+ decline &middot; insulin resistance<br><em>Key labs: fasting insulin, HOMA-IR, VO2 max</em></div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-left:3px solid #38b2ac;border-radius:8px;padding:10px 12px;">
+      <div style="font-weight:700;font-size:.82rem;color:#38b2ac;margin-bottom:3px;">P5 &mdash; Barrier Breakdown</div>
+      <div style="font-size:.74rem;color:#9a9aaa;line-height:1.5;">Dysbiosis &middot; tight junction loss &middot; LPS<br><em>Key labs: GI-MAP, zonulin, calprotectin</em></div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-left:3px solid #b794f4;border-radius:8px;padding:10px 12px;">
+      <div style="font-weight:700;font-size:.82rem;color:#b794f4;margin-bottom:3px;">P6 &mdash; Neuroendocrine</div>
+      <div style="font-size:.74rem;color:#9a9aaa;line-height:1.5;">CLOCK/BMAL1 &middot; kisspeptin &middot; HPA axis<br><em>Key labs: DUTCH, full thyroid, sex hormones</em></div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-left:3px solid #63b3ed;border-radius:8px;padding:10px 12px;">
+      <div style="font-weight:700;font-size:.82rem;color:#63b3ed;margin-bottom:3px;">P7 &mdash; Vascular</div>
+      <div style="font-size:.74rem;color:#9a9aaa;line-height:1.5;">eNOS uncoupling &middot; glycocalyx loss &middot; OxLDL<br><em>Key labs: ApoB, Lp(a), CAC score, CIMT</em></div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-left:3px solid #ec4899;border-radius:8px;padding:10px 12px;">
+      <div style="font-weight:700;font-size:.82rem;color:#ec4899;margin-bottom:3px;">P8 &mdash; Immune</div>
+      <div style="font-size:.74rem;color:#9a9aaa;line-height:1.5;">Thymic involution &middot; NK decline &middot; viral reactivation<br><em>Key labs: CD4/CD8, NK function, EBV/CMV titers</em></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h4>4-Phase Protocol Sequence</h4>
+  <div class="phase-seq" style="margin-bottom:24px;">
+    <div class="phase-seq-card" style="border-left:3px solid #f5a623;">
+      <div class="phase-seq-num">Phase 1</div>
+      <div class="phase-seq-title">RESTORE</div>
+      <div class="phase-seq-text">Fix the foundation: nutrients, sleep, hormones, microbiome primer. Nothing advanced works on a broken base.</div>
+    </div>
+    <div class="phase-seq-card" style="border-left:3px solid #63b3ed;">
+      <div class="phase-seq-num">Phase 2</div>
+      <div class="phase-seq-title">REMOVE</div>
+      <div class="phase-seq-text">Reduce total burden: metals, mycotoxins, gut pathogens, senescent cells, chronic infections, toxic exposome.</div>
+    </div>
+    <div class="phase-seq-card" style="border-left:3px solid #68d391;">
+      <div class="phase-seq-num">Phase 3</div>
+      <div class="phase-seq-title">REESTABLISH</div>
+      <div class="phase-seq-text">Rebuild depleted systems: 4Rs gut repair, hormone optimization, NAD+ repletion, immune calibration, circadian rhythm.</div>
+    </div>
+    <div class="phase-seq-card" style="border-left:3px solid #b794f4;">
+      <div class="phase-seq-num">Phase 4</div>
+      <div class="phase-seq-title">REJUVENATE</div>
+      <div class="phase-seq-text">Activate regeneration: peptides, senolytics, MSCs/exosomes, biological age clock tracking, off-label agents.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h4>First-Line Lab Panel (Start Here)</h4>
+  <div class="note-box" style="margin-bottom:16px;">Order in this sequence &mdash; establishes your Pattern signatures before expanding to functional panels.
+    <ul class="quick-wins" style="margin-top:8px;">
+      <li>hs-CRP &middot; homocysteine &middot; fasting insulin &middot; HbA1c (Patterns 1, 4)</li>
+      <li>Full thyroid: TSH + Free T3 + Free T4 + Reverse T3 + TPO/TG antibodies (Pattern 6)</li>
+      <li>Sex hormones: testosterone (free/total), estradiol, progesterone, DHEA-S (Pattern 6)</li>
+      <li>Vitamin D 25-OH &middot; ApoB &middot; Lp(a) &middot; APOE genotype (Patterns 1, 7)</li>
+      <li>Biological age clock: TruDiagnostic or GlycanAge &mdash; set your baseline, retest every 6&ndash;12 months</li>
+      <li>Then expand: OAT, DUTCH, GI-MAP, heavy metals, mycotoxins &mdash; based on which Patterns are active</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <h4>Core Supplement Stack &mdash; Phase 1&ndash;2 Baseline</h4>
+  <div class="med-grid" style="margin-bottom:24px;">
+    <div class="med-card">
+      <div class="med-name">Magnesium Glycinate or Threonate</div>
+      <div class="med-dose">300&ndash;500mg elemental &middot; at night</div>
+      <div class="med-why">Cofactor for 300+ enzymes. Glycinate = sleep/relaxation. Threonate = brain-penetrating cognitive support. GABA receptor activation, cortisol regulation, ATP synthesis.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Vitamin D3 + K2 (MK-7)</div>
+      <div class="med-dose">D3: 5,000&ndash;10,000 IU &middot; K2: 100&ndash;200mcg &middot; Target: 60&ndash;80 ng/mL</div>
+      <div class="med-why">Functions as a steroid hormone &mdash; binds nuclear receptors, regulates 2,000+ genes. Always combine with K2 MK-7. Test first; monitor Ca &amp; PTH if &gt;5,000 IU long-term.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Omega-3 EPA + DHA (triglyceride form)</div>
+      <div class="med-dose">2&ndash;4g combined EPA+DHA daily &middot; Target Omega-3 Index &gt;8%</div>
+      <div class="med-why">Endothelial membrane fluidity, anti-inflammatory prostaglandins, neuroprotection. Triglyceride form = superior absorption. Take with fat-containing meal.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Methylated B Complex</div>
+      <div class="med-dose">Methylcobalamin + L-methylfolate + P5P</div>
+      <div class="med-why">MTHFR variants (~50% of population) require active methylated forms. Directly lower homocysteine, support neurotransmitter synthesis, DNA methylation homeostasis.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Zinc (Bisglycinate) + Copper</div>
+      <div class="med-dose">Zinc: 20&ndash;30mg &middot; Copper: 1&ndash;2mg &middot; always pair long-term</div>
+      <div class="med-why">T-cell maturation, NK activation, thymic hormone production, testosterone synthesis. Long-term zinc alone depletes copper &mdash; always pair.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">CoQ10 (Ubiquinol)</div>
+      <div class="med-dose">100&ndash;300mg daily &middot; higher on statins</div>
+      <div class="med-why">Mitochondrial ETC component. Ubiquinol has superior bioavailability over ubiquinone after 40. Essential for anyone on statin therapy.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Quercetin + Fisetin (Senolytic Stack)</div>
+      <div class="med-dose">Quercetin: 500mg daily or pulsed 1,500mg &times; 2 days/month<br>Fisetin: 20mg/kg &times; 2 consecutive days/month</div>
+      <div class="med-why">Natural senolytics &mdash; selectively clear senescent (zombie) cells driving SASP and chronic inflammation. Also zinc ionophores for immune activation.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name">Ashwagandha KSM-66</div>
+      <div class="med-dose">600mg nightly &middot; cycle 8 weeks on / 2 weeks off</div>
+      <div class="med-why">Reduces cortisol 27&ndash;30%, supports testosterone in men, thyroid modulation, improves resistance training recovery and outcomes.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h4>Top 3 Failure Points</h4>
+  <div class="warning-box" style="margin-bottom:12px;">
+    <strong>1. Skipping Phase 1&ndash;2 and jumping to Phase 4.</strong> Peptides, MSCs, and longevity pharmaceuticals on a sleep-deprived, nutrient-depleted, toxin-burdened body produce a fraction of the result. The sequence is the protocol.
+  </div>
+  <div class="warning-box" style="margin-bottom:12px;">
+    <strong>2. Treating inflammation without finding the source.</strong> Suppressing hs-CRP with supplements while the fire (SASP, gut endotoxin, mold, chronic infection) burns on is not treatment &mdash; it is smoke alarm management.
+  </div>
+  <div class="warning-box" style="margin-bottom:24px;">
+    <strong>3. Using reference ranges as optimization targets.</strong> &ldquo;Normal for your age&rdquo; is not a health goal. Reference ranges are built from a sick population. Always push toward functional optimal &mdash; not the median of people who are already unwell.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="success-box">
+    <strong>The RoVive Mission for This Protocol:</strong> Aging is one mechanism &mdash; measurable, addressable, and in meaningful ways reversible. We do not wait for pathology. We identify the Aging Signature early, sequence the intervention correctly, and track biological age clocks to prove the protocol is working. This is Medicine 3.0 &mdash; not 15-minute appointments, not generic supplements, and not waiting until something breaks to pay attention. Visit <a href="https://DrYoshi.com" target="_blank" style="color:#68d391;">DrYoshi.com</a> to bring these protocols into your personalized RoVive practice.
+  </div>
+
+  <!-- v2.1: TAB FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- ===== END QUICK REFERENCE ===== -->
 
 </div><!-- end main-content -->
 
-<div class="footer">
-  <p style="letter-spacing:.12em;color:#c8c4bc;">ROVIVE METHOD &middot; DR. YOSHI RAHM, D.O. &middot; <a href="https://www.DrYoshi.com" style="color:#f5a623;letter-spacing:.08em;">DrYoshi.com</a></p>
-  <p style="margin-top:6px;letter-spacing:.08em;">FOR EDUCATIONAL PURPOSES ONLY &middot; NOT MEDICAL ADVICE &middot; NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE</p>
-  <p style="margin-top:8px;font-size:.8rem;color:#5a5a7a;">Questions about this protocol? Bring them to your next <span style="color:#f5a623;">RoVive Wisdom Circle</span> Q&amp;A.</p>
+<div class="protocol-footer">
+  ROVIVE METHOD &middot; DR. YOSHI RAHM, D.O. &middot; <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;">DrYoshi.com</a><br>
+  FOR EDUCATIONAL PURPOSES ONLY &middot; NOT MEDICAL ADVICE &middot; NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE<br>
+  Questions about this protocol? Bring them to your next <span style="color:#f5a623;">Wisdom Circle</span> Q&amp;A.
 </div>
 
 <script>
@@ -1638,6 +2035,10 @@ function showTab(name, el) {
 }
 function togglePhase(id) {
   document.getElementById(id).classList.toggle('open');
+}
+function toggleDigDeeper(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
 }
 document.addEventListener('DOMContentLoaded', () => {
   const first = document.querySelector('.phase-card');
