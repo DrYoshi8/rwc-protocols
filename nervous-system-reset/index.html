@@ -1,0 +1,1480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nervous System Reset — RoVive Method · Dr. Yoshi Rahm</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f14;--surface:#131620;--surface-2:#181b28;--border:#1e2130;--text:#e8e4dc;--text-muted:#9a9aaa;--accent:#f5a623;--green:#68d391;--blue:#63b3ed;--purple:#b794f4;--red:#fc8181}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;font-size:16px}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;overflow:visible}
+h1{line-height:1.15;padding-bottom:0.2em;overflow:visible}
+h2{line-height:1.2;padding-bottom:0.1em;overflow:visible;font-size:1.35rem;color:var(--text);margin-bottom:16px}
+h3{line-height:1.2;padding-bottom:0.1em;overflow:visible;font-size:1.05rem;color:var(--text);margin:20px 0 10px}
+h4{line-height:1.2;padding-bottom:0.1em;overflow:visible;font-size:0.95rem;color:var(--text)}
+p{line-height:1.75;color:var(--text-muted);margin-bottom:12px}
+ul{padding-left:18px;color:var(--text-muted)}
+li{line-height:1.8;margin-bottom:4px}
+a{color:var(--accent)}
+
+/* HEADER */
+.header{background:linear-gradient(160deg,#0d0f14 0%,#131620 60%,#181b28 100%);border-bottom:1px solid var(--border);padding:44px 32px 36px;text-align:center}
+.header h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;color:var(--text);line-height:1.15;padding-bottom:0.25em;overflow:visible}
+.header h1 span{color:var(--accent)}
+.header > p{color:var(--text-muted);font-size:0.85rem;letter-spacing:0.08em;margin-bottom:6px}
+.rovive-badge{display:inline-block;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);color:var(--accent);font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+.disclaimer{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;color:#5a5a6a;margin-top:12px!important}
+
+/* TABS */
+.tabs{display:flex;flex-wrap:wrap;gap:4px;background:var(--surface);padding:12px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.tab{background:transparent;border:1px solid transparent;color:var(--text-muted);font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;padding:7px 14px;border-radius:6px;cursor:pointer;transition:all 0.15s;white-space:nowrap}
+.tab:hover{color:var(--text);border-color:var(--border)}
+.tab.active{background:rgba(245,166,35,.1);border-color:rgba(245,166,35,.4);color:var(--accent)}
+
+/* SECTIONS */
+.section{display:none;max-width:900px;margin:0 auto;padding:36px 24px 56px}
+.section.active{display:block}
+
+/* DOSE TAGS */
+.dose-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:0.68rem;font-weight:500;padding:3px 10px;border-radius:4px;margin-right:4px;letter-spacing:0.04em}
+.dose-tag.mild{background:rgba(104,211,145,.08);border:1px solid rgba(104,211,145,.25);color:#68d391}
+.dose-tag.moderate{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);color:#f5a623}
+.dose-tag.heavy{background:rgba(252,129,129,.1);border:1px solid rgba(252,129,129,.25);color:#fc8181}
+
+/* PHASE / ACCORDION */
+.phase-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:visible}
+.phase-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;cursor:pointer}
+.phase-header::after{content:"BC";font-size:0.6rem;color:var(--accent);transition:transform 0.2s}
+.phase-card.open .phase-header::after{transform:rotate(180deg)}
+.phase-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)}
+.phase-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;overflow:visible;padding-bottom:0.1em}
+.phase-content{display:none;padding:0 18px 18px}
+.phase-card.open .phase-content{display:block}
+
+/* UI COMPONENTS */
+.indicators-box{background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin:16px 0}
+.assumption-box{background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:6px;padding:14px 18px;margin:20px 0}
+.assumption-label{font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px}
+.female-box{background:rgba(236,72,153,.06);border:1px solid rgba(236,72,153,.25);border-radius:10px;padding:16px 20px;margin:16px 0}
+.female-box-title{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#f9a8d4;margin-bottom:8px}
+.cutting-edge-badge{display:inline-block;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.3);color:#06b6d4;font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:8px}
+.emotional-root-box{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:16px 20px;margin:16px 0}
+.dig-deeper-toggle{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:10px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:12px 0 0;color:#f5a623;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;width:100%}
+.dig-deeper-toggle::after{content:"BC";font-size:0.6rem;transition:transform 0.2s}
+.dig-deeper-toggle.open::after{transform:rotate(180deg)}
+.dig-deeper-content{display:none;background:rgba(255,255,255,.02);border:1px solid rgba(245,166,35,.1);border-top:none;border-radius:0 0 8px 8px;padding:14px 18px;color:#9a9aaa;font-size:0.9rem;line-height:1.75}
+.dig-deeper-content.open{display:block}
+.dig-deeper-content ul{color:#9a9aaa}
+.dig-deeper-content li{margin-bottom:6px}
+
+/* AHA SCENARIOS */
+.scenario{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:14px}
+.scenario-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;color:var(--purple);margin-bottom:8px;text-transform:uppercase}
+.scenario-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:10px;line-height:1.3;overflow:visible;padding-bottom:0.1em}
+.scenario-finding{color:var(--text-muted);font-size:0.92rem;line-height:1.75;margin-bottom:12px}
+.action-list{list-style:none;padding:0}
+.action-list li{font-size:0.85rem;color:#7a7a8a;padding:3px 0}
+.action-list li strong{color:#9a9aaa}
+
+/* SUPP CARDS */
+.supp-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px}
+.supp-name{font-family:'Syne',sans-serif;font-weight:700;color:var(--text);margin-bottom:4px;overflow:visible;padding-bottom:0.1em}
+.supp-mechanism{font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--text-muted);letter-spacing:0.04em;margin-bottom:8px}
+.nutra-alt{margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px}
+.nutra-alt-label{font-family:'DM Mono',monospace;font-size:0.67rem;color:#68d391;letter-spacing:0.08em;margin-bottom:4px}
+
+/* LABS */
+.lab-tag{display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.06em;padding:2px 8px;border-radius:10px;margin-left:6px}
+
+/* FOOTER */
+.tab-footer{margin-top:48px;padding-top:24px;border-top:1px solid #1e2130}
+
+@media(max-width:640px){
+  .header{padding:28px 16px 22px}
+  .section{padding:24px 16px 44px}
+  .tabs{padding:10px 12px}
+  .header h1{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="rovive-badge">RoVive Method &middot; Dr. Yoshi Rahm</div>
+  <h1 style="line-height:1.15;padding-bottom:0.25em;overflow:visible;">Nervous System <span>Reset</span></h1>
+  <p>Roots &#8594; Reveal &#8594; Refine &#8594; Rise &middot; RoVive Method</p>
+  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY &middot; NOT MEDICAL ADVICE &middot; NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE &middot; <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('overview',this)">Overview</button>
+  <button class="tab" onclick="showTab('pillars',this)">Great 8 Pillars</button>
+  <button class="tab" onclick="showTab('nutraceuticals',this)">Nutraceuticals &middot; Botanicals</button>
+  <button class="tab" onclick="showTab('labs',this)">Labs &amp; Targets</button>
+  <button class="tab" onclick="showTab('cutting-edge',this)">Cutting-Edge</button>
+  <button class="tab" onclick="showTab('aha',this)">Aha Moments</button>
+  <button class="tab" onclick="showTab('rovive',this)">RoVive Method</button>
+  <button class="tab" onclick="showTab('quick-ref',this)">Quick Reference</button>
+</div>
+
+<!-- ═══════════════════════════════════ OVERVIEW ═══════════════════════════════════ -->
+<div id="overview" class="section active">
+
+  <h2>What Is Nervous System Dysregulation &mdash; and Why Is It the Root of Everything?</h2>
+  <p>Your autonomic nervous system (ANS) governs every organ, every hormone, every immune response &mdash; without you thinking about it. When it works well, you move fluidly between alertness and rest, challenge and recovery. When it&#x2019;s dysregulated, you get stuck: stuck in fight-or-flight, stuck in survival mode, stuck in a body that can&#x2019;t tell the difference between a deadline and a predator. This isn&#x2019;t a mental health issue. It&#x2019;s a physiological state &mdash; and it&#x2019;s reversible.</p>
+
+  <div class="indicators-box">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#63b3ed;margin-bottom:10px;">&diams; DOES THIS RESONATE?</div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">You might be living in sympathetic dominance if&hellip;</p>
+    <ul style="color:#e8e4dc;margin:0;padding-left:18px;line-height:1.9;">
+      <li>You wake up tired even after 7&ndash;8 hours, and hit the ground running at 100% because stopping feels dangerous</li>
+      <li>You&#x2019;ve been told your anxiety, insomnia, or fatigue is &#x201C;just stress&#x201D; &mdash; as if naming it explains it or fixes it</li>
+      <li>Your digestion acts up when life gets hard (gut-brain axis is the first responder to nervous system stress)</li>
+      <li>You feel wired at night but exhausted during the day &mdash; the classic cortisol inversion pattern</li>
+      <li>You&#x2019;re doing &#x201C;all the right things&#x201D; &mdash; eating well, exercising &mdash; but your body still feels like it&#x2019;s bracing for something</li>
+    </ul>
+  </div>
+
+  <div class="assumption-box">
+    <div class="assumption-label">&diams; The Assumption Worth Questioning</div>
+    <p style="color:#e8e4dc;font-size:0.95rem;font-weight:600;margin-bottom:6px;">&#x201C;Anxiety and stress are mental health problems. They need psychological treatment.&#x201D;</p>
+    <p style="color:#9a9aaa;font-size:0.9rem;">The evidence points somewhere different: chronic nervous system dysregulation is primarily a <em>physiology</em> problem &mdash; driven by magnesium depletion, cortisol pattern disruption, poor sleep architecture, and low vagal tone. SSRIs target serotonin. But most chronic stress and anxiety states are rooted in GABA deficiency, HPA axis dysfunction, and a nervous system that never learned how to downshift. What if the missing prescription wasn&#x2019;t a drug at all?</p>
+  </div>
+
+  <h3>Understanding the Three Nervous System States</h3>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;">
+    <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:14px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#68d391;letter-spacing:0.1em;margin-bottom:6px;">STATE 1</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;margin-bottom:6px;overflow:visible;padding-bottom:0.1em;">Ventral Vagal</div>
+      <p style="font-size:0.88rem;margin-bottom:0;">Safety, connection, creativity. Social engagement. This is where healing, learning, and longevity happen.</p>
+    </div>
+    <div style="background:#131620;border:1px solid rgba(245,166,35,.3);border-radius:10px;padding:14px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#f5a623;letter-spacing:0.1em;margin-bottom:6px;">STATE 2</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#f5a623;margin-bottom:6px;overflow:visible;padding-bottom:0.1em;">Sympathetic</div>
+      <p style="font-size:0.88rem;margin-bottom:0;">Fight-or-flight. Designed for 90-second threats. Most modern humans live here chronically. Cortisol floods. Healing stops.</p>
+    </div>
+    <div style="background:#131620;border:1px solid rgba(252,129,129,.2);border-radius:10px;padding:14px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#fc8181;letter-spacing:0.1em;margin-bottom:6px;">STATE 3</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#fc8181;margin-bottom:6px;overflow:visible;padding-bottom:0.1em;">Dorsal Vagal</div>
+      <p style="font-size:0.88rem;margin-bottom:0;">Freeze. Shutdown. Dissociation. The nervous system&#x2019;s emergency collapse. Often mistaken for depression or &#x201C;burnout.&#x201D;</p>
+    </div>
+  </div>
+
+  <h3>The HPA Axis: Your Internal Stress Machine</h3>
+  <p>The hypothalamic-pituitary-adrenal (HPA) axis is the master control circuit for your stress response. When it fires appropriately, it saves your life. When it fires chronically, it dismantles it &mdash; raising blood sugar, suppressing immunity, degrading sleep, disrupting hormones, and accelerating every aging pathway we know of. A Nervous System Reset begins by acknowledging this: <em>your cortisol pattern is a signal, not a character flaw.</em></p>
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin:20px 0;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:#f5a623;letter-spacing:0.1em;margin-bottom:8px;">&diams; THE ALLOSTATIC LOAD PROBLEM</div>
+    <p style="color:#e8e4dc;font-size:0.92rem;margin-bottom:0;">Allostatic load is the cumulative wear on your body from chronic stress &mdash; measurable in telomere length, inflammatory markers, cortisol patterns, and HRV. The nervous system reset isn&#x2019;t about managing stress better. It&#x2019;s about fundamentally changing the load. That requires addressing the <em>signal</em> (what your nervous system perceives as a threat), the <em>physiology</em> (what depletes and dysregulates), and the <em>root</em> (why the system got stuck in the first place).</p>
+  </div>
+
+  <div class="female-box">
+    <div class="female-box-title">&#9792; Female-Specific Considerations</div>
+    <p style="margin-bottom:8px;">Estrogen amplifies the HPA axis stress response. Women have a naturally more reactive cortisol response to psychological stressors than men &mdash; which is not a weakness, it&#x2019;s a design feature for caregiving. But in our modern environment, this means women are disproportionately affected by HPA dysregulation, particularly during perimenopause (which can begin as early as 35&ndash;38) when falling estrogen destabilizes cortisol regulation.</p>
+    <p style="margin-bottom:0;">The progesterone-cortisol seesaw is critical: when cortisol is chronically elevated, progesterone is &#x201C;stolen&#x201D; (pregnenolone steal) to make more cortisol, contributing to the low progesterone / estrogen dominance pattern. A nervous system reset is therefore foundational to hormonal balance in women &mdash; not separate from it.</p>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+
+  <!-- GUT-BRAIN AXIS CALLOUT -->
+  <div style="background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);border-radius:12px;padding:20px;margin-top:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#4ade80;margin-bottom:10px;">&diams; THE GUT-BRAIN AXIS &mdash; THE MISSING PIECE</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;overflow:visible;padding-bottom:0.1em;color:#e8e4dc;margin-bottom:10px;">How Goes the Gut, So Goes the Brain</div>
+    <p style="font-size:0.88rem;margin-bottom:10px;">The enteric nervous system (ENS) houses 500 million neurons and produces 90&ndash;95% of the body&#x2019;s serotonin. Gut dysbiosis &mdash; imbalanced microbiome, leaky gut, Clostridia overgrowth, Candida &mdash; directly disrupts neurotransmitter synthesis, HPA axis reactivity, vagal tone, and inflammatory signaling throughout the brain. Clostridia species specifically block the dopamine conversion pathway. Intestinal permeability (leaky gut) allows LPS endotoxin to cross into systemic circulation and trigger neuroinflammation.</p>
+    <p style="font-size:0.88rem;margin-bottom:10px;">This means: anxiety that doesn&#x2019;t respond to breathwork and adaptogens may have a gut origin. Brain fog, mood instability, and blunted motivation that persist despite good sleep and stress management often resolve when the gut terrain is restored.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;">
+      <div style="background:rgba(74,222,128,.08);border-radius:8px;padding:12px;font-size:0.8rem;color:#c8c4bc;">
+        <div style="color:#4ade80;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;margin-bottom:6px;">SEROTONIN</div>
+        90&ndash;95% made in the gut, not the brain. Dysbiosis = serotonin dysregulation before you even consider the neurotransmitter panel.
+      </div>
+      <div style="background:rgba(74,222,128,.08);border-radius:8px;padding:12px;font-size:0.8rem;color:#c8c4bc;">
+        <div style="color:#4ade80;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;margin-bottom:6px;">VAGAL HIGHWAY</div>
+        80% of vagal fibers are afferent &mdash; gut signals travel UP to the brainstem. A dysbiotic gut sends threat signals upward, keeping the ANS in sympathetic dominance.
+      </div>
+      <div style="background:rgba(74,222,128,.08);border-radius:8px;padding:12px;font-size:0.8rem;color:#c8c4bc;">
+        <div style="color:#4ade80;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;margin-bottom:6px;">NEUROINFLAMMATION</div>
+        Leaky gut &rarr; LPS endotoxin in circulation &rarr; microglial activation &rarr; neuroinflammation &rarr; depression, anxiety, and cognitive impairment that doesn&#x2019;t respond to standard interventions.
+      </div>
+    </div>
+    <p style="font-size:0.8rem;color:#9a9aaa;margin-top:12px;margin-bottom:0;font-style:italic;">See the Cutting-Edge tab for FMT (Fecal Microbiota Transplantation via Novel Biome) and the Labs tab for GI-MAP and GI Effects stool testing as nervous system reset tools.</p>
+  </div>
+
+<!-- END OVERVIEW -->
+
+<!-- ═══════════════════════════════ GREAT 8 PILLARS ═══════════════════════════════ -->
+<div id="pillars" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#f5a623;margin-bottom:6px;">&diams; THE GREAT 8 PILLARS &mdash; RANKED FOR THIS PROTOCOL</div>
+    <div style="color:#9a9aaa;font-size:0.9rem;">Ranked by direct leverage for nervous system reset. All 8 matter &mdash; the ranking shows where to focus first.</div>
+  </div>
+
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px 16px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.67rem;letter-spacing:0.1em;color:#63b3ed;margin-bottom:6px;">&diams; HOW TO READ THIS LIST</div>
+    <div style="color:#9a9aaa;font-size:0.9rem;">All 8 pillars matter &mdash; always. The ranking reflects where the highest leverage points are for <em>this specific protocol</em>. Your weakest pillar is often your biggest opportunity, regardless of its rank here.</div>
+  </div>
+
+  <!-- #1 SLEEP & LIGHT -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:0.85rem;">#1</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Sleep &amp; Light</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">Sleep is not rest. It&#x2019;s the nervous system&#x2019;s single most powerful reset mechanism. During deep sleep, the glymphatic system flushes cortisol and metabolic waste from the brain. Growth hormone surges. Cortisol plummets. The ANS recalibrates. Without adequate sleep, every other intervention in this protocol is fighting an uphill battle. One study in 172,000 adults found that high-quality sleep added 4.7 years to male life expectancy and 2.4 years for women &mdash; from sleep alone. And critically: just one night of partial sleep restriction reduces insulin sensitivity by up to 30%, mimicking pre-diabetes.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.67rem;color:#68d391;letter-spacing:0.08em;margin-bottom:4px;">&diams; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:0.9rem;">Go to bed and wake at the same time daily. Darken your room completely. No screens 90 minutes before bed. Get 5&ndash;10 minutes of direct morning sunlight within 30 minutes of waking. These four actions alone will measurably shift your cortisol pattern within 7 days.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&diams; Dig Deeper &mdash; Sleep as Nervous System Medicine</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#e8e4dc;">The Cortisol-Melatonin Seesaw:</strong> Melatonin and cortisol operate in precise opposition. As the sun sets, cortisol should taper; melatonin rises. Any artificial light after sunset &mdash; especially blue-spectrum LED (400&ndash;490nm) &mdash; suppresses melatonin and keeps cortisol elevated 2&ndash;3 hours longer than it should be. This single variable explains a significant portion of modern insomnia and HPA dysregulation.</p>
+      <p><strong style="color:#e8e4dc;">Circadian Anchoring:</strong> Your circadian rhythm is reset daily by morning light hitting the retina and signaling the suprachiasmatic nucleus (SCN). Without this anchor, cortisol rises later, cortisol awakening response (CAR) blunts, and the whole 24-hour hormonal rhythm drifts. Morning sunlight within 30 minutes of waking is the single most evidence-backed circadian intervention available.</p>
+      <p><strong style="color:#e8e4dc;">Sleep Architecture Targets:</strong></p>
+      <ul>
+        <li>Total sleep: 7&ndash;9 hours (7 is a floor, not a goal)</li>
+        <li>Deep sleep (N3): 1&ndash;1.5 hours per night (where GH and glymphatic clearance peak)</li>
+        <li>REM sleep: 1.5&ndash;2 hours (emotional memory processing, nervous system recalibration)</li>
+        <li>Sleep onset latency: &lt;20 minutes</li>
+        <li>Wakeups: 0&ndash;1 per night</li>
+      </ul>
+      <p><strong style="color:#e8e4dc;">Room optimization:</strong> 60&ndash;68&deg;F (15&ndash;20&deg;C). Blackout curtains or sleep mask. White noise or silicone earplugs if noise is a factor. Left-side sleeping optimizes lymphatic and glymphatic drainage. Inclining the foot of the bed 3&ndash;5 degrees can improve lymphatic flow. No alcohol (destroys REM architecture despite helping onset). No caffeine after noon (10-hour half-life).</p>
+      <p><strong style="color:#e8e4dc;">Journaling Protocol for Racing Mind:</strong> Before bed, spend 5&ndash;10 minutes on a brain dump: write every thought, concern, and idea. Then write a specific action plan for each one. This transfers them from active memory to external storage &mdash; and is clinically superior to rumination for sleep onset latency reduction.</p>
+      <p><strong style="color:#e8e4dc;">Exercise Timing:</strong> Morning exercise (before noon) correlates with the best sleep architecture and highest cortisol clearance. Late-evening exercise (after 6pm) delays sleep onset by elevating core temperature and cortisol. A short 4-minute Tabata at 7am can meaningfully improve sleep quality that night.</p>
+    </div>
+  </div>
+
+  <!-- #2 AIR -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:0.85rem;">#2</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Air</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">Breathing is the only autonomic function you can consciously control &mdash; and that control is a direct highway to the nervous system. The vagus nerve (the master parasympathetic nerve) is stimulated by slow diaphragmatic breathing. Specifically, extending the exhale longer than the inhale triggers vagal afferent fibers and tells your brainstem: <em>you are safe.</em> This isn&#x2019;t metaphor &mdash; it&#x2019;s measurable in heart rate variability within 90 seconds.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.67rem;color:#68d391;letter-spacing:0.08em;margin-bottom:4px;">&diams; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:0.9rem;">Practice the 4-7-8 breath or box breathing (4 counts in, hold 4, out 4, hold 4) for 4 minutes &mdash; minimum 4x daily, and especially before any stressful event. This is the fastest, most evidence-supported nervous system downshift available, and it costs nothing.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&diams; Dig Deeper &mdash; Breathwork Protocols</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#e8e4dc;">Why the exhale matters more:</strong> Inhalation activates the sympathetic system slightly (heart rate rises). Exhalation activates the parasympathetic system (heart rate drops). This RSA (respiratory sinus arrhythmia) is how breathing directly modulates HRV. An exhale that&#x2019;s 2x longer than the inhale produces the most consistent parasympathetic activation.</p>
+      <p><strong style="color:#e8e4dc;">Four foundational protocols:</strong></p>
+      <ul>
+        <li><strong style="color:#e8e4dc;">Box Breathing (4-4-4-4):</strong> Inhale 4s, hold 4s, exhale 4s, hold 4s. Stress reset, HRV improvement, pre-performance focus.</li>
+        <li><strong style="color:#e8e4dc;">4-7-8 Breathing:</strong> Inhale 4s, hold 7s, exhale 8s. Deep parasympathetic shift. Best for sleep onset.</li>
+        <li><strong style="color:#e8e4dc;">Physiological Sigh:</strong> Double inhale through nose (fill lungs, then sniff extra air) followed by long exhale. Fastest single-breath nervous system reset. Shown to reduce anxiety within 1&ndash;2 cycles (Balban et al., Cell Reports Medicine, 2023).</li>
+        <li><strong style="color:#e8e4dc;">Nasal Breathing All Day:</strong> Mouth breathing chronically elevates CO2 sensitivity, triggers mild sympathetic activation, and reduces nitric oxide production. Nasal breathing at rest is a passive nervous system protectant. Tape the mouth at night if you snore (3M Micropore tape, 1 inch).</li>
+      </ul>
+      <p><strong style="color:#e8e4dc;">Air Quality:</strong> HEPA filtration, good ventilation, and avoiding VOC exposure (synthetic candles, off-gassing furniture, aerosol sprays) reduce the inflammatory load on the nervous system. Chronic low-grade airborne toxins elevate neuroinflammation and perpetuate HPA activation.</p>
+    </div>
+  </div>
+
+  <!-- #3 SPIRIT & PURPOSE -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:0.85rem;">#3</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Spirit &amp; Purpose</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">Whether that&#x2019;s God, your higher self, a deep belief in yourself, or simply what gets you out of bed before the alarm &mdash; this is your animating force. And it is directly physiological. Research on ikigai (purpose in life) shows measurably lower cortisol and better HPA regulation in people with a strong sense of purpose. The nervous system interprets <em>meaning</em> as safety. When you know why you&#x2019;re here, the threat detection system quiets.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.67rem;color:#68d391;letter-spacing:0.08em;margin-bottom:4px;">&diams; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:0.9rem;">Before bed, spend 3 minutes writing 3 things you&#x2019;re grateful for &mdash; specifically <em>why</em> each one matters. This activates the prefrontal cortex, dampens amygdala reactivity, and shifts the nervous system from threat mode to connection mode. This is not a wellness clich&eacute; &mdash; it&#x2019;s measurable neurobiology.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&diams; Dig Deeper &mdash; The Physiology of Purpose</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#e8e4dc;">Purpose as HPA Regulator:</strong> Studies on eudaimonic wellbeing (meaning-based happiness, vs. hedonic pleasure-seeking) show lower inflammatory markers (IL-6, CRP), higher BDNF, better HRV, and lower diurnal cortisol variability. Purpose isn&#x2019;t just psychologically important &mdash; it&#x2019;s a cortisol management strategy.</p>
+      <p><strong style="color:#e8e4dc;">Identity &amp; Nervous System Safety:</strong> Polyvagal theory (Porges) identifies &#x201C;neuroception&#x201D; &mdash; the unconscious scanning of the environment for safety or threat. Your identity and sense of meaning are part of this scan. When your work, relationships, and daily actions feel aligned with your values, neuroception reads &#x201C;safe.&#x201D; When they don&#x2019;t, even a beautiful life triggers chronic low-level threat response.</p>
+      <p><strong style="color:#e8e4dc;">Mindset &amp; Emotional Patterns:</strong> Negative self-talk, perfectionism, and catastrophizing are not character traits &mdash; they are learned nervous system threat patterns. They elevate cortisol as reliably as external stressors. Cognitive behavioral patterns that interrupt these loops are, at their core, nervous system interventions.</p>
+      <p><strong style="color:#e8e4dc;">Prayer, Meditation, Contemplation:</strong> Whatever this looks like for you &mdash; there is robust neuroscience behind contemplative practice reducing amygdala volume and increasing prefrontal cortex thickness over time. A felt sense of connection to something greater than yourself is one of the most potent nervous system regulators we have.</p>
+    </div>
+  </div>
+
+  <!-- #4 ELECTRICAL -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:0.8rem;">#4</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Electrical</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">You are an electrical being. Your neurons fire on electrical gradients. Your heart is paced by electrical impulses. Grounding (earthing &mdash; direct skin contact with the earth) normalizes the body&#x2019;s electrical potential, reduces inflammatory markers, and has been shown to lower cortisol and improve sleep quality (Chevalier et al., JESRP, 2012). Red and near-infrared light therapy supports mitochondrial function in neurons, improves HRV, and reduces neuroinflammation. EMF exposure disrupts circadian rhythm and melatonin production &mdash; a chronic ANS stressor most people never consider.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&diams; Dig Deeper &mdash; Electrical Interventions</button>
+    <div class="dig-deeper-content">
+      <ul>
+        <li><strong style="color:#e8e4dc;">Grounding/Earthing:</strong> 20&ndash;30 minutes of barefoot contact with earth daily. Measurably reduces CRP, normalizes diurnal cortisol, improves sleep onset. Do it during morning sunlight for compounded effect.</li>
+        <li><strong style="color:#e8e4dc;">Red/NIR Light Therapy (Photobiomodulation):</strong> 660nm (red) and 830&ndash;850nm (NIR) penetrate skin and skull, activating cytochrome c oxidase in mitochondria. Improves ATP production in neurons, reduces neuroinflammation, supports HRV. 10&ndash;20 min sessions, 3&ndash;5x/week.</li>
+        <li><strong style="color:#e8e4dc;">PEMF (Pulsed Electromagnetic Field):</strong> Entrains brainwave states (delta/theta for deep rest), improves mitochondrial function, supports parasympathetic recovery. 10&ndash;30 min protocols available on Earthpulse, FlexPulse, and other devices.</li>
+        <li><strong style="color:#e8e4dc;">Apollo Neuro:</strong> A wearable device that delivers gentle vibration patterns calibrated to shift HRV and ANS state. Shown in peer-reviewed studies to increase HRV by 11&ndash;25% and reduce stress in real time.</li>
+        <li><strong style="color:#e8e4dc;">EMF Mitigation:</strong> Phone in airplane mode at night. No Wi-Fi router in bedroom. Wired internet when possible. These are not fringe concerns &mdash; EMF disrupts melatonin production and circadian rhythm via magnetic field sensitivity of the pineal gland.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- #5 MOVEMENT -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:0.8rem;">#5</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Movement</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">Exercise is the most potent natural cortisol regulator available. But type and timing matter enormously for nervous system reset. Zone 2 cardio <em>(e.g., brisk walking where you can hold a full conversation, easy cycling, light swimming, conversational-pace jog)</em> stimulates parasympathetic tone and improves HRV without triggering a second cortisol spike. High-intensity training has its place &mdash; but overdoing HIIT when the nervous system is already dysregulated adds fuel to the fire. Yoga and somatic movement work differently: they activate proprioceptive pathways and directly stimulate vagal tone through slow, intentional movement and breath coordination.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&diams; Dig Deeper &mdash; Movement for Nervous System Reset</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#e8e4dc;">The Cortisol Timing Rule:</strong> Exercise before noon dramatically improves sleep quality and normalizes evening cortisol. A study at Appalachian State University showed that 7am exercisers had the best sleep architecture, with measurably lower cortisol in the evening and higher daytime energy vs. afternoon or evening exercisers.</p>
+      <p><strong style="color:#e8e4dc;">Zone 2 as Parasympathetic Training:</strong> 45&ndash;60 minutes of Zone 2 cardio, 3&ndash;4x/week, measurably improves HRV over 4&ndash;6 weeks. This is about training the vagal brake, not just cardiovascular fitness. Think of Zone 2 as nervous system conditioning.</p>
+      <p><strong style="color:#e8e4dc;">Strength Training (2x/week minimum):</strong> Resistance training improves cortisol clearance, insulin sensitivity, and BDNF production. It also builds the structural resilience to tolerate stress without breaking down. For dysregulated nervous systems: lower volume, higher rest periods, compound movements.</p>
+      <p><strong style="color:#e8e4dc;">Yoga, Tai Chi, Qigong:</strong> These modalities directly target the ANS through the fascia-nervous system interface. Slow, deliberate movement with breath coordination activates vagal afferent pathways through proprioception. This is not &#x201C;gentle exercise&#x201D; &mdash; it&#x2019;s a specific nervous system intervention. Even 20&ndash;30 minutes daily measurably shifts HRV.</p>
+      <p><strong style="color:#e8e4dc;">Walking in Nature:</strong> Fractal visual patterns in nature (trees, water, clouds) reduce amygdala activation directly. Forest bathing (Shinrin-yoku) studies show measurable cortisol reduction, lower blood pressure, and improved NK cell activity. A 20-minute walk in any natural setting has quantifiable nervous system benefits.</p>
+    </div>
+  </div>
+
+  <!-- #6 FOOD -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:0.8rem;">#6</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Food</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">Every blood sugar spike is followed by a cortisol spike. Every processed food meal is a nervous system event. The gut-brain axis is wired through the vagus nerve &mdash; your enteric nervous system (500 million neurons in your gut) sends continuous signals upward to your brain. Chronic dysbiosis, leaky gut, and inflammatory foods maintain a low-level alarm state in the nervous system that no supplement stack can fully override. The foundational food strategy for nervous system reset is: stable blood sugar, anti-inflammatory, gut-nourishing, magnesium-rich.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&diams; Dig Deeper &mdash; Eating for Nervous System Stability</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#e8e4dc;">Blood Sugar Stability = Cortisol Stability:</strong> Every glucose spike triggers an insulin response, followed by a glucose dip, followed by cortisol release to restore glucose. Eating refined carbohydrates and sugars throughout the day is running your adrenals on a treadmill. Prioritize protein and fat at each meal. Eat in a 10&ndash;12 hour window when possible.</p>
+      <p><strong style="color:#e8e4dc;">Anti-Inflammatory Foundation:</strong></p>
+      <ul>
+        <li>Fatty fish (wild-caught salmon, sardines, mackerel) 3x/week &mdash; EPA/DHA directly reduce neuroinflammation</li>
+        <li>Colorful vegetables (diverse polyphenols for the microbiome)</li>
+        <li>Olive oil, avocado, walnuts (anti-inflammatory fats)</li>
+        <li>Fermented foods (yogurt, kimchi, sauerkraut) &mdash; directly improve vagal tone through the gut-brain axis</li>
+        <li>Dark leafy greens (magnesium-rich &mdash; the nervous system mineral)</li>
+        <li>Minimize: refined sugars, seed oils, ultra-processed foods, alcohol</li>
+      </ul>
+      <p><strong style="color:#e8e4dc;">The Cortisol-Food Connection at Night:</strong> Eating within 2&ndash;3 hours of sleep elevates cortisol and disrupts sleep architecture. If you&#x2019;re not metabolically flexible, eating a small amount of complex carbohydrate (not simple sugar) in early evening can raise serotonin and support sleep. Honey before bed has been shown in some studies to be uniquely beneficial &mdash; it provides glycogen for the brain without causing a significant glucose spike.</p>
+      <p><strong style="color:#e8e4dc;">Caffeine Protocol:</strong> Caffeine has a 10-hour half-life. A morning coffee still has measurable stimulant effects at 10pm. Even people who &#x201C;fall asleep fine&#x201D; with late caffeine show measurably worse sleep architecture on tracking. Shift to decaf after noon, or substitute with low-dose nicotine (1mg) in early afternoon if energy is the goal.</p>
+    </div>
+  </div>
+
+  <!-- #7 COMMUNITY & CONNECTION -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:0.8rem;">#7</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Community &amp; Connection</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">Social safety IS nervous system safety. Polyvagal theory identifies the ventral vagal state &mdash; the state of connection, calm, and co-regulation &mdash; as the most fundamental state of nervous system health. Being in the presence of safe people literally regulates your nervous system through neuroception. Conversely, loneliness activates the same threat pathways as physical danger, raising cortisol, increasing inflammation, and shortening lifespan by the equivalent of smoking 15 cigarettes a day.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&diams; Dig Deeper &mdash; Co-Regulation and Social Physiology</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#e8e4dc;">Co-Regulation:</strong> Infants regulate their nervous systems through proximity to safe caregivers. Adults never lose this capacity. Being physically near a calm, regulated person measurably shifts HRV. This is why community &mdash; real, embodied community &mdash; is not optional for nervous system health. It&#x2019;s biological infrastructure.</p>
+      <p><strong style="color:#e8e4dc;">Eye Contact and Voice Tone:</strong> The vagus nerve is directly stimulated by the prosodic (melodic) qualities of a safe human voice. This is why a calm conversation can be physiologically regulating, and a tense one can be physiologically dysregulating. Intentional, warm face-to-face connection is a nervous system intervention.</p>
+      <p><strong style="color:#e8e4dc;">The Loneliness Epidemic:</strong> Chronic loneliness elevates IL-6, CRP, and cortisol. Social isolation increases all-cause mortality by 29% (Holt-Lunstad et al., PLOS Medicine, 2015). The RoVive Wisdom Circle isn&#x2019;t just a learning community &mdash; it&#x2019;s a nervous system resource.</p>
+      <p><strong style="color:#e8e4dc;">Relationship Audit:</strong> Some relationships are nervous system activators. Identify who in your life leaves you feeling regulated and safe vs. depleted and on edge. This is not about blame &mdash; it&#x2019;s about understanding your social environment as part of your nervous system&#x2019;s threat-detection input.</p>
+    </div>
+  </div>
+
+  <!-- #8 WATER -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:position;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:0.8rem;">#8</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Water</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:0.9rem;margin-bottom:10px;">Dehydration of even 1&ndash;2% triggers cortisol release. The electrolytes that carry your neural electrical signals &mdash; sodium, potassium, magnesium, calcium &mdash; require adequate water to function. Most people are chronically under-hydrated in ways that contribute to baseline sympathetic tone without knowing it. Hydrate front-loaded: most of your fluid intake in the first 8 hours of the day, tapering by evening to avoid nighttime wakeups.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&diams; Dig Deeper &mdash; Water Quality and Neural Function</button>
+    <div class="dig-deeper-content">
+      <p><strong style="color:#e8e4dc;">Electrolytes First:</strong> Pure water without minerals is physiologically incomplete. Add a quality electrolyte blend (sodium, potassium, magnesium) to your morning water &mdash; especially if you sweat significantly or wake with fatigue. This is not about sports drinks; it&#x2019;s about maintaining the ionic gradient that drives neural transmission.</p>
+      <p><strong style="color:#e8e4dc;">Water Quality:</strong> Filtered water (reverse osmosis or carbon block) removes chlorine, fluoride, heavy metals, and pharmaceutical residues that create subtle systemic inflammation. Re-mineralize RO water with trace minerals. Glass or stainless containers (avoid plastic, especially heated plastic, which leaches endocrine disruptors).</p>
+      <p><strong style="color:#e8e4dc;">Cold Water as Vagal Stimulus:</strong> Splashing cold water on the face triggers the mammalian dive reflex &mdash; a hardwired vagal response that drops heart rate within seconds. A 30-second cold face splash is one of the fastest nervous system downshifts available. Not a cold plunge required; a cold tap will do.</p>
+      <p><strong style="color:#e8e4dc;">Structured Water:</strong> The emerging science of exclusion zone (EZ) water and structured hydration suggests that water inside cells has a gel-like structure that participates in cellular energy production. Sun exposure, infrared light, and proper mineralization all support intracellular water structure. A frontier area worth watching.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- END PILLARS -->
+
+<!-- ═══════════════════════════ NUTRACEUTICALS · BOTANICALS ═══════════════════════ -->
+<div id="nutraceuticals" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#f5a623;margin-bottom:6px;">&diams; NUTRACEUTICALS</div>
+    <div style="color:#9a9aaa;font-size:0.9rem;">These are precision biochemical inputs &mdash; vitamins, minerals, amino acids, and coenzymes that your nervous system requires to regulate itself. Most people with HPA dysregulation are measurably depleted in several of these. Address the depletions first, then layer in the advanced support. Always use lab data to guide priority and dose escalation.</div>
+  </div>
+
+  <!-- MAGNESIUM -->
+  <div class="supp-card">
+    <div class="supp-name">Magnesium Bisglycinate / Glycinate</div>
+    <div class="supp-mechanism">GABA modulation &middot; cortisol regulation &middot; sleep architecture &middot; muscle relaxation &middot; HPA axis buffer</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 150&ndash;200 mg elemental/day</span>
+      <span class="dose-tag moderate">Moderate: 300&ndash;400 mg elemental/day</span>
+      <span class="dose-tag heavy">Heavy: 400&ndash;600 mg elemental/day</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:6px;"><strong style="color:#e8e4dc;">Why it&#x2019;s first:</strong> Up to 68% of Americans are magnesium deficient. Magnesium is required for over 300 enzymatic reactions, including GABA receptor binding and cortisol clearance. Chronic stress depletes magnesium rapidly (it&#x2019;s excreted in urine under HPA activation), creating a vicious cycle: stress depletes magnesium, magnesium depletion amplifies the stress response.</p>
+    <p style="font-size:0.88rem;margin-bottom:4px;"><strong style="color:#e8e4dc;">Form matters:</strong> Bisglycinate/glycinate for sleep and ANS support. Threonate (Magtein) for cognitive and neurological focus. Oxide is poorly absorbed. Take at end of day. Loose stool = dose too high, reduce by 100mg.</p>
+    <p style="font-size:0.85rem;color:#7a7a8a;"><strong style="color:#9a9aaa;">Test:</strong> RBC Magnesium (not serum &mdash; serum is not a reliable marker). Target: 5.5&ndash;7.0 mg/dL.</p>
+  </div>
+
+  <!-- L-THEANINE -->
+  <div class="supp-card">
+    <div class="supp-name">L-Theanine</div>
+    <div class="supp-mechanism">Alpha brainwave promotion &middot; GABA modulation &middot; cortisol reduction &middot; calm-without-sedation</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 100&ndash;200 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 300&ndash;400 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 400&ndash;600 mg/day (split AM/PM)</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">Found naturally in green tea. Promotes alpha wave activity &mdash; the brain state associated with wakeful calm. Takes the &#x201C;edge&#x201D; off stimulation without causing drowsiness. Pairs synergistically with magnesium for cortisol management. Can be taken any time; particularly useful with morning coffee (pairs with caffeine for focus without jitter).</p>
+  </div>
+
+  <!-- PHOSPHATIDYLSERINE -->
+  <div class="supp-card">
+    <div class="supp-name">Phosphatidylserine</div>
+    <div class="supp-mechanism">HPA axis modulation &middot; cortisol blunting &middot; neuronal membrane integrity &middot; memory &middot; stress resilience</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 100 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 200&ndash;300 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 400&ndash;800 mg/day</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">One of the few supplements with direct RCT evidence for cortisol blunting: 400mg/day reduced post-exercise cortisol by ~30% (Monteleone et al., 1992). Also supports neuronal membrane fluidity and cognitive performance under stress. Use sunflower-derived (not soy). Take with largest meal.</p>
+  </div>
+
+  <!-- VITAMIN C -->
+  <div class="supp-card">
+    <div class="supp-name">Vitamin C (Buffered Ascorbate)</div>
+    <div class="supp-mechanism">Adrenal cortex support &middot; cortisol synthesis regulation &middot; antioxidant &middot; immune modulation</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 500 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 1,000&ndash;2,000 mg/day (split doses)</span>
+      <span class="dose-tag heavy">Heavy: 2,000&ndash;4,000 mg/day (split doses)</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">The adrenal glands have the highest concentration of vitamin C of any tissue in the body &mdash; they use it to synthesize cortisol. Chronic stress depletes it rapidly. Buffered ascorbate (calcium or magnesium ascorbate) is gentler on the GI tract at therapeutic doses. Split doses throughout the day (absorption maxes at ~500mg per dose). Reduces cortisol output measurably.</p>
+  </div>
+
+  <!-- VITAMIN D3 + K2 -->
+  <div class="supp-card">
+    <div class="supp-name">Vitamin D3 + K2 (MK-7)</div>
+    <div class="supp-mechanism">Neurological function &middot; immune regulation &middot; mood &middot; HPA axis modulation &middot; 2,000+ gene regulation</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 2,000 IU D3 + 100 mcg K2</span>
+      <span class="dose-tag moderate">Moderate: 5,000 IU D3 + 100&ndash;200 mcg K2</span>
+      <span class="dose-tag heavy">Heavy: 8,000&ndash;10,000 IU D3 + 200 mcg K2</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;"><strong style="color:#e8e4dc;">Critical framing:</strong> Vitamin D3 is biochemically more like a steroid hormone than a vitamin. It binds nuclear receptors and regulates over 2,000 genes, including those governing HPA axis sensitivity and inflammatory tone. Target serum: 60&ndash;80 ng/mL. Always combine with K2 (MK-7, 100&ndash;200mcg) to direct calcium properly. Take with fat-containing meal. Test first. Monitor every 90 days at heavy dose.</p>
+  </div>
+
+  <!-- B-COMPLEX -->
+  <div class="supp-card">
+    <div class="supp-name">B-Complex (Activated Forms)</div>
+    <div class="supp-mechanism">Adrenal function &middot; neurotransmitter synthesis &middot; methylation &middot; energy metabolism &middot; cortisol regulation</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: Standard B-complex 1x/day</span>
+      <span class="dose-tag moderate">Moderate: High-potency B-complex + B5 500&ndash;1,000 mg</span>
+      <span class="dose-tag heavy">Heavy: Targeted: B5 1,000&ndash;2,000mg + B6 P5P 50mg + B12 methylcobalamin 2,000mcg</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;"><strong style="color:#e8e4dc;">Key B vitamins for the nervous system:</strong> B5 (pantothenic acid) is the primary adrenal cortex support vitamin &mdash; it&#x2019;s a cofactor for cortisol synthesis regulation. B6 as P5P (never pyridoxine) is required for GABA and serotonin synthesis. B12 as methylcobalamin supports myelin integrity and stress resilience. Folate as methylfolate (5-MTHF, not folic acid) for methylation. Always use activated forms.</p>
+  </div>
+
+  <!-- OMEGA-3 -->
+  <div class="supp-card">
+    <div class="supp-name">Omega-3 EPA/DHA (High-Dose Fish Oil)</div>
+    <div class="supp-mechanism">Neuroinflammation reduction &middot; HPA modulation &middot; mood &middot; HRV improvement &middot; cell membrane fluidity</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 1&ndash;2 g EPA+DHA/day</span>
+      <span class="dose-tag moderate">Moderate: 2&ndash;3 g EPA+DHA/day</span>
+      <span class="dose-tag heavy">Heavy: 3&ndash;4 g EPA+DHA/day (2:1 EPA:DHA ratio)</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">EPA has antidepressant and anti-anxiety properties comparable to pharmaceutical antidepressants in some RCTs (Sublette et al., J Clin Psychiatry, 2011). DHA is the primary structural fat in the brain and myelin. Together, they reduce neuroinflammation, lower cortisol, and improve HRV. Triglyceride form preferred over ethyl ester. Take with fat-containing meal. Refrigerate after opening.</p>
+  </div>
+
+  <!-- GABA -->
+  <div class="supp-card">
+    <div class="supp-name">GABA (Gamma-Aminobutyric Acid)</div>
+    <div class="supp-mechanism">Primary inhibitory neurotransmitter &middot; anxiety reduction &middot; sleep induction &middot; HPA dampening</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 250&ndash;500 mg before bed</span>
+      <span class="dose-tag moderate">Moderate: 500&ndash;750 mg before bed</span>
+      <span class="dose-tag heavy">Heavy: 750&ndash;1,000 mg before bed</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">Debate exists about whether exogenous GABA crosses the blood-brain barrier. Evidence suggests it may act via enteric neurons and the gut-brain axis, as well as through peripheral GABA receptors. Pharmagaba (fermentation-derived) appears superior to synthetic. Combines well with L-theanine and magnesium for a sleep-onset stack.</p>
+  </div>
+
+  <!-- GLYCINE -->
+  <div class="supp-card">
+    <div class="supp-name">Glycine</div>
+    <div class="supp-mechanism">Inhibitory neurotransmitter &middot; deep sleep enhancement &middot; cortisol modulation &middot; gut health &middot; collagen synthesis</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 2&ndash;3 g before bed</span>
+      <span class="dose-tag moderate">Moderate: 3&ndash;5 g before bed</span>
+      <span class="dose-tag heavy">Heavy: 5&ndash;10 g before bed</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">Glycine acts as an inhibitory neurotransmitter in the spinal cord and brainstem, and has been shown to reduce core body temperature at night (which improves deep sleep), reduce fatigue and daytime sleepiness, and lower cortisol. Dissolves easily in water &mdash; slightly sweet taste. Inexpensive. Underused. Combines well with magnesium.</p>
+  </div>
+
+  <!-- 5-HTP -->
+  <div class="supp-card">
+    <div class="supp-name">5-HTP (5-Hydroxytryptophan)</div>
+    <div class="supp-mechanism">Serotonin precursor &middot; mood &middot; sleep quality &middot; appetite regulation &middot; anxiety reduction</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 50&ndash;100 mg in evening</span>
+        <span class="dose-tag moderate">Moderate: 100&ndash;200 mg in evening</span>
+        <span class="dose-tag heavy">Heavy: 200&ndash;300 mg in evening</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">Direct serotonin precursor (crosses blood-brain barrier unlike tryptophan). Supports mood, sleep quality, and appetite regulation. Combine with B6 (P5P) for enhanced conversion. <strong style="color:#fc8181;">Caution:</strong> Do NOT combine with SSRIs, SNRIs, MAOIs, or St. John&#x2019;s Wort &mdash; serotonin syndrome risk. Always discuss with your physician if on any of these medications.</p>
+  </div>
+
+  <!-- NAC -->
+  <div class="supp-card">
+    <div class="supp-name">N-Acetyl Cysteine (NAC)</div>
+    <div class="supp-mechanism">Glutathione precursor &middot; oxidative stress from chronic stress &middot; OCD/anxiety research &middot; liver detox &middot; mucolytic</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 600 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 1,200 mg/day (split)</span>
+      <span class="dose-tag heavy">Heavy: 1,800&ndash;2,400 mg/day (split)</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">Chronic stress generates significant oxidative stress that depletes glutathione &mdash; the body&#x2019;s master antioxidant. NAC replenishes it directly. Also has direct neurological evidence: shown to reduce compulsive behaviors and anxiety in multiple RCTs (Berk et al., Biol Psychiatry, 2008). Take away from meals. Avoid on empty stomach long-term without food protection.</p>
+  </div>
+
+  <!-- MELATONIN -->
+  <div class="supp-card">
+    <div class="supp-name">Melatonin</div>
+    <div class="supp-mechanism">Circadian rhythm reset &middot; sleep onset &middot; antioxidant &middot; neuroprotection &middot; anti-inflammatory</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="dose-tag mild">Mild: 0.5&ndash;1 mg, 30&ndash;60 min before bed</span>
+      <span class="dose-tag moderate">Moderate: 1&ndash;3 mg before bed</span>
+      <span class="dose-tag heavy">Heavy: 5&ndash;10 mg (circadian reset, jet lag, shift work)</span>
+    </div>
+    <p style="font-size:0.88rem;margin-bottom:4px;">Lower doses (0.5&ndash;1mg) often work better than higher for sleep onset. Higher doses can cause vivid dreams or paradoxical alertness. Best used for circadian disruption (travel, shift work, severe insomnia). Stopping melatonin does not suppress endogenous production &mdash; production normalizes within 1&ndash;2 nights. Also a potent antioxidant at higher doses (relevant for cancer risk reduction and neuroprotection).</p>
+  </div>
+
+  <!-- SECTION DIVIDER -->
+  <div style="border-top:1px solid #1e2130;margin:32px 0 24px;"></div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;color:#b794f4;margin-bottom:20px;">&diams; BOTANICALS &amp; HOMEOPATHY</div>
+
+  <!-- BOTANICALS TABLE -->
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:16px;">
+
+    <div class="herb-row">
+      <div class="herb-tier">&starf;&starf;&starf; Strong Evidence (Multiple RCTs)</div>
+      <div class="herb-name">Ashwagandha (KSM-66)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;">
+        <span class="dose-tag mild">Mild: 300 mg/day</span>
+        <span class="dose-tag moderate">Moderate: 600 mg/day</span>
+        <span class="dose-tag heavy">Heavy: 600 mg 2x/day</span>
+      </div>
+      <p style="font-size:0.87rem;color:#9a9aaa;margin-bottom:4px;">The best-studied adaptogen. Multiple RCTs demonstrating direct cortisol reduction (average 25&ndash;30%), improved sleep quality, reduced anxiety, and HPA axis normalization. KSM-66 standardization specifically. Cycle 8 weeks on, 2 weeks off for long-term use. Take with meals. Evening dosing for sleep support.</p>
+    </div>
+
+    <div class="herb-row">
+      <div class="herb-tier">&starf;&starf;&starf; Strong Evidence</div>
+      <div class="herb-name">Rhodiola Rosea (3% rosavins, 1% salidroside)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;">
+        <span class="dose-tag mild">Mild: 100&ndash;200 mg/day</span>
+        <span class="dose-tag moderate">Moderate: 300&ndash;400 mg/day</span>
+        <span class="dose-tag heavy">Heavy: 400&ndash;600 mg/day</span>
+      </div>
+      <p style="font-size:0.87rem;color:#9a9aaa;margin-bottom:4px;">HPA axis normalization and anti-fatigue properties, particularly for &#x201C;wired and tired&#x201D; states. Stimulating in effect &mdash; take in the morning only. Avoid at night. Works synergistically with ashwagandha (complementary mechanisms). Take on empty stomach 30 min before breakfast for best absorption.</p>
+    </div>
+
+    <div class="herb-row">
+      <div class="herb-tier">&starf;&starf;&starf; Strong Evidence</div>
+      <div class="herb-name">Valerian Root (0.8% valerenic acid)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;">
+        <span class="dose-tag mild">Mild: 300 mg, 30&ndash;60 min before bed</span>
+        <span class="dose-tag moderate">Moderate: 450 mg before bed</span>
+        <span class="dose-tag heavy">Heavy: 600 mg before bed</span>
+      </div>
+      <p style="font-size:0.87rem;color:#9a9aaa;margin-bottom:4px;">GABA-A receptor modulation that supports sleep onset and reduces anxious arousal before bed. Works best when taken consistently (4&ndash;6 week window). Combines beautifully with passionflower. Not sedating in the same way as pharmaceuticals &mdash; promotes restful relaxation rather than chemical sedation.</p>
+    </div>
+
+    <div class="herb-row">
+      <div class="herb-tier">&starf;&starf;&starf; Strong Evidence</div>
+      <div class="herb-name">Passionflower (flavonoid-standardized)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;">
+        <span class="dose-tag mild">Mild: 250 mg/day</span>
+        <span class="dose-tag moderate">Moderate: 500 mg/day</span>
+        <span class="dose-tag heavy">Heavy: 500&ndash;750 mg/day</span>
+      </div>
+      <p style="font-size:0.87rem;color:#9a9aaa;margin-bottom:4px;">GABA-A agonism with direct anxiolytic and sleep-supportive effects. One RCT showed comparable effect to low-dose oxazepam (benzodiazepine) for generalized anxiety disorder, without the dependency risk. Pairs with valerian root for a powerful, non-habit-forming sleep-onset botanical stack.</p>
+    </div>
+
+    <div class="herb-row">
+      <div class="herb-tier">&starf;&starf;&#9734; Promising Evidence</div>
+      <div class="herb-name">Holy Basil / Tulsi (ursolic acid-standardized)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;">
+        <span class="dose-tag mild">Mild: 300 mg/day</span>
+        <span class="dose-tag moderate">Moderate: 600 mg/day</span>
+        <span class="dose-tag heavy">Heavy: 600 mg 2x/day</span>
+      </div>
+      <p style="font-size:0.87rem;color:#9a9aaa;margin-bottom:4px;">Gentler than ashwagandha, with particular benefit for cortisol + blood sugar co-dysregulation. Often the right starting adaptogen for sensitive individuals or those with adrenal fatigue who don&#x2019;t tolerate stimulating herbs. Can be combined with ashwagandha once tolerability is established.</p>
+    </div>
+
+    <div class="herb-row">
+      <div class="herb-tier">&starf;&starf;&#9734; Promising Evidence</div>
+      <div class="herb-name">Magnolia Bark (honokiol + magnolol standardized)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;">
+        <span class="dose-tag mild">Mild: 200 mg before bed</span>
+        <span class="dose-tag moderate">Moderate: 400 mg before bed</span>
+        <span class="dose-tag heavy">Heavy: 400&ndash;600 mg before bed</span>
+      </div>
+      <p style="font-size:0.87rem;color:#9a9aaa;margin-bottom:4px;">Dual GABA-A and CB1 (endocannabinoid) receptor agonism plus direct cortisol reduction. Honokiol and magnolol are the active compounds. Particularly useful for the &#x201C;cortisol spike at 2&ndash;3am&#x201D; wakeup pattern. Take 30&ndash;60 minutes before bed. Do not combine with alcohol or benzodiazepines.</p>
+    </div>
+
+    <div class="herb-row">
+      <div class="herb-tier">&starf;&starf;&#9734; Promising Evidence</div>
+      <div class="herb-name">Lemon Balm (rosmarinic acid-standardized)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;">
+        <span class="dose-tag mild">Mild: 300 mg/day</span>
+        <span class="dose-tag moderate">Moderate: 600 mg/day</span>
+        <span class="dose-tag heavy">Heavy: 600&ndash;1,200 mg/day (split)</span>
+      </div>
+      <p style="font-size:0.87rem;color:#9a9aaa;margin-bottom:4px;">Gentle GABA transaminase inhibition &mdash; slows the breakdown of GABA, effectively raising GABA levels. Excellent for daytime use without sedation. Well-tolerated even in children. Pairs well with L-theanine for an alertness-without-anxiety stack. Also mild antiviral activity.</p>
+    </div>
+
+    <div class="herb-row" style="border-bottom:none;">
+      <div class="herb-tier">&starf;&starf;&#9734; Promising Evidence</div>
+      <div class="herb-name">Reishi (Ganoderma lucidum &mdash; dual extraction, triterpene-standardized)</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;">
+        <span class="dose-tag mild">Mild: 500 mg/day</span>
+        <span class="dose-tag moderate">Moderate: 1,000 mg/day</span>
+        <span class="dose-tag heavy">Heavy: 1,500&ndash;2,000 mg/day</span>
+      </div>
+      <p style="font-size:0.87rem;color:#9a9aaa;margin-bottom:0;">Adaptogenic mushroom with neuromodulatory properties. Improves sleep quality (specifically REM and deep sleep), modulates immune function, and reduces fatigue. Must use dual extraction (water + alcohol) for full triterpene and polysaccharide profile. Fruiting body, not mycelium. Takes 3&ndash;4 weeks for full effect.</p>
+    </div>
+  </div>
+
+  <!-- HOMEOPATHIC OPTIONS -->
+  <div style="margin-top:28px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#b794f4;margin-bottom:16px;">&diams; HOMEOPATHIC OPTIONS TO CONSIDER</div>
+    <div style="background:rgba(183,148,244,.06);border:1px solid rgba(183,148,244,.2);border-radius:10px;padding:14px 18px;">
+      <div style="color:#9a9aaa;font-size:0.85rem;margin-bottom:16px;font-style:italic;">Classical homeopathy is highly individualized. The options below are common classical choices for nervous system dysregulation patterns. A trained homeopath will refine to your specific constitutional picture.</div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Ignatia Amara &mdash; 30C</div>
+        <div style="color:#9a9aaa;font-size:0.88rem;">For nervous system dysregulation rooted in grief, loss, or emotional shock. Keynotes: sighing, lump in throat, contradictory symptoms, oversensitivity, hyperventilation. The nervous system that has been &#x201C;broken open&#x201D; by a significant loss and never fully recovered its baseline.</div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Nux Vomica &mdash; 30C</div>
+        <div style="color:#9a9aaa;font-size:0.88rem;">The overachiever&#x2019;s remedy. For the wired-and-tired executive pattern: too much caffeine, stimulation, perfectionism, difficulty sleeping despite exhaustion, irritability, digestive spasm. The nervous system chronically running on &#x201C;output&#x201D; with no recovery loop.</div>
+      </div>
+
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Aconitum Napellus &mdash; 30C</div>
+        <div style="color:#9a9aaa;font-size:0.88rem;">For acute panic and sudden intense fear states: rapid onset, heart palpitations, intense dread, numbness and tingling, claustrophobia. The nervous system that is stuck in acute sympathetic activation. Often most useful in the acute moment rather than chronically.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- END NUTRACEUTICALS -->
+
+<!-- ═══════════════════════════════ LABS & TARGETS ═══════════════════════════════ -->
+<div id="labs" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#f5a623;margin-bottom:6px;">&diams; TESTING THE NERVOUS SYSTEM: WHY LABS MATTER</div>
+    <div style="color:#9a9aaa;font-size:0.9rem;">You cannot see your cortisol pattern. You cannot feel your magnesium level. You cannot intuit your vitamin D status from how you feel. Objective data removes the guesswork and directs your most important interventions. These labs are your map. Don&#x2019;t guess &mdash; test.</div>
+  </div>
+
+  <!-- FOUNDATIONAL -->
+  <h3>Foundational Labs</h3>
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:16px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+
+      <div style="border-bottom:1px solid #1e2130;padding-bottom:12px;margin-bottom:4px;">
+        <div style="font-weight:700;color:#e8e4dc;font-size:0.92rem;margin-bottom:2px;">AM Serum Cortisol <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+        <div style="color:#9a9aaa;font-size:0.85rem;">Drawn 7&ndash;9am. Target: 10&ndash;20 mcg/dL. Low = adrenal insufficiency. High = chronic HPA activation. This is the most basic cortisol snapshot and should always be the starting point.</div>
+      </div>
+
+      <div style="border-bottom:1px solid #1e2130;padding-bottom:12px;margin-bottom:4px;">
+        <div style="font-weight:700;color:#e8e4dc;font-size:0.92rem;margin-bottom:2px;">RBC Magnesium <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+        <div style="color:#9a9aaa;font-size:0.85rem;">NOT serum magnesium (serum stays normal until profound depletion). RBC magnesium reflects intracellular stores. Target: 5.5&ndash;7.0 mg/dL. Below 5.5 requires therapeutic supplementation.</div>
+      </div>
+
+      <div style="border-bottom:1px solid #1e2130;padding-bottom:12px;margin-bottom:4px;">
+        <div style="font-weight:700;color:#e8e4dc;font-size:0.92rem;margin-bottom:2px;">Vitamin D (25-OH) <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+        <div style="color:#9a9aaa;font-size:0.85rem;">Target: 60&ndash;80 ng/mL. Below 40 is deficient by RoVive standards. Most labs flag 30 as normal &mdash; this is too low for nervous system and immune optimization.</div>
+      </div>
+
+      <div style="border-bottom:1px solid #1e2130;padding-bottom:12px;margin-bottom:4px;">
+        <div style="font-weight:700;color:#e8e4dc;font-size:0.92rem;margin-bottom:2px;">Thyroid Panel <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+        <div style="color:#9a9aaa;font-size:0.85rem;">TSH, Free T3, Free T4, TPO antibodies, anti-thyroglobulin. Subclinical hypothyroidism mimics nervous system dysregulation exactly. Don&#x2019;t treat anxiety without ruling this out first.</div>
+      </div>
+
+      <div style="border-bottom:1px solid #1e2130;padding-bottom:12px;margin-bottom:4px;">
+        <div style="font-weight:700;color:#e8e4dc;font-size:0.92rem;margin-bottom:2px;">CBC + CMP + Lipids <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+        <div style="color:#9a9aaa;font-size:0.85rem;">Foundational metabolic picture. Blood sugar, liver and kidney function, electrolytes, CBC for anemia (a common hidden driver of anxiety and fatigue). Always run fasting.</div>
+      </div>
+
+      <div style="border-bottom:1px solid #1e2130;padding-bottom:12px;margin-bottom:4px;">
+        <div style="font-weight:700;color:#e8e4dc;font-size:0.92rem;margin-bottom:2px;">Fasting Insulin + HbA1c <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+        <div style="color:#9a9aaa;font-size:0.85rem;">Insulin resistance is both a driver of and result of HPA dysregulation. Fasting insulin target: &lt;5 uIU/mL. HbA1c target: &lt;5.4%. Many &#x201C;normal&#x201D; ranges are too wide.</div>
+      </div>
+
+      <div style="padding-bottom:4px;">
+        <div style="font-weight:700;color:#e8e4dc;font-size:0.92rem;margin-bottom:2px;">hs-CRP + Homocysteine <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+        <div style="color:#9a9aaa;font-size:0.85rem;">Chronic stress drives systemic inflammation. hs-CRP target: &lt;0.5 mg/L (optimal). Homocysteine target: &lt;8 &micro;mol/L. Both are independent predictors of nervous system disease.</div>
+      </div>
+
+      <div style="padding-bottom:4px;">
+        <div style="font-weight:700;color:#e8e4dc;font-size:0.92rem;margin-bottom:2px;">Ferritin <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+        <div style="color:#9a9aaa;font-size:0.85rem;">Iron deficiency creates anxiety and fatigue that mimics HPA dysregulation. Target ferritin: 50&ndash;100 ng/mL (many labs flag &gt;10 as normal &mdash; this is woefully inadequate for nervous system function).</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FUNCTIONAL -->
+  <h3>Functional &amp; Hormonal <span class="lab-tag">&#10003; RWC Lab Store</span></h3>
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:16px;">
+
+    <div style="margin-bottom:14px;">
+      <div style="font-weight:700;color:#e8e4dc;font-size:0.95rem;margin-bottom:4px;">DUTCH Complete <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+      <p style="font-size:0.88rem;">The gold standard for HPA axis assessment. Maps the entire 24-hour cortisol pattern (not just a single morning snapshot): cortisol total output, free cortisol, cortisone, cortisol awakening response (CAR), and the metabolites that reveal how cortisol is being processed downstream. Also maps sex hormones, DHEA, melatonin, and organic acids. This single test tells you more about your nervous system chemistry than almost any other available lab. Use DUTCH Adrenal or DUTCH CAR if you want to focus specifically on the cortisol awakening response.</p>
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <div style="font-weight:700;color:#e8e4dc;font-size:0.95rem;margin-bottom:4px;">DHEA-S (Serum) <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+      <p style="font-size:0.88rem;">DHEA is the &#x201C;anti-cortisol&#x201D; hormone &mdash; it buffers the HPA axis and declines with age and chronic stress. Low DHEA-S in the context of HPA dysregulation suggests adrenal exhaustion. Target: age-appropriate ranges, generally upper half of normal range for functional optimization.</p>
+    </div>
+
+    <div>
+      <div style="font-weight:700;color:#e8e4dc;font-size:0.95rem;margin-bottom:4px;">Neurotransmitter Panel (Urine) <span class="lab-tag">&#10003; RWC Lab Store</span></div>
+      <p style="font-size:0.88rem;margin-bottom:0;">Measures urinary neurotransmitter metabolites: GABA, serotonin, dopamine, norepinephrine, epinephrine, glutamate. While not a perfect proxy for CNS neurotransmitter levels, patterns reveal imbalances that guide targeted nutritional support. Interpret in context of clinical picture, not in isolation.</p>
+    </div>
+  </div>
+
+  <!-- HRV -->
+  <h3>Heart Rate Variability (HRV) &mdash; The Nervous System Biomarker</h3>
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin-bottom:16px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#63b3ed;margin-bottom:10px;">&diams; DAILY NERVOUS SYSTEM ASSESSMENT</div>
+    <p style="font-size:0.9rem;margin-bottom:10px;">HRV (heart rate variability) is the millisecond variation between heartbeats. Higher HRV = more parasympathetic tone = more nervous system flexibility and resilience. Lower HRV = more sympathetic dominance = less stress capacity, worse recovery, higher disease risk.</p>
+    <p style="font-size:0.9rem;margin-bottom:6px;"><strong style="color:#e8e4dc;">Track daily with:</strong> Oura Ring, WHOOP, Garmin, Apple Watch (all provide reasonable HRV approximations). Track trends, not individual readings. A consistent 4&ndash;6 week trend upward correlates with measurable nervous system improvement.</p>
+    <p style="font-size:0.88rem;color:#9a9aaa;margin-bottom:0;"><strong style="color:#9a9aaa;">Target trajectory:</strong> HRV varies enormously by age and individual baseline. Your goal is consistent upward trend from YOUR baseline as you implement this protocol, not matching someone else&#x2019;s number.</p>
+  </div>
+
+
+  <!-- STOOL TESTING -->
+  <h3>Gut-Brain Axis &mdash; Stool Testing</h3>
+  <div style="background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);border-radius:10px;padding:18px 20px;margin-bottom:16px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#4ade80;margin-bottom:10px;">&diams; WHEN TO ORDER: persistent anxiety, brain fog, mood instability, bloating, or incomplete response to the core nervous system protocol</div>
+    <p style="font-size:0.88rem;margin-bottom:14px;">Gut dysbiosis is a direct nervous system dysregulator. Clostridia block dopamine conversion. Candida produces acetaldehyde, a neurotoxin. Leaky gut floods systemic circulation with LPS, triggering neuroinflammation. Stool testing identifies these patterns so they can be addressed with the full RoVive Gut Healing Protocol.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:14px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:#4ade80;letter-spacing:0.08em;margin-bottom:8px;">GI-MAP (Diagnostic Solutions) &mdash; PCR/DNA</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:#c8c4bc;line-height:1.9;">
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">SIgA</span> &mdash; gut immune status; 510&ndash;2,010 mcg/mL</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Calprotectin</span> &mdash; GI inflammation; &lt;50 mcg/g optimal</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Zonulin</span> &mdash; leaky gut marker; &lt;107 ng/mL</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Beta-Glucuronidase</span> &mdash; estrogen recirculation; &lt;365 U/mL</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Akkermansia / F. prausnitzii</span> &mdash; keystone butyrate producers</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">H. pylori + virulence genes</span> &mdash; with resistance markers</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Pathogens / Parasites</span> &mdash; Giardia, Cryptosporidium, C. diff</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Candida spp.</span> &mdash; intestinal fungal overgrowth</li>
+        </ul>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:14px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:#4ade80;letter-spacing:0.08em;margin-bottom:8px;">GI Effects (Genova Diagnostics) &mdash; Culture + Metabolites</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:#c8c4bc;line-height:1.9;">
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">n-Butyrate %</span> &mdash; colonocyte fuel; target 11.8&ndash;33.3%</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">SCFAs Total</span> &mdash; microbiome output; &ge;23.3 &mu;mol/g</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Pancreatic Elastase-1</span> &mdash; digestion capacity; &gt;200 mcg/g</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Calprotectin</span> &mdash; inflammation; &lt;50 mcg/g</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Candida culture + sensitivity</span> &mdash; natural agent response</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Parasitology</span> &mdash; O&P + PCR protozoa panel</li>
+          <li><span style="color:#f5a623;font-family:'DM Mono',monospace;font-size:0.7rem;">Zonulin family peptide</span> &mdash; directional leaky gut</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:rgba(74,222,128,.08);border-radius:8px;padding:12px;font-size:0.82rem;color:#c8c4bc;">
+      <strong style="color:#4ade80;">Also consider:</strong> OAT (Organic Acids Test, MosaicDX) &mdash; urine-based; captures neurotransmitter metabolites (5-HIAA for serotonin, HVA for dopamine, quinolinic acid for neuroinflammation) plus Clostridia markers (HPHPA, 4-Cresol), Candida (Arabinose), and mitochondrial function. Uniquely maps the intersection of gut organisms and nervous system biochemistry.
+    </div>
+  </div>
+
+    <!-- PHYSICAL CAPACITY -->
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin:16px 0;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#63b3ed;margin-bottom:10px;">&diams; PHYSICAL CAPACITY &mdash; OFTEN OVERLOOKED, CLINICALLY POWERFUL</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div><strong style="color:#e8e4dc;">DEXA Scan</strong><br><span style="color:#9a9aaa;font-size:0.88rem;">Gold standard body composition. Chronic stress drives visceral fat accumulation and muscle loss &mdash; both worsen HPA dysregulation.</span></div>
+      <div><strong style="color:#e8e4dc;">Grip Strength</strong><br><span style="color:#9a9aaa;font-size:0.88rem;">Validated all-cause mortality predictor and marker of overall resilience. Improves with nervous system regulation and resistance training.</span></div>
+      <div><strong style="color:#e8e4dc;">Gait Speed</strong><br><span style="color:#9a9aaa;font-size:0.88rem;">4&ndash;6 meter timed walk. Slower gait independently predicts higher mortality. CNS processing speed and motor control both reflect nervous system status.</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- END LABS -->
+
+<!-- ═══════════════════════════ CUTTING-EDGE THERAPIES ═══════════════════════════ -->
+<div id="cutting-edge" class="section">
+
+  <div style="background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#06b6d4;margin-bottom:6px;">&diams; BEYOND THE FUNDAMENTALS</div>
+    <div style="color:#9a9aaa;font-size:0.9rem;">These interventions amplify and accelerate the nervous system reset once foundational pillars are in place. They are not replacements for sleep, breathwork, and magnesium &mdash; they are force multipliers. Evidence tiers are noted honestly.</div>
+  </div>
+
+  <!-- VAGUS NERVE STIMULATION -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Bioelectric</span></div>
+    <div class="supp-name">Vagus Nerve Stimulation (tVNS)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;">Transcutaneous vagus nerve stimulation (tVNS) delivers non-invasive electrical stimulation to the auricular branch of the vagus nerve via the ear. Demonstrated effects: improved HRV, reduced cortisol, decreased inflammatory markers, improved mood, and reduced anxiety in clinical trials. FDA-cleared devices available (gammaCore, Novalief). Research-grade evidence growing rapidly.</p>
+    <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:4px;"><strong style="color:#9a9aaa;">Practical:</strong> 10&ndash;20 minute sessions 1&ndash;2x/day. Particularly effective combined with slow breathing during sessions.</p>
+    <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:4px;"><strong style="color:#e8e4dc;">Consumer tVNS / Vibrotactile devices:</strong> <strong style="color:#f5a623;">Apollo Neuro</strong> (vibrotactile wearable, peer-reviewed, 11&ndash;25% HRV improvement) &bull; <strong style="color:#f5a623;">Truvaga</strong> (handheld transcutaneous VNS device, FDA 510(k) cleared, 2-min sessions) &bull; <strong style="color:#f5a623;">Pulsetto</strong> (neck-worn tVNS wearable, 4-minute sessions via app) &bull; <strong style="color:#f5a623;">Hoolest Sport</strong> (vibrotactile ANS modulation, HRV-guided). Each takes a different delivery approach &mdash; all target the same vagal afferent pathway. Start with whichever format fits your daily routine.</p>
+    <div class="nutra-alt">
+      <div class="nutra-alt-label">DIY VAGAL TONE STACK (No Device Required)</div>
+      <div style="color:#e8e4dc;font-size:0.88rem;">Cold water face immersion (dive reflex) + gargling vigorously for 2 min + humming/singing + 4-7-8 breathing. Combined, these low-tech interventions can meaningfully shift vagal tone practiced consistently.</div>
+    </div>
+  </div>
+
+  <!-- NEUROFEEDBACK -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Neurological</span></div>
+    <div class="supp-name">Neurofeedback (EEG Biofeedback)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;">Neurofeedback uses real-time EEG to train brainwave patterns, rewiring dysregulated nervous system states at the level of cortical activity. Particularly effective for PTSD, anxiety, ADHD, and chronic stress. Multiple RCTs and meta-analyses support efficacy for stress and anxiety reduction. Training sessions typically 20&ndash;40 sessions of 30&ndash;60 minutes each with a trained practitioner. Home devices (Muse, Neurosity, Mendi) offer scaled-down alpha/theta feedback for daily maintenance. <strong style="color:#f5a623;">Sens.ai</strong> is a premium home neurofeedback system combining EEG with photobiomodulation (light + sound), delivering clinician-grade protocols without clinic visits &mdash; one of the more sophisticated at-home options available.</p>
+    <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:8px;">Target brainwave states for nervous system reset: Alpha (8&ndash;12 Hz, wakeful calm) and Theta (4&ndash;8 Hz, meditative/creative) upregulation; Beta suppression (particularly high-beta &gt;25 Hz associated with anxiety).</p>
+    <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:0;"><strong style="color:#e8e4dc;">LENS (Low Energy Neurofeedback System):</strong> A distinct and often overlooked approach. Unlike standard neurofeedback where the client watches visual feedback, LENS delivers a tiny electromagnetic signal to the scalp based on real-time EEG &mdash; the brain responds and self-reorganizes. Sessions are often just 1&ndash;5 minutes. Particularly useful for clients who are too dysregulated to engage with active neurofeedback training, those with TBI history, or treatment-resistant anxiety and PTSD. Fewer sessions typically required vs. standard neurofeedback (often 10&ndash;20 vs. 40+). Requires a trained LENS practitioner.</p>
+  </div>
+
+  <!-- PEMF -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Bioelectric</span></div>
+    <div class="supp-name">PEMF Therapy (Pulsed Electromagnetic Field)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;">PEMF delivers pulsed electromagnetic fields that entrain brainwave states, improve mitochondrial function in neurons, enhance cellular ATP production, and support parasympathetic recovery. Earth&#x2019;s natural Schumann resonance (7.83 Hz) overlaps with theta/alpha brainwave range &mdash; consistent with why grounding and nature contact are neurologically calming. Devices: Earthpulse, FlexPulse, BEMER, iMRS 2000.</p>
+    <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:4px;">Sessions: 10&ndash;30 minutes, 1&ndash;2x/day. Delta (0.5&ndash;2 Hz) settings for sleep; Theta/Alpha (4&ndash;10 Hz) for relaxation and nervous system reset during waking hours.</p>
+  </div>
+
+  <!-- RED LIGHT THERAPY -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Photobiomodulation</span></div>
+    <div class="supp-name">Red &amp; Near-Infrared Light Therapy (PBM)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;">660nm (red) and 830&ndash;850nm (NIR) wavelengths penetrate tissue and activate cytochrome c oxidase in mitochondria, increasing ATP production in neurons, reducing neuroinflammation, and improving HRV. Transcranial PBM (light directed at the skull) is showing promising results for anxiety, depression, and cognitive function. Devices: Joovv, Red Light Rising, Mito Red Light.</p>
+    <p style="font-size:0.85rem;color:#9a9aaa;">Sessions: 10&ndash;20 minutes, 3&ndash;5x/week. For nervous system specifically: direct panel exposure or transcranial device. Morning use preferred (avoid evening if stimulating).</p>
+  </div>
+
+  <!-- FLOAT TANK -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Sensory</span></div>
+    <div class="supp-name">Float Tank / Restricted Environmental Stimulation (REST)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;">Flotation REST removes virtually all external sensory input, producing a profound shift into parasympathetic dominance within 15&ndash;20 minutes. The nervous system &mdash; freed from constant environmental processing &mdash; drops into deep theta. Studies show significant reductions in cortisol, anxiety, blood pressure, and muscle tension, with effects lasting 3&ndash;4 days after a single session. Magnesium absorption through the skin (Epsom salt = magnesium sulfate) is an additional benefit. 1&ndash;2 sessions/month as a nervous system reset is highly underutilized.</p>
+  </div>
+
+
+  <!-- FMT -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Gut-Brain Axis</span></div>
+    <div class="supp-name">FMT &mdash; Fecal Microbiota Transplantation (Novel Biome)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;">FMT transfers the microbiome from a rigorously screened "super donor" into the recipient, restructuring the gut ecosystem at a level that probiotics and diet alone cannot reach. The gut-brain axis is bidirectional and fundamental &mdash; a dysbiotic microbiome chronically suppresses serotonin synthesis, dysregulates the HPA axis via LPS-driven neuroinflammation, and blocks the dopamine pathway via Clostridia metabolites. FMT addresses this at the root.</p>
+    <p style="font-size:0.88rem;margin-bottom:8px;">Published evidence supports FMT benefits for: mood and anxiety, cognitive function, fatigue, IBS, Parkinson&#x2019;s, ASD, metabolic conditions, and post-antibiotic dysbiosis. <strong style="color:#f5a623;">Novel Biome</strong> is a leading FMT provider offering double-encapsulated oral capsules sourced from extensively screened super donors, manufactured under GMP/GLP standards, with a 90-day protocol (loading dose + maintenance).</p>
+    <p style="font-size:0.88rem;margin-bottom:8px;"><strong style="color:#e8e4dc;">Protocol overview:</strong> Pre-treatment preparation (2 weeks antibiotics/antifungals to clear the field + bowel cleanse the day prior). Loading dose: 10&ndash;15 capsules/day for 2&ndash;3 days. Maintenance: 1 capsule/day for 4&ndash;8 weeks. Monitor at Weeks 4, 8, 12 with validated symptom measures and follow-up stool testing.</p>
+    <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:4px;"><strong style="color:#fc8181;">Important:</strong> Physician oversight required. Exclusion criteria include pregnancy, colectomy history, active GI infection, immunodeficiency, and active malignancy. Pre-treatment stool testing (GI-MAP or GI Effects) is strongly recommended to establish baseline and guide post-FMT retesting at 3&ndash;6 months.</p>
+    <div class="nutra-alt">
+      <div class="nutra-alt-label">Pre-FMT Gut Optimization Stack (use regardless of FMT decision)</div>
+      <div style="color:#e8e4dc;font-size:0.88rem;">L-Glutamine 5&ndash;10g fasted + Zinc carnosine 75mg 2x/day + Butyrate 600mg&ndash;1.2g with meals + MegaSporeBiotic 2 caps/day + Colostrum 1&ndash;2g/day. This stack repairs the gut lining, fuels colonocytes, and supports SIgA &mdash; the gut&#x2019;s first immune defense and a key nervous system signal.</div>
+    </div>
+  </div>
+
+    <!-- PEPTIDES -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Peptide Therapy &middot; Off-Label</span></div>
+    <div class="supp-name">Selank &amp; Semax (Anxiolytic / Nootropic Peptides)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;"><strong style="color:#fc8181;">Off-label use:</strong> These are synthetic peptides developed in Russia with extensive pre-clinical and clinical research but limited Western RCT data. Selank is a synthetic analog of tuftsin with anxiolytic, nootropic, and immune-modulatory effects. Semax increases BDNF and improves focus, mood, and stress resilience. Both are used intranasally or subcutaneously. Require compounding pharmacy and physician oversight.</p>
+    <div class="nutra-alt">
+      <div class="nutra-alt-label">Nutraceutical Alternative</div>
+      <div style="color:#e8e4dc;font-size:0.88rem;">Lion&#x2019;s Mane 1,000&ndash;2,000mg (NGF upregulation) + Bacopa 300mg (BDNF + synaptic density) + Phosphatidylserine 400mg (cortisol reduction) + Ashwagandha KSM-66 600mg. This stack targets similar mechanisms without prescription requirements.</div>
+    </div>
+  </div>
+
+  <!-- BPC-157 -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Peptide Therapy &middot; Off-Label</span></div>
+    <div class="supp-name">BPC-157 (Body Protective Compound)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;"><strong style="color:#fc8181;">Off-label use:</strong> BPC-157 is a 15-amino acid peptide fragment of a protein found in gastric juice. Beyond its well-known gut-healing properties, it has demonstrated direct effects on the dopaminergic and serotonergic systems, showing anxiolytic properties and even reversal of some antidepressant-induced receptor changes in animal models. Growing use for nervous system repair after trauma or chronic stress. Oral or subcutaneous administration. Requires physician oversight.</p>
+    <div class="nutra-alt">
+      <div class="nutra-alt-label">Nutraceutical Alternative</div>
+      <div style="color:#e8e4dc;font-size:0.88rem;">Zinc carnosine 75mg + L-glutamine 5g + colostrum 2g daily. Supports gut healing and gut-brain axis restoration, which underlies much of BPC-157&#x2019;s nervous system benefit.</div>
+    </div>
+  </div>
+
+  <!-- IV NAD+ -->
+  <div class="supp-card" style="margin-bottom:14px;">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">IV Therapy</span></div>
+    <div class="supp-name">IV NAD+ (Nicotinamide Adenine Dinucleotide)</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;">IV NAD+ rapidly replenishes cellular NAD+ levels, supporting mitochondrial function in neurons, DNA repair, sirtuin activation, and neurotransmitter synthesis. Particularly reported to reduce cravings, improve mental clarity, and support nervous system recovery from chronic stress or addiction. Sessions: typically 500mg&ndash;1,000mg over 2&ndash;4 hours. Often requires a clinic setting.</p>
+    <div class="nutra-alt">
+      <div class="nutra-alt-label">Nutraceutical Alternative</div>
+      <div style="color:#e8e4dc;font-size:0.88rem;">NMN 500&ndash;1,000mg/day (morning) + Resveratrol 500mg + TMG 500mg + Riboflavin 25mg. This oral NAD+ precursor stack does not replicate the rapid IV effect but supports sustained NAD+ levels over time.</div>
+    </div>
+  </div>
+
+  <!-- SOUND & FREQUENCY -->
+  <div class="supp-card">
+    <div style="margin-bottom:8px;"><span class="cutting-edge-badge">Sound &amp; Frequency</span></div>
+    <div class="supp-name">Sound Medicine &mdash; Binaural Beats, Vagal Resonance, HBOT</div>
+    <p style="font-size:0.88rem;margin-bottom:8px;"><strong style="color:#e8e4dc;">Binaural beats:</strong> When two slightly different frequencies are played in each ear, the brain entrains to the difference frequency. Delta (0.5&ndash;4 Hz) for sleep; Theta (4&ndash;8 Hz) for meditative states; Alpha (8&ndash;12 Hz) for wakeful calm. Apps: Brain.fm, Insight Timer, YouTube binaural playlists. Requires headphones. Evidence is promising but not yet robust RCT-level.</p>
+    <p style="font-size:0.88rem;margin-bottom:8px;"><strong style="color:#e8e4dc;">HBOT (Hyperbaric Oxygen):</strong> Emerging data suggests that periodic hyperbaric sessions reduce neuroinflammation, improve mitochondrial function in neurons, and may directly benefit HPA axis regulation. Used for PTSD, TBI, and chronic fatigue &mdash; all conditions with significant nervous system overlap.</p>
+    <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:0;"><em>Note: Evidence tiers for sound frequency medicine vary widely. The best approach is experimentation with honest self-tracking via HRV. If your HRV trends up and you feel better &mdash; that&#x2019;s the data that matters for you.</em></p>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- END CUTTING-EDGE -->
+
+<!-- ═══════════════════════════════ AHA MOMENTS ═══════════════════════════════════ -->
+<div id="aha" class="section">
+
+  <div style="background:rgba(183,148,244,.08);border:1px solid rgba(183,148,244,.2);border-radius:10px;padding:16px 20px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#b794f4;margin-bottom:8px;">&diams; ABOUT THESE QUESTIONS</div>
+    <div style="color:#e8e4dc;font-size:0.92rem;">These aren&#x2019;t facts. They&#x2019;re perspective shifts &mdash; the kind that change how someone sees their own body forever. Drop them into conversation, pause, and let them land.</div>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 1 &middot; Conventional Medicine Blind Spot</div>
+    <div class="scenario-title">"If anxiety is a serotonin problem, why do most anxious people feel worse with SSRIs alone?"</div>
+    <div class="scenario-finding">The dominant model says anxiety = low serotonin. But most anxiety disorders are far more closely tied to GABA deficiency, magnesium depletion, and HPA dysregulation than serotonin imbalance. SSRIs help some people &mdash; but they don&#x2019;t address the cortisol pattern, the magnesium deficiency, or the nervous system&#x2019;s inability to shift into parasympathetic. Medicating a physiology problem without fixing the physiology is like putting a new battery in a flooded engine.</div>
+    <ul class="action-list">
+      <li><strong>Citations:</strong> Kalueff AV &amp; Nutt DJ, Depression and Anxiety, 2007; Kirkland AE et al. "The Role of Magnesium in Neurological Disorders," Nutrients, 2018</li>
+      <li><strong>Delivery tip:</strong> Say it as a genuine question &mdash; not a gotcha. Then pause 5 seconds before answering.</li>
+      <li><strong>Best placed:</strong> Opening hook or after introducing the HPA axis concept</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 2 &middot; Brain-Body Connection</div>
+    <div class="scenario-title">"Your vagus nerve sends 80% of its signals UP to your brain &mdash; not down."</div>
+    <div class="scenario-finding">Most people assume the vagus nerve sends commands from your brain down to your organs. In reality, 80% of vagal fibers are afferent &mdash; they carry information FROM your gut, heart, and lungs UP to the brainstem. This means your gut is constantly telling your brain how safe you are. Slow, diaphragmatic breathing stimulates those afferent fibers and sends a safety signal upward. A 4-second inhale followed by an 8-second exhale measurably shifts ANS state within 90 seconds &mdash; not because it relaxes your muscles, but because it changes the signal your brainstem is receiving.</div>
+    <ul class="action-list">
+      <li><strong>Citations:</strong> Bonaz B et al., Nature Reviews Gastroenterology &amp; Hepatology, 2018; Zaccaro A et al., Front Hum Neurosci, 2018</li>
+      <li><strong>Delivery tip:</strong> Have the group exhale slowly while you explain. Let them feel it happen in real time.</li>
+      <li><strong>Best placed:</strong> When introducing breathwork; opening of Air pillar discussion</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 3 &middot; Conventional Medicine Blind Spot</div>
+    <div class="scenario-title">"One night of poor sleep can turn a healthy person pre-diabetic by morning."</div>
+    <div class="scenario-finding">Partial sleep restriction &mdash; just 4&ndash;6 hours for 6 nights &mdash; reduces insulin sensitivity by up to 30% in otherwise healthy young adults. The mechanism: sleep deprivation elevates cortisol (measurably by 37% in some studies), which drives glucose production and insulin resistance. One night. Not months of insomnia. One night of compromised sleep measurably changes your metabolic state the next morning. This is why sleep is the non-negotiable first intervention in the Nervous System Reset.</div>
+    <ul class="action-list">
+      <li><strong>Citations:</strong> Spiegel K et al., Sleep, 1999; Leproult R &amp; Van Cauter E, JAMA, 2011</li>
+      <li><strong>Delivery tip:</strong> Pause after "pre-diabetic by morning." Let the weight of that land.</li>
+      <li><strong>Best placed:</strong> Sleep pillar discussion or as an opening hook for the protocol</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 4 &middot; Systems Thinking</div>
+    <div class="scenario-title">"Chronic stress physically shrinks part of your brain &mdash; and enlarges another."</div>
+    <div class="scenario-finding">Chronic cortisol elevation measurably reduces the volume and dendritic density of the prefrontal cortex &mdash; the part of your brain responsible for rational decision-making, impulse control, and perspective. Simultaneously, it enlarges the amygdala &mdash; the threat detection center. This isn&#x2019;t metaphor. It&#x2019;s documented structural remodeling on MRI. Translation: chronic stress literally makes you less capable of thinking clearly and more reactive to threat &mdash; at a neurological level. The good news: this remodeling is reversible with nervous system reset interventions, including sleep, exercise, and meditation.</div>
+    <ul class="action-list">
+      <li><strong>Citations:</strong> Radley JJ et al., J Comp Neurol, 2004; McEwen BS, Ann NY Acad Sci, 2001</li>
+      <li><strong>Delivery tip:</strong> Draw the two regions on a whiteboard or describe them physically with your hands.</li>
+      <li><strong>Best placed:</strong> After establishing what the nervous system reset does; great for motivation</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 5 &middot; Organism / Biology</div>
+    <div class="scenario-title">"Your gut has more neurons than your spinal cord &mdash; and it talks to your brain first."</div>
+    <div class="scenario-finding">The enteric nervous system (ENS) contains 500 million neurons &mdash; more than the entire spinal cord. It produces 90&ndash;95% of the body&#x2019;s serotonin, significant quantities of dopamine and GABA, and sends continuous real-time updates to the brain via the vagus nerve. This is why every gut dysbiosis is a mood problem, and every chronic anxiety eventually becomes a gut problem. The gut is not downstream from the brain in the nervous system reset. It&#x2019;s a co-equal participant &mdash; and often the first place the nervous system distress shows up.</div>
+    <ul class="action-list">
+      <li><strong>Citations:</strong> Gershon M, The Second Brain, 1998; Mayer EA, Nature Reviews Neuroscience, 2011</li>
+      <li><strong>Delivery tip:</strong> "500 million neurons" always lands with surprise. Let them calculate: that&#x2019;s more than many entire animal nervous systems.</li>
+      <li><strong>Best placed:</strong> When discussing food, gut-brain axis, or explaining why bloating and anxiety often travel together</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 6 &middot; Timeline / Causality</div>
+    <div class="scenario-title">"Can what happened to you at age 7 still be running your cortisol at age 55?"</div>
+    <div class="scenario-finding">Adults who experienced 4 or more adverse childhood experiences (ACEs) show measurably different HPA axis reactivity decades later &mdash; including elevated baseline cortisol, blunted cortisol awakening response (CAR), and faster adrenal depletion under stress. This isn&#x2019;t psychology theory. It&#x2019;s measurable neuroendocrinology and epigenetics: ACEs alter gene methylation patterns that regulate HPA axis sensitivity. The body remembers what the mind has tried to move past. This is why a Nervous System Reset that doesn&#x2019;t address the emotional root often produces partial and impermanent results.</div>
+    <ul class="action-list">
+      <li><strong>Citations:</strong> Heim C et al., JAMA, 2000; McLaughlin KA et al., Biol Psychiatry, 2015; Felitti VJ et al., Am J Prev Med, 1998</li>
+      <li><strong>Delivery tip:</strong> Deliver this with compassion, not alarm. Pause before asking: "What if that&#x2019;s part of the pattern you&#x2019;re working with?"</li>
+      <li><strong>Best placed:</strong> RoVive Method tab discussion; Emotional Root section; closing reflection</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 7 &middot; Brain-Body Connection</div>
+    <div class="scenario-title">"Why does splashing cold water on your face calm you down immediately?"</div>
+    <div class="scenario-finding">Cold water on the face triggers the mammalian dive reflex &mdash; an ancient, hardwired response where baroreceptors in the facial trigeminal nerve detect cold water and immediately stimulate the vagus nerve, dropping heart rate within seconds. This reflex evolved for diving; it&#x2019;s present in all mammals. But it works equally well for a 30-second cold tap splash when you&#x2019;re panicking before a difficult conversation. This isn&#x2019;t a trick &mdash; it&#x2019;s evolutionary parasympathetic biology available to you anywhere, anytime, for free.</div>
+    <ul class="action-list">
+      <li><strong>Citations:</strong> Foster GE &amp; Sheel AW, Experimental Physiology, 2005; Diving medicine literature (mammalian dive reflex)</li>
+      <li><strong>Delivery tip:</strong> Have people try it right then if you have a sink nearby. Nothing builds belief like felt experience.</li>
+      <li><strong>Best placed:</strong> Practical tools section; breathwork discussion; anywhere you want a moment of light energy</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- END AHA MOMENTS -->
+
+<!-- ═══════════════════════════════ ROVIVE METHOD ════════════════════════════════ -->
+<div id="rovive" class="section">
+
+  <!-- Medicine Framework Grid -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;">
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;color:#9a9aaa;margin-bottom:8px;">MEDICINE 1.0</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;overflow:visible;padding-bottom:0.1em;color:#e8e4dc;margin-bottom:10px;">Crisis Intervention</div>
+      <ul style="list-style:none;padding:0;margin:0;font-size:0.82rem;color:#9a9aaa;line-height:1.8;">
+        <li>&#x2022; Diagnose and treat acute symptoms</li>
+        <li>&#x2022; Prescribe medications (SSRIs, benzodiazepines)</li>
+        <li>&#x2022; Refer to psychiatry or therapy</li>
+        <li>&#x2022; Manage the acute crisis</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(248,113,113,.08);border-left:3px solid #f87171;border-radius:0 6px 6px 0;font-size:0.78rem;color:#fca5a5;">
+        <strong>Assumption Worth Questioning:</strong> "Your anxiety is a brain chemical imbalance best managed with medication." What if it&#x2019;s a body physiology problem first?
+      </div>
+    </div>
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;color:#9a9aaa;margin-bottom:8px;">MEDICINE 2.0</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;overflow:visible;padding-bottom:0.1em;color:#e8e4dc;margin-bottom:10px;">Root Cause Hunting</div>
+      <ul style="list-style:none;padding:0;margin:0;font-size:0.82rem;color:#9a9aaa;line-height:1.8;">
+        <li>&#x2022; Functional labs (DUTCH, nutrients, gut)</li>
+        <li>&#x2022; Address cortisol, nutrient deficiencies</li>
+        <li>&#x2022; Adaptogens, lifestyle interventions</li>
+        <li>&#x2022; Hormone and neurotransmitter testing</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(251,191,36,.08);border-left:3px solid #f5a623;border-radius:0 6px 6px 0;font-size:0.78rem;color:#fcd34d;">
+        <strong>Assumption Worth Questioning:</strong> "If we fix the labs and add the right supplements, the nervous system will reset." What about the pattern that created dysregulation in the first place?
+      </div>
+    </div>
+
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);border-radius:10px;padding:18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;color:#f5a623;margin-bottom:8px;">MEDICINE 3.0 &mdash; ROVIVE</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-bottom:10px;">Precision &amp; Wholeness</div>
+      <ul style="list-style:none;padding:0;margin:0;font-size:0.82rem;color:#c8c4bc;line-height:1.8;">
+        <li>&#x2022; Great 8 Pillars: ranked for your pattern</li>
+        <li>&#x2022; 4Rs: restore in sequence, not all at once</li>
+        <li>&#x2022; Emotional root: ACEs, stored trauma, meaning</li>
+        <li>&#x2022; Future horizon: what this person becomes</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(245,166,35,.1);border-left:3px solid #f5a623;border-radius:0 6px 6px 0;font-size:0.78rem;color:#fcd34d;">
+        <strong>The RoVive Difference:</strong> Comprehensive enough to catch what standard functional medicine misses. Precision-point enough to know exactly where to start for <em>this</em> person.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 4-Stage Framework -->
+  <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;overflow:visible;padding-bottom:0.25em;color:#e8e4dc;margin-bottom:16px;">The 4-Stage RoVive Framework</div>
+
+  <div class="phase-card">
+    <div class="phase-header" onclick="togglePhase(this)" style="cursor:pointer;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <span class="phase-number">Stage 1</span>
+          <span class="phase-name" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-left:10px;">ROOTS</span>
+        </div>
+        <span class="phase-toggle">&#x25BC;</span>
+      </div>
+      <div style="font-size:0.82rem;color:#9a9aaa;margin-top:4px;">Identify the pattern, not just the symptoms</div>
+    </div>
+    <div class="phase-content">
+      <p style="font-size:0.88rem;margin-bottom:10px;">What is this person&#x2019;s ANS baseline? Do they live sympathetically dominant (wired, anxious, reactive) or dorsally collapsed (flat, foggy, exhausted)? Both can look like "stress" on the surface, but the interventions are different. A sympathetically dominant person needs downregulation. A dorsally collapsed person needs gentle activation first, or they can&#x2019;t access the resources needed for deeper work.</p>
+      <p style="font-size:0.88rem;margin-bottom:10px;">Root questions for nervous system work: What is their sleep architecture? What does their morning cortisol look like? Have they had adversity experiences that may be encoded in the HPA axis? What&#x2019;s their HRV trend? Where are the Great 8 Pillars ranking in their life right now?</p>
+      <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:0;">Tools: Intake conversation, HRV data, DUTCH Complete/Adrenal, ACE score exploration, Great 8 Pillars self-assessment.</p>
+    </div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header" onclick="togglePhase(this)" style="cursor:pointer;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <span class="phase-number">Stage 2</span>
+          <span class="phase-name" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-left:10px;">REVEAL</span>
+        </div>
+        <span class="phase-toggle">&#x25BC;</span>
+      </div>
+      <div style="font-size:0.82rem;color:#9a9aaa;margin-top:4px;">Expose the biochemical and physiological reality</div>
+    </div>
+    <div class="phase-content">
+      <p style="font-size:0.88rem;margin-bottom:10px;">Labs tell us what the body is actually doing, not what we assume it&#x2019;s doing. For nervous system work, the minimum reveal: RBC Magnesium (not serum), DUTCH Complete with CAR, AM cortisol, Vitamin D, fasting insulin, hs-CRP. Secondary: DHEA-S, neurotransmitter panel (urinary), thyroid panel.</p>
+      <p style="font-size:0.88rem;margin-bottom:10px;">HRV as ongoing biomarker: this is the real-time reveal that labs can&#x2019;t give. A weekly HRV trend over 8 weeks will tell you more about whether the nervous system is actually shifting than any single lab panel.</p>
+      <p style="font-size:0.85rem;color:#9a9aaa;margin-bottom:0;">Tools: RWC Lab Store (Rupa Health) for foundational + functional labs. Garmin, WHOOP, Oura, or Apple Watch for HRV tracking.</p>
+    </div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header" onclick="togglePhase(this)" style="cursor:pointer;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <span class="phase-number">Stage 3</span>
+          <span class="phase-name" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-left:10px;">REFINE</span>
+        </div>
+        <span class="phase-toggle">&#x25BC;</span>
+      </div>
+      <div style="font-size:0.82rem;color:#9a9aaa;margin-top:4px;">Restore in the correct sequence</div>
+    </div>
+    <div class="phase-content">
+      <p style="font-size:0.88rem;margin-bottom:10px;">The 4Rs applied to nervous system reset: Remove (sleep disruptors, stimulants after 2pm, blue light at night, high-cortisol inputs); Replace (magnesium, B-complex, Vitamin D, omega-3s &mdash; the deficiencies that make the nervous system fragile); Restore (sleep architecture, HRV, circadian rhythm, GABA tone through botanicals); Re-inoculate (somatic practice, breathwork consistency, community, meaning).</p>
+      <p style="font-size:0.88rem;margin-bottom:10px;">Sequence matters. Adding adaptogens before sleep is restored is putting a turbocharger on an engine that needs a new fuel filter. Sleep first. Then foundations. Then advanced interventions.</p>
+    </div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header" onclick="togglePhase(this)" style="cursor:pointer;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <span class="phase-number">Stage 4</span>
+          <span class="phase-name" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-left:10px;">RISE</span>
+        </div>
+        <span class="phase-toggle">&#x25BC;</span>
+      </div>
+      <div style="font-size:0.82rem;color:#9a9aaa;margin-top:4px;">Build a nervous system that can hold what you&#x2019;re building toward</div>
+    </div>
+    <div class="phase-content">
+      <p style="font-size:0.88rem;margin-bottom:10px;">Once the nervous system baseline has shifted &mdash; tracked by HRV trend, sleep quality, and subjective state &mdash; we can ask: what does this person want to be capable of? A nervous system reset is not the goal. The goal is the life that becomes possible when your physiology stops limiting you.</p>
+      <p style="font-size:0.88rem;margin-bottom:10px;">Advanced work at this stage: advanced therapies (neurofeedback, tVNS, peptides), ongoing lab optimization, exploring the emotional root more deeply if relevant, building social nervous system support (community, co-regulation, connection).</p>
+    </div>
+  </div>
+
+  <!-- Emotional Root Section -->
+  <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.2);border-radius:12px;padding:22px;margin-top:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#a78bfa;margin-bottom:10px;">&diams; THE EMOTIONAL ROOT &mdash; NERVOUS SYSTEM SPECIFIC</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;overflow:visible;padding-bottom:0.1em;color:#e8e4dc;margin-bottom:12px;">When Physiology and Experience Intersect</div>
+    <p style="font-size:0.88rem;margin-bottom:12px;">Nervous system dysregulation is one of the clinical areas where the emotional root is most directly relevant and most frequently overlooked. The HPA axis is not just a biochemical system &mdash; it is a learning system. It adapts to the environments it&#x2019;s been through. For many adults with chronic anxiety, chronic fatigue, or blunted emotional range, the physiology is not broken. It is appropriate to experiences that are no longer present.</p>
+    <p style="font-size:0.88rem;margin-bottom:12px;">This doesn&#x2019;t mean every person needs deep trauma work before their cortisol will normalize. For many, improving sleep and magnesium produces dramatic improvements without any direct emotional work. But for the person who does "everything right" and still can&#x2019;t regulate &mdash; whose HRV won&#x2019;t move, whose anxiety persists despite optimal labs &mdash; the emotional root is often the missing piece.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+      <div style="background:rgba(167,139,250,.08);border-radius:8px;padding:14px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.68rem;color:#a78bfa;letter-spacing:0.08em;margin-bottom:8px;">WHAT TO EXPLORE</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:0.82rem;color:#c8c4bc;line-height:1.9;">
+          <li>&#x2022; History of adverse childhood experiences (ACEs)</li>
+          <li>&#x2022; Chronic or traumatic loss</li>
+          <li>&#x2022; Persistent grief, unprocessed anger, or shame</li>
+          <li>&#x2022; Long-term people-pleasing or hypervigilance patterns</li>
+          <li>&#x2022; Meaning, purpose, and vocation alignment</li>
+        </ul>
+      </div>
+      <div style="background:rgba(167,139,250,.08);border-radius:8px;padding:14px;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.68rem;color:#a78bfa;letter-spacing:0.08em;margin-bottom:8px;">TOOLS WORTH KNOWING</div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:0.82rem;color:#c8c4bc;line-height:1.9;">
+          <li>&#x2022; Somatic experiencing (Peter Levine)</li>
+          <li>&#x2022; EMDR for nervous system-stored trauma</li>
+          <li>&#x2022; Parts work / Internal Family Systems (IFS)</li>
+          <li>&#x2022; Breathwork (holotropic, rebirthing)</li>
+          <li>&#x2022; Community &amp; co-regulation (Pillar #7)</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:0.82rem;color:#9a9aaa;margin-top:14px;margin-bottom:0;font-style:italic;">Note: Dr. Yoshi is a physician mentor, not a therapist. Where the emotional root is prominent, appropriate referral to a skilled trauma-informed therapist or somatic practitioner is part of the RoVive Method. Holding the whole picture &mdash; and knowing when to refer &mdash; is what makes this approach different.</p>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- END ROVIVE METHOD -->
+
+<!-- ═══════════════════════════════ QUICK REFERENCE ══════════════════════════════ -->
+<div id="quick-ref" class="section">
+
+  <!-- Where to Start Box -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+
+    <div style="background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2);border-radius:12px;padding:20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;color:#4ade80;margin-bottom:10px;">&diams; IF YOU'RE NEW &mdash; START HERE</div>
+      <ol style="padding-left:18px;margin:0;font-size:0.85rem;color:#c8c4bc;line-height:2.0;">
+        <li>Set a consistent wake time (non-negotiable)</li>
+        <li>Magnesium Bisglycinate 300mg before bed tonight</li>
+        <li>Morning bright light: 10 min outside within 30 min of waking</li>
+        <li>4-7-8 breathing before any high-stress situation</li>
+        <li>Order RBC Magnesium &amp; Vitamin D (see Labs tab)</li>
+      </ol>
+      <div style="margin-top:12px;font-size:0.8rem;color:#86efac;font-style:italic;">These five moves alone will shift your HRV within 2 weeks if done consistently. Resist adding more before these are dialed in.</div>
+    </div>
+
+    <div style="background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.2);border-radius:12px;padding:20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;color:#06b6d4;margin-bottom:10px;">&diams; IF YOU'VE DONE THE BASICS &mdash; ADVANCE HERE</div>
+      <ol style="padding-left:18px;margin:0;font-size:0.85rem;color:#c8c4bc;line-height:2.0;">
+        <li>Run DUTCH Complete/Adrenal + CAR to map cortisol</li>
+        <li>Add botanical stack: Ashwagandha + Rhodiola + Passionflower PM</li>
+        <li>Establish HRV tracking (14-day baseline)</li>
+        <li>Consider Zone 2 cardio 3x/week (brisk walk counts)</li>
+        <li>Explore advanced therapy: float tank, neurofeedback, tVNS</li>
+      </ol>
+      <div style="margin-top:12px;font-size:0.8rem;color:#67e8f9;font-style:italic;">Advanced therapies amplify; they don&#x2019;t replace. Your HRV trend is the scorecard.</div>
+    </div>
+
+  </div>
+
+  <!-- Phase Timeline -->
+  <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;overflow:visible;padding-bottom:0.25em;color:#e8e4dc;margin-bottom:14px;">Phase Timeline</div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">
+
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#f5a623;letter-spacing:0.1em;margin-bottom:6px;">PHASE 1</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-bottom:6px;">Days 1&ndash;7</div>
+      <div style="font-size:0.78rem;color:#c8c4bc;line-height:1.7;">
+        &#x2022; Consistent wake time<br>
+        &#x2022; Magnesium Bisglycinate 300mg PM<br>
+        &#x2022; Breathwork 1x/day (4-7-8)<br>
+        &#x2022; Morning light 10 min<br>
+        &#x2022; Screen-off 1 hr before bed
+      </div>
+    </div>
+
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#f5a623;letter-spacing:0.1em;margin-bottom:6px;">PHASE 2</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-bottom:6px;">Weeks 2&ndash;4</div>
+      <div style="font-size:0.78rem;color:#c8c4bc;line-height:1.7;">
+        &#x2022; Ashwagandha KSM-66 600mg AM<br>
+        &#x2022; L-Theanine 200mg (stress moments)<br>
+        &#x2022; Valerian + Passionflower PM stack<br>
+        &#x2022; Vitamin D3+K2 5,000 IU daily<br>
+        &#x2022; HRV tracking begins
+      </div>
+    </div>
+
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#f5a623;letter-spacing:0.1em;margin-bottom:6px;">PHASE 3</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-bottom:6px;">Months 2&ndash;3</div>
+      <div style="font-size:0.78rem;color:#c8c4bc;line-height:1.7;">
+        &#x2022; DUTCH Complete/Adrenal labs<br>
+        &#x2022; Full foundational lab panel<br>
+        &#x2022; Zone 2 exercise 3x/week<br>
+        &#x2022; Somatic practice (yoga, tai chi)<br>
+        &#x2022; Review HRV baseline trend
+      </div>
+    </div>
+
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#f5a623;letter-spacing:0.1em;margin-bottom:6px;">PHASE 4</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;overflow:visible;padding-bottom:0.1em;color:#f5a623;margin-bottom:6px;">Month 3+</div>
+      <div style="font-size:0.78rem;color:#c8c4bc;line-height:1.7;">
+        &#x2022; Advanced therapies (float, NF, tVNS)<br>
+        &#x2022; HRV now the primary scorecard<br>
+        &#x2022; Emotional root exploration if indicated<br>
+        &#x2022; Retest labs at 6 months<br>
+        &#x2022; Optimize, don&#x2019;t add more
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Quick Supplement Summary -->
+  <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;overflow:visible;padding-bottom:0.25em;color:#e8e4dc;margin-bottom:14px;">The Core Stack at a Glance</div>
+
+  <div style="overflow-x:auto;margin-bottom:28px;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.8rem;">
+      <thead>
+        <tr style="background:rgba(255,255,255,.04);">
+          <th style="padding:10px 12px;text-align:left;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:#9a9aaa;border-bottom:1px solid rgba(255,255,255,.08);">SUPPLEMENT</th>
+          <th style="padding:10px 12px;text-align:left;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:#9a9aaa;border-bottom:1px solid rgba(255,255,255,.08);">DOSE</th>
+          <th style="padding:10px 12px;text-align:left;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:#9a9aaa;border-bottom:1px solid rgba(255,255,255,.08);">TIMING</th>
+          <th style="padding:10px 12px;text-align:left;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:#9a9aaa;border-bottom:1px solid rgba(255,255,255,.08);">WHY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:10px 12px;color:#e8e4dc;font-weight:600;">Magnesium Bisglycinate</td>
+          <td style="padding:10px 12px;color:#f5a623;font-family:'DM Mono',monospace;">300&ndash;400mg</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Before bed</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">GABA cofactor, sleep, cortisol reduction</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.02);">
+          <td style="padding:10px 12px;color:#e8e4dc;font-weight:600;">Ashwagandha KSM-66</td>
+          <td style="padding:10px 12px;color:#f5a623;font-family:'DM Mono',monospace;">600mg</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">With breakfast</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">HPA axis normalization, cortisol reset</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:10px 12px;color:#e8e4dc;font-weight:600;">L-Theanine</td>
+          <td style="padding:10px 12px;color:#f5a623;font-family:'DM Mono',monospace;">200&ndash;400mg</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">As needed / AM</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Alpha wave induction, calm without sedation</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.02);">
+          <td style="padding:10px 12px;color:#e8e4dc;font-weight:600;">Vitamin D3+K2</td>
+          <td style="padding:10px 12px;color:#f5a623;font-family:'DM Mono',monospace;">5,000 IU / 100mcg</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">With largest meal</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Serotonin synthesis, neuroimmune, GABA</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:10px 12px;color:#e8e4dc;font-weight:600;">Omega-3 EPA/DHA</td>
+          <td style="padding:10px 12px;color:#f5a623;font-family:'DM Mono',monospace;">2&ndash;3g combined</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">With meals</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Neuroinflammation, vagal tone, brain structure</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.02);">
+          <td style="padding:10px 12px;color:#e8e4dc;font-weight:600;">Phosphatidylserine</td>
+          <td style="padding:10px 12px;color:#f5a623;font-family:'DM Mono',monospace;">200&ndash;300mg</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">With dinner</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Evening cortisol blunting, HPA dampening</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:10px 12px;color:#e8e4dc;font-weight:600;">Glycine</td>
+          <td style="padding:10px 12px;color:#f5a623;font-family:'DM Mono',monospace;">3&ndash;5g</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Before bed</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Sleep quality, core temperature drop</td>
+        </tr>
+        <tr style="background:rgba(255,255,255,.02);">
+          <td style="padding:10px 12px;color:#e8e4dc;font-weight:600;">Rhodiola Rosea</td>
+          <td style="padding:10px 12px;color:#f5a623;font-family:'DM Mono',monospace;">300&ndash;400mg</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Morning only</td>
+          <td style="padding:10px 12px;color:#9a9aaa;">Stress resilience, anti-fatigue, HPA support</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Top 3 Failure Points -->
+  <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;overflow:visible;padding-bottom:0.25em;color:#e8e4dc;margin-bottom:14px;">Top 3 Reasons This Protocol Fails</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;">
+
+    <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.15);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#f87171;letter-spacing:0.1em;margin-bottom:8px;">FAILURE POINT 1</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;overflow:visible;padding-bottom:0.1em;color:#e8e4dc;font-size:0.95rem;margin-bottom:8px;">Adding Instead of Anchoring</div>
+      <div style="font-size:0.8rem;color:#9a9aaa;line-height:1.7;">Buying more supplements before sleep is consistent. The supplements don&#x2019;t work if the HPA axis is running hot from poor sleep. Sleep first. Anchor that. Then add.</div>
+    </div>
+
+    <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.15);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#f87171;letter-spacing:0.1em;margin-bottom:8px;">FAILURE POINT 2</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;overflow:visible;padding-bottom:0.1em;color:#e8e4dc;font-size:0.95rem;margin-bottom:8px;">No Objective Biomarker</div>
+      <div style="font-size:0.8rem;color:#9a9aaa;line-height:1.7;">"I feel like I&#x2019;m the same" is an unreliable gauge when the nervous system is dysregulated. HRV tracking gives you data instead of feelings. Set it up in Week 1 and trust the trend over 6 weeks.</div>
+    </div>
+
+    <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.15);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:#f87171;letter-spacing:0.1em;margin-bottom:8px;">FAILURE POINT 3</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;overflow:visible;padding-bottom:0.1em;color:#e8e4dc;font-size:0.95rem;margin-bottom:8px;">Skipping the Emotional Root</div>
+      <div style="font-size:0.8rem;color:#9a9aaa;line-height:1.7;">For 30&ndash;40% of people with chronic nervous system dysregulation, physiology-first produces only partial results because the HPA axis has encoded an older experience of the world. If labs optimize but symptoms persist, look deeper.</div>
+    </div>
+
+  </div>
+
+  <!-- Breathwork Quick Card -->
+  <div style="background:rgba(245,166,35,.05);border:1px solid rgba(245,166,35,.15);border-radius:10px;padding:18px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;color:#f5a623;margin-bottom:10px;">&diams; BREATHWORK REFERENCE CARD</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:#9a9aaa;margin-bottom:6px;">FOR ACUTE ANXIETY</div>
+        <div style="font-size:0.85rem;color:#e8e4dc;font-weight:600;margin-bottom:4px;">4-7-8 Breathing</div>
+        <div style="font-size:0.78rem;color:#9a9aaa;">Inhale 4 sec &rarr; Hold 7 sec &rarr; Exhale 8 sec. Repeat 4&times;. Works within 90 seconds via vagal stimulation.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:#9a9aaa;margin-bottom:6px;">FOR PANIC / ACUTE RESET</div>
+        <div style="font-size:0.85rem;color:#e8e4dc;font-weight:600;margin-bottom:4px;">Physiological Sigh</div>
+        <div style="font-size:0.78rem;color:#9a9aaa;">Double inhale through nose (fully expanding lungs) &rarr; long slow exhale through mouth. 1&ndash;3 repetitions. Fastest known ANS reset.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:#9a9aaa;margin-bottom:6px;">FOR DAILY PRACTICE</div>
+        <div style="font-size:0.85rem;color:#e8e4dc;font-weight:600;margin-bottom:4px;">Box Breathing</div>
+        <div style="font-size:0.78rem;color:#9a9aaa;">Inhale 4 &rarr; Hold 4 &rarr; Exhale 4 &rarr; Hold 4. 5&ndash;10 min/day. Used by Navy SEALs; builds baseline vagal tone over time.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+<!-- END QUICK REFERENCE -->
+
+</div><!-- end .container -->
+</main>
+
+<!-- ════════════════════════════ JAVASCRIPT ════════════════════════════ -->
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+  var section = document.getElementById(id);
+  if (section) { section.classList.add('active'); }
+  if (btn) { btn.classList.add('active'); }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function togglePhase(header) {
+  var content = header.nextElementSibling;
+  var toggle = header.querySelector('.phase-toggle');
+  if (content && content.classList.contains('phase-content')) {
+    if (content.style.display === 'none' || content.style.display === '') {
+      content.style.display = 'block';
+      if (toggle) { toggle.style.transform = 'rotate(180deg)'; }
+    } else {
+      content.style.display = 'none';
+      if (toggle) { toggle.style.transform = 'rotate(0deg)'; }
+    }
+  }
+}
+
+function toggleDigDeeper(btn) {
+  var content = btn.nextElementSibling;
+  if (content) {
+    if (content.style.display === 'none' || content.style.display === '') {
+      content.style.display = 'block';
+      btn.textContent = btn.textContent.replace('\u25BC', '\u25B2').replace('Dig Deeper', 'Dig Deeper');
+      if (btn.textContent.indexOf('\u25B2') === -1) {
+        btn.textContent = btn.textContent.replace('\u25BC', '\u25B2');
+      }
+    } else {
+      content.style.display = 'none';
+      btn.textContent = btn.textContent.replace('\u25B2', '\u25BC');
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Open first phase card in RoVive tab by default
+  var firstPhaseContent = document.querySelector('.phase-card .phase-content');
+  var firstPhaseToggle = document.querySelector('.phase-card .phase-toggle');
+  if (firstPhaseContent) {
+    firstPhaseContent.style.display = 'block';
+    if (firstPhaseToggle) { firstPhaseToggle.style.transform = 'rotate(180deg)'; }
+  }
+
+  // Make sure only overview section is active on load
+  var overview = document.getElementById('overview');
+  if (overview) { overview.classList.add('active'); }
+
+  // Initialize all dig-deeper content as collapsed
+  document.querySelectorAll('.dig-deeper-content').forEach(function(el){
+    el.style.display = 'none';
+  });
+
+  // Initialize all phase content as collapsed (except first)
+  var allPhaseContent = document.querySelectorAll('.phase-card .phase-content');
+  allPhaseContent.forEach(function(el, idx){
+    if (idx !== 0) { el.style.display = 'none'; }
+  });
+});
+</script>
+
+</body>
+</html>
