@@ -1,0 +1,1631 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Fog & Cognitive Clarity Protocol — RoVive Method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:100vh;padding-bottom:60px}
+:root{
+  --bg:#0d0f14;--surface:#131620;--surface-2:#181b28;
+  --border:#1e2130;--text:#e8e4dc;--text-muted:#9a9aaa;
+  --accent:#f5a623;--green:#68d391;--blue:#63b3ed;
+  --purple:#b794f4;--red:#fc8181
+}
+a{color:#f5a623}
+.header{background:linear-gradient(135deg,#131620 0%,#1a1f35 100%);border-bottom:1px solid #1e2130;padding:32px 24px 28px;text-align:center}
+.rovive-badge{display:inline-block;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);color:#f5a623;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.header h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.6rem);color:#e8e4dc;line-height:1.15;margin-bottom:10px;padding-bottom:0.25em;overflow:visible}
+.header h1 span{color:#f5a623}
+.header p{color:#9a9aaa;font-size:.9rem;letter-spacing:.04em;margin-bottom:4px}
+.disclaimer{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:#6a6a7a;margin-top:12px}
+.tab-bar{background:#131620;border-bottom:1px solid #1e2130;padding:0 16px;display:flex;overflow-x:auto;gap:0;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:sticky;top:0;z-index:100}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab{background:none;border:none;border-bottom:2px solid transparent;color:#7a7a8a;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;padding:14px 16px;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s}
+.tab:hover{color:#c8c4bc}
+.tab.active{color:#f5a623;border-bottom-color:#f5a623}
+.content{max-width:900px;margin:0 auto;padding:28px 20px}
+.section{display:none}
+.section.active{display:block}
+h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.3rem;color:#e8e4dc;margin-bottom:6px;overflow:visible;padding-bottom:0.1em}
+h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:#e8e4dc;margin:20px 0 8px;overflow:visible;padding-bottom:0.1em}
+p{color:#9a9aaa;line-height:1.7;font-size:.93rem}
+ul{color:#9a9aaa;padding-left:20px;line-height:1.8;font-size:.93rem}
+li{margin-bottom:4px}
+.dose-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.04em;padding:3px 10px;border-radius:20px;margin-right:4px}
+.dose-tag.mild{background:rgba(104,211,145,.08);border:1px solid rgba(104,211,145,.3);color:#68d391}
+.dose-tag.moderate{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.3);color:#f5a623}
+.dose-tag.heavy{background:rgba(252,129,129,.1);border:1px solid rgba(252,129,129,.3);color:#fc8181}
+.female-box{background:rgba(236,72,153,.06);border:1px solid rgba(236,72,153,.25);border-radius:10px;padding:16px 20px;margin:16px 0}
+.female-box-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#f9a8d4;margin-bottom:8px}
+.indicators-box{background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin:16px 0}
+.hallmark-tag{display:inline-block;background:rgba(183,148,244,.12);border:1px solid rgba(183,148,244,.3);color:#b794f4;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.06em;padding:3px 10px;border-radius:20px;margin:2px 3px 2px 0}
+.cutting-edge-badge{display:inline-block;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.3);color:#06b6d4;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:8px}
+.assumption-box{background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:6px;padding:14px 18px;margin:20px 0}
+.assumption-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px}
+.emotional-root-box{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:16px 20px;margin:16px 0}
+.dig-deeper-toggle{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:10px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:12px 0 0;color:#f5a623;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;width:100%}
+.dig-deeper-toggle::after{content:"▼";font-size:.6rem;transition:transform .2s}
+.dig-deeper-toggle.open::after{transform:rotate(180deg)}
+.dig-deeper-content{display:none;background:rgba(255,255,255,.02);border:1px solid rgba(245,166,35,.1);border-top:none;border-radius:0 0 8px 8px;padding:14px 18px;color:#9a9aaa;font-size:.9rem}
+.dig-deeper-content.open{display:block}
+.phase-card{background:#131620;border:1px solid #1e2130;border-radius:10px;margin-bottom:10px;overflow:hidden}
+.phase-header{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.phase-header h3{margin:0;font-size:.95rem;color:#e8e4dc}
+.phase-arrow{color:#f5a623;font-size:.8rem;transition:transform .2s;font-family:'DM Mono',monospace}
+.phase-card.open .phase-arrow{transform:rotate(180deg)}
+.phase-body{display:none;padding:0 20px 18px;border-top:1px solid #1e2130}
+.phase-card.open .phase-body{display:block}
+.phase-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:12px;margin-top:14px}
+.phase-label.roots{background:rgba(104,211,145,.1);color:#68d391}
+.phase-label.reveal{background:rgba(99,179,237,.1);color:#63b3ed}
+.phase-label.refine{background:rgba(245,166,35,.1);color:#f5a623}
+.phase-label.rise{background:rgba(183,148,244,.1);color:#b794f4}
+.scenario{background:#131620;border:1px solid #1e2130;border-radius:10px;padding:20px;margin-bottom:16px}
+.scenario-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:8px}
+.scenario-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:#e8e4dc;margin-bottom:10px;line-height:1.4}
+.scenario-finding{color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:12px}
+.action-list{color:#9a9aaa;font-size:.88rem;padding-left:16px;line-height:1.8}
+.rwc-store{display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:#68d391;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px}
+.footer{text-align:center;color:#6a6a7a;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-top:48px;padding-top:24px;border-top:1px solid #1e2130}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="rovive-badge">RoVive Method &middot; Dr. Yoshi Rahm</div>
+  <h1 style="line-height:1.15;padding-bottom:0.25em;overflow:visible;">Brain Fog &amp; Cognitive <span>Clarity</span></h1>
+  <p>Roots &#8594; Reveal &#8594; Refine &#8594; Rise &middot; RoVive Method</p>
+  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY &middot; NOT MEDICAL ADVICE &middot; NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE &middot; <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
+</div>
+
+<div class="tab-bar">
+  <button class="tab active" onclick="showTab('overview',this)">Overview</button>
+  <button class="tab" onclick="showTab('pillars',this)">Great 8 Pillars</button>
+  <button class="tab" onclick="showTab('rootcause',this)">Root Cause Map</button>
+  <button class="tab" onclick="showTab('labs',this)">Labs &amp; Targets</button>
+  <button class="tab" onclick="showTab('medications',this)">Medications / Rx</button>
+  <button class="tab" onclick="showTab('nutraceuticals',this)">Nutraceuticals &middot; Botanicals</button>
+  <button class="tab" onclick="showTab('cuttingedge',this)">Cutting-Edge</button>
+  <button class="tab" onclick="showTab('ahamoments',this)">Aha Moments</button>
+  <button class="tab" onclick="showTab('rovivemethod',this)">RoVive Method</button>
+  <button class="tab" onclick="showTab('quickreference',this)">Quick Reference</button>
+</div>
+
+<div class="content">
+
+<!-- ============================================================ OVERVIEW ============================================================ -->
+<div id="overview" class="section active">
+
+  <div class="indicators-box" style="margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:10px">&#9670; DOES THIS RESONATE?</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">You might be living this pattern if&hellip;</p>
+    <ul style="color:#e8e4dc;margin:0;padding-left:18px;line-height:1.9">
+      <li>You walk into a room and forget why you went there &mdash; multiple times a day</li>
+      <li>Words escape you mid-sentence. You know what you mean to say but the word won&#39;t come</li>
+      <li>You feel like you&#39;re thinking through wet concrete &mdash; slow, effortful, exhausting</li>
+      <li>You used to be sharp. Multitasking, remembering names, staying focused felt natural. Now it doesn&#39;t.</li>
+      <li>You&#39;ve been told your labs are &#34;normal.&#34; But normal doesn&#39;t mean optimal &mdash; and you know the difference</li>
+      <li>You reach for coffee, sugar, or stimulants just to feel functional &mdash; and the crash makes it worse</li>
+      <li>After COVID, a stressful period, or a hormonal shift, your brain never fully came back online</li>
+    </ul>
+  </div>
+
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; The Assumption Worth Questioning</div>
+    <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:6px">&ldquo;Brain fog is just stress, aging, or a mental health issue &mdash; take an antidepressant or just rest more.&rdquo;</p>
+    <p style="color:#9a9aaa;font-size:.9rem">Brain fog is a symptom with measurable biological roots &mdash; neuroinflammation, mitochondrial dysfunction, hormonal decline, toxic burden, and gut-brain disruption. It is not a diagnosis in conventional medicine because conventional medicine doesn&#39;t have a pill for &#34;inflamed brain.&#34; But the mechanisms are real, reproducible, and increasingly well-documented. The question is never <em>if</em> your brain fog has a root cause &mdash; it&#39;s which one (or combination) is driving yours.</p>
+  </div>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:20px;margin:20px 0">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px">&#9670; WHAT IS BRAIN FOG? THE ROVIVE DEFINITION</div>
+    <p style="color:#9a9aaa;font-size:.92rem;line-height:1.75;margin-bottom:12px">Brain fog is a clinical syndrome characterized by impaired cognitive processing &mdash; manifesting as reduced mental clarity, slowed processing speed, poor working memory, word retrieval difficulty, and cognitive fatigue. It is not a disease. It is a signal that the brain&#39;s energy supply, inflammatory load, hormonal environment, or detoxification capacity is out of balance.</p>
+    <p style="color:#9a9aaa;font-size:.92rem;line-height:1.75">Dr. Daniel Amen identifies hypoperfusion (reduced blood flow) as a primary driver invisible to standard labs. Dr. Dale Bredesen&#39;s ReCODE protocol maps 36 biological contributors to cognitive decline and reversal. The RoVive Method integrates both &mdash; adding precision lab phenotyping, the Great 8 Pillars, emotional root, and the upstream question every protocol must ask: <em>Why is the brain&#39;s environment not supporting optimal function?</em></p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0">
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px;text-align:center">
+      <div style="font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:700;color:#f5a623;margin-bottom:4px">36</div>
+      <div style="color:#9a9aaa;font-size:.82rem">Bredesen ReCODE factors contributing to cognitive decline</div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px;text-align:center">
+      <div style="font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:700;color:#63b3ed;margin-bottom:4px">2,000+</div>
+      <div style="color:#9a9aaa;font-size:.82rem">Genes regulated by Vitamin D &mdash; including BDNF and neuroprotective pathways</div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px;text-align:center">
+      <div style="font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:700;color:#68d391;margin-bottom:4px">~2 lbs</div>
+      <div style="color:#9a9aaa;font-size:.82rem">Of metabolic waste the glymphatic system clears from your brain every night you sleep well</div>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px;text-align:center">
+      <div style="font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:700;color:#b794f4;margin-bottom:4px">100M+</div>
+      <div style="color:#9a9aaa;font-size:.82rem">Neurons in the enteric nervous system &mdash; your second brain, in direct dialogue with your first</div>
+    </div>
+  </div>
+
+  <div style="background:rgba(183,148,244,.06);border:1px solid rgba(183,148,244,.2);border-radius:10px;padding:16px 20px;margin:20px 0">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#b794f4;margin-bottom:10px">&#9670; HALLMARKS OF AGING MOST ACTIVE IN BRAIN FOG</div>
+    <span class="hallmark-tag">Neuroinflammation</span>
+    <span class="hallmark-tag">Mitochondrial Dysfunction</span>
+    <span class="hallmark-tag">Epigenetic Dysregulation</span>
+    <span class="hallmark-tag">Gut-Brain Dysbiosis</span>
+    <span class="hallmark-tag">HPA Axis Dysregulation</span>
+    <span class="hallmark-tag">Glymphatic Impairment</span>
+    <span class="hallmark-tag">Hormonal Decline</span>
+    <span class="hallmark-tag">Toxic Accumulation</span>
+  </div>
+
+  <div class="female-box">
+    <div class="female-box-title">&#9792; Female-Specific Consideration</div>
+    <p style="color:#e8e4dc;font-size:.92rem;margin-bottom:8px">Estrogen is a <em>neuroprotective hormone.</em> It supports acetylcholine synthesis (the primary memory neurotransmitter), synaptic density, cerebral blood flow, and BDNF production. When estrogen drops &mdash; in perimenopause (which can begin in the mid-30s), postmenopause, or post-birth control withdrawal &mdash; cognitive symptoms are among the first and most disruptive signs. The &#34;window of opportunity&#34; for hormonal support and Alzheimer&#39;s prevention closes within the first 5&ndash;10 years of menopause. This is not a side issue &mdash; it is central to the protocol for any woman 35+.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /overview -->
+
+<!-- ============================================================ GREAT 8 PILLARS ============================================================ -->
+<div id="pillars" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:6px">&#9670; THE GREAT 8 PILLARS &mdash; RANKED FOR BRAIN FOG</div>
+    <div style="color:#9a9aaa;font-size:.9rem">Ranked by direct relevance to brain fog and cognitive clarity. All 8 matter &mdash; the ranking shows where to focus first.</div>
+  </div>
+
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px 16px;margin-bottom:20px">
+    <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:6px">&#9670; HOW TO READ THIS LIST</div>
+    <div style="color:#9a9aaa;font-size:.9rem">All 8 pillars matter &mdash; always. The ranking reflects where the highest leverage points are for <em>this specific protocol</em>. Pillars ranked #4&ndash;8 are fully built out below; they simply have less direct impact on brain fog than the top three. Your weakest pillar is often your biggest opportunity, regardless of its rank here.</div>
+  </div>
+
+  <!-- #1 Sleep & Light -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem">#1</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em">Sleep &amp; Light</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">The glymphatic system &mdash; the brain&#39;s lymphatic drainage network &mdash; is almost exclusively active during deep (slow-wave) sleep. During this window, cerebrospinal fluid flushes amyloid beta, tau, and metabolic waste from brain tissue. Chronic sleep debt is not just fatigue; it&#39;s accumulated neurotoxic debris. Light governs the circadian clock that controls every hormone, neurotransmitter, and repair cycle the brain depends on.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem">Get 10&ndash;20 minutes of outdoor light within 30 minutes of waking (no sunglasses). This anchors your cortisol awakening response and sets melatonin timing for deep sleep 14&ndash;16 hours later. Prioritize 7&ndash;9 hours in a cold, dark room (65&ndash;67&deg;F). Consider Oura Ring or similar to quantify your deep sleep stages &mdash; you cannot optimize what you cannot measure.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Sleep Science &amp; Light Protocol</button>
+    <div class="dig-deeper-content">
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">The Glymphatic System:</strong> Nedergaard et al. (2012) demonstrated that the glymphatic system is 60% more active during sleep than wakefulness. The mechanism involves aquaporin-4 (AQP4) water channels on astrocytes. Even a single night of sleep deprivation measurably increases amyloid-beta accumulation in healthy humans (Shokri-Kojori et al., <em>PNAS</em>, 2018). Lateral (side-sleeping) appears to optimize glymphatic flow. Even two drinks of alcohol disrupts REM and significantly impairs glymphatic function.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Sleep Environment:</strong> Bedroom 65&ndash;67&deg;F (18&ndash;19&deg;C) &mdash; cool triggers deeper slow-wave sleep. Complete darkness (blackout curtains or mask). No screens 60&ndash;90 minutes before bed; blue-blocking glasses if unavoidable. Consistent sleep/wake time &plusmn;30 min including weekends. Address sleep apnea aggressively &mdash; untreated apnea is a major driver of cognitive decline.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Sleep Support Stack:</strong> Magnesium glycinate 300&ndash;400mg (30 min before bed) &middot; Glycine 3&ndash;5g (promotes deep sleep, reduces core temp) &middot; L-Theanine 200&ndash;400mg (calms without sedation) &middot; Low-dose melatonin 0.3&ndash;1mg (timing, not sedation &mdash; 30 min before desired sleep) &middot; Tart cherry extract 480mg (natural melatonin precursor).</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Morning Light (priority #1):</strong> 10&ndash;20 min outdoor light within 30 min of waking. No sunglasses. Overcast sky still delivers 10,000 lux vs. indoor 300&ndash;500 lux. Amplifies the cortisol awakening response (CAR) &mdash; a blunted CAR is a marker of HPA dysfunction and is associated with cognitive impairment.</p>
+      <p><strong style="color:#e8e4dc">Evening Protocol:</strong> Dim lights after 8pm. Avoid overhead lighting; use warm/amber lamps. Blue-blocking glasses after sunset if screens unavoidable. <strong style="color:#e8e4dc">Red/Near-Infrared Light (PBM):</strong> 660&ndash;850nm targeted to the head has growing evidence for cognitive improvement, neuroinflammation reduction, and mitochondrial support in the brain. Sessions: 10&ndash;20 min, 3&ndash;5x/week.</p>
+    </div>
+  </div>
+
+  <!-- #2 Food -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="background:rgba(245,166,35,.12);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem">#2</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em">Food</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">The brain is the most metabolically active organ per gram &mdash; consuming 20% of your total caloric energy. Blood sugar dysregulation (spikes and crashes, insulin resistance) is now described as &#34;Type 3 Diabetes&#34; in the Alzheimer&#39;s literature. Every meal is either pro-inflammatory or anti-inflammatory. Every blood sugar spike is a cognitive impairment event.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem">Eliminate ultra-processed food, seed oils, and refined sugar for 30 days. Add: fatty fish 3x/week, wild blueberries daily, dark leafy greens, extra virgin olive oil, walnuts, and avocado. Begin a 12-hour overnight fast (e.g., 7pm&ndash;7am). Track fasting glucose on waking &mdash; target 80&ndash;90 mg/dL.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Dietary Neurology &amp; Brain Food Protocol</button>
+    <div class="dig-deeper-content">
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Ketoflex 12/3 (Bredesen Framework):</strong> Mildly ketogenic + plant-rich + 12-hour overnight fast, no food within 3 hours of bed. Three rules that address the three most common dietary contributors to brain fog: impaired glucose metabolism, inflammation, and failure to activate glymphatic clearance overnight.</p>
+      <p style="margin-bottom:8px"><strong style="color:#e8e4dc">Prioritize:</strong> Wild-caught fatty fish (sardines, salmon, mackerel) &middot; Wild blueberries (pterostilbene + anthocyanins cross BBB; improve memory consolidation) &middot; Dark leafy greens (folate, K1, lutein) &middot; Extra virgin olive oil (oleocanthal inhibits tau aggregation) &middot; Walnuts (ALA + polyphenols + melatonin) &middot; Avocado (monounsaturated fats + lutein; improves frontal lobe executive function in RCTs) &middot; Eggs, pasture-raised (choline; critical for acetylcholine) &middot; Dark chocolate &gt;85% (flavanols improve cerebral blood flow and BDNF) &middot; Cruciferous vegetables (sulforaphane; most potent Nrf2 activator in food).</p>
+      <p style="margin-bottom:8px"><strong style="color:#fc8181">Eliminate:</strong> Ultra-processed food (associated with hippocampal atrophy in imaging studies) &middot; Industrial seed oils (omega-6, pro-inflammatory) &middot; Refined sugar/carbohydrates (blood sugar spikes = acute cognitive impairment) &middot; Gluten &amp; dairy (30-day elimination is diagnostic for neuroinflammatory fog patterns) &middot; Alcohol (directly neurotoxic; destroys REM sleep; depletes thiamine, B12, magnesium) &middot; High-mercury fish (tuna, swordfish, shark) &middot; Artificial sweeteners (alter gut microbiome composition).</p>
+      <p><em style="color:#9a9aaa">Key question to sit with: &#34;I eat pretty healthy &mdash; diet isn&#39;t my problem.&#34; &#34;Pretty healthy&#34; by average American standards still includes enough refined carbohydrates to create insulin resistance, enough seed oils to shift the omega-6:omega-3 ratio to 20:1 (vs. the ancestral 4:1), and rarely enough DHA or prebiotic fiber to support the gut-brain axis. The brain is unforgiving of chronic low-grade inflammatory dietary patterns &mdash; even when those patterns look fine by conventional standards.</em></p>
+    </div>
+  </div>
+
+  <!-- #3 Movement -->
+  <div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="background:rgba(245,166,35,.10);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem">#3</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em">Movement</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Exercise is the single most potent natural BDNF stimulus available. BDNF (Brain-Derived Neurotrophic Factor) is the brain&#39;s fertilizer &mdash; it promotes new neuron growth, synaptic connectivity, and cognitive resilience. Aerobic exercise also increases cerebral blood flow, addressing the hypoperfusion Dr. Amen identifies in SPECT imaging, and directly improves insulin sensitivity in the brain.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem">150 min/week of Zone 2 cardio <em>(brisk walk where you can hold a full conversation, easy cycling, light swimming, conversational-pace jog)</em> plus 2x/week resistance training. Even a 20-minute brisk walk has been shown to improve next-day cognitive performance and memory consolidation.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Exercise Prescription for the Brain</button>
+    <div class="dig-deeper-content">
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Zone 2 Cardio (highest priority):</strong> Zone 2 = 60&ndash;70% max HR. You can hold a full conversation but breathing is noticeably elevated. <em>(brisk walk, easy cycling, light swimming, conversational-pace jog)</em>. Maximizes mitochondrial biogenesis in neurons, improves insulin sensitivity in the brain, increases cerebral blood flow, and promotes BDNF at sustained levels. Prescription: 150&ndash;180 min/week, 3&ndash;5 sessions.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Resistance Training:</strong> Increases IGF-1, testosterone, and BDNF. Building muscle mass improves whole-body insulin sensitivity &mdash; addressing the metabolic root of Type 2 fog. The muscle-brain axis is real: myokines (muscle-secreted proteins) cross the blood-brain barrier and directly modulate hippocampal function. Prescription: 2&ndash;3x/week, compound movements (squat, deadlift, press, pull).</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">HIIT (brief bursts):</strong> 20&ndash;30 second all-out efforts produce the largest acute BDNF spike of any exercise type &mdash; larger than sustained aerobic work. Excellent for high-functioning individuals seeking a cognitive edge. Prescription: 1&ndash;2 sessions/week, 20&ndash;30 min total (not daily &mdash; recovery matters). Not appropriate for post-COVID PEM patterns.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Mind-Body Movement:</strong> Yoga, tai chi, and qigong combine movement with breath and attention &mdash; training prefrontal cortex function, improving vagal tone, and reducing cortisol. Tai chi has RCT evidence for cognitive improvement in older adults. These practices address the nervous-system root that pure aerobic exercise cannot.</p>
+      <div style="background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:4px;padding:10px 14px;margin-top:8px">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#f5a623;margin-bottom:4px">&#9670; POST-COVID CAUTION</div>
+        <div style="color:#9a9aaa;font-size:.88rem">For post-COVID/long-haul fog with post-exertional malaise (PEM): <strong style="color:#e8e4dc">do not push through fatigue.</strong> PEM is a hallmark of mitochondrial and autonomic dysfunction where exercise temporarily depletes cellular energy reserves already compromised. Start with gentle walking only, track your energy envelope, and expand only when you&#39;ve had 48 hours of stable function without symptom flare. HIIT and resistance training come much later in recovery.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- #4 Spirit & Purpose -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem">#4</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em">Spirit &amp; Purpose</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Whether that&#39;s God, your higher self, a deep belief in yourself, or simply what gets you out of bed before the alarm &mdash; this is your animating force. Purpose activates dopaminergic circuits. Meaninglessness activates the same stress pathways as pain. Chronic low-grade purposelessness is a cognitive suppressor that no supplement can fix.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Purpose as Neuroscience</button>
+    <div class="dig-deeper-content">
+      <p style="margin-bottom:10px">Victor Frankl&#39;s work &mdash; developed in conditions of extreme adversity &mdash; identified purpose as the primary driver of psychological and physical survival. Modern neuroscience confirms the mechanism: a strong sense of purpose is associated with reduced amygdala reactivity, higher BDNF levels, lower cortisol, and preserved hippocampal volume with aging. Purpose isn&#39;t philosophy &mdash; it&#39;s physiology.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">What this looks like practically:</strong> Do you have something you&#39;re moving toward? Not just away from? Is there a reason you need to be clear-headed tomorrow? When clients reclaim a compelling future &mdash; a project, a grandchild, a vision &mdash; cognitive function often improves before any supplement is added. That&#39;s not coincidence. That&#39;s neurology.</p>
+      <p><strong style="color:#e8e4dc">The emotional architecture:</strong> Unresolved grief, identity loss (retirement, empty nest, illness), or existential confusion are cognitive suppressors. They activate the same HPA pathway as chronic stress. They reduce prefrontal cortex activity and increase amygdala dominance &mdash; making it harder to think clearly. Addressing the &#34;why&#34; is often the most direct path to restoring the &#34;how.&#34;</p>
+    </div>
+  </div>
+
+  <!-- #5 Water -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem">#5</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em">Water</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">The brain is approximately 80% water. A 1&ndash;2% decline in hydration measurably impairs cognitive performance, mood, and energy. Electrolyte balance (sodium, potassium, magnesium) is critical &mdash; not just pure water volume. Quality matters: filtered, mineral-rich water over tap when possible.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Hydration &amp; Water Quality</button>
+    <div class="dig-deeper-content">
+      <p style="margin-bottom:10px">Minimum 2L filtered water per day. Add electrolytes (mineral salt, potassium) especially if active or eating low-carb. Many people who are chronically "brain foggy" are actually chronically mildly dehydrated &mdash; a pattern that compounds over years without clear trigger.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Electrolyte note:</strong> Plain water without minerals can actually dilute electrolytes if consumed in large amounts. A pinch of unrefined salt in morning water, plus a potassium-rich food (avocado, leafy greens), supports the sodium-potassium gradient that drives neuronal firing.</p>
+      <p><strong style="color:#e8e4dc">Water quality:</strong> Tap water in many areas contains fluoride, chlorine, and trace heavy metals. A solid carbon-block or reverse-osmosis filter removes most contaminants. If using RO, remineralize with trace mineral drops or a high-quality electrolyte supplement &mdash; pure RO water is actually slightly acidic and demineralized. Structured or hydrogen-enriched water is emerging in research; the evidence base is early but mechanistically plausible.</p>
+    </div>
+  </div>
+
+  <!-- #6 Electrical -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem">#6</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em">Electrical</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Light is information, not just energy. Morning sunlight (red/infrared wavelengths at sunrise) directly stimulates cytochrome c oxidase in mitochondria &mdash; the same target as methylene blue and photobiomodulation therapy. Grounding (bare skin on earth) reduces inflammatory markers via electron transfer. EMF awareness and circuit breaker sleep protocols support glymphatic function.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; EMF, Grounding &amp; Light Therapy</button>
+    <div class="dig-deeper-content">
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Grounding (Earthing):</strong> Bare skin contact with natural earth (grass, soil, sand) transfers free electrons into the body, which act as antioxidants and reduce inflammatory markers. Studies show grounding reduces cortisol, normalizes the diurnal cortisol curve, and reduces inflammatory markers including hsCRP. 30+ minutes daily when possible. Also reduces EMF burden when grounded outside.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">EMF Awareness:</strong> WiFi router off at night or moved out of the bedroom. Phone on airplane mode during sleep. These are precautionary measures &mdash; the science is contested but the intervention cost is zero. For EMF-sensitive individuals (common in toxic fog and post-COVID), this can be a meaningful lever.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Red/Near-Infrared (Photobiomodulation):</strong> 660nm (red) and 850nm (near-infrared) light penetrates tissue and stimulates cytochrome c oxidase in mitochondria, directly increasing ATP production. Transcranial PBM (targeting the skull) has growing evidence for cognitive improvement and neuroinflammation reduction. Sessions: 10&ndash;20 min, 3&ndash;5x/week. Panels from brands like Mito Red Light or Joovv.</p>
+      <p><strong style="color:#e8e4dc">PEMF (Pulsed Electromagnetic Field):</strong> Low-frequency pulsed magnetic fields have evidence for improved cellular energy, sleep quality, and neurological recovery. Often used in traumatic brain injury recovery. NASA developed PEMF to address bone density loss in astronauts; the technology has broad physiological applications. Low-risk with appropriate devices.</p>
+    </div>
+  </div>
+
+  <!-- #7 Air -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem">#7</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em">Air</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">The brain is the most oxygen-dependent organ. CO2/O2 balance governs cerebrovascular tone via its effect on blood vessel dilation. Box breathing, Buteyko breathing, and nasal over mouth breathing improve cerebral oxygenation and vagal tone. Air quality matters &mdash; mold, VOCs, and particulates are direct neuroinflammatory inputs that cross the blood-brain barrier.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Breathwork &amp; Indoor Air Quality</button>
+    <div class="dig-deeper-content">
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Breathwork Protocols:</strong> Box breathing (4-4-4-4) activates the parasympathetic system via the vagal nerve; 5 minutes changes HRV measurably. Physiological sigh (2 inhales, long exhale) &mdash; fastest known acute stress relief technique. NSDR / Yoga Nidra (10&ndash;20 min) restores dopamine in the striatum equivalent to sleep (Stanford research, Huberman Lab).</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Nasal vs. Mouth Breathing:</strong> Nasal breathing filters air, humidifies it, produces nitric oxide (a cerebrovascular dilator), and activates more of the lower lung (where more oxygenation occurs). Chronic mouth breathing is associated with worse sleep quality, increased anxiety, and reduced cognitive performance. Consider mouth taping at night if you habitually mouth-breathe.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Indoor Air Quality:</strong> HEPA air purifier in bedroom and primary living space. Inspect home for water damage and mold &mdash; especially if fog followed a move or renovation. Avoid synthetic fragrances, air fresheners, and fabric softeners (VOC load). Open windows daily when outdoor AQI &lt;50. Fine particulate matter (PM2.5) crosses the blood-brain barrier and has been independently associated with accelerated cognitive aging.</p>
+      <p><strong style="color:#e8e4dc">Mold Warning:</strong> If brain fog is accompanied by multi-system sensitivity, word retrieval loss, and symptoms that don&#39;t respond to any conventional treatment &mdash; consider mycotoxin exposure. MycoTOX urine test can confirm. Environmental remediation is the treatment &mdash; no supplement compensates for ongoing mold exposure.</p>
+    </div>
+  </div>
+
+  <!-- #8 Community & Connection -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem">#8</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em">Community &amp; Connection</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Social isolation is associated with faster cognitive decline and nearly doubles dementia risk in longitudinal studies. Loneliness activates the same inflammatory pathways as physical injury. Strong social bonds are the most underestimated cognitive longevity lever &mdash; rivaling nearly any drug or supplement in the longevity data.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Social Connection as Medicine</button>
+    <div class="dig-deeper-content">
+      <p style="margin-bottom:10px">Cacioppo et al. demonstrated that perceived social isolation activates the same neural threat circuits as physical danger. Chronically lonely individuals show elevated NF-&kappa;B inflammatory signaling, higher cortisol, worse sleep architecture, and faster hippocampal atrophy. Loneliness is not a soft social problem &mdash; it is a hard biological signal with measurable consequences for brain health.</p>
+      <p style="margin-bottom:10px"><strong style="color:#e8e4dc">Practical prescription:</strong> Schedule social connection as a non-negotiable appointment. Treat it with the same priority as a workout. Superficial digital connection does not count &mdash; in-person contact with real eye contact and physical proximity produces oxytocin, reduces cortisol, and activates the vagal social engagement system in ways that screens cannot replicate.</p>
+      <p><strong style="color:#e8e4dc">For members of RWC:</strong> Your fellow members are part of your medicine. The Circle calls, the community, the shared journey &mdash; these are not supplementary to the protocol. They are part of it. The most cognitively resilient people in the world are embedded in strong communities. Build yours intentionally.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /pillars -->
+
+<!-- ============================================================ ROOT CAUSE MAP ============================================================ -->
+<div id="rootcause" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:6px">&#9670; PHENOTYPE YOUR FOG BEFORE YOU TREAT IT</div>
+    <div style="color:#9a9aaa;font-size:.9rem">Brain fog is not one thing. It is one signal from potentially five different root cause patterns &mdash; each requiring a different primary intervention. Treating neuroinflammatory fog with only hormone optimization will fail. Treating toxic fog with only nootropics will fail. The RoVive approach: identify your dominant pattern(s) first, then layer your interventions accordingly.</div>
+  </div>
+
+  <!-- Type 1 -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <span style="background:rgba(252,129,129,.12);border:1px solid rgba(252,129,129,.3);color:#fc8181;font-family:'DM Mono',monospace;font-size:.67rem;padding:3px 10px;border-radius:20px">TYPE 1</span>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem">Neuroinflammatory Fog <span style="color:#fc8181">(HOT)</span></div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Driven by systemic or brain-specific inflammation. The leaky gut &#8594; leaky brain axis: intestinal permeability allows lipopolysaccharides (LPS) from gram-negative bacteria to enter circulation, cross a compromised blood-brain barrier, and activate microglial cells &mdash; the brain&#39;s resident immune cells. Once activated, microglia shift into a pro-inflammatory M1 state, disrupting synaptic signaling and cognitive function.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:rgba(252,129,129,.05);border:1px solid rgba(252,129,129,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#fc8181;margin-bottom:6px">CLINICAL CLUES</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>Fog worsens after meals or sugar</li><li>Digestive symptoms, bloating, or irregular bowels</li><li>History of autoimmune conditions</li><li>Elevated hsCRP or homocysteine</li><li>Worse after infections (including COVID)</li></ul>
+      </div>
+      <div style="background:rgba(252,129,129,.05);border:1px solid rgba(252,129,129,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#fc8181;margin-bottom:6px">PRIMARY INTERVENTIONS</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>GI-MAP + Cyrex Array 2 (leaky gut)</li><li>Elimination diet (gluten, dairy, sugar)</li><li>Curcumin + Omega-3s + NAC</li><li>LPS-reducing probiotics (Akkermansia)</li><li>Low-dose naltrexone (LDN)</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Type 2 -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <span style="background:rgba(99,179,237,.12);border:1px solid rgba(99,179,237,.3);color:#63b3ed;font-family:'DM Mono',monospace;font-size:.67rem;padding:3px 10px;border-radius:20px">TYPE 2</span>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem">Metabolic / Atrophic Fog <span style="color:#63b3ed">(COLD)</span></div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Driven by insulin resistance, hormonal decline, low BDNF, or nutrient insufficiency. The brain runs on glucose or ketones &mdash; insulin resistance makes it unable to efficiently use glucose. Dr. Bredesen calls this pattern &#34;cold&#34; because it represents a withdrawal of trophic support rather than active inflammation. Thyroid dysfunction (especially low free T3) slows every cognitive process. Declining estrogen, testosterone, and progesterone remove neuroprotective signaling at every level.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:rgba(99,179,237,.05);border:1px solid rgba(99,179,237,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#63b3ed;margin-bottom:6px">CLINICAL CLUES</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>Fog + fatigue + weight gain together</li><li>Hair loss, cold intolerance, constipation</li><li>Post-menopausal or perimenopausal women</li><li>Worsening after 40 with declining hormones</li><li>Low fasting glucose but still foggy (BDNF/thyroid)</li></ul>
+      </div>
+      <div style="background:rgba(99,179,237,.05);border:1px solid rgba(99,179,237,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#63b3ed;margin-bottom:6px">PRIMARY INTERVENTIONS</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>Full thyroid panel (Free T3 is the most critical)</li><li>DUTCH hormones + sex hormone optimization</li><li>Ketoflex 12/3 + intermittent fasting</li><li>Resistance training (BDNF + insulin sensitivity)</li><li>Mg L-threonate + Lion&#39;s Mane + DHA</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Type 3 -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <span style="background:rgba(183,148,244,.12);border:1px solid rgba(183,148,244,.3);color:#b794f4;font-family:'DM Mono',monospace;font-size:.67rem;padding:3px 10px;border-radius:20px">TYPE 3</span>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem">Toxic Fog <span style="color:#b794f4">(VILE)</span></div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Driven by heavy metals, mycotoxins (mold), organic solvents, pesticides (glyphosate), and biotoxins. These are often the most missed and most refractory cases. Mercury from amalgam fillings and fish concentrates in neural tissue. Mycotoxins from water-damaged buildings are potent neurotoxins and cause a pattern of cognitive disruption, word retrieval loss, and emotional dysregulation that is frequently misdiagnosed as depression or early dementia.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:rgba(183,148,244,.05);border:1px solid rgba(183,148,244,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#b794f4;margin-bottom:6px">CLINICAL CLUES</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>Fog onset after moving into or renovating a building</li><li>Word retrieval loss as a dominant symptom</li><li>Multiple unexplained sensitivities</li><li>MTHFR + impaired detox pathway genetics</li><li>History of amalgam fillings or frequent fish consumption</li></ul>
+      </div>
+      <div style="background:rgba(183,148,244,.05);border:1px solid rgba(183,148,244,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#b794f4;margin-bottom:6px">PRIMARY INTERVENTIONS</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>MycoTOX profile + urine toxic metals</li><li>MTHFR / methylation genetics</li><li>Environmental remediation first</li><li>NAC + glutathione + methylated B-vitamins</li><li>Binder protocol (cholestyramine, charcoal, clay)</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Type 4 -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <span style="background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);color:#f5a623;font-family:'DM Mono',monospace;font-size:.67rem;padding:3px 10px;border-radius:20px">TYPE 4</span>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem">Vascular / Hypoperfusion Fog <span style="color:#f5a623">(FLOW)</span></div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Dr. Daniel Amen&#39;s most important contribution: SPECT imaging shows that many individuals with cognitive symptoms have measurably reduced cerebral blood flow &mdash; visible on imaging but invisible to standard labs. This pattern is associated with cardiovascular risk factors, sleep apnea, head trauma history, low nitric oxide production, and sedentary behavior. You cannot have a healthy brain with a struggling vascular system.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:rgba(245,166,35,.05);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;margin-bottom:6px">CLINICAL CLUES</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>History of head trauma or concussion</li><li>Elevated blood pressure or cardiovascular risk factors</li><li>Snoring or diagnosed sleep apnea</li><li>Fog worse at altitude or in stuffy rooms</li><li>Significant improvement after exercise</li></ul>
+      </div>
+      <div style="background:rgba(245,166,35,.05);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;margin-bottom:6px">PRIMARY INTERVENTIONS</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>Zone 2 cardio (most powerful cerebrovascular intervention)</li><li>Ginkgo biloba + omega-3s + CoQ10</li><li>Treat sleep apnea aggressively (CPAP/positional)</li><li>Nitric oxide support (beets, L-citrulline)</li><li>Hyperbaric oxygen therapy (HBOT) for head trauma</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Type 5 -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <span style="background:rgba(104,211,145,.12);border:1px solid rgba(104,211,145,.3);color:#68d391;font-family:'DM Mono',monospace;font-size:.67rem;padding:3px 10px;border-radius:20px">TYPE 5</span>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem">HPA / Stress / Post-COVID Fog</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Driven by chronic cortisol elevation, adrenal dysregulation, or post-infectious neuroinflammation (particularly post-COVID). Chronic stress literally atrophies the hippocampus &mdash; the memory and navigation center &mdash; via elevated cortisol. Post-COVID fog involves microglial activation (neuroinflammation), mitochondrial dysfunction in neurons, vascular disruption, and in some cases, persistent viral protein interference with cellular signaling.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:rgba(104,211,145,.05);border:1px solid rgba(104,211,145,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#68d391;margin-bottom:6px">CLINICAL CLUES</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>Fog onset after COVID-19 or other infections</li><li>Wired-but-tired pattern; crash after activity</li><li>Cortisol flatline on DUTCH (burned-out HPA)</li><li>PEM (post-exertional malaise) pattern</li><li>Brain fog + fatigue + orthostatic intolerance together</li></ul>
+      </div>
+      <div style="background:rgba(104,211,145,.05);border:1px solid rgba(104,211,145,.15);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#68d391;margin-bottom:6px">PRIMARY INTERVENTIONS</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;margin:0;line-height:1.8"><li>DUTCH adrenal cortisol pattern mapping</li><li>Adaptogens: Ashwagandha + Rhodiola + Holy Basil</li><li>HBOT (strong evidence for post-COVID neurological)</li><li>Low-dose naltrexone (LDN)</li><li>Pace recovery &mdash; PEM requires rest protocols, not push</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /rootcause -->
+
+<!-- ============================================================ LABS & TARGETS ============================================================ -->
+<div id="labs" class="section">
+
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:6px">&#9670; THE BREDESEN-RoVive LAB STRATEGY</div>
+    <div style="color:#9a9aaa;font-size:.9rem">Dr. Bredesen&#39;s ReCODE panel identified 36 metabolic contributors to cognitive decline. The RoVive approach organizes these across three layers &mdash; run Layer 1 first. Layer 2 if fog persists or the root cause pattern isn&#39;t clear. Layer 3 for complex, refractory, or high-risk cases (APOE4, early MCI).</div>
+  </div>
+
+  <!-- Layer 1 -->
+  <h3 style="color:#63b3ed;font-family:'Syne',sans-serif;margin-bottom:12px">&#9670; Layer 1 &mdash; Standard Labs (Quest / LabCorp)</h3>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:16px">
+    <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px">METABOLIC / INSULIN RESISTANCE PANEL</div>
+    <ul style="color:#9a9aaa;font-size:.9rem;line-height:2">
+      <li><strong style="color:#e8e4dc">Fasting Glucose</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: 70&ndash;90 mg/dL (optimal cognitive range below 90)</li>
+      <li><strong style="color:#e8e4dc">Fasting Insulin</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: &lt;5 &mu;IU/mL (most labs flag at 25 &mdash; far too high)</li>
+      <li><strong style="color:#e8e4dc">HbA1c</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: &lt;5.5% (&lt;5.3% optimal for brain); each 0.1% above 5.5% correlates with cognitive decline</li>
+      <li><strong style="color:#e8e4dc">HOMA-IR</strong> (calculated: glucose &times; insulin &divide; 405) &mdash; Target: &lt;1.0 optimal; &gt;2.0 = significant insulin resistance</li>
+    </ul>
+  </div>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:16px">
+    <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px">INFLAMMATION &amp; VASCULAR</div>
+    <ul style="color:#9a9aaa;font-size:.9rem;line-height:2">
+      <li><strong style="color:#e8e4dc">hsCRP</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: &lt;0.5 mg/L optimal (&lt;1.0 acceptable); &gt;3.0 = significant neuroinflammatory driver</li>
+      <li><strong style="color:#e8e4dc">Homocysteine</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: &lt;7 &mu;mol/L; every 5 unit increase = 40% increased dementia risk (Seshadri et al., NEJM)</li>
+      <li><strong style="color:#e8e4dc">Omega-3 Index</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: &gt;8% (most Americans are at 4&ndash;5%)</li>
+      <li><strong style="color:#e8e4dc">Uric Acid</strong> &mdash; Target: &lt;5.5 mg/dL; elevated uric acid is an independent neuroinflammatory marker</li>
+    </ul>
+  </div>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:16px">
+    <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px">THYROID (FULL PANEL &mdash; NOT JUST TSH)</div>
+    <ul style="color:#9a9aaa;font-size:.9rem;line-height:2">
+      <li><strong style="color:#e8e4dc">TSH</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: 1.0&ndash;2.0 mIU/L (conventional &#34;normal&#34; up to 4.5 misses many cases)</li>
+      <li><strong style="color:#e8e4dc">Free T3</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; The most clinically important thyroid marker for cognitive function. Target: upper quartile of range (3.5&ndash;4.2 pg/mL)</li>
+      <li><strong style="color:#e8e4dc">Free T4</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Assesses conversion efficiency to active T3</li>
+      <li><strong style="color:#e8e4dc">Reverse T3 (RT3)</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Elevated RT3 with normal TSH = functional hypothyroidism; blocks T3 receptor sites</li>
+      <li><strong style="color:#e8e4dc">TPO Antibodies + TgAb</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Autoimmune thyroid (Hashimoto&#39;s) is a major neuroinflammatory driver often diagnosed late</li>
+    </ul>
+  </div>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:16px">
+    <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px">HORMONES &amp; NEUROPROTECTION</div>
+    <ul style="color:#9a9aaa;font-size:.9rem;line-height:2">
+      <li><strong style="color:#e8e4dc">Estradiol (E2)</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Sensitive LC/MS/MS assay; neuroprotective at physiological levels; target varies by age and menstrual phase</li>
+      <li><strong style="color:#e8e4dc">Progesterone</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Neuroprotective; GABA-ergic; supports myelin integrity. Low progesterone = anxiety, poor sleep, cognitive symptoms</li>
+      <li><strong style="color:#e8e4dc">Free &amp; Total Testosterone</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Low T in both sexes correlates with cognitive decline; supports dopamine, motivation, and focus circuitry</li>
+      <li><strong style="color:#e8e4dc">DHEA-S</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Neurosteroid and precursor; declines 80% from age 25 to 75; supports memory and mood</li>
+      <li><strong style="color:#e8e4dc">Cortisol AM (8am)</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Snapshot only; combine with DUTCH for full diurnal pattern</li>
+      <li><strong style="color:#e8e4dc">Vitamin D3 25-OH</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: 60&ndash;80 ng/mL. Every 10-point increase in D3 correlates with meaningful cognitive improvement in deficient individuals</li>
+      <li><strong style="color:#e8e4dc">B12 (as MMA if borderline)</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Target: &gt;600 pg/mL (conventional normal 200+ misses functional deficiency); methylmalonic acid confirms intracellular status</li>
+      <li><strong style="color:#e8e4dc">Folate / Methylfolate</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Critical for one-carbon metabolism and homocysteine clearance</li>
+    </ul>
+  </div>
+
+  <!-- Layer 2 -->
+  <h3 style="color:#63b3ed;font-family:'Syne',sans-serif;margin:24px 0 12px">&#9670; Layer 2 &mdash; Functional Labs (Rupa Health)</h3>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:16px">
+    <ul style="color:#9a9aaa;font-size:.9rem;line-height:2">
+      <li><strong style="color:#e8e4dc">DUTCH Complete</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Full cortisol diurnal curve, sex hormone metabolites (2-OH, 4-OH, 16-OH), melatonin, organic acid markers. Essential for Type 2 and 5 fog patterns</li>
+      <li><strong style="color:#e8e4dc">GI-MAP + Zonulin</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; PCR-based stool test; identifies pathogens, dysbiosis, intestinal permeability. Essential for Type 1 (neuroinflammatory) fog</li>
+      <li><strong style="color:#e8e4dc">Cyrex Array 2</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Intestinal permeability (leaky gut) &rarr; leaky brain confirmation</li>
+      <li><strong style="color:#e8e4dc">Cyrex Array 20</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Blood-brain barrier permeability (leaky brain directly)</li>
+      <li><strong style="color:#e8e4dc">Alzheimer&#39;s LINX (Cyrex Array 5)</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Screens for antibodies to neural tissue; early detection years before clinical symptoms</li>
+      <li><strong style="color:#e8e4dc">OAT (Organic Acids Test &mdash; Mosaic)</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Mitochondrial function markers, B-vitamin cofactor status, neurotransmitter metabolites, yeast/bacterial overgrowth</li>
+      <li><strong style="color:#e8e4dc">MycoTOX Profile</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Urine mycotoxin panel (11 mycotoxins from 40 species). Rule in or out mold toxicity for Type 3 fog</li>
+      <li><strong style="color:#e8e4dc">Urine Toxic Metals</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Mercury, lead, arsenic, aluminum, cadmium, thallium. Provoked or unprovoked depending on clinical suspicion</li>
+      <li><strong style="color:#e8e4dc">NutrEval (Genova)</strong> &mdash; Amino acid profile, mitochondrial markers, antioxidant status, fatty acids, B-vitamin functional status &mdash; broad nutritional fingerprint</li>
+      <li><strong style="color:#e8e4dc">Salivary Cortisol x4</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Waking, noon, 4pm, bedtime; diurnal cortisol curve mapping that a single AM blood draw cannot provide</li>
+    </ul>
+  </div>
+
+  <!-- Layer 3 -->
+  <h3 style="color:#63b3ed;font-family:'Syne',sans-serif;margin:24px 0 12px">&#9670; Layer 3 &mdash; Advanced / Precision (Refractory or High-Risk Cases)</h3>
+
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:16px">
+    <ul style="color:#9a9aaa;font-size:.9rem;line-height:2">
+      <li><strong style="color:#e8e4dc">ApoE Genotype</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; APOE4 carriers have 3&times; (one copy) to 8&ndash;12&times; (two copies) higher Alzheimer&#39;s risk. Knowing changes the protocol: lower saturated fat, optimize DHA, prioritize sleep, avoid head trauma, monitor vascular markers aggressively</li>
+      <li><strong style="color:#e8e4dc">MTHFR + Methylation Panel (3X4 Genetics)</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; C677T and A1298C variants impair folate-to-methylfolate conversion; elevates homocysteine; disrupts neurotransmitter synthesis and detox capacity</li>
+      <li><strong style="color:#e8e4dc">TruAge (TruDiagnostic)</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; Epigenetic biological age; pace of aging; specific clock that predicts cognitive trajectory. Powerful motivator and response-to-treatment measure</li>
+      <li><strong style="color:#e8e4dc">Serum GFAP + Neurofilament Light (NfL)</strong> &mdash; Emerging blood biomarkers of neuronal damage and neuroinflammation; elevated years before clinical MCI in some studies</li>
+      <li><strong style="color:#e8e4dc">Quantitative EEG (qEEG)</strong> &mdash; Brain wave mapping; identifies patterns correlating with ADD, anxiety, depression, trauma. Foundation for neurofeedback training</li>
+      <li><strong style="color:#e8e4dc">MitoSwab</strong> &mdash; Buccal swab mitochondrial DNA copy number; surrogate marker of mitochondrial biogenesis capacity</li>
+    </ul>
+  </div>
+
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin:20px 0">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:10px">&#9670; PHYSICAL CAPACITY &mdash; OFTEN OVERLOOKED, CLINICALLY POWERFUL</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div><strong style="color:#e8e4dc">DEXA Scan</strong><br><span style="color:#9a9aaa;font-size:.88rem">Body composition: lean mass, fat mass, bone density. Sarcopenia and low lean mass correlate directly with cognitive decline.</span></div>
+      <div><strong style="color:#e8e4dc">Grip Strength</strong><br><span style="color:#9a9aaa;font-size:.88rem">Validated all-cause mortality predictor. Low grip strength at 50 predicts MCI risk better than many lab markers.</span></div>
+      <div><strong style="color:#e8e4dc">Gait Speed</strong><br><span style="color:#9a9aaa;font-size:.88rem">4&ndash;6 meter timed walk. Slower gait speed independently predicts cognitive decline &mdash; the brain controls gait.</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /labs -->
+
+<!-- ============================================================ MEDICATIONS / RX ============================================================ -->
+<div id="medications" class="section">
+
+  <div style="background:rgba(252,129,129,.06);border:1px solid rgba(252,129,129,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#fc8181;margin-bottom:6px">&#9670; IMPORTANT FRAMING</div>
+    <div style="color:#9a9aaa;font-size:.9rem">All pharmaceutical and peptide options below are presented as educational information only &mdash; not prescriptions or treatment recommendations. Most peptides and off-label medications require a physician partner, pharmacy compounding, and monitoring. Always weigh potential benefit against potential risk with a clinician who knows your full picture. Nutraceutical alternatives are provided for every item.</div>
+  </div>
+
+  <!-- Low-dose Lithium -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">OFF-LABEL NEUROPROTECTION</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">Low-Dose Lithium Orotate</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">At pharmacological doses (900&ndash;1800mg carbonate), lithium is a psychiatric drug for bipolar disorder. At low doses (5&ndash;20mg lithium orotate, OTC), it is a potent neuroprotective agent. Inhibits GSK-3&beta; (a tau phosphorylation enzyme), promotes BDNF, reduces neuroinflammation, and is associated with lower dementia rates in populations consuming it in drinking water. Dr. Bredesen includes it in the ReCODE protocol.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">Mild: 5 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 10 mg/day</span>
+      <span class="dose-tag heavy">Therapeutic: 15&ndash;20 mg/day</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Available OTC as lithium orotate. Monitor kidney function if used long-term. Avoid concurrent NSAIDs and dehydration.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">Lion&#39;s Mane 1,000&ndash;2,000mg (NGF stimulation) + Magnesium L-Threonate 1,500mg (synaptic plasticity) + Omega-3 DHA 2g/day (neuroprotective membrane support)</div>
+    </div>
+  </div>
+
+  <!-- Methylene Blue -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">MITOCHONDRIAL COGNITION</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">Methylene Blue (Low-Dose)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">One of the most promising cognitive enhancers emerging in the longevity space. Acts as an alternative electron carrier in the mitochondrial electron transport chain &mdash; effectively increasing ATP production when complex I or IV is dysfunctional. Also acts as a photosensitizer: when combined with red/NIR light, it dramatically amplifies photobiomodulation effects in brain tissue. Shows promise in neuroinflammation, cognitive aging, and post-COVID neurological recovery.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">Mild: 0.5 mg/kg</span>
+      <span class="dose-tag moderate">Moderate: 1 mg/kg</span>
+      <span class="dose-tag heavy">Max: 2 mg/kg (hormesis curve)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Pharmaceutical grade (USP) required &mdash; not industrial grade. Turns urine blue/green transiently. Contraindicated with SSRIs/SNRIs (serotonin syndrome risk), G6PD deficiency, pregnancy.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">CoQ10 (ubiquinol) 200&ndash;400mg + PQQ 20mg (mitochondrial biogenesis) + ALCAR 1,000mg (mitochondrial substrate) + Red/NIR light therapy to head (same electron chain target, no drug required)</div>
+    </div>
+  </div>
+
+  <!-- Semax / Selank -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">PEPTIDE &mdash; COGNITIVE</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">Semax &amp; Selank (Neuropeptides)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Semax is a synthetic analogue of ACTH (4&ndash;7) that dramatically upregulates BDNF and NGF. Used in Russian clinical practice since the 1980s for stroke recovery and cognitive enhancement. Selank is a heptapeptide analogue of tuftsin &mdash; anxiolytic, anti-neuroinflammatory, and nootropic. Both are available as compounded nasal sprays. The combination is particularly powerful for brain fog with an anxiety or stress component &mdash; sharpness without stimulation.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">Semax: 100 mcg/day (nasal)</span>
+      <span class="dose-tag moderate">Semax: 300&ndash;600 mcg/day</span>
+      <span class="dose-tag moderate">Selank: 250&ndash;500 mcg/day (nasal)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Requires physician prescription and compounding pharmacy. Off-label in the US. Short cycle: 5 days on, 2 days off.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">Lion&#39;s Mane 2,000mg/day (NGF upregulation) + Bacopa Monnieri 300mg (synaptic density) + Phosphatidylserine 300mg + L-Theanine 400mg (alertness without anxiety)</div>
+    </div>
+  </div>
+
+  <!-- BPC-157 -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">PEPTIDE &mdash; GUT-BRAIN AXIS</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">BPC-157 (Body Protective Compound)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">A 15-amino-acid peptide derived from a protein in human gastric juice. Exceptional for healing the gut-brain axis &mdash; repairs intestinal permeability (leaky gut), modulates dopaminergic and serotonergic signaling, reduces neuroinflammation, and promotes angiogenesis in injured tissue. Particularly useful when brain fog has a gut-driven (Type 1) root pattern or follows a period of NSAID use, antibiotic exposure, or GI distress.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">250 mcg/day oral/sublingual</span>
+      <span class="dose-tag moderate">500 mcg/day oral or SubQ</span>
+      <span class="dose-tag heavy">1,000 mcg/day (complex cases)</span>
+    </div>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">Zinc carnosine 75mg + L-Glutamine 5&ndash;10g/day + Colostrum 2g/day + Slippery Elm 400mg (gut lining repair without peptide)</div>
+    </div>
+  </div>
+
+  <!-- LDN -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">OFF-LABEL &mdash; NEUROINFLAMMATION</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">Low-Dose Naltrexone (LDN)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">At standard doses (50mg), naltrexone is an opioid antagonist for addiction. At ultra-low doses (1.5&ndash;4.5mg), it paradoxically modulates the immune system and reduces neuroinflammation by transiently blocking opioid receptors, triggering a rebound increase in endorphins and inhibiting microglial activation (TLR4 pathway). Particularly compelling for post-COVID fog, autoimmune-driven fog, and fibromyalgia/chronic fatigue overlap. Growing evidence, excellent safety profile at these doses.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">Start: 1.5 mg/night</span>
+      <span class="dose-tag moderate">Moderate: 3 mg/night</span>
+      <span class="dose-tag heavy">Therapeutic: 4.5 mg/night</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Requires physician Rx. Compound pharmacy required for doses below 50mg. Titrate slowly. Avoid opioid medications &mdash; will block their effect.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">Curcumin BCM-95 1,000mg + NAC 1,200mg + Omega-3 EPA 2g + Boswellia (AKBA) 200mg &mdash; collectively target NF-kB and microglial inflammatory pathways</div>
+    </div>
+  </div>
+
+  <!-- MOTS-c -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">PEPTIDE &mdash; MITOCHONDRIAL / METABOLIC</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">MOTS-c (Mitochondria-Derived Peptide)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">MOTS-c is a 16-amino-acid peptide encoded within the mitochondrial genome (12S rRNA gene) &mdash; one of the first mitochondria-derived peptides discovered to act as a systemic hormone. It activates AMPK, improves insulin sensitivity, promotes mitochondrial biogenesis, reduces oxidative stress, and crosses the blood-brain barrier to directly support neuronal energy metabolism. Particularly compelling for Type 2 (metabolic/atrophic) fog where mitochondrial dysfunction and insulin resistance are the dominant drivers. Also emerging evidence for anti-aging and cognitive resilience in animal models. MOTS-c levels decline with age, mirroring the decline in cognitive vitality.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">5 mg SubQ 2&ndash;3x/week</span>
+      <span class="dose-tag moderate">10 mg SubQ 3x/week</span>
+      <span class="dose-tag heavy">10 mg SubQ daily (short cycle)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Requires physician prescription and compounding pharmacy. Cycle: 4&ndash;8 weeks on, 2&ndash;4 weeks off. Refrigerate. Stack well with SS-31 for synergistic mitochondrial support.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">NMN 500&ndash;1,000mg + PQQ 20mg + CoQ10 ubiquinol 300mg + Berberine 500mg 2x/day &mdash; collectively activate AMPK and support mitochondrial biogenesis via similar upstream pathways</div>
+    </div>
+  </div>
+
+  <!-- SS-31 -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">PEPTIDE &mdash; MITOCHONDRIAL MEMBRANE</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">SS-31 (Elamipretide / Szeto-Schiller Peptide)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">SS-31 is a tetrapeptide that selectively concentrates in the inner mitochondrial membrane, where it binds to cardiolipin &mdash; the critical phospholipid that anchors Complex I, III, IV, and cytochrome c in the electron transport chain. When cardiolipin is oxidized (by aging, disease, or toxin exposure), the ETC dismantles and ATP production collapses. SS-31 protects cardiolipin integrity, preserving the architecture of the entire mitochondrial energy production system. In clinical trials (Bendavia) for heart failure and renal ischemia, and rapidly emerging in longevity medicine as perhaps the most precisely targeted mitochondrial intervention available. For brain fog: directly addresses the energy deficit at the neuronal level that drives Type 2 (atrophic) cognitive patterns.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">2.5 mg SubQ daily</span>
+      <span class="dose-tag moderate">5 mg SubQ daily</span>
+      <span class="dose-tag heavy">10 mg SubQ daily (therapeutic cycle)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Requires physician prescription and compounding pharmacy. Off-label. Stack with MOTS-c for complementary mitochondrial support (MOTS-c = biogenesis; SS-31 = membrane protection). Cycle 4&ndash;8 weeks.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">Cardiolipin protection via: CoQ10 ubiquinol 300&ndash;400mg + MitoQ (mitoquinol mesylate) 10&ndash;20mg + Omega-3 DHA 2g + NAC 1,200mg &mdash; collectively reduce cardiolipin oxidation and protect ETC integrity</div>
+    </div>
+  </div>
+
+  <!-- Dihexa -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">PEPTIDE &mdash; SYNAPTOGENESIS</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">Dihexa</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Dihexa is a heptapeptide derived from angiotensin IV that acts as a potent modulator of the HGF/MET (Hepatocyte Growth Factor / MET receptor) signaling axis &mdash; a pathway critical to synaptogenesis (the formation of new synaptic connections). Studies suggest it may be up to 100,000&times; more potent than BDNF itself at promoting new synaptic growth, making it one of the most powerful pro-cognitive agents in the peptide landscape. Highly promising for cognitive decline, Alzheimer's prevention, and post-injury neuroregeneration. Evidence is primarily preclinical; human data is limited but experiential reports from the longevity/biohacking community are consistently compelling. This is a true frontier compound &mdash; use with physician oversight and clear rationale.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">4 mg sublingual or topical 2&ndash;3x/week</span>
+      <span class="dose-tag moderate">8 mg sublingual 3x/week</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Cycle 4&ndash;6 weeks on, 4 weeks off. Sublingual or transdermal preferred for bioavailability. Off-label; limited long-term safety data. Physician oversight strongly recommended. Not for those with active malignancy (pro-growth mechanism requires caution).</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">Lion's Mane 2,000mg (NGF/BDNF upregulation) + Semax 300&ndash;600mcg nasal (BDNF amplification) + Bacopa 300mg + DHA 2g &mdash; multi-pronged synaptogenesis support via established pathways</div>
+    </div>
+  </div>
+
+  <!-- Aniracetam -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">NOOTROPIC &mdash; RACETAM CLASS</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1.05rem;margin-bottom:8px">Aniracetam</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">A fat-soluble racetam nootropic with a distinctly broader mechanism than piracetam &mdash; aniracetam modulates AMPA-type glutamate receptors (enhancing memory consolidation and cognitive speed), stimulates D1/D2 dopamine receptors and 5-HT2A serotonin receptors (producing a notably anxiolytic effect absent in most nootropics), and upregulates BDNF and choline uptake. This combination &mdash; cognitive enhancement with anxiety reduction &mdash; makes aniracetam uniquely suited for the common brain fog pattern where stress, anxiety, and cognitive impairment co-exist. Approved as a prescription drug in Europe and Japan (Memodrin, Draganon) for cognitive disorders. Pairs well with a choline source (Alpha-GPC or CDP-choline) to prevent choline depletion.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">375 mg 2x/day with food</span>
+      <span class="dose-tag moderate">750 mg 2x/day with food</span>
+      <span class="dose-tag heavy">750 mg 3x/day with food</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Fat-soluble &mdash; must be taken with food containing fat. Always pair with Alpha-GPC 300&ndash;600mg or CDP-Choline 500mg to prevent choline deficit (headache = choline depletion signal). Half-life 1&ndash;2.5 hours; split dosing important. Unscheduled in the US (legal to purchase); prescription in EU/Japan.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">Alpha-GPC 600mg + L-Theanine 400mg + Saffron 30mg 2x/day + Bacopa 300mg &mdash; addresses AMPA modulation (bacopa), anxiolytic effect (theanine + saffron), and cholinergic support (Alpha-GPC)</div>
+    </div>
+  </div>
+
+  <!-- Thyroid optimization note -->
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:16px 18px;margin-top:20px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:8px">&#9670; THYROID OPTIMIZATION &amp; HORMONES</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7">Optimizing Free T3 to the upper quartile, addressing hormonal decline in perimenopause and andropause, and supporting DHEA-S are among the most powerful pharmaceutical-adjacent interventions for brain fog &mdash; and they&#39;re not &#34;off-label&#34; in the sense that they require creativity. They require a physician who thinks about <em>optimal</em> rather than &#34;not sick.&#34; Sex hormone optimization (bioidentical estradiol, progesterone, testosterone) via BHRT is one of the most evidence-supported cognitive protection strategies for women 40&ndash;65, especially within the critical window of opportunity post-menopause.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /medications -->
+
+<!-- ============================================================ NUTRACEUTICALS ============================================================ -->
+<div id="nutraceuticals" class="section">
+
+  <div style="background:rgba(104,211,145,.06);border:1px solid rgba(104,211,145,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#68d391;margin-bottom:6px">&#9670; BRAIN-FIRST NUTRACEUTICALS</div>
+    <div style="color:#9a9aaa;font-size:.9rem">These are not general wellness supplements. Each one has a specific, mechanistic role in cognitive function, neuroinflammation reduction, or neuroprotection. Start with the foundational stack. Add targeted compounds based on your root cause pattern. More is not better &mdash; targeted is better.</div>
+  </div>
+
+  <!-- FOUNDATION STACK -->
+  <h3 style="color:#f5a623;margin-bottom:16px">FOUNDATION STACK (Relevant for all fog patterns)</h3>
+
+  <!-- DHA/EPA -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;margin-bottom:6px">DHA + EPA (Omega-3 Fatty Acids)</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">DHA is the structural backbone of neuronal membranes &mdash; it comprises 97% of the omega-3 in the brain. Low DHA = rigid, poorly communicating neurons. EPA has the stronger anti-neuroinflammatory effect. Omega-3 Index &lt;4% is associated with significantly accelerated cognitive aging. Target: Omega-3 Index &gt;8%.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: DHA 1g + EPA 500mg/day</span>
+      <span class="dose-tag moderate">Moderate: DHA 2g + EPA 1g/day</span>
+      <span class="dose-tag heavy">Heavy: DHA 2g + EPA 2g/day (neuroinflammation)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Triglyceride form preferred (re-esterified). Take with fat-containing meal. High-quality fish oil or algal oil (vegan). Refrigerate after opening.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; APOE4 &amp; DHA</button>
+    <div class="dig-deeper-content"><p>APOE4 carriers have impaired DHA transport across the blood-brain barrier via the APOE pathway. Higher dietary DHA is especially critical for APOE4 individuals &mdash; some researchers suggest 3&ndash;4g DHA/day specifically for APOE4 carriers, alongside avoidance of saturated fat which appears to worsen APOE4-associated cognitive risk more than in non-carriers. (Yassine et al., <em>JAMA Neurology</em>, 2017)</p></div>
+  </div>
+
+  <!-- Magnesium L-Threonate -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;margin-bottom:6px">Magnesium L-Threonate</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">The only form of magnesium demonstrated to cross the blood-brain barrier and increase synaptic magnesium levels in the brain. Studies show it enhances synaptic plasticity, improves memory, and reduces age-related cognitive decline. Magnesium deficiency impairs NMDA receptor function &mdash; the receptor critical for learning and memory formation.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 1,000 mg/day (144mg elemental)</span>
+      <span class="dose-tag moderate">Moderate: 1,500 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 2,000 mg/day (split AM/PM)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Split dosing: morning + evening. Can combine with magnesium bisglycinate (for muscle and sleep support) at a separate dose.</p>
+  </div>
+
+  <!-- Phosphatidylserine -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;margin-bottom:6px">Phosphatidylserine (PS)</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">A phospholipid critical to neuronal membrane integrity and receptor signaling. FDA allows a qualified health claim for PS in cognitive decline. Reduces cortisol (particularly post-exercise cortisol spike), supports acetylcholine receptor density, and improves speed of information processing. One of the few supplements with an FDA qualified cognitive health claim.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 100 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 200 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 300 mg/day (cognitive rehabilitation)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Sunflower-derived (not soy). Well-tolerated. Take with food. Effects build over 4&ndash;8 weeks.</p>
+  </div>
+
+  <!-- Alpha-GPC / CDP-Choline -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;margin-bottom:6px">Alpha-GPC or CDP-Choline (Citicoline)</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">Acetylcholine is the primary neurotransmitter for learning, memory, and focus. It declines with age, and estrogen decline in women directly reduces acetylcholine production. Alpha-GPC provides the most bioavailable choline precursor for brain acetylcholine synthesis. CDP-Choline (citicoline) also provides cytidine, which converts to uridine &mdash; a key phospholipid membrane precursor. Both are well-studied; Alpha-GPC shows slightly stronger acute cognitive effects.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Alpha-GPC: 300 mg/day</span>
+      <span class="dose-tag moderate">Alpha-GPC: 600 mg/day</span>
+      <span class="dose-tag heavy">CDP-Choline: 500&ndash;1,000 mg/day</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Take in the morning. May cause vivid dreams or mild overstimulation in sensitive individuals at higher doses. Especially important for perimenopausal/menopausal women and APOE4 carriers.</p>
+  </div>
+
+  <!-- Phosphatidylcholine -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;margin-bottom:6px">Phosphatidylcholine (PC) &mdash; Oral</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">Phosphatidylcholine is the most abundant phospholipid in every cell membrane, comprising 50&ndash;60% of the neuronal membrane phospholipid bilayer. While Alpha-GPC and CDP-choline serve primarily as acetylcholine precursors, oral PC directly replenishes neuronal membrane structural integrity, supports the gut mucosal lining (a key gut-brain axis lever), and provides choline for hepatic and neurological function. Particularly valuable for toxic fog patterns (heavy metals and mold deplete membrane PC) and for anyone with a history of significant alcohol use, liver stress, or long-term medication exposure. Also a key substrate for the neurotransmitter acetylcholine and for methyl-group donation via the CDP-choline pathway.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 1&ndash;2 g/day (high-PC sunflower lecithin)</span>
+      <span class="dose-tag moderate">Moderate: 3&ndash;5 g/day</span>
+      <span class="dose-tag heavy">Heavy: 5&ndash;10 g/day (Dr. Patricia Kane protocol for toxic/neural repair)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Sunflower lecithin (non-GMO) preferred over soy. High-PC liquid or softgel form for best absorption. Take with food. Distinct from and complementary to Alpha-GPC &mdash; PC provides structural membrane support while Alpha-GPC primarily drives acetylcholine synthesis. At higher therapeutic doses (Dr. Patricia Kane protocol), often paired with IV PC for deep neural membrane restoration in toxic/post-COVID cases.</p>
+  </div>
+
+  <!-- NAC -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;margin-bottom:6px">N-Acetyl Cysteine (NAC)</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">The most direct oral glutathione precursor available. Glutathione is the brain&#39;s primary antioxidant and is severely depleted in neuroinflammatory fog, toxic fog (especially mold), and post-COVID patterns. NAC also modulates glutamate signaling (relevant for cognitive overstimulation, addiction, and OCD spectrum patterns) and supports mitochondrial function.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 600 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 1,200 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 1,800&ndash;2,400 mg/day (toxic fog, post-COVID)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Away from meals for best absorption. Sulfurous smell is normal. Consider liposomal glutathione as a direct alternative for faster brain uptake.</p>
+  </div>
+
+  <!-- Vitamin D3+K2 -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;margin-bottom:6px">Vitamin D3 + K2 (MK-7)</div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">Vitamin D3 behaves biochemically more like a steroid hormone than a vitamin &mdash; it binds nuclear receptors and regulates 2,000+ genes, including BDNF, VDR, and multiple neuroprotective pathways. Low D3 is associated with depression, cognitive decline, and multiple sclerosis-like demyelination. K2 (MK-7) directs calcium into bone and away from arterial walls, preventing vascular calcification that restricts cerebral blood flow. Always combine D3 with K2.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 2,000 IU D3 + 100 mcg K2</span>
+      <span class="dose-tag moderate">Moderate: 5,000 IU D3 + 200 mcg K2</span>
+      <span class="dose-tag heavy">Heavy: 8,000&ndash;10,000 IU D3 + 200 mcg K2</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Target serum level: 60&ndash;80 ng/mL. Test first. Monitor every 90 days at heavy dose. Take with largest fat-containing meal.</p>
+  </div>
+
+  <!-- TARGETED STACK -->
+  <h3 style="color:#f5a623;margin:28px 0 16px">TARGETED ADDITIONS (by root cause pattern)</h3>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px">
+      <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#fc8181;margin-bottom:8px">TYPE 1 &mdash; NEUROINFLAMMATORY</div>
+      <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.9">
+        <li>Curcumin BCM-95 1,000mg (NF-kB inhibitor)</li>
+        <li>Probiotics high-CFU w/ Lactobacillus acidophilus + Bifidobacterium</li>
+        <li>Butyrate 600&ndash;1,200mg (colonocyte fuel, BBB integrity)</li>
+        <li>Quercetin phytosome 500mg (mast cell stabilization)</li>
+      </ul>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px">
+      <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#63b3ed;margin-bottom:8px">TYPE 2 &mdash; METABOLIC / ATROPHIC</div>
+      <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.9">
+        <li>NMN 500mg (NAD+ precursor; mitochondrial energy)</li>
+        <li>CoQ10 ubiquinol 200&ndash;300mg (ATP production)</li>
+        <li>ALCAR 1,000mg (mitochondrial substrate + cognitive energy)</li>
+        <li>DHEA 10&ndash;25mg (neurosteroid; confirm deficiency first)</li>
+      </ul>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px">
+      <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#b794f4;margin-bottom:8px">TYPE 3 &mdash; TOXIC</div>
+      <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.9">
+        <li>Liposomal glutathione 500&ndash;1,000mg</li>
+        <li>Methylfolate 800&ndash;2,000mcg (MTHFR support)</li>
+        <li>Methylcobalamin B12 1,000mcg sublingual</li>
+        <li>Binders: activated charcoal or chlorella (away from meals)</li>
+      </ul>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px">
+      <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;margin-bottom:8px">TYPE 4 &mdash; VASCULAR</div>
+      <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.9">
+        <li>Ginkgo biloba EGb761 120&ndash;240mg (cerebral blood flow)</li>
+        <li>L-Citrulline 3&ndash;6g (nitric oxide, vascular tone)</li>
+        <li>PQQ 20mg (mitochondrial biogenesis)</li>
+        <li>Beet root extract 500&ndash;1,000mg (NO precursor)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="female-box" style="margin-top:20px">
+    <div class="female-box-title">&#9792; Female-Specific Nutraceutical Priority</div>
+    <p style="color:#e8e4dc;font-size:.9rem;margin-bottom:8px">For perimenopausal/menopausal women, Alpha-GPC and Phosphatidylserine are especially critical &mdash; estrogen decline directly reduces acetylcholine synthesis and synaptic density. DIM 200mg + Calcium D-Glucarate 500mg support estrogen metabolism for women who are still cycling but showing fog with estrogen dominance patterns. Evening Primrose Oil 1&ndash;2g provides GLA for neuronal membrane support distinct from fish oil. Progesterone (BHRT) is often the most underappreciated brain intervention for women experiencing anxiety-related fog, as progesterone converts to allopregnanolone &mdash; the brain&#39;s most potent natural anxiolytic.</p>
+  </div>
+
+
+  <div style="border-top:1px solid #1e2130;margin:32px 0 24px;"></div>
+  <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:#b794f4;margin-bottom:20px;">&#9670; BOTANICALS &amp; HOMEOPATHY</div>
+
+  <div style="background:rgba(183,148,244,.06);border:1px solid rgba(183,148,244,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#b794f4;margin-bottom:6px">&#9670; THE PLANT INTELLIGENCE LAYER</div>
+    <div style="color:#9a9aaa;font-size:.9rem">Plants and fungi have been supporting human cognition for millennia. The RoVive approach treats botanicals not as gentle placebos but as precision agents with real mechanisms &mdash; and real evidence. Evidence grading: &#9733;&#9733;&#9733; = multiple RCTs with consistent results; &#9733;&#9733;&#9734; = some human trials or strong mechanistic data; &#9733;&#9734;&#9734; = emerging / traditional use with plausibility.</div>
+  </div>
+
+  <!-- Lion's Mane -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;overflow:visible;padding-bottom:0.1em">Lion&#39;s Mane <em style="font-weight:400;font-size:.85rem;color:#9a9aaa">(Hericium erinaceus)</em></div>
+      <div style="color:#f5a623">&#9733;&#9733;&#9733;</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">The most important medicinal mushroom for cognitive function. Hericenones and erinacines stimulate Nerve Growth Factor (NGF) synthesis &mdash; NGF promotes neuronal survival, repair, and the growth of new neuronal connections. A 2023 clinical trial showed significant cognitive improvement vs. placebo in 8 weeks. Also anti-neuroinflammatory and supports remyelination.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 500 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 1,000 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 2,000 mg/day</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Dual extraction (hot water + alcohol) required. Fruiting body preferred over mycelium. Effects build over 4&ndash;12 weeks. Safe for daily long-term use.</p>
+  </div>
+
+  <!-- Bacopa -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;overflow:visible;padding-bottom:0.1em">Bacopa Monnieri</div>
+      <div style="color:#f5a623">&#9733;&#9733;&#9733;</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">The most rigorously studied herb for memory and learning. Bacosides enhance synaptic density, inhibit acetylcholinesterase (preserving acetylcholine), and reduce amyloid aggregation. Multiple RCTs demonstrate improved delayed recall, processing speed, and attention. Dr. Bredesen includes bacopa in the ReCODE protocol.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 150 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 300 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 450 mg/day</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Minimum 20% bacosides standardized. Take with fat. Full effect requires 8&ndash;12 weeks.</p>
+  </div>
+
+  <!-- Ginkgo -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;overflow:visible;padding-bottom:0.1em">Ginkgo Biloba <em style="font-weight:400;font-size:.85rem;color:#9a9aaa">(EGb 761 extract)</em></div>
+      <div style="color:#f5a623">&#9733;&#9733;&#9733;</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">EGb 761 improves cerebral microcirculation by inhibiting PAF and acting as a free-radical scavenger. Directly addresses Dr. Amen&#39;s hypoperfusion pattern. Meta-analyses show consistent improvement in memory and processing speed, especially in Type 4 (vascular) fog.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 60 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 120 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 240 mg/day</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">EGb 761 standardized extract only (24% flavone glycosides, 6% terpene lactones). Caution with anticoagulants.</p>
+  </div>
+
+  <!-- Ashwagandha -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;overflow:visible;padding-bottom:0.1em">Ashwagandha <em style="font-weight:400;font-size:.85rem;color:#9a9aaa">(KSM-66)</em></div>
+      <div style="color:#f5a623">&#9733;&#9733;&#9733;</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">The premier HPA axis adaptogen for stress-driven cognitive fog. KSM-66 reduces cortisol by 28&ndash;30% in RCTs, improves memory and attention, and has direct neurogenic effects. Also shown to reduce TSH in subclinical hypothyroid. Powerful for the wired-but-tired pattern.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 300 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 600 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 600 mg 2x/day</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">KSM-66 or Sensoril. Cycle 8 weeks on, 2 weeks off. Caution in Hashimoto&#39;s until stable.</p>
+  </div>
+
+  <!-- Saffron -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;overflow:visible;padding-bottom:0.1em">Saffron Extract <em style="font-weight:400;font-size:.85rem;color:#9a9aaa">(Crocus sativus, Affron)</em></div>
+      <div style="color:#f5a623">&#9733;&#9733;&#9734;</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">Comparable to fluoxetine in multiple RCTs for mild-to-moderate depression &mdash; highly relevant when brain fog overlaps with mood disruption or anhedonia. Crocin and safranal modulate serotonin reuptake and protect neuronal cells from oxidative damage. Growing evidence in early Alzheimer&#39;s.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">15 mg 2x/day</span>
+      <span class="dose-tag moderate">30 mg Affron 2x/day</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Affron standardized extract (3.5% lepticrosalide). Not interchangeable with culinary saffron threads.</p>
+  </div>
+
+  <!-- Rhodiola -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;overflow:visible;padding-bottom:0.1em">Rhodiola Rosea</div>
+      <div style="color:#f5a623">&#9733;&#9733;&#9733;</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">Best-evidenced herb for acute mental fatigue, stress-induced cognitive impairment, and burnout. Salidroside and rosavins modulate the cortisol stress response, reduce fatigue without stimulation, and improve accuracy of cognitive tasks under load. More activating than ashwagandha &mdash; better for daytime acute demands.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 100&ndash;200 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 300&ndash;400 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 500&ndash;600 mg/day</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Standardized to 3% rosavins, 1% salidroside. Take morning, away from food. Avoid PM. Cycle 3 months on, 2 weeks off.</p>
+  </div>
+
+  <!-- Gotu Kola -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:16px;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;overflow:visible;padding-bottom:0.1em">Gotu Kola <em style="font-weight:400;font-size:.85rem;color:#9a9aaa">(Centella asiatica)</em></div>
+      <div style="color:#f5a623">&#9733;&#9733;&#9734;</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.88rem;margin-bottom:8px">Asiaticoside and madecassoside support BDNF synthesis, reduce anxiety, and improve cerebral microcirculation. Calming and helpful when fog is accompanied by anxiety, low mood, or post-infectious fatigue. Also supports connective tissue repair for post-COVID vascular patterns.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="dose-tag mild">Mild: 250 mg/day</span>
+      <span class="dose-tag moderate">Moderate: 500 mg/day</span>
+      <span class="dose-tag heavy">Heavy: 1,000 mg/day</span>
+    </div>
+  </div>
+
+  <!-- Homeopathy -->
+  <div style="margin-top:32px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#b794f4;margin-bottom:16px">&#9670; HOMEOPATHIC OPTIONS TO CONSIDER</div>
+    <div style="background:rgba(183,148,244,.06);border:1px solid rgba(183,148,244,.2);border-radius:10px;padding:16px 20px">
+      <div style="color:#9a9aaa;font-size:.85rem;margin-bottom:14px;font-style:italic">Classical homeopathy is highly individualized. The same symptom picture may call for different remedies based on constitution, emotional overlay, and modalities. A trained homeopath will refine to your specific case.</div>
+      <div style="margin-bottom:16px">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em">Anacardium Orientale &mdash; 30C</div>
+        <div style="color:#9a9aaa;font-size:.88rem">The classical remedy for impaired memory with intense self-doubt and mental &#34;blockage.&#34; Two opposing wills &mdash; the mind and body working against each other. Brain fog with word-finding problems and loss of confidence in one&#39;s own memory. Often needed in high-achieving individuals who&#39;ve suddenly lost their mental edge.</div>
+      </div>
+      <div style="margin-bottom:16px">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em">Lycopodium Clavatum &mdash; 30C</div>
+        <div style="color:#9a9aaa;font-size:.88rem">Brain fog with digestive complaints, afternoon slump (4&ndash;8pm), low self-confidence with outward bravado. The gut-brain axis fog pattern. Also helpful for anticipatory anxiety that depletes mental energy before demanding situations.</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em">Nux Vomica &mdash; 30C</div>
+        <div style="color:#9a9aaa;font-size:.88rem">For the overworked, overstimulated, caffeine-dependent individual whose brain fog follows excessive mental work, poor sleep, and stimulant reliance. Irritable, driven, perfectionist &mdash; and now foggy from burning both ends. Also useful for toxic-pattern fog given its hepatic and detox associations.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /nutraceuticals -->
+
+
+
+
+
+<!-- ============================================================ CUTTING-EDGE ============================================================ -->
+<div id="cuttingedge" class="section">
+
+  <div style="background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.3);border-radius:10px;padding:14px 18px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#06b6d4;margin-bottom:6px">&#9670; THE FRONTIER OF BRAIN RECOVERY</div>
+    <div style="color:#9a9aaa;font-size:.9rem">These therapies range from well-established (HBOT for post-COVID) to emerging (stellate ganglion block) to experimental (exosomes). Evidence tiers are noted honestly. These are options to discuss with a physician, not DIY recommendations.</div>
+  </div>
+
+  <!-- HBOT -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">HYPERBARIC OXYGEN</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">Hyperbaric Oxygen Therapy (HBOT)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:8px">Pressurized oxygen (1.5&ndash;2.4 atm) dramatically increases plasma oxygen delivery to tissues &mdash; including brain tissue with compromised microvascular perfusion. HBOT stimulates neuroplasticity, reduces neuroinflammation, promotes angiogenesis, and has shown significant improvement in post-COVID cognitive symptoms in multiple controlled trials. Also strong evidence for TBI/concussion recovery (Dr. Amen uses HBOT for traumatic brain injury as a standard of care in his practice).</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.2);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#06b6d4;margin-bottom:6px">BEST INDICATIONS</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.8">
+          <li>Post-COVID / long-haul neurological fog</li>
+          <li>History of concussion or TBI</li>
+          <li>Type 4 vascular / hypoperfusion pattern</li>
+          <li>Stroke recovery</li>
+          <li>Non-healing wound / peripheral vascular disease</li>
+        </ul>
+      </div>
+      <div style="background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.2);border-radius:8px;padding:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#06b6d4;margin-bottom:6px">PROTOCOL</div>
+        <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.8">
+          <li>40&ndash;60 sessions for neurological indications</li>
+          <li>1.5&ndash;2.4 atm pressure (mild vs. hard HBOT)</li>
+          <li>60&ndash;90 min per session</li>
+          <li>5 days/week for 8&ndash;12 weeks</li>
+          <li>Requires physician Rx and supervised facility</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photobiomodulation -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">LIGHT MEDICINE</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">Transcranial Photobiomodulation (tPBM)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:8px">Red (630&ndash;670nm) and near-infrared (810&ndash;850nm) light penetrates the skull and directly stimulates cytochrome c oxidase (Complex IV of the mitochondrial electron transport chain) in neurons. This is the same mechanism targeted by methylene blue &mdash; enhancing ATP production, reducing reactive oxygen species, and reducing neuroinflammation. Clinical devices (Vielight, BrainPhotonics, Neuro Alpha) deliver this non-invasively. Growing evidence for depression, cognitive decline, TBI, and Parkinson&#39;s.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">10&ndash;20 min sessions</span>
+      <span class="dose-tag moderate">3&ndash;5x/week</span>
+      <span class="dose-tag heavy">Ongoing maintenance: 2&ndash;3x/week</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem">Home devices available at various price points. Medical-grade devices more powerful. Contraindicated over active malignancy. Pairs synergistically with methylene blue.</p>
+  </div>
+
+  <!-- Neurofeedback -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">BRAIN TRAINING</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">Neurofeedback / qEEG-Guided Brain Training</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7">Dr. Daniel Amen&#39;s clinic is one of the largest neurofeedback practices globally. The protocol: (1) quantitative EEG maps your specific brain wave pattern &mdash; identifying excess slow wave (delta/theta) activity in regions governing focus and clarity, or excess fast wave (beta) activity driving anxiety-fog. (2) Neurofeedback sessions use real-time feedback to train the brain to self-regulate toward more optimal patterns. Strong evidence for ADHD (FDA clearance in children), TBI, PTSD, and anxiety. Growing evidence for age-related cognitive decline and post-COVID fog.</p>
+  </div>
+
+  <!-- Stellate Ganglion Block -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">EMERGING &mdash; POST-COVID/PTSD</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">Stellate Ganglion Block (SGB)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7">A local anesthetic injection into the stellate ganglion (a sympathetic nerve cluster in the neck) that resets the autonomic nervous system. Originally used for hot flashes in breast cancer survivors (FDA-cleared for this). Growing evidence for PTSD, anxiety disorders, and post-COVID dysautonomia &mdash; all of which include brain fog as a prominent symptom. Theorized to reset the sympathetic over-activation (&#34;fight-or-flight lock&#34;) that impairs prefrontal cortex function and cognitive clarity. Requires a physician trained in this specific procedure.</p>
+  </div>
+
+  <!-- Ozone -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">OXIDATIVE THERAPY</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">Ozone Therapy (IV / EBOO)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7">Medical ozone (O3) paradoxically reduces oxidative stress by triggering the body&#39;s own antioxidant systems (Nrf2 pathway). Intravenous ozone (minor autohemotherapy) or EBOO (extracorporeal blood oxygenation and ozonation) improves oxygen delivery, reduces inflammatory load, and has been reported to improve brain fog &mdash; particularly post-infectious patterns. Evidence base is primarily case series and observational; RCT data is limited but growing. Requires physician administration; not DIY.</p>
+  </div>
+
+  <!-- NAD+ IV -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">MITOCHONDRIAL IV</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">IV NAD+ Infusions</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:8px">NAD+ (nicotinamide adenine dinucleotide) is the central currency of cellular energy metabolism and DNA repair, and declines 50% by age 50. IV NAD+ bypasses the oral supplementation conversion pathway, directly replenishing intracellular NAD+ levels. Patients commonly report dramatic cognitive clarity and energy improvements &mdash; often within the first infusion. Particularly compelling for post-COVID, addiction recovery, and mitochondrial fog patterns. High cost and requires IV access are limiting factors.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">NMN 500&ndash;1,000mg/day + NR 300&ndash;500mg/day + TMG 500mg (methyl donor for NAD+ metabolism) + Resveratrol 500mg (sirtuin activator, amplifies NAD+ effects)</div>
+    </div>
+  </div>
+
+  <!-- IV Phosphatidylcholine -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">IV MEMBRANE RESTORATION</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">IV Phosphatidylcholine (IV PC)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:8px">Intravenous phosphatidylcholine (PC) delivers the primary structural phospholipid of neuronal membranes directly into circulation, bypassing the digestive conversion limits of oral PC. Used in integrative and functional medicine as part of the Patricia Kane (PK) Protocol for neural membrane restoration &mdash; particularly in toxic, heavy metal, and post-COVID fog patterns where membrane integrity is severely compromised. IV PC also supports hepatic phospholipid metabolism, reduces neuroinflammation, and has been used clinically for heavy metal mobilization (especially when combined with EDTA or DMPS chelation). Growing use in post-COVID long-haul clinics for neurological symptom reversal. Typically administered as a series of IV infusions in a supervised clinical setting.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+      <span class="dose-tag mild">500&ndash;1,000 mg IV per session</span>
+      <span class="dose-tag moderate">1,000&ndash;2,500 mg IV per session</span>
+      <span class="dose-tag heavy">2,500&ndash;5,000 mg IV (PK Protocol, physician-directed)</span>
+    </div>
+    <p style="color:#7a7a8a;font-size:.82rem;margin-bottom:8px">Requires physician administration. Often delivered in a series (10&ndash;20 infusions). Pair with oral PC maintenance between sessions. PK Protocol also includes specific essential fatty acids, B12, and folinic acid. Best indications: toxic fog (Type 3), post-COVID neural membrane disruption, heavy metal detox support.</p>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">High-dose oral PC (5&ndash;10g/day liquid sunflower lecithin) + DHA 2g + Alpha-GPC 600mg + Omega-3 EPA 2g &mdash; rebuilds membrane phospholipid pool via oral pathway over a longer timeline</div>
+    </div>
+  </div>
+
+  <!-- FMT -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">MICROBIOME TRANSPLANT</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">Fecal Microbiota Transplant (FMT)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:8px">FMT is FDA-approved for recurrent <em>Clostridioides difficile</em> infection &mdash; and investigators are now pursuing it for neurological and cognitive applications via the gut-brain axis. The logic is compelling: the gut microbiome directly regulates BDNF production, neuroinflammatory tone (via LPS and short-chain fatty acid signaling), neurotransmitter synthesis, and vagal nerve activity. Emerging clinical studies are exploring FMT for Parkinson's disease (gut-brain axis hypothesis), autism spectrum disorder, depression, and post-COVID cognitive fog. A 2023 study demonstrated cognitive improvement in older adults following FMT from young donors. The RoVive framing: FMT is the most radical reset of the gut-brain environment currently possible. Not a first-line intervention &mdash; but in refractory Type 1 (neuroinflammatory) fog where the microbiome is severely dysbiotic and conventional gut protocols have failed, it represents a legitimate frontier option.</p>
+    <div style="background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:6px;padding:10px 14px;margin-bottom:8px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#f5a623;margin-bottom:4px">CURRENT STATUS</div>
+      <div style="color:#9a9aaa;font-size:.88rem">FDA-approved for recurrent <em>C. diff</em> via regulated stool banks (OpenBiome, Rebiotix/Ferring). Investigational for neurological indications. Requires gastroenterology or integrative medicine physician. Rigorous donor screening required. Capsule and colonoscopic delivery routes available.</div>
+    </div>
+    <div style="margin-top:8px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px">NUTRACEUTICAL ALTERNATIVE</div>
+      <div style="color:#9a9aaa;font-size:.88rem">High-diversity probiotic (100B+ CFU, 10+ strains) + Akkermansia muciniphila-specific probiotic + Prebiotics (inulin + FOS + GOS) + Butyrate 1,200mg + GI-MAP to guide targeted dysbiosis correction &mdash; the stepwise approach to microbiome restoration before considering FMT</div>
+    </div>
+  </div>
+
+  <!-- NK Cell / Stem Cell -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:14px">
+    <div class="cutting-edge-badge">IMMUNE ACTIVATION &amp; CELLULAR REGENERATION</div>
+    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#e8e4dc;font-size:1rem;margin-bottom:8px">Oral NK Cell Stimulation &amp; Stem Cell Support (with Testing)</div>
+    <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:8px">Natural Killer (NK) cells are the immune system&#39;s frontline surveillance force &mdash; they clear senescent cells, virus-infected cells, and nascent cancer cells without requiring prior sensitization. NK cell activity declines with age, chronic stress, and post-infectious states (including post-COVID), directly correlating with increased cognitive vulnerability and reduced cellular housekeeping. This approach pairs NK cell function testing with targeted oral compounds that measurably improve NK cell activity and support endogenous stem cell mobilization and differentiation &mdash; all measurable and trackable.</p>
+    <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px;margin-bottom:10px">
+      <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#63b3ed;margin-bottom:8px">TESTING FIRST &mdash; MEASURE, DON&#39;T GUESS</div>
+      <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.9;margin:0">
+        <li><strong style="color:#e8e4dc">NK Cell Activity Assay</strong> &mdash; measures functional NK cytotoxicity (not just NK cell count). Available through specialty labs. Reveals whether your immune surveillance is running at capacity.</li>
+        <li><strong style="color:#e8e4dc">Lymphocyte MAP</strong> <span class="rwc-store">&#10003; RWC Lab Store</span> &mdash; comprehensive immune cell subtyping including NK cells, T-cell subsets, and B cells</li>
+        <li><strong style="color:#e8e4dc">CD34+ Stem Cell Count</strong> (optional) &mdash; circulating hematopoietic stem cell marker; provides baseline for stem cell mobilization response</li>
+      </ul>
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;margin-bottom:8px">NK CELL STIMULATING COMPOUNDS</div>
+    <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:2;margin-bottom:10px">
+      <li><strong style="color:#e8e4dc">AHCC (Active Hexose Correlated Compound)</strong> &mdash; alpha-glucan from Lentinula edodes mycelium; strongest clinical evidence for NK activation. Dose: 3g/day on empty stomach. Multiple RCTs in cancer prevention and viral clearance.</li>
+      <li><strong style="color:#e8e4dc">Beta-1,3/1,6-D-Glucan</strong> &mdash; binds dectin-1 receptors on NK cells and macrophages, training innate immune response. Dose: 200&ndash;500mg/day. Often combined with AHCC.</li>
+      <li><strong style="color:#e8e4dc">Reishi (Ganoderma lucidum)</strong> &mdash; beta-glucans + triterpenoids; immunomodulatory + NK-activating + neuroprotective. Dose: 1,000&ndash;2,000mg dual-extraction.</li>
+      <li><strong style="color:#e8e4dc">Thymosin Alpha-1 (T&#945;1) peptide</strong> &mdash; thymic peptide that directly stimulates NK and T-cell function. Off-label; physician Rx. Strong evidence for immune reconstitution post-COVID and in chronic viral/immunosuppressed states.</li>
+    </ul>
+    <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#b794f4;margin-bottom:8px">STEM CELL MOBILIZATION &amp; SUPPORT</div>
+    <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:2;margin-bottom:10px">
+      <li><strong style="color:#e8e4dc">Spermidine</strong> &mdash; polyamine that stimulates autophagy and supports stem cell self-renewal. Dose: 1&ndash;2mg/day (wheat germ extract). Epigenetic aging reversal data emerging.</li>
+      <li><strong style="color:#e8e4dc">Fisetin</strong> &mdash; flavonoid senolytic that clears senescent cells blocking stem cell niches. Dose: 500mg&ndash;1g/day, cyclically (5 days on/month). Pairs with quercetin.</li>
+      <li><strong style="color:#e8e4dc">Colostrum</strong> &mdash; bovine colostrum contains growth factors (IGF-1, EGF, TGF-beta) and immunoglobulins that support gut stem cell renewal, intestinal permeability repair, and immune priming. Dose: 2&ndash;5g/day.</li>
+      <li><strong style="color:#e8e4dc">High-dose Vitamin D3 (physician-monitored)</strong> &mdash; VDR receptors on NK cells regulate their maturation and cytotoxic function. Optimizing D3 to 60&ndash;80 ng/mL is foundational to NK cell performance.</li>
+    </ul>
+    <p style="color:#7a7a8a;font-size:.82rem">Retest NK cell activity at 8&ndash;12 weeks to assess response. Adjust compounds based on measured change. This is immune precision medicine &mdash; test first, intervene, retest.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /cuttingedge -->
+
+
+<!-- ============================================================ AHA MOMENTS ============================================================ -->
+<div id="ahamoments" class="section">
+
+  <div style="background:rgba(183,148,244,.08);border:1px solid rgba(183,148,244,.2);border-radius:10px;padding:16px 20px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#b794f4;margin-bottom:8px">&#9670; QUESTIONS THAT CHANGE HOW MEMBERS SEE THEIR OWN BRAIN</div>
+    <div style="color:#9a9aaa;font-size:.9rem">These aha moments are calibrated to challenge the dominant assumptions driving brain fog suffering. Drop one, pause 3&ndash;5 seconds, then answer. The pause is the delivery.</div>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 1 &middot; Systems Thinking</div>
+    <div class="scenario-title">If Alzheimer&#39;s disease is increasingly called &#34;Type 3 Diabetes&#34; in the scientific literature &mdash; what does your fasting insulin level tell you about your brain <em>right now</em>?</div>
+    <div class="scenario-finding">Insulin resistance in the brain impairs glucose metabolism in neurons before any cognitive symptom appears. The hippocampus &mdash; the seat of memory formation &mdash; is particularly insulin-dependent. Multiple studies now show that fasting insulin elevation precedes Alzheimer&#39;s pathology by decades. A fasting insulin of 5 vs. 20 &mu;IU/mL isn&#39;t just a metabolic difference. It is potentially a 20&ndash;30 year difference in your cognitive trajectory. What&#39;s yours? And have you ever been tested?</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> de la Monte &amp; Wands, <em>Journal of Diabetes Science and Technology</em>, 2008 (original &#34;Type 3 Diabetes&#34; paper); Willette et al., <em>JAMA Neurology</em>, 2015</li>
+      <li><strong>Delivery tip:</strong> Drop it, pause 3&ndash;5 seconds. Let the silence make them do the math on their own body.</li>
+      <li><strong>Best placed:</strong> Opening hook in a talk on metabolic health and brain fog; after presenting the metabolic root cause pattern</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 2 &middot; Organism / Microbiology</div>
+    <div class="scenario-title">Your gut bacteria literally manufacture BDNF &mdash; the brain&#39;s own fertilizer. Could your brain fog be a microbiome problem?</div>
+    <div class="scenario-finding">The gut produces 95% of the body&#39;s serotonin and significant quantities of BDNF-stimulating signaling molecules. Specific strains &mdash; including Lactobacillus rhamnosus, Bifidobacterium longum, and Akkermansia muciniphila &mdash; have been shown to increase BDNF, reduce neuroinflammation, and modulate the HPA stress axis via the vagus nerve. When your microbiome is dysbiotic, the signal your gut sends to your brain changes. The &#34;brain-gut&#34; direction of influence is real, but so is the &#34;gut-brain&#34; direction. They are a two-way conversation &mdash; and most people have never asked what their gut is saying.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Cryan et al., <em>Physiological Reviews</em>, 2019 (&#34;The Microbiota-Gut-Brain Axis&#34;; landmark review); Dinan &amp; Cryan, <em>Nature Reviews Gastroenterology</em>, 2017</li>
+      <li><strong>Delivery tip:</strong> Phrase it as a question, not a statement. &#34;What if your gut is writing a prescription for your brain?&#34;</li>
+      <li><strong>Best placed:</strong> After the Root Cause Map section; perfect for GI-MAP discussion</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 3 &middot; Conventional Medicine Blind Spot</div>
+    <div class="scenario-title">Your brain runs a dishwasher cycle every night &mdash; but only when you&#39;re in deep sleep. What happens when that cycle rarely runs?</div>
+    <div class="scenario-finding">The glymphatic system &mdash; discovered in 2012 &mdash; is the brain&#39;s lymphatic drainage network, active almost exclusively during slow-wave sleep. During this window, cerebrospinal fluid flushes amyloid-beta, tau, and other metabolic debris from brain tissue. One night of sleep deprivation measurably increases amyloid accumulation in healthy humans. Over years, poor sleep is now understood to be one of the primary upstream drivers of Alzheimer&#39;s pathology &mdash; not just a symptom of it. Conventional medicine treats sleep problems with Ambien. Integrative medicine asks: what&#39;s keeping the dishwasher from running?</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Iliff et al., <em>Science Translational Medicine</em>, 2012 (glymphatic discovery); Shokri-Kojori et al., <em>PNAS</em>, 2018 (sleep deprivation + amyloid)</li>
+      <li><strong>Delivery tip:</strong> Use the dishwasher metaphor. It&#39;s visceral and immediately relatable. Everyone&#39;s used a dishwasher.</li>
+      <li><strong>Best placed:</strong> Opening of any sleep discussion; powerful for live calls</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 4 &middot; Timeline / Causality</div>
+    <div class="scenario-title">APOE4 gene carriers have up to 12 times the Alzheimer&#39;s risk of non-carriers &mdash; yet in Blue Zones, APOE4 carriers have <em>lower</em> dementia rates than non-carriers elsewhere. What does that tell us?</div>
+    <div class="scenario-finding">APOE4 is not destiny. It is a risk amplifier &mdash; for inflammation, impaired lipid transport, reduced DHA uptake in the brain, and mitochondrial dysfunction. But in populations with high social connection, daily movement, low ultra-processed food, strong purpose, and minimal toxic burden, the gene&#39;s impact is blunted to the point of reversal. The gene loads the gun. The lifestyle pulls the trigger. Or doesn&#39;t. This doesn&#39;t minimize the risk &mdash; it clarifies the leverage. Knowing your APOE4 status is one of the most actionable data points in longevity medicine, because it sharpens exactly which levers matter most for you.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Gureje et al., <em>Annals of Neurology</em>, 2006 (Nigerian Blue Zone study); Yassine et al., <em>JAMA Neurology</em>, 2017 (APOE4 + DHA)</li>
+      <li><strong>Delivery tip:</strong> Lead with the Blue Zone reversal fact. Let the paradox land first. Then explain the mechanism.</li>
+      <li><strong>Best placed:</strong> When presenting the genetics/APOE4 discussion in the labs section or Alzheimer&#39;s prevention context</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 5 &middot; Brain-Body Connection</div>
+    <div class="scenario-title">Could your &#34;brain fog&#34; be a thyroid problem wearing a cognitive costume? And would your doctor even catch it?</div>
+    <div class="scenario-finding">Free T3 &mdash; the active form of thyroid hormone that every single cell uses &mdash; is almost never tested in standard care. TSH is tested. And TSH can be perfectly &#34;normal&#34; while Free T3 is in the bottom quartile of range. Every cognitive process depends on T3 for mitochondrial energy, neurotransmitter synthesis, and synaptic efficiency. Low T3 = slow-motion thinking, poor word retrieval, fatigue, and depression. In women, the thyroid is often the first domino in the perimenopause transition &mdash; declining before estrogen, causing symptoms years before the conventional &#34;menopause&#34; diagnosis. How many people are medicated for depression or anxiety when they need thyroid optimization?</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Bauer et al., <em>Psychoneuroendocrinology</em>, 2008 (subclinical hypothyroidism + cognition); Bunevicius &amp; Prange, <em>European Journal of Endocrinology</em>, 2010</li>
+      <li><strong>Delivery tip:</strong> The last question lands hardest. Ask it and hold eye contact (or let it sit in silence on a recording).</li>
+      <li><strong>Best placed:</strong> After presenting the thyroid lab targets; particularly resonant for women&#39;s health audiences</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 6 &middot; Organism / Toxicology</div>
+    <div class="scenario-title">93% of chronic sinusitis is fungal, not bacterial. What does that mean if your brain fog started after moving into a water-damaged building?</div>
+    <div class="scenario-finding">Mycotoxins &mdash; toxic metabolites produced by mold in water-damaged buildings &mdash; are potent neurotoxins that cross the blood-brain barrier. Ochratoxin A specifically targets the hippocampus. Trichothecenes (from Stachybotrys &mdash; &#34;black mold&#34;) suppress protein synthesis in neurons. The clinical picture: word-retrieval loss, emotional dysregulation, multi-system sensitivity, and cognitive symptoms that don&#39;t respond to any conventional treatment &mdash; because the exposure is ongoing. This is Type 3 (toxic) brain fog, and it is dramatically underdiagnosed. The MycoTOX urine test can confirm exposure. But environmental remediation is the treatment &mdash; no amount of supplements compensates for ongoing mold exposure.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Shoemaker &amp; House, <em>Neurotoxicology and Teratology</em>, 2006; Brewer et al., <em>Toxins</em>, 2013 (mycotoxins in chronic illness)</li>
+      <li><strong>Delivery tip:</strong> This one surprises people. Lead with the 93% sinusitis statistic as an entry point before connecting to brain fog.</li>
+      <li><strong>Best placed:</strong> When presenting the Toxic fog pattern; powerful for groups where multiple people live in older homes</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 7 &middot; Brain-Body Connection</div>
+    <div class="scenario-title">Your brain is made of fat. What has 30 years of low-fat dietary advice done to it?</div>
+    <div class="scenario-finding">The human brain is approximately 60% fat by dry weight, with DHA comprising the majority of neuronal membrane phospholipids. When DHA is inadequate, neurons become structurally rigid &mdash; their membranes less fluid, their receptor function impaired, their ability to form new synaptic connections reduced. The low-fat dietary era (1980s&ndash;2010s) that replaced fat with refined carbohydrates and seed oils may be one of the most catastrophic nutritional experiments in human history for brain health. DHA blood levels in Americans have declined measurably since the 1970s. And yet the Omega-3 Index is tested almost nowhere in standard care.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Simopoulos, <em>Biomedicine &amp; Pharmacotherapy</em>, 2002 (omega-6/3 ratio shift); Morris et al., <em>JAMA Neurology</em>, 2015 (omega-3 and cognitive aging)</li>
+      <li><strong>Delivery tip:</strong> Open with the fat percentage. It is factually surprising to most people.</li>
+      <li><strong>Best placed:</strong> Nutrition discussions; omega-3 education; opening a talk on dietary neurology</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /ahamoments -->
+
+<!-- ============================================================ ROVIVE METHOD ============================================================ -->
+<div id="rovivemethod" class="section">
+
+  <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px">&#9670; The RoVive Clinical Framework</div>
+    <div style="color:#e8e4dc;font-size:.92rem">These four stages &mdash; Roots, Reveal, Refine, Rise &mdash; are the RoVive diagnostic and therapeutic sequence applied to brain fog and cognitive clarity.</div>
+  </div>
+
+  <!-- Medicine 1/2/3 -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px">
+    <div style="background:#181b28;border:1px solid #2a2d3e;border-radius:10px;padding:16px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#9a9aaa;margin-bottom:8px">MEDICINE 1.0</div>
+      <div style="font-weight:700;color:#e8e4dc;margin-bottom:8px">Conventional</div>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.8">
+        <li>No diagnostic category for &#34;brain fog&#34;</li>
+        <li>Standard cognitive complaints lead to SSRI, stimulant, or sleep aid prescription</li>
+        <li>TSH checked; Free T3 is not</li>
+        <li>Fasting insulin almost never tested</li>
+        <li>APOE4 testing not offered until memory clinic referral at 70+</li>
+        <li>Imaging typically unrevealing unless advanced dementia</li>
+      </ul>
+      <div style="background:rgba(245,166,35,.05);border-left:2px solid rgba(245,166,35,.3);padding:8px 10px;border-radius:3px">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#f5a623;letter-spacing:.08em;margin-bottom:4px">ASSUMPTION WORTH QUESTIONING</div>
+        <div style="color:#9a9aaa;font-size:.82rem">&ldquo;Brain fog is a symptom of anxiety or depression &mdash; treat the mood disorder and the fog will improve.&rdquo;</div>
+      </div>
+    </div>
+    <div style="background:#181b28;border:1px solid #2a2d3e;border-radius:10px;padding:16px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:8px">MEDICINE 2.0</div>
+      <div style="font-weight:700;color:#e8e4dc;margin-bottom:8px">Standard Functional</div>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.8">
+        <li>Root cause investigation: gut, hormones, toxins, nutrients</li>
+        <li>GI-MAP, DUTCH, heavy metals, food sensitivity testing</li>
+        <li>Leaky gut addressed; gut-brain axis acknowledged</li>
+        <li>Comprehensive supplement protocols</li>
+        <li>Can become expensive, overwhelming, and non-precision &mdash; &#34;test everything, supplement everything&#34; without clear hierarchy</li>
+        <li>Misses the emotional root and the precision-point question: which of the 5 fog types is dominant?</li>
+      </ul>
+      <div style="background:rgba(245,166,35,.05);border-left:2px solid rgba(245,166,35,.3);padding:8px 10px;border-radius:3px">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#f5a623;letter-spacing:.08em;margin-bottom:4px">ASSUMPTION WORTH QUESTIONING</div>
+        <div style="color:#9a9aaa;font-size:.82rem">&ldquo;More testing and more supplements will always yield more clarity.&rdquo;</div>
+      </div>
+    </div>
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);border-radius:10px;padding:16px">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#f5a623;margin-bottom:8px">MEDICINE 3.0</div>
+      <div style="font-weight:700;color:#f5a623;margin-bottom:8px">RoVive Method</div>
+      <ul style="color:#e8e4dc;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.8">
+        <li>Precision fog phenotyping: identify dominant root cause pattern before treating</li>
+        <li>Integrate Bredesen (36 factors), Amen (blood flow/brain type), Bredesen&#39;s ReCODE hierarchy</li>
+        <li>Great 8 Pillars as the foundational environment for every intervention</li>
+        <li>Emotional root as non-optional &mdash; not an add-on</li>
+        <li>Targeted, sequenced intervention (Roots first; then Reveal; then Refine)</li>
+        <li>Homeopathy, frequency medicine, and inner work as valid layers in the full protocol</li>
+        <li>Always asking: <em>why is this person&#39;s brain not supporting clarity right now?</em></li>
+      </ul>
+      <div style="color:#9a9aaa;font-size:.82rem;font-style:italic;border-top:1px solid rgba(245,166,35,.15);padding-top:10px">RoVive 3.0 doesn&#39;t stop at integrative medicine. It goes all the way &mdash; homeopathy, frequency medicine, somatic healing, and the inner life &mdash; because the body, mind, and spirit are inseparable. No protocol is complete without asking <em>why.</em></div>
+    </div>
+  </div>
+
+  <!-- ROOTS / REVEAL / REFINE / RISE -->
+  <div class="phase-card">
+    <div class="phase-header" onclick="togglePhase('roots-body')">
+      <div><span class="phase-label roots">ROOTS</span><h3>Foundational Environment for Cognitive Recovery</h3></div>
+      <span class="phase-arrow">&#9660;</span>
+    </div>
+    <div id="roots-body" class="phase-body">
+      <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:12px">Roots are the non-negotiable foundational inputs. Nothing works well without them. Before optimizing nootropics, before testing advanced biomarkers, stabilize these foundations. They are the soil everything else grows from.</p>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:2">
+        <li><strong style="color:#e8e4dc">Sleep:</strong> 7&ndash;9 hours, consistent timing, cool dark room, glymphatic clearance window protected</li>
+        <li><strong style="color:#e8e4dc">Blood sugar:</strong> Eliminate ultra-processed food and refined carbohydrates. Fasting glucose &lt;90 as foundation</li>
+        <li><strong style="color:#e8e4dc">Omega-3s:</strong> DHA 1&ndash;2g/day minimum; Omega-3 Index testing as the measurement tool</li>
+        <li><strong style="color:#e8e4dc">Magnesium L-Threonate:</strong> 1,500mg/day; the most foundational brain mineral most people are deficient in</li>
+        <li><strong style="color:#e8e4dc">Vitamin D3:</strong> Test and correct to 60&ndash;80 ng/mL; 2,000+ IU/day depending on baseline</li>
+        <li><strong style="color:#e8e4dc">Gut foundation:</strong> Remove food triggers; add prebiotic fiber; high-CFU probiotics if indicated</li>
+        <li><strong style="color:#e8e4dc">Hydration:</strong> Minimum 2L filtered water/day; add electrolytes (mineral salt, potassium)</li>
+        <li><strong style="color:#e8e4dc">Morning light:</strong> 10&ndash;20 minutes outdoor light within 30 min of waking; anchors every downstream hormone</li>
+        <li><strong style="color:#e8e4dc">Zone 2 movement:</strong> Begin here; even 3x20-minute brisk walks per week produce measurable BDNF increase</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header" onclick="togglePhase('reveal-body')">
+      <div><span class="phase-label reveal">REVEAL</span><h3>Labs &amp; Biomarkers &mdash; Three Layers</h3></div>
+      <span class="phase-arrow">&#9660;</span>
+    </div>
+    <div id="reveal-body" class="phase-body">
+      <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:12px">Run Layer 1 for every patient with brain fog. Add Layer 2 when the root cause pattern isn&#39;t clear or fog persists despite foundational intervention. Layer 3 for complex/refractory cases or early prevention (APOE4, family history).</p>
+      <div style="margin-bottom:10px">
+        <span style="display:inline-block;background:rgba(104,211,145,.1);color:#68d391;font-family:'DM Mono',monospace;font-size:.65rem;padding:2px 10px;border-radius:4px;margin-bottom:6px">LAYER 1 &mdash; STANDARD</span>
+        <p style="color:#9a9aaa;font-size:.88rem;line-height:1.8">Fasting glucose + insulin + HbA1c + HOMA-IR &middot; hsCRP + homocysteine &middot; Full thyroid (TSH, Free T3, Free T4, RT3, TPO/TgAb) &middot; Estradiol (sensitive), Progesterone, Free/Total Testosterone, DHEA-S, Cortisol AM &middot; Vitamin D3 25-OH &middot; B12 + Folate &middot; Omega-3 Index &middot; CBC + CMP</p>
+      </div>
+      <div style="margin-bottom:10px">
+        <span style="display:inline-block;background:rgba(99,179,237,.1);color:#63b3ed;font-family:'DM Mono',monospace;font-size:.65rem;padding:2px 10px;border-radius:4px;margin-bottom:6px">LAYER 2 &mdash; FUNCTIONAL</span>
+        <p style="color:#9a9aaa;font-size:.88rem;line-height:1.8">DUTCH Complete &middot; GI-MAP + Zonulin &middot; Cyrex Array 2 (leaky gut) + Array 20 (leaky brain) + Alzheimer&#39;s LINX &middot; OAT (organic acids, Mosaic) &middot; MycoTOX + Urine Toxic Metals &middot; NutrEval &middot; Salivary Cortisol x4</p>
+      </div>
+      <div>
+        <span style="display:inline-block;background:rgba(245,166,35,.1);color:#f5a623;font-family:'DM Mono',monospace;font-size:.65rem;padding:2px 10px;border-radius:4px;margin-bottom:6px">LAYER 3 &mdash; ADVANCED</span>
+        <p style="color:#9a9aaa;font-size:.88rem;line-height:1.8">ApoE Genotype &middot; MTHFR + Methylation (3X4 Genetics) &middot; TruAge (TruDiagnostic) &middot; Serum GFAP + Neurofilament Light &middot; Quantitative EEG (qEEG) &middot; MitoSwab</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header" onclick="togglePhase('refine-body')">
+      <div><span class="phase-label refine">REFINE</span><h3>Personalized Intervention Stack</h3></div>
+      <span class="phase-arrow">&#9660;</span>
+    </div>
+    <div id="refine-body" class="phase-body">
+      <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:12px">The best medicine is the one you actually believe will work and will actually do. Different people respond to different modalities &mdash; not because of placebo, but because belief, expectation, and neurological state are themselves physiological inputs. Choose what resonates and build from there.</p>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:2">
+        <li><strong style="color:#e8e4dc">Type 1 (Neuroinflammatory):</strong> GI repair first (L-Glutamine, probiotics, elimination diet), then curcumin + NAC + omega-3s + LDN if indicated</li>
+        <li><strong style="color:#e8e4dc">Type 2 (Metabolic/Atrophic):</strong> Hormone optimization (BHRT if indicated), Ketoflex 12/3, resistance training, NMN + CoQ10 + ALCAR</li>
+        <li><strong style="color:#e8e4dc">Type 3 (Toxic):</strong> Identify and remove source first (mold remediation, amalgam removal protocol), glutathione + methylated B-vitamins + binders, sauna protocol (heat shock proteins + toxin mobilization)</li>
+        <li><strong style="color:#e8e4dc">Type 4 (Vascular):</strong> Aggressive Zone 2 cardio, Ginkgo EGb761 + omega-3s + CoQ10, nitric oxide support, HBOT if head trauma history</li>
+        <li><strong style="color:#e8e4dc">Type 5 (HPA/Post-COVID):</strong> Nervous system first (breathwork, pacing, adaptogens), HBOT if post-COVID, LDN, Semax/Selank if appropriate, emotional root work</li>
+        <li><strong style="color:#e8e4dc">All types:</strong> Sleep optimization + morning light protocol + 12-hour overnight fast + foundational nutraceutical stack</li>
+        <li><strong style="color:#e8e4dc">Emotional layer:</strong> Identify and address; EMDR, somatic work, MBSR, or HeartMath based on individual resonance</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header" onclick="togglePhase('rise-body')">
+      <div><span class="phase-label rise">RISE</span><h3>What Success Actually Looks Like</h3></div>
+      <span class="phase-arrow">&#9660;</span>
+    </div>
+    <div id="rise-body" class="phase-body">
+      <p style="color:#9a9aaa;font-size:.9rem;line-height:1.7;margin-bottom:12px">Not just labs. Not just biomarkers. The measure of success is how you show up in your life.</p>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:2">
+        <li>Word retrieval returns. The words are there when you reach for them.</li>
+        <li>Working memory is reliable. You can hold a complex thought across a conversation.</li>
+        <li>Processing speed feels fast again. You can keep up with yourself.</li>
+        <li>You wake up rested, not depleted, and your first hour is your sharpest.</li>
+        <li>You can focus for 60&ndash;90 minutes without the gravitational pull toward distraction.</li>
+        <li>Energy is sustained &mdash; not stimulant-dependent. The crash is gone.</li>
+        <li>Emotional regulation returns. The prefrontal cortex is back online.</li>
+        <li>You are building a brain that will still be sharp at 80 &mdash; not hoping for it.</li>
+      </ul>
+      <div style="background:rgba(183,148,244,.06);border-left:3px solid #b794f4;border-radius:4px;padding:12px 16px;margin-top:14px">
+        <p style="color:#9a9aaa;font-size:.9rem;font-style:italic;line-height:1.7">The goal is not to eliminate fog with drugs. The goal is to create a biological environment where fog cannot take root. That environment &mdash; built across all Great 8 Pillars, informed by your root cause pattern, supported by targeted nutrition and nutraceuticals, and grounded in your emotional truth &mdash; is available to you. This protocol is the map. The terrain is yours.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================ EMOTIONAL ROOT ============================================================ -->
+  <div style="margin-top:36px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:#fbbf24;margin-bottom:16px">&#9670; EMOTIONAL ROOT &mdash; THE LAYER BENEATH THE LAYER</div>
+
+    <div class="emotional-root-box" style="margin-bottom:20px">
+      <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:#fbbf24;margin-bottom:8px">&#9670; THE ROVIVE QUESTION</div>
+      <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:8px">What is the fog protecting you from having to see?</p>
+      <p style="color:#9a9aaa;font-size:.9rem">In a significant subset of brain fog cases &mdash; especially where biological interventions produce partial but incomplete results &mdash; there is an emotional or psychological layer that the fog is serving. Chronic cognitive suppression can be the nervous system&#39;s answer to a question it cannot otherwise resolve. Before assuming the fog is a purely mechanical problem, spend time here.</p>
+    </div>
+
+    <!-- EMDR -->
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:10px">
+      <div style="font-family:'Syne',sans-serif;font-weight:600;font-size:.95rem;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em">EMDR <span style="font-family:'DM Mono',monospace;font-size:.7rem;color:#fbbf24;font-weight:400">(Eye Movement Desensitization &amp; Reprocessing)</span></div>
+      <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Gold-standard trauma reprocessing therapy. The bilateral stimulation (eye movements or tactile tapping) allows the prefrontal cortex to reprocess traumatic memories that the amygdala has frozen in a threat state. Fog linked to unprocessed trauma &mdash; especially adverse childhood experiences (ACEs), accident, or medical trauma &mdash; often lifts significantly with EMDR when other interventions have plateaued.</p>
+      <div style="background:rgba(251,191,36,.05);border-left:2px solid rgba(251,191,36,.3);border-radius:4px;padding:8px 12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fbbf24;margin-bottom:4px">RESEARCH NOTE</div>
+        <div style="color:#9a9aaa;font-size:.88rem">EMDR is recommended by the WHO for post-traumatic stress and has strong evidence for resolving chronic autonomic hyperarousal &mdash; the state that keeps the brain in threat mode and suppresses executive function. Find a certified EMDR therapist at EMDRIA.org.</div>
+      </div>
+    </div>
+
+    <!-- Somatic Experiencing -->
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:10px">
+      <div style="font-family:'Syne',sans-serif;font-weight:600;font-size:.95rem;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em">Somatic Experiencing (SE)</div>
+      <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Developed by Peter Levine, SE works with the body&#39;s innate trauma completion responses. When a threat response cycle is interrupted (as happens in human social contexts, unlike in animals), the arousal energy is stored in the body&#39;s tissues and nervous system. Brain fog, chronic fatigue, and dissociative states are common somatic expressions of incomplete trauma. SE guides the nervous system through completion without requiring narrative re-telling of the trauma.</p>
+      <div style="background:rgba(251,191,36,.05);border-left:2px solid rgba(251,191,36,.3);border-radius:4px;padding:8px 12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fbbf24;margin-bottom:4px">CLINICAL CONTEXT</div>
+        <div style="color:#9a9aaa;font-size:.88rem">Particularly effective for fog preceded by overwhelm, a period of chronic threat, medical illness, or any situation where &#34;shutdown&#34; was the adaptive response. Body-oriented approaches often access what talk therapy cannot.</div>
+      </div>
+    </div>
+
+    <!-- HeartMath / HRV -->
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:10px">
+      <div style="font-family:'Syne',sans-serif;font-weight:600;font-size:.95rem;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em">HeartMath &amp; HRV Coherence Training</div>
+      <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">The HeartMath Institute&#39;s research demonstrates that the heart generates an electromagnetic field measurably larger than the brain&#39;s. Heart Rate Variability (HRV) coherence training &mdash; achieved through specific breathing rhythms (typically 5 seconds in / 5 seconds out) while activating positive emotional states &mdash; synchronizes heart and brain rhythms. This "coherence" state is associated with improved cognitive performance, reduced cortisol, and enhanced emotional regulation. It directly addresses the autonomic dysregulation that underlies both fog and emotional distress.</p>
+      <div style="background:rgba(251,191,36,.05);border-left:2px solid rgba(251,191,36,.3);border-radius:4px;padding:8px 12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fbbf24;margin-bottom:4px">PRACTICE</div>
+        <div style="color:#9a9aaa;font-size:.88rem">Apps: HeartMath Inner Balance (biofeedback sensor), Elite HRV (pairs with chest strap). Begin with 5 min twice daily of 5-5 breathing with heart focus. Target HRV scores of 80+ (on HeartMath scale) before cognitively demanding tasks.</div>
+      </div>
+    </div>
+
+    <!-- MBSR -->
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:10px">
+      <div style="font-family:'Syne',sans-serif;font-weight:600;font-size:.95rem;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em">Mindfulness-Based Stress Reduction (MBSR)</div>
+      <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">Jon Kabat-Zinn&#39;s 8-week structured program is the most evidence-based mindfulness intervention in existence. RCTs show MBSR reduces cortisol, improves prefrontal cortex thickness, enhances working memory and attention, and measurably reduces amygdala reactivity. For brain fog with an anxiety, rumination, or chronic-stress root, MBSR addresses the neurological mechanism &mdash; not just the symptom. The formal 8-week program is significantly more effective than informal mindfulness practice.</p>
+      <div style="background:rgba(251,191,36,.05);border-left:2px solid rgba(251,191,36,.3);border-radius:4px;padding:8px 12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fbbf24;margin-bottom:4px">ACCESS</div>
+        <div style="color:#9a9aaa;font-size:.88rem">Find certified MBSR programs at UMass Memorial (the originating institution) or Palouse Mindfulness (free 8-week online program). App alternatives: Insight Timer (free), Waking Up (Sam Harris). The full program, not just occasional meditation, is what moves the needle on chronic fog.</div>
+      </div>
+    </div>
+
+    <!-- Spirit & Purpose Work -->
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:10px">
+      <div style="font-family:'Syne',sans-serif;font-weight:600;font-size:.95rem;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em">Spirit &amp; Purpose Work</div>
+      <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">This is Pillar #1 for a reason. When there is no compelling reason to be clear, the nervous system may not bother clearing the fog. Grief work, identity exploration, values clarification, and reconnection with meaning are not soft add-ons to a clinical protocol &mdash; they are sometimes the protocol. Unprocessed grief, identity loss (retirement, illness, empty nest), or existential confusion create a chronic, low-grade HPA activation that no supplement corrects.</p>
+      <div style="background:rgba(251,191,36,.05);border-left:2px solid rgba(251,191,36,.3);border-radius:4px;padding:8px 12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fbbf24;margin-bottom:4px">SUGGESTED PRACTICE</div>
+        <div style="color:#9a9aaa;font-size:.88rem">Identify three compelling reasons you need to be cognitively clear in the next 12 months. Write them down. If you struggle to name three, that is clinically relevant information. The Spirit &amp; Purpose pillar is always the first question in Dr. Yoshi&#39;s initial consultation &mdash; because the answer predicts the trajectory of everything else.</div>
+      </div>
+    </div>
+
+    <!-- Journaling -->
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:10px">
+      <div style="font-family:'Syne',sans-serif;font-weight:600;font-size:.95rem;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em">Journaling &amp; Narrative Processing</div>
+      <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">James Pennebaker&#39;s decades of research demonstrate that expressive writing about difficult experiences produces measurable improvements in immune function, mood, cognitive clarity, and physical health outcomes. The mechanism appears to involve moving unprocessed experience from implicit (body/emotional) memory to explicit (narrative/cognitive) memory &mdash; which reduces the cognitive load of suppressing or managing the unprocessed material. Brain fog with a high cognitive load of unexpressed experience responds well to this intervention.</p>
+      <div style="background:rgba(251,191,36,.05);border-left:2px solid rgba(251,191,36,.3);border-radius:4px;padding:8px 12px">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fbbf24;margin-bottom:4px">PROTOCOL</div>
+        <div style="color:#9a9aaa;font-size:.88rem">Pennebaker Protocol: 20 minutes, 4 days in a row. Write continuously about the most difficult emotional experience of your life. Do not edit. Do not re-read. This is not a gratitude journal &mdash; it is a processing tool. Many people report a temporary worsening before a lasting improvement. This is the mechanism working.</div>
+      </div>
+    </div>
+
+    <!-- The Question Beneath the Fog -->
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:20px;margin-top:24px">
+      <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:#f5a623;margin-bottom:12px">&#9670; THE QUESTION BENEATH THE FOG</div>
+      <p style="color:#e8e4dc;font-size:1rem;font-weight:600;font-style:italic;margin-bottom:12px;line-height:1.6">&#34;If the fog lifted tomorrow and you had full clarity &mdash; what would you have to decide? What would you have to face? What would you no longer be able to avoid?&#34;</p>
+      <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px">This is not a rhetorical question. Sit with it. Many people who have spent years chasing biomarkers and supplements discover, when they finally ask this question honestly, that the fog has been doing important work &mdash; protecting them from a decision, a relationship, a grief, a truth that feels unbearable to face without it.</p>
+      <p style="color:#9a9aaa;font-size:.9rem">The RoVive Method does not treat the fog as the enemy. It asks what the fog is trying to tell you &mdash; and then addresses the biological, nutritional, emotional, and spiritual terrain that made the fog necessary in the first place. That is the difference between symptom management and genuine healing.</p>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /rovivemethod -->
+
+<!-- ============================================================ QUICK REFERENCE ============================================================ -->
+<div id="quickreference" class="section">
+
+  <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);border-radius:10px;padding:16px 20px;margin-bottom:24px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px">&#9670; WHERE TO START</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#68d391;letter-spacing:.08em;margin-bottom:6px">NEW TO THIS PROTOCOL</div>
+        <div style="color:#e8e4dc;font-size:.9rem">Fix your sleep first &mdash; 7&ndash;9 hours, cool dark room, no screens 60 min before bed. Get 10 min of outdoor morning light tomorrow. Start DHA 1g/day and Magnesium L-Threonate 1,500mg. These three actions address three of the five fog root patterns simultaneously and require no lab work.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;letter-spacing:.08em;margin-bottom:6px">ALREADY DOING THE BASICS</div>
+        <div style="color:#e8e4dc;font-size:.9rem">Run the Layer 1 lab panel: Fasting insulin + glucose + HbA1c, Free T3 (not just TSH), hsCRP, homocysteine, Omega-3 Index, and Vitamin D3. Identify which of the 5 fog types is dominant in your pattern. Target your next intervention at that root cause specifically.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase Timeline -->
+  <div style="background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:16px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:14px">&#9670; PHASE TIMELINE</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+      <div style="text-align:center;padding:12px;background:rgba(104,211,145,.06);border:1px solid rgba(104,211,145,.2);border-radius:8px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#68d391;margin-bottom:4px">DAYS 1&ndash;14</div>
+        <div style="color:#e8e4dc;font-size:.85rem;font-weight:600">ROOTS</div>
+        <div style="color:#9a9aaa;font-size:.8rem;margin-top:4px">Sleep fix. Morning light. Remove food triggers. DHA + Mg L-Threonate. 12hr overnight fast.</div>
+      </div>
+      <div style="text-align:center;padding:12px;background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#63b3ed;margin-bottom:4px">WEEKS 2&ndash;6</div>
+        <div style="color:#e8e4dc;font-size:.85rem;font-weight:600">REVEAL</div>
+        <div style="color:#9a9aaa;font-size:.8rem;margin-top:4px">Run Layer 1 labs. Identify fog type. Add targeted nutraceuticals for your pattern.</div>
+      </div>
+      <div style="text-align:center;padding:12px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:8px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;margin-bottom:4px">WEEKS 6&ndash;16</div>
+        <div style="color:#e8e4dc;font-size:.85rem;font-weight:600">REFINE</div>
+        <div style="color:#9a9aaa;font-size:.8rem;margin-top:4px">Hormone optimization if needed. Botanicals: Lion&#39;s Mane + Bacopa. Add cutting-edge therapies if indicated.</div>
+      </div>
+      <div style="text-align:center;padding:12px;background:rgba(183,148,244,.06);border:1px solid rgba(183,148,244,.2);border-radius:8px">
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#b794f4;margin-bottom:4px">MONTH 4+</div>
+        <div style="color:#e8e4dc;font-size:.85rem;font-weight:600">RISE</div>
+        <div style="color:#9a9aaa;font-size:.8rem;margin-top:4px">Reassess labs. Consolidate what&#39;s working. Begin long-term prevention protocol (TruAge, APOE4 strategy if relevant).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scannable Lists -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px">
+      <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;margin-bottom:8px">FOUNDATION NUTRACEUTICAL STACK</div>
+      <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.9">
+        <li>DHA 1&ndash;2g + EPA 500mg&ndash;1g/day</li>
+        <li>Magnesium L-Threonate 1,500mg/day</li>
+        <li>Phosphatidylserine 200&ndash;300mg/day</li>
+        <li>Alpha-GPC 300&ndash;600mg/day</li>
+        <li>Vitamin D3 5,000 IU + K2 200mcg</li>
+        <li>NAC 600&ndash;1,200mg/day</li>
+        <li>Lion&#39;s Mane 1,000&ndash;2,000mg/day</li>
+        <li>Bacopa Monnieri 300mg/day (build 8&ndash;12 wks)</li>
+        <li>Methylcobalamin B12 1,000mcg/day</li>
+        <li>Methylfolate 800&ndash;1,000mcg/day</li>
+      </ul>
+    </div>
+    <div style="background:#131620;border:1px solid #1e2130;border-radius:8px;padding:14px">
+      <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#63b3ed;margin-bottom:8px">PRIORITY LAB PANEL</div>
+      <ul style="color:#9a9aaa;font-size:.85rem;padding-left:14px;line-height:1.9">
+        <li>Fasting insulin (&lt;5 &mu;IU/mL target)</li>
+        <li>HbA1c (&lt;5.5%)</li>
+        <li>Free T3 (upper quartile range)</li>
+        <li>hsCRP (&lt;0.5 mg/L)</li>
+        <li>Homocysteine (&lt;7 &mu;mol/L)</li>
+        <li>Omega-3 Index (&gt;8%)</li>
+        <li>Vitamin D3 25-OH (60&ndash;80 ng/mL)</li>
+        <li>B12 (&gt;600 pg/mL)</li>
+        <li>Cortisol diurnal (DUTCH preferred)</li>
+        <li>ApoE Genotype (if 50+ or family Hx)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Top 3 failure points -->
+  <div style="background:rgba(252,129,129,.06);border:1px solid rgba(252,129,129,.2);border-radius:10px;padding:16px 20px">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#fc8181;margin-bottom:12px">&#9670; TOP 3 FAILURE POINTS IN BRAIN FOG RECOVERY</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fc8181;margin-bottom:4px">FAILURE 1</div>
+        <div style="color:#e8e4dc;font-size:.9rem;font-weight:600;margin-bottom:4px">Treating fog without typing it</div>
+        <div style="color:#9a9aaa;font-size:.85rem">Taking nootropics and adaptogens without knowing <em>why</em> the fog is there. Neuroinflammatory fog requires anti-inflammatory intervention first. Toxic fog requires removal of the toxin. Supplements without root cause are expensive and inefficient.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fc8181;margin-bottom:4px">FAILURE 2</div>
+        <div style="color:#e8e4dc;font-size:.9rem;font-weight:600;margin-bottom:4px">Skipping sleep optimization</div>
+        <div style="color:#9a9aaa;font-size:.85rem">Every supplement, hormone, and lifestyle intervention works better when glymphatic clearance is running. No nootropic compensates for chronic poor sleep. Sleep is the most undervalued cognitive lever that requires zero spending. Fix it first.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#fc8181;margin-bottom:4px">FAILURE 3</div>
+        <div style="color:#e8e4dc;font-size:.9rem;font-weight:600;margin-bottom:4px">Ignoring the emotional root</div>
+        <div style="color:#9a9aaa;font-size:.85rem">Optimal labs. Perfect supplement stack. Beautiful diet. Still foggy. Often, this is the unanswered question: what is the nervous system protecting you from? The emotional layer is not the last resort &mdash; it is often the missing variable that explains why everything else isn&#39;t fully working.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+    <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&#39;re ready to stop guessing, the full library is waiting.</p>
+    <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#39;s Inside &#8594;</a>
+    <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+</div>
+<!-- /quickreference -->
+
+</div><!-- /content -->
+
+<script>
+function showTab(name,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  el.classList.add('active');
+}
+function togglePhase(id){var b=document.getElementById(id);if(b)b.parentElement.classList.toggle('open');}
+function toggleDigDeeper(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var first=document.querySelector('.phase-card');
+  if(first)first.classList.add('open');
+});
+</script>
+
+</body>
+</html>
