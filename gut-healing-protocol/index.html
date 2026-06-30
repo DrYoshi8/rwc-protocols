@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +10,12 @@
 body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:100vh;padding:32px 24px 60px;}
 .header{text-align:center;margin-bottom:48px;}
 .rovive-badge{display:inline-block;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);border-radius:6px;padding:4px 14px;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;color:#f5a623;text-transform:uppercase;margin-bottom:14px;}
-.header h1{font-size:2.4rem;font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.1;}
+.header h1{font-size:2.4rem;font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.15;padding-bottom:0.25em;overflow:visible;}
 .header h1 span{color:#f5a623;}
 .header p{margin-top:10px;color:#7a7a8a;font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;}
 .disclaimer{margin-top:6px;font-size:.72rem;color:#4a4a5a;font-family:'DM Mono',monospace;letter-spacing:.06em;}
+h1{line-height:1.15;padding-bottom:0.2em;overflow:visible;}
+h2,h3,h4{line-height:1.2;padding-bottom:0.1em;overflow:visible;}
 .tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;justify-content:center;}
 .tab{background:#1a1d26;border:1px solid #2a2d3a;color:#7a7a8a;padding:10px 20px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;transition:all .2s;text-transform:uppercase;user-select:none;}
 .tab:hover{border-color:#f5a623;color:#f5a623;}
@@ -26,7 +27,7 @@ body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:1
 .phase-header{display:flex;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;background:#181b28;border-bottom:1px solid #1e2130;transition:background .2s;}
 .phase-header:hover{background:#1e2233;}
 .phase-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;flex-shrink:0;}
-.phase-title{font-size:1rem;font-weight:700;flex:1;}
+.phase-title{font-size:1rem;font-weight:700;flex:1;overflow:visible;padding-bottom:0.1em;}
 .phase-sub{font-size:.78rem;color:#7a7a8a;font-family:'DM Mono',monospace;margin-top:2px;}
 .phase-toggle{color:#7a7a8a;font-size:1.4rem;transition:transform .2s;line-height:1;}
 .phase-card.open .phase-toggle{transform:rotate(90deg);}
@@ -44,13 +45,13 @@ body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:1
 .c-purple .phase-header{border-left:3px solid #b794f4;}
 .med-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px;}
 .med-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:16px;}
-.med-name{font-weight:700;font-size:.95rem;color:#fff;margin-bottom:6px;}
+.med-name{font-weight:700;font-size:.95rem;color:#fff;margin-bottom:6px;overflow:visible;padding-bottom:0.1em;}
 .med-dose{font-family:'DM Mono',monospace;font-size:.78rem;color:#f5a623;margin-bottom:8px;background:rgba(245,166,35,.08);padding:5px 9px;border-radius:4px;display:inline-block;line-height:1.5;}
 .med-why{font-size:.82rem;color:#9a9aaa;line-height:1.55;margin-top:6px;}
 .med-when{font-size:.78rem;color:#7a7a8a;margin-top:8px;padding-top:8px;border-top:1px solid #1e2130;font-family:'DM Mono',monospace;line-height:1.5;}
 .supp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px;}
 .supp-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:14px;}
-.supp-name{font-weight:700;font-size:.88rem;color:#68d391;margin-bottom:4px;}
+.supp-name{font-weight:700;font-size:.88rem;color:#68d391;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;}
 .supp-why{font-size:.8rem;color:#9a9aaa;line-height:1.55;}
 .dose-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
 .dose-tag{font-family:'DM Mono',monospace;font-size:.74rem;padding:3px 8px;border-radius:4px;display:inline-block;}
@@ -65,11 +66,11 @@ body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:1
 .lab-note{font-size:.78rem;color:#7a7a8a;line-height:1.5;}
 .scenario{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:12px;}
 .scenario-label{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#7a7a8a;text-transform:uppercase;margin-bottom:6px;}
-.scenario-title{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:10px;}
+.scenario-title{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:10px;overflow:visible;padding-bottom:0.1em;}
 .scenario-finding{font-size:.82rem;color:#b794f4;font-family:'DM Mono',monospace;background:rgba(183,148,244,.08);padding:6px 10px;border-radius:6px;margin-bottom:10px;}
 .action-list{list-style:none;}
 .action-list li{font-size:.83rem;color:#c8c4bc;padding:5px 0 5px 18px;position:relative;line-height:1.5;}
-.action-list li::before{content:'→';position:absolute;left:0;color:#f5a623;}
+.action-list li::before{content:"→";position:absolute;left:0;color:#f5a623;}
 .note-box{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#c8c4bc;line-height:1.65;margin-top:12px;}
 .note-box strong{color:#f5a623;}
 .warning-box{background:rgba(252,129,129,.06);border:1px solid rgba(252,129,129,.25);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#fca5a5;line-height:1.65;margin-top:12px;}
@@ -79,13 +80,13 @@ body{background:#0d0f14;color:#e8e4dc;font-family:'Syne',sans-serif;min-height:1
 .success-box{background:rgba(104,211,145,.06);border:1px solid rgba(104,211,145,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:#c6f6d5;line-height:1.65;margin-top:12px;}
 .success-box strong{color:#68d391;}
 .divider{height:1px;background:#1e2130;margin:24px 0;}
-h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;}
-h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
+h3{font-size:.9rem;color:#e8e4dc;margin-bottom:12px;font-weight:600;overflow:visible;padding-bottom:0.1em;}
+h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;overflow:visible;padding-bottom:0.1em;}
 .muted{font-size:.82rem;color:#9a9aaa;line-height:1.6;}
 .section-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#f5a623;font-family:'DM Mono',monospace;margin-bottom:16px;margin-top:28px;}
 .herb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:12px;}
 .herb-card{background:#0d0f14;border:1px solid #1e2130;border-radius:10px;padding:14px;}
-.herb-name{font-weight:700;font-size:.9rem;color:#b794f4;margin-bottom:4px;}
+.herb-name{font-weight:700;font-size:.9rem;color:#b794f4;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;}
 .herb-tier{font-family:'DM Mono',monospace;font-size:.72rem;color:#7a7a8a;margin-bottom:6px;}
 .herb-why{font-size:.8rem;color:#9a9aaa;line-height:1.55;}
 .qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
@@ -93,7 +94,7 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
 .qr-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(245,166,35,.15);}
 .qr-item{font-size:.8rem;color:#c8c4bc;padding:4px 0 4px 16px;position:relative;line-height:1.5;border-bottom:1px solid #1a1d26;}
 .qr-item:last-child{border-bottom:none;}
-.qr-item::before{content:'·';position:absolute;left:4px;color:#f5a623;}
+.qr-item::before{content:"·";position:absolute;left:4px;color:#f5a623;}
 .qr-item strong{color:#e8e4dc;}
 .condition-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.68rem;padding:2px 8px;border-radius:4px;margin:2px;}
 .tag-candida{background:rgba(245,166,35,.12);color:#f5a623;border:1px solid rgba(245,166,35,.25);}
@@ -115,11 +116,35 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
 .r-roots{color:#68d391;}.r-reveal{color:#63b3ed;}.r-refine{color:#b794f4;}.r-rise{color:#f5a623;}
 .protocol-footer{margin-top:48px;padding-top:20px;border-top:1px solid #1e2130;text-align:center;font-family:'DM Mono',monospace;font-size:.72rem;color:#4a4a5a;letter-spacing:.06em;line-height:1.8;}
 .protocol-footer a{color:#f5a623;text-decoration:none;}
+/* New v2 components */
+.indicators-box{background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.assumption-box{background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:6px;padding:14px 18px;margin:20px 0;}
+.assumption-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px;}
+.dig-deeper-toggle{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:10px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:12px 0 0;color:#f5a623;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;width:100%;}
+.dig-deeper-toggle::after{content:"▼";font-size:.6rem;transition:transform .2s;}
+.dig-deeper-toggle.open::after{transform:rotate(180deg);}
+.dig-deeper-content{display:none;background:rgba(255,255,255,.02);border:1px solid rgba(245,166,35,.1);border-top:none;border-radius:0 0 8px 8px;padding:14px 18px;color:#9a9aaa;font-size:.85rem;line-height:1.65;}
+.dig-deeper-content.open{display:block;}
+.cutting-edge-badge{display:inline-block;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.3);color:#06b6d4;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:8px;}
+.emotional-root-box{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.female-box{background:rgba(236,72,153,.06);border:1px solid rgba(236,72,153,.25);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.female-box-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#f9a8d4;margin-bottom:8px;}
+.pillar-card-top{background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;}
+.pillar-card-rest{background:#131620;border:1px solid #1e2130;border-radius:10px;padding:18px;margin-bottom:8px;}
+.pillar-rank-top{background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;}
+.pillar-rank-rest{background:rgba(30,33,48,.8);border-radius:50%;width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:#7a7a8a;font-size:.8rem;}
+.med30-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+.med30-card{background:#181b28;border:1px solid #2a2d3e;border-radius:10px;padding:16px;}
+.med30-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;margin-bottom:8px;}
+.med30-title{font-weight:700;color:#e8e4dc;margin-bottom:8px;overflow:visible;padding-bottom:0.1em;}
+.assumption-mini{background:rgba(245,166,35,.05);border-left:2px solid rgba(245,166,35,.3);padding:8px 10px;border-radius:3px;margin-top:8px;}
+.assumption-mini-label{font-family:'DM Mono',monospace;font-size:.6rem;color:#f5a623;letter-spacing:.08em;margin-bottom:4px;}
 @media(max-width:640px){
   .lab-row{grid-template-columns:1fr 1fr;}.lab-note{grid-column:1/-1;}
   .header h1{font-size:1.7rem;}
   .med-grid,.supp-grid,.herb-grid{grid-template-columns:1fr;}
   .qr-grid,.roots-grid{grid-template-columns:1fr;}
+  .med30-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -128,18 +153,20 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
 <div class="header">
   <div class="rovive-badge">RoVive Method · Dr. Yoshi Rahm</div>
   <h1>Gut Healing <span>Protocol</span></h1>
-  <p>Roots → Reveal → Refine → Rise · Functional &amp; Integrative Medicine</p>
-  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE · <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
+  <p>Roots &#8594; Reveal &#8594; Refine &#8594; Rise &middot; RoVive Method</p>
+  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY &middot; NOT MEDICAL ADVICE &middot; NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE &middot; <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
 </div>
 
 <div class="tabs">
   <div class="tab active" onclick="showTab('overview',this)">Overview</div>
+  <div class="tab" onclick="showTab('pillars',this)">Great 8 Pillars</div>
   <div class="tab" onclick="showTab('decision',this)">Decision Tree</div>
   <div class="tab" onclick="showTab('labs',this)">Labs &amp; Testing</div>
   <div class="tab" onclick="showTab('meds',this)">Medications</div>
   <div class="tab" onclick="showTab('supplements',this)">Supplements</div>
   <div class="tab" onclick="showTab('herbals',this)">Herbal Support</div>
   <div class="tab" onclick="showTab('nutrition',this)">Nutrition</div>
+  <div class="tab" onclick="showTab('cutting',this)">Cutting-Edge</div>
   <div class="tab" onclick="showTab('rovive',this)">RoVive Method</div>
   <div class="tab" onclick="showTab('aha',this)">Aha Moments</div>
   <div class="tab" onclick="showTab('quickref',this)">Quick Reference</div>
@@ -147,8 +174,29 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
 
 <!-- ═══════════════ OVERVIEW ═══════════════ -->
 <div id="overview" class="section active">
+
+  <!-- Does This Resonate? — new v2 element -->
+  <div class="indicators-box" style="margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:10px;">&#9670; DOES THIS RESONATE?</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">You might be living this pattern if&hellip;</p>
+    <ul style="color:#e8e4dc;margin:0;padding-left:18px;line-height:1.8;">
+      <li>You&rsquo;ve had unexplainable brain fog, fatigue, or mood shifts that no doctor has been able to explain &mdash; and you&rsquo;ve started wondering if your gut is involved</li>
+      <li>You crave sugar constantly, even when you know you shouldn&rsquo;t eat it &mdash; and you feel strangely powerless around it</li>
+      <li>Your digestion has never quite been right, but you&rsquo;ve been told &ldquo;everything looks normal&rdquo; on standard tests</li>
+      <li>You&rsquo;ve taken antibiotics multiple times in your life and feel like your gut has never fully recovered</li>
+      <li>You&rsquo;ve been diagnosed with IBS, GERD, or &ldquo;stress-related digestion&rdquo; &mdash; and the diagnosis felt like a shrug more than an answer</li>
+    </ul>
+  </div>
+
+  <!-- Assumption Worth Questioning — new v2 element -->
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; The Assumption Worth Questioning</div>
+    <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:6px;">&ldquo;Gut symptoms are a local problem. Fix the gut and the gut problem goes away.&rdquo;</p>
+    <p style="color:#9a9aaa;font-size:.9rem;">The gut is the most systemically connected organ in the body &mdash; home to 70% of the immune system, 90% of the body&rsquo;s serotonin production, and 500 million enteric neurons. What happens in the gut does not stay in the gut. Mood, cognition, immune function, skin, hormones, and energy production all upstream from gut terrain. The deeper question isn&rsquo;t &ldquo;what&rsquo;s wrong with my gut?&rdquo; &mdash; it&rsquo;s &ldquo;what is my gut telling me about my entire system?&rdquo;</p>
+  </div>
+
   <div class="info-box" style="margin-bottom:24px;">
-    <strong>What this protocol covers:</strong> Candida overgrowth · Aspergillus / mold in the gut · Clostridia dysbiosis · SIBO (hydrogen &amp; methane) · Leaky gut / intestinal permeability · IBS · H. pylori · Parasites · General microbiome dysbiosis. Use the Decision Tree tab to identify your starting point.
+    <strong>What this protocol covers:</strong> Candida overgrowth &middot; Aspergillus / mold in the gut &middot; Clostridia dysbiosis &middot; SIBO (hydrogen &amp; methane) &middot; Leaky gut / intestinal permeability &middot; IBS &middot; H. pylori &middot; Parasites &middot; General microbiome dysbiosis. Use the Decision Tree tab to identify your starting point.
   </div>
 
   <div class="section-label">The 5-Phase Sequence</div>
@@ -156,53 +204,53 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
     <div class="phase-card c-blue" id="ph0">
       <div class="phase-header" onclick="togglePhase('ph0')">
         <div class="phase-num">0</div>
-        <div style="flex:1"><div class="phase-title">Assess — Read Your Map</div><div class="phase-sub">Before anything else · 1–2 weeks</div></div>
-        <div class="phase-toggle">›</div>
+        <div style="flex:1"><div class="phase-title">Assess &mdash; Read Your Map</div><div class="phase-sub">Before anything else &middot; 1&ndash;2 weeks</div></div>
+        <div class="phase-toggle">&#8250;</div>
       </div>
       <div class="phase-body">
         <p class="muted" style="margin-bottom:12px;">You cannot treat what you cannot see. The biggest mistake in gut healing is starting a protocol before knowing which organisms or dysfunction is actually present. Get the data first.</p>
         <h3>Priority Tests</h3>
         <div class="timeline">
-          <div class="tl-row"><div class="tl-phase">FIRST CHOICE</div><div class="tl-content"><strong>Organic Acids Test (OAT)</strong> — maps yeast, fungal, and bacterial overgrowth via metabolic byproducts. Arabinose (Candida), Tartaric (Aspergillus), HPHPA/4-Cresol (Clostridia). Great Plains / Mosaic Labs.</div></div>
-          <div class="tl-row"><div class="tl-phase">ADD IF ABLE</div><div class="tl-content"><strong>GI-MAP</strong> (Diagnostic Solutions) — PCR-based stool test. H. pylori, pathogens, parasites, fungi, zonulin, SIgA, calprotectin, beta-glucuronidase.</div></div>
-          <div class="tl-row"><div class="tl-phase">IF SIBO SUSPECTED</div><div class="tl-content"><strong>SIBO Breath Test</strong> (hydrogen + methane, 3-hour lactulose) — determines bacterial type and guides antibiotic selection.</div></div>
-          <div class="tl-row"><div class="tl-phase">LEAKY GUT</div><div class="tl-content"><strong>Cyrex Array 2</strong> — intestinal permeability panel. Or use zonulin from GI-MAP as proxy.</div></div>
+          <div class="tl-row"><div class="tl-phase">FIRST CHOICE</div><div class="tl-content"><strong>Organic Acids Test (OAT)</strong> &mdash; maps yeast, fungal, and bacterial overgrowth via metabolic byproducts. Arabinose (Candida), Tartaric (Aspergillus), HPHPA/4-Cresol (Clostridia). Great Plains / Mosaic Labs.</div></div>
+          <div class="tl-row"><div class="tl-phase">ADD IF ABLE</div><div class="tl-content"><strong>GI-MAP</strong> (Diagnostic Solutions) &mdash; PCR-based stool test. H. pylori, pathogens, parasites, fungi, zonulin, SIgA, calprotectin, beta-glucuronidase.</div></div>
+          <div class="tl-row"><div class="tl-phase">IF SIBO SUSPECTED</div><div class="tl-content"><strong>SIBO Breath Test</strong> (hydrogen + methane, 3-hour lactulose) &mdash; determines bacterial type and guides antibiotic selection.</div></div>
+          <div class="tl-row"><div class="tl-phase">LEAKY GUT</div><div class="tl-content"><strong>Cyrex Array 2</strong> &mdash; intestinal permeability panel. Or use zonulin from GI-MAP as proxy.</div></div>
         </div>
-        <div class="note-box"><strong>If you can't get labs yet:</strong> Start with the symptom-based path in the Decision Tree tab. A terrain-preparation protocol (diet + binders + digestive support) is appropriate for anyone regardless of lab status.</div>
+        <div class="note-box"><strong>If you can&rsquo;t get labs yet:</strong> Start with the symptom-based path in the Decision Tree tab. A terrain-preparation protocol (diet + binders + digestive support) is appropriate for anyone regardless of lab status.</div>
       </div>
     </div>
 
     <div class="phase-card c-orange" id="ph1">
       <div class="phase-header" onclick="togglePhase('ph1')">
         <div class="phase-num">1</div>
-        <div style="flex:1"><div class="phase-title">Prepare — Open Drainage &amp; Clear Terrain</div><div class="phase-sub">Weeks 1–4 · Binders · Diet · Drainage support</div></div>
-        <div class="phase-toggle">›</div>
+        <div style="flex:1"><div class="phase-title">Prepare &mdash; Open Drainage &amp; Clear Terrain</div><div class="phase-sub">Weeks 1&ndash;4 &middot; Binders &middot; Diet &middot; Drainage support</div></div>
+        <div class="phase-toggle">&#8250;</div>
       </div>
       <div class="phase-body">
-        <p class="muted" style="margin-bottom:12px;">Before clearing organisms, the drainage system must be functional. If you start antifungals or antimicrobials into a congested system, die-off toxins recirculate — causing the herxheimer reactions that make people quit protocols.</p>
+        <p class="muted" style="margin-bottom:12px;">Before clearing organisms, the drainage system must be functional. If you start antifungals or antimicrobials into a congested system, die-off toxins recirculate &mdash; causing the herxheimer reactions that make people quit protocols.</p>
         <h3>Drainage First</h3>
         <div class="timeline">
-          <div class="tl-row"><div class="tl-phase">BILE FLOW</div><div class="tl-content">TUDCA 250–500mg with meals. Supports bile acid production, fat-soluble vitamin absorption, liver protection, gut motility. Critical when mold or mycotoxins are part of the picture.</div></div>
-          <div class="tl-row"><div class="tl-phase">BINDERS</div><div class="tl-content">GI Detox (clay + charcoal + zeolite), activated charcoal, or cholestyramine (Rx). Intercepts mycotoxins and endotoxins in the gut before they recirculate. Take 30–60 min before meals OR at bedtime. Always separate from medications and supplements by 2+ hours.</div></div>
-          <div class="tl-row"><div class="tl-phase">BOWEL REG.</div><div class="tl-content">Magnesium bisglycinate 300–500mg PM. If constipated, toxins stagnate. Must have 1+ formed bowel movements per day before aggressive clearance.</div></div>
+          <div class="tl-row"><div class="tl-phase">BILE FLOW</div><div class="tl-content">TUDCA 250&ndash;500mg with meals. Supports bile acid production, fat-soluble vitamin absorption, liver protection, gut motility. Critical when mold or mycotoxins are part of the picture.</div></div>
+          <div class="tl-row"><div class="tl-phase">BINDERS</div><div class="tl-content">GI Detox (clay + charcoal + zeolite), activated charcoal, or cholestyramine (Rx). Intercepts mycotoxins and endotoxins in the gut before they recirculate. Take 30&ndash;60 min before meals OR at bedtime. Always separate from medications and supplements by 2+ hours.</div></div>
+          <div class="tl-row"><div class="tl-phase">BOWEL REG.</div><div class="tl-content">Magnesium bisglycinate 300&ndash;500mg PM. If constipated, toxins stagnate. Must have 1+ formed bowel movements per day before aggressive clearance.</div></div>
           <div class="tl-row"><div class="tl-phase">DIET</div><div class="tl-content">Remove: sugar, alcohol, processed foods, high-mold foods (peanuts, corn, dried fruit, aged cheese). Add: clean protein, non-starchy vegetables, healthy fats. See Nutrition tab for condition-specific adjustments.</div></div>
         </div>
-        <div class="warning-box"><strong>Sensitive patients:</strong> Run Phase 1 for a full 2–4 weeks before adding clearance agents. Opening drainage before clearance determines whether the protocol is tolerable.</div>
+        <div class="warning-box"><strong>Sensitive patients:</strong> Run Phase 1 for a full 2&ndash;4 weeks before adding clearance agents. Opening drainage before clearance determines whether the protocol is tolerable.</div>
       </div>
     </div>
 
     <div class="phase-card c-red" id="ph2">
       <div class="phase-header" onclick="togglePhase('ph2')">
         <div class="phase-num">2</div>
-        <div style="flex:1"><div class="phase-title">Clear — Targeted Antimicrobial / Antifungal</div><div class="phase-sub">Weeks 4–12 · Organism-specific · Overlaps with Phase 3</div></div>
-        <div class="phase-toggle">›</div>
+        <div style="flex:1"><div class="phase-title">Clear &mdash; Targeted Antimicrobial / Antifungal</div><div class="phase-sub">Weeks 4&ndash;12 &middot; Organism-specific &middot; Overlaps with Phase 3</div></div>
+        <div class="phase-toggle">&#8250;</div>
       </div>
       <div class="phase-body">
-        <p class="muted" style="margin-bottom:12px;">The organism determines the protocol. See the Decision Tree and Medications tabs for specific agents. Clearance is never one-size-fits-all — matching the antifungal or antimicrobial to the confirmed finding is the difference between results and relapse.</p>
+        <p class="muted" style="margin-bottom:12px;">The organism determines the protocol. See the Decision Tree and Medications tabs for specific agents. Clearance is never one-size-fits-all &mdash; matching the antifungal or antimicrobial to the confirmed finding is the difference between results and relapse.</p>
         <h3>By Condition</h3>
         <div class="timeline">
-          <div class="tl-row"><div class="tl-phase">CANDIDA</div><div class="tl-content">Nystatin (non-systemic) OR Fluconazole OR Itraconazole. Herbal: caprylic acid, berberine, oregano oil. Duration: 4–8 weeks minimum.</div></div>
-          <div class="tl-row"><div class="tl-phase">ASPERGILLUS</div><div class="tl-content">Itraconazole (pharmaceutical-grade — herbals insufficient). 200mg 1–2x/day. Pulsed for sensitive patients. Duration: 8–12 weeks. Continue binders throughout.</div></div>
+          <div class="tl-row"><div class="tl-phase">CANDIDA</div><div class="tl-content">Nystatin (non-systemic) OR Fluconazole OR Itraconazole. Herbal: caprylic acid, berberine, oregano oil. Duration: 4&ndash;8 weeks minimum.</div></div>
+          <div class="tl-row"><div class="tl-phase">ASPERGILLUS</div><div class="tl-content">Itraconazole (pharmaceutical-grade &mdash; herbals insufficient). 200mg 1&ndash;2x/day. Pulsed for sensitive patients. Duration: 8&ndash;12 weeks. Continue binders throughout.</div></div>
           <div class="tl-row"><div class="tl-phase">CLOSTRIDIA</div><div class="tl-content">Vancomycin oral (C. difficile), Metronidazole, or targeted antimicrobials. Saccharomyces boulardii concurrent. Support dopamine pathway with B6 (P5P), zinc.</div></div>
           <div class="tl-row"><div class="tl-phase">SIBO</div><div class="tl-content">Rifaximin (hydrogen SIBO) OR Rifaximin + Neomycin (methane SIBO). Or herbal: oregano oil + berberine + allicin. 14-day course. May require 2 rounds.</div></div>
           <div class="tl-row"><div class="tl-phase">H. PYLORI</div><div class="tl-content">Triple or Quadruple Therapy (physician-directed). Concurrent: mastic gum, DGL, bismuth, broccoli sprout sulforaphane. Retest 4 weeks post-treatment.</div></div>
@@ -214,17 +262,17 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
     <div class="phase-card c-green" id="ph3">
       <div class="phase-header" onclick="togglePhase('ph3')">
         <div class="phase-num">3</div>
-        <div style="flex:1"><div class="phase-title">Replace — Restore What Was Depleted</div><div class="phase-sub">Begin week 2–4 · Concurrent with Phase 2 · Continue through Phase 4</div></div>
-        <div class="phase-toggle">›</div>
+        <div style="flex:1"><div class="phase-title">Replace &mdash; Restore What Was Depleted</div><div class="phase-sub">Begin week 2&ndash;4 &middot; Concurrent with Phase 2 &middot; Continue through Phase 4</div></div>
+        <div class="phase-toggle">&#8250;</div>
       </div>
       <div class="phase-body">
-        <p class="muted" style="margin-bottom:12px;">Gut overgrowth depletes bile acids, digestive enzymes, and key nutrients. Without restoring these, clearance doesn't hold and reseeding fails. Replacement begins concurrently with Phase 1 and continues through Phase 4.</p>
+        <p class="muted" style="margin-bottom:12px;">Gut overgrowth depletes bile acids, digestive enzymes, and key nutrients. Without restoring these, clearance doesn&rsquo;t hold and reseeding fails. Replacement begins concurrently with Phase 1 and continues through Phase 4.</p>
         <h3>Foundation Replacements</h3>
         <div class="timeline">
           <div class="tl-row"><div class="tl-phase">BILE ACIDS</div><div class="tl-content">TUDCA (continued from Phase 1). Phosphatidylcholine if bile composition is disrupted. Critical for fat absorption and liver protection during Rx antifungal therapy.</div></div>
-          <div class="tl-row"><div class="tl-phase">ENZYMES</div><div class="tl-content">Broad-spectrum digestive enzymes (protease, lipase, amylase) with each meal. Overgrowth suppresses endogenous enzyme production — supplemental enzymes break the fermentation-overgrowth cycle.</div></div>
-          <div class="tl-row"><div class="tl-phase">GUT LINING</div><div class="tl-content">L-Glutamine (5–10g/day on empty stomach) + Zinc carnosine (75mg/day) + Collagen/bone broth. Repairs enterocyte integrity disrupted by overgrowth and leaky gut.</div></div>
-          <div class="tl-row"><div class="tl-phase">NUTRIENTS</div><div class="tl-content">Vitamin D3 (5,000 IU), Magnesium bisglycinate (300–400mg PM), Zinc picolinate (30–50mg), B12/methylcobalamin, NAC/liposomal glutathione (mold cases). These depletions are near-universal in gut dysbiosis.</div></div>
+          <div class="tl-row"><div class="tl-phase">ENZYMES</div><div class="tl-content">Broad-spectrum digestive enzymes (protease, lipase, amylase) with each meal. Overgrowth suppresses endogenous enzyme production &mdash; supplemental enzymes break the fermentation-overgrowth cycle.</div></div>
+          <div class="tl-row"><div class="tl-phase">GUT LINING</div><div class="tl-content">L-Glutamine (5&ndash;10g/day on empty stomach) + Zinc carnosine (75mg/day) + Collagen/bone broth. Repairs enterocyte integrity disrupted by overgrowth and leaky gut.</div></div>
+          <div class="tl-row"><div class="tl-phase">NUTRIENTS</div><div class="tl-content">Vitamin D3 (5,000 IU), Magnesium bisglycinate (300&ndash;400mg PM), Zinc picolinate (30&ndash;50mg), B12/methylcobalamin, NAC/liposomal glutathione (mold cases). These depletions are near-universal in gut dysbiosis.</div></div>
         </div>
       </div>
     </div>
@@ -232,17 +280,17 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
     <div class="phase-card c-purple" id="ph4">
       <div class="phase-header" onclick="togglePhase('ph4')">
         <div class="phase-num">4</div>
-        <div style="flex:1"><div class="phase-title">Reseed — Rebuild the Microbiome</div><div class="phase-sub">Begin after Phase 2 clearance · Continue 3–6 months</div></div>
-        <div class="phase-toggle">›</div>
+        <div style="flex:1"><div class="phase-title">Reseed &mdash; Rebuild the Microbiome</div><div class="phase-sub">Begin after Phase 2 clearance &middot; Continue 3&ndash;6 months</div></div>
+        <div class="phase-toggle">&#8250;</div>
       </div>
       <div class="phase-body">
-        <p class="muted" style="margin-bottom:12px;">Reseeding into an unprepared terrain is the most common gut protocol mistake. Start probiotics after initial clearance — not simultaneously. The terrain must be inhospitable to pathogens before you plant beneficial organisms.</p>
+        <p class="muted" style="margin-bottom:12px;">Reseeding into an unprepared terrain is the most common gut protocol mistake. Start probiotics after initial clearance &mdash; not simultaneously. The terrain must be inhospitable to pathogens before you plant beneficial organisms.</p>
         <h3>Reseeding Strategy</h3>
         <div class="timeline">
-          <div class="tl-row"><div class="tl-phase">SPORE-BASED</div><div class="tl-content">MegaSporeBiotic (Bacillus species, 2 caps/day) — survives stomach acid, promotes microbiome diversity, reduces leaky gut markers. Best-tolerated by sensitive patients. Start here.</div></div>
+          <div class="tl-row"><div class="tl-phase">SPORE-BASED</div><div class="tl-content">MegaSporeBiotic (Bacillus species, 2 caps/day) &mdash; survives stomach acid, promotes microbiome diversity, reduces leaky gut markers. Best-tolerated by sensitive patients. Start here.</div></div>
           <div class="tl-row"><div class="tl-phase">S. BOULARDII</div><div class="tl-content">500mg 2x/day. Anti-Candida yeast. Competes directly with Candida for adhesion sites. Well-tolerated even during antifungal therapy. Critical if Arabinose (Candida) remains elevated.</div></div>
-          <div class="tl-row"><div class="tl-phase">MULTI-STRAIN</div><div class="tl-content">After 4–6 weeks of spore-based: add multi-strain probiotic (Lactobacillus + Bifidobacterium, 25–50 billion CFU). Strain specificity matters more than CFU count. Rotate brands every 2 months.</div></div>
-          <div class="tl-row"><div class="tl-phase">BUTYRATE</div><div class="tl-content">Sodium or calcium/magnesium butyrate 600mg–1.2g/day with meals. Primary fuel for colonocytes, supports intestinal barrier, reduces gut inflammation. Accelerates lining repair concurrent with L-Glutamine.</div></div>
+          <div class="tl-row"><div class="tl-phase">MULTI-STRAIN</div><div class="tl-content">After 4&ndash;6 weeks of spore-based: add multi-strain probiotic (Lactobacillus + Bifidobacterium, 25&ndash;50 billion CFU). Strain specificity matters more than CFU count. Rotate brands every 2 months.</div></div>
+          <div class="tl-row"><div class="tl-phase">BUTYRATE</div><div class="tl-content">Sodium or calcium/magnesium butyrate 600mg&ndash;1.2g/day with meals. Primary fuel for colonocytes, supports intestinal barrier, reduces gut inflammation. Accelerates lining repair concurrent with L-Glutamine.</div></div>
         </div>
       </div>
     </div>
@@ -250,66 +298,245 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
     <div class="phase-card c-green" id="ph5">
       <div class="phase-header" onclick="togglePhase('ph5')">
         <div class="phase-num">5</div>
-        <div style="flex:1"><div class="phase-title">Maintain — Hold the Terrain</div><div class="phase-sub">Month 3 onward · Retest at 6 months</div></div>
-        <div class="phase-toggle">›</div>
+        <div style="flex:1"><div class="phase-title">Maintain &mdash; Hold the Terrain</div><div class="phase-sub">Month 3 onward &middot; Retest at 6 months</div></div>
+        <div class="phase-toggle">&#8250;</div>
       </div>
       <div class="phase-body">
-        <p class="muted" style="margin-bottom:12px;">The gut is a terrain to tend, not a problem to fix once. Recurrence is overwhelmingly a terrain failure — not a treatment failure. Mold re-exposure, sugar, stress, and poor sleep will restore dysbiosis faster than any protocol can clear it.</p>
+        <p class="muted" style="margin-bottom:12px;">The gut is a terrain to tend, not a problem to fix once. Recurrence is overwhelmingly a terrain failure &mdash; not a treatment failure. Mold re-exposure, sugar, stress, and poor sleep will restore dysbiosis faster than any protocol can clear it.</p>
         <div class="timeline">
-          <div class="tl-row"><div class="tl-phase">DIET</div><div class="tl-content">Maintain low-sugar, whole-food foundation long-term. Not a restriction protocol — a terrain protocol. The goal is diversity and stability.</div></div>
+          <div class="tl-row"><div class="tl-phase">DIET</div><div class="tl-content">Maintain low-sugar, whole-food foundation long-term. Not a restriction protocol &mdash; a terrain protocol. The goal is diversity and stability.</div></div>
           <div class="tl-row"><div class="tl-phase">MOLD CHECK</div><div class="tl-content">If Aspergillus was dominant: identify and address the environmental mold source. No gut protocol can permanently clear mold overgrowth if the exposure continues.</div></div>
-          <div class="tl-row"><div class="tl-phase">STRESS</div><div class="tl-content">HPA axis dysregulation directly disrupts gut motility, intestinal permeability, and microbiome diversity. Stress management is not optional — it is a gut intervention.</div></div>
-          <div class="tl-row"><div class="tl-phase">RETEST</div><div class="tl-content">Repeat OAT at 3–6 months. GI-MAP at 6–12 months. Results inform whether to continue maintenance or re-engage clearance. Arabinose &gt;29 or persistent symptoms = incomplete resolution.</div></div>
+          <div class="tl-row"><div class="tl-phase">STRESS</div><div class="tl-content">HPA axis dysregulation directly disrupts gut motility, intestinal permeability, and microbiome diversity. Stress management is not optional &mdash; it is a gut intervention.</div></div>
+          <div class="tl-row"><div class="tl-phase">RETEST</div><div class="tl-content">Repeat OAT at 3&ndash;6 months. GI-MAP at 6&ndash;12 months. Results inform whether to continue maintenance or re-engage clearance. Arabinose &gt;29 or persistent symptoms = incomplete resolution.</div></div>
         </div>
         <div class="success-box"><strong>What success looks like:</strong> OAT markers within range. GI-MAP pathogens absent. Digestion regular with minimal symptoms. Energy improved. Brain fog reduced. No binders needed. Probiotics as maintenance only.</div>
       </div>
     </div>
   </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
+</div>
+
+<!-- ═══════════════ GREAT 8 PILLARS ═══════════════ -->
+<div id="pillars" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:6px;">&#9670; THE GREAT 8 PILLARS &mdash; RANKED FOR GUT HEALING</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">Ranked by direct relevance to gut terrain restoration. All 8 are important &mdash; the ranking shows where the highest leverage is for this specific protocol.</div>
+  </div>
+
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px 16px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:6px;">&#9670; HOW TO READ THIS LIST</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">All 8 pillars matter &mdash; always. The ranking reflects where the highest leverage points are for gut healing. Pillars ranked #4&ndash;8 are fully built out below; they simply have less direct impact on this condition than the top three. Your weakest pillar is often your biggest opportunity, regardless of its rank here.</div>
+  </div>
+
+  <!-- #1 Food -->
+  <div class="pillar-card-top">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div class="pillar-rank-top">#1</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Food</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Everything that enters the gut is a direct terrain signal. Sugar is Candida&rsquo;s fuel. Mold-contaminated foods re-inoculate the gut with Aspergillus. Gluten triggers zonulin release, opening tight junctions within minutes. Food is not just nutrition &mdash; it&rsquo;s the primary environmental signal shaping who lives in your microbiome and whether they help or harm you. No supplement protocol can overcome a diet that feeds the wrong organisms.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Before starting any clearance agent, remove the 3 biggest terrain disruptors for 7 days: sugar in all forms, alcohol, and any high-mold foods (peanuts, corn, aged cheese, dried fruit). This alone shifts the terrain before a single supplement is taken.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Condition-Specific Food Protocols</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Anti-Candida (Arabinose elevated):</strong> Phase 1 (weeks 1&ndash;4): no fruit, no grains, no legumes, no vinegar, no mushrooms, no yeast-containing foods. Coconut oil daily (C8 MCTs = direct anti-Candida). Reintroduce low-sugar berries in Phase 2 only if Arabinose is trending down.<br><br>
+      <strong style="color:#fc8181;">Low-Mold (Aspergillus elevated):</strong> Remove peanuts, corn, dried fruit, aged cheeses, wine, beer, pickled foods, leftovers over 2 days old. Choose tested coffee brands or avoid during clearance. Fresh is key &mdash; buy small, prepare immediately.<br><br>
+      <strong style="color:#63b3ed;">Low-FODMAP (SIBO):</strong> Avoid garlic, onion, wheat, apples, pears, milk, legumes. Include eggs, meat, fish, rice, leafy greens, blueberries, cucumber, zucchini. Space meals 4&ndash;5 hours apart &mdash; the migrating motor complex needs fasted intervals to sweep the small intestine. No snacking during treatment.<br><br>
+      <strong style="color:#68d391;">H. pylori support:</strong> Broccoli sprouts daily (2&ndash;3 Tbsp) &mdash; highest food source of sulforaphane. Manuka honey (UMF 10+) 1 tsp before meals. Green tea. Cranberry (unsweetened) prevents H. pylori adhesion. Reduce spicy foods, coffee, alcohol during treatment.<br><br>
+      <strong style="color:#e8e4dc;">Universal gut healing foundation:</strong> Clean proteins (pasture-raised eggs, wild-caught fish, grass-fed beef), non-starchy vegetables, healthy fats (avocado, olive oil, ghee if tolerated), daily bone broth. Fermented foods (sauerkraut, kimchi, kefir) only after Phase 2 clearance.
+    </div>
+  </div>
+
+  <!-- #2 Sleep & Light -->
+  <div class="pillar-card-top">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div class="pillar-rank-top">#2</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Sleep &amp; Light</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">The gut microbiome has its own circadian rhythm, synchronized with the host&rsquo;s sleep-wake cycle. Studies show that disrupted sleep shifts the microbiome toward dysbiosis within 48 hours. Mucosal repair, immune cell activity, and growth hormone (the primary gut repair signal) all peak during deep sleep. Short sleep = persistent intestinal permeability, regardless of supplementation. You cannot supplement your way out of a sleep deficit in gut healing.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Target 7&ndash;9 hours. Strict sleep and wake times (even on weekends) anchor the circadian microbiome rhythm. Darkness after 9pm. Morning bright light (10&ndash;20 min of actual daylight within 30 min of waking) sets the cortisol awakening response, which determines your entire day&rsquo;s stress/gut response pattern.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Sleep &amp; the Gut-Brain Axis</button>
+    <div class="dig-deeper-content">
+      The gut-brain axis communicates via the vagus nerve, and sleep is when this axis is most active in repair mode. Chronic short sleep elevates cortisol &rarr; increases intestinal permeability &rarr; endotoxemia &rarr; systemic low-grade inflammation &rarr; further sleep disruption. It&rsquo;s a reinforcing loop.<br><br>
+      <strong style="color:#f5a623;">Light protocol:</strong> Morning sun within 30 minutes of waking (no sunglasses). Avoid blue light 2 hours before bed (use blue-light glasses or screen filters). Dim warm lighting in the evening. Even 2 hours of blue light suppresses melatonin &mdash; and melatonin is a gut antioxidant with direct mucosal protective effects.<br><br>
+      <strong style="color:#f5a623;">Targeted sleep support for gut healing:</strong> Magnesium bisglycinate 300&ndash;400mg PM (also supports gut motility). L-Theanine 200mg. Phosphatidylserine 100&ndash;200mg (reduces cortisol spike that disrupts sleep onset). Apigenin 50mg (chamomile extract). If mold-related, consider low-dose melatonin 0.5&ndash;1mg (not higher &mdash; melatonin supplementation at high doses can disrupt the natural rhythm it&rsquo;s trying to restore).
+    </div>
+  </div>
+
+  <!-- #3 Spirit & Purpose -->
+  <div class="pillar-card-top">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div class="pillar-rank-top">#3</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;padding-bottom:0.1em;">Spirit &amp; Purpose</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">The enteric nervous system (ENS) contains 500 million neurons &mdash; more than the spinal cord. It is not a passive receiver of brain signals; it sends more signals <em>to</em> the brain than it receives <em>from</em> it. Chronic stress, unresolved trauma, and loss of purpose all elevate cortisol, deplete the vagal tone that drives gut motility, and directly increase intestinal permeability. Whether that&rsquo;s God, your higher self, a deep belief in yourself, or simply what gets you out of bed before the alarm &mdash; this is your animating force. And it affects your gut chemistry in measurable ways.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; PROTOCOL-SPECIFIC ACTION</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Identify your single biggest chronic stressor and make one structural change this week &mdash; not a coping strategy, a structural change. Coping with ongoing stress while trying to heal the gut is like bailing a boat with the drain still open.</div>
+    </div>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; HPA Axis &amp; Gut Permeability</button>
+    <div class="dig-deeper-content">
+      Corticotropin-releasing factor (CRF), released during psychological stress, directly increases intestinal permeability by disrupting tight junction protein expression. Mast cells in the gut wall respond to stress signals by releasing histamine, which further opens the tight junctions. This is not metaphorical &mdash; it is a direct molecular pathway from emotional stress to leaky gut.<br><br>
+      <strong style="color:#f5a623;">Practices with gut-specific evidence:</strong><br>
+      &bull; Diaphragmatic breathing (5-5-5 pattern, 5 minutes before meals) &mdash; activates vagal tone, shifts to parasympathetic, improves gut motility<br>
+      &bull; Meditation/prayer (10&ndash;20 min/day) &mdash; reduces cortisol, reduces CRF-driven permeability<br>
+      &bull; Journaling (emotional processing, not to-do lists) &mdash; reduces rumination-driven HPA activation<br>
+      &bull; Cold water splashed on face (mammalian dive reflex) &mdash; immediate vagal activation<br>
+      &bull; Humming/gargling &mdash; direct vagal nerve stimulation via pharyngeal branches<br><br>
+      Somatic therapy, EMDR, and IFS (Internal Family Systems) specifically target stored trauma in the body &mdash; including the enteric nervous system. For gut healing that has plateaued despite proper protocols, the missing variable is often here.
+    </div>
+  </div>
+
+  <!-- #4 Air -->
+  <div class="pillar-card-rest">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div class="pillar-rank-rest">#4</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Air</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Conscious breathing is the fastest lever for vagal nerve activation &mdash; and vagal tone directly drives gut motility, reduces intestinal inflammation, and promotes microbial diversity. Most people breathe all day without intention: shallow, chest-dominant, mouth-breathing. This maintains low-grade sympathetic activation, which is a direct gut stressor. Nasal breathing alone increases nitric oxide production and improves oxygenation of gut tissue.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Breathwork &amp; Gut Motility</button>
+    <div class="dig-deeper-content">
+      Slow diaphragmatic breathing (4&ndash;6 breaths/minute) activates the dorsal vagal complex, which innervates the GI tract from esophagus to proximal colon. This parasympathetic activation increases gastric acid secretion (reduces SIBO risk), improves peristalsis, and reduces gut wall permeability.<br><br>
+      <strong style="color:#f5a623;">Practical protocol:</strong><br>
+      &bull; Pre-meal breathwork: 5 diaphragmatic breaths before eating. Eating while stressed = sympathetic state = poor digestion.<br>
+      &bull; Box breathing (4-4-4-4) or 4-7-8 for anxiety-driven gut symptoms<br>
+      &bull; Humming: 3&ndash;5 minutes/day &mdash; engages the laryngeal branch of the vagus<br>
+      &bull; Nasal breathing during sleep: mouth tape if you&rsquo;re a mouth breather &mdash; mouth breathing increases nighttime cortisol and disrupts sleep quality<br><br>
+      If Aspergillus mold is the primary pattern: air quality in the home environment matters directly. HEPA filtration, proper ventilation, and mold remediation are literal breathing interventions.
+    </div>
+  </div>
+
+  <!-- #5 Movement -->
+  <div class="pillar-card-rest">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div class="pillar-rank-rest">#5</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Movement</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Regular physical movement is the most underused prokinetic agent available. Walking 20&ndash;30 minutes daily directly improves gut motility &mdash; the mechanism driving SIBO recurrence prevention. Moderate exercise also increases microbiome diversity independently of diet and significantly reduces intestinal inflammation markers. Sedentary lifestyle is an independent risk factor for dysbiosis, SIBO recurrence, and constipation.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Movement as Gut Medicine</button>
+    <div class="dig-deeper-content">
+      Exercise increases butyrate-producing bacteria (Faecalibacterium prausnitzii, Roseburia), improves transit time, and reduces calprotectin (gut inflammation marker). Zone 2 cardio (<em>e.g., brisk walk where you can hold a full conversation, easy cycling, light swimming, conversational-pace jog</em>) is the optimal intensity for gut health &mdash; it avoids the inflammation spike seen with high-intensity exercise while maximizing mitochondrial and microbiome benefits.<br><br>
+      <strong style="color:#f5a623;">Protocol:</strong><br>
+      &bull; 20&ndash;30 min walking post-lunch or post-dinner (improves gastric emptying, reduces SIBO risk)<br>
+      &bull; Zone 2 cardio 3&ndash;4x/week, 30&ndash;45 min per session<br>
+      &bull; Resistance training 2&ndash;3x/week (maintains muscle mass that produces gut-protective myokines)<br>
+      &bull; Avoid intense exercise during active Herxheimer reactions &mdash; mobilizes toxins faster than the drainage system can clear them<br>
+      &bull; Yoga/gentle movement specifically reduces gut inflammation via vagal activation and stress reduction
+    </div>
+  </div>
+
+  <!-- #6 Water -->
+  <div class="pillar-card-rest">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div class="pillar-rank-rest">#6</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Water</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Chlorine and chloramine added to municipal water supplies kill both pathogenic and beneficial bacteria. Fluoride at chronic low doses disrupts the microbiome and inhibits thyroid function. The gut microbiome is directly shaped by the water it receives. Filtered water removes these disruptors. Mineralized water (adding trace minerals or using spring water) provides electrolytes that support gut motility and mucosal integrity.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Water Quality for Gut Healing</button>
+    <div class="dig-deeper-content">
+      Minimum: carbon block filter removes chlorine and chloramine (pitcher filters like Brita use activated carbon). Optimal: reverse osmosis (removes fluoride, heavy metals, medications, glyphosate) + remineralization stage. For travel: bring your own filtered water or use glass-bottled spring water.<br><br>
+      <strong style="color:#f5a623;">Hydration timing for gut health:</strong><br>
+      &bull; 16 oz filtered water upon waking (before coffee) &mdash; supports morning bowel motility<br>
+      &bull; Avoid large amounts of water with meals &mdash; dilutes stomach acid, impairs protein digestion<br>
+      &bull; Small sips during meals are fine<br>
+      &bull; Adequate hydration (half your body weight in ounces minimum) prevents constipation &mdash; critical for toxin clearance during Phase 1&ndash;2
+    </div>
+  </div>
+
+  <!-- #7 Electrical -->
+  <div class="pillar-card-rest">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div class="pillar-rank-rest">#7</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Electrical</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">The human body is an electrical system. Grounding (earthing &mdash; direct contact with the earth) reduces systemic inflammation and has shown measurable effects on gut inflammation markers. Red/near-infrared light therapy (photobiomodulation) has emerging evidence for gut mucosal repair and microbiome diversity. PEMF supports tissue healing. EMF exposure at high levels may disrupt the microbiome &mdash; reducing wireless device exposure in sleeping areas is prudent.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Light, Grounding &amp; Gut Healing</button>
+    <div class="dig-deeper-content">
+      <strong style="color:#f5a623;">Red/NIR light therapy (630&ndash;850nm):</strong> Applied to abdomen, 10&ndash;20 min sessions 3&ndash;5x/week. Evidence for reducing gut inflammation, increasing mucosal blood flow, and supporting mitochondrial function in enterocytes. Devices: Joovv, Mito Red Light, or similar clinical-grade panels. Especially relevant in Aspergillus cases &mdash; mycotoxins deplete mitochondrial function in gut cells.<br><br>
+      <strong style="color:#f5a623;">Grounding:</strong> 20&ndash;30 minutes barefoot contact with natural ground daily. Grounding mats for sleep if outdoor grounding is not accessible. Reduces systemic inflammatory markers including CRP.<br><br>
+      <strong style="color:#f5a623;">PEMF:</strong> Low-frequency PEMF devices (8&ndash;30 Hz) applied to abdomen. Supports tissue regeneration, may improve gut motility in sluggish gut presentations.<br><br>
+      <strong style="color:#f5a623;">Sauna:</strong> Heat therapy promotes mycotoxin elimination through sweat &mdash; particularly relevant in mold-burden cases. Infrared sauna 3&ndash;4x/week during active Aspergillus clearance. Stay hydrated. Ensure drainage (binders) are in place before sweating out toxins.
+    </div>
+  </div>
+
+  <!-- #8 Community & Connection -->
+  <div class="pillar-card-rest">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+      <div class="pillar-rank-rest">#8</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:600;color:#c8c4bc;overflow:visible;padding-bottom:0.1em;">Community &amp; Connection</div>
+    </div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Social isolation is one of the strongest predictors of chronic HPA axis dysregulation &mdash; and HPA dysregulation directly disrupts gut motility, increases intestinal permeability, and alters microbiome diversity. Loneliness chronically elevates cortisol. Meaningful connection with others is not a lifestyle luxury in gut healing &mdash; it is a measurable biological input. The same longevity data that shows social connection rivals smoking cessation in mortality impact also shows it shapes the gut microbiome.</p>
+    <button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &mdash; Social Connection &amp; the Microbiome</button>
+    <div class="dig-deeper-content">
+      Shared meals, close physical contact, and community all transmit microbiome-shaping bacteria. The microbiomes of people who live together become more similar over time. Social animals (and humans are social animals) have more diverse, healthier microbiomes than isolated individuals &mdash; even when diet is controlled for.<br><br>
+      Being part of RoVive Wisdom Circle &mdash; a community of people who are also doing this work, who speak the same language, who are investigating and questioning and healing together &mdash; is itself part of the protocol. Healing in isolation is harder, slower, and less sustainable than healing in connection.
+    </div>
+  </div>
+
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ DECISION TREE ═══════════════ -->
 <div id="decision" class="section">
-  <div class="note-box" style="margin-bottom:24px;"><strong>How to use this:</strong> Find the scenario that best matches your lab pattern or symptom picture. Multiple scenarios can overlap — apply all that apply, prioritize the dominant pattern first.</div>
+  <div class="note-box" style="margin-bottom:24px;"><strong>How to use this:</strong> Find the scenario that best matches your lab pattern or symptom picture. Multiple scenarios can overlap &mdash; apply all that apply, prioritize the dominant pattern first.</div>
 
   <div class="section-label">OAT-Based Paths</div>
 
   <div class="scenario">
-    <div class="scenario-label">Scenario 1 — Candida Overgrowth</div>
-    <div class="scenario-title">Arabinose elevated (ref ≤29) · Citramalic elevated · Sugar cravings · Brain fog · Bloating</div>
+    <div class="scenario-label">Scenario 1 &mdash; Candida Overgrowth</div>
+    <div class="scenario-title">Arabinose elevated (ref &le;29) &middot; Citramalic elevated &middot; Sugar cravings &middot; Brain fog &middot; Bloating</div>
     <div class="scenario-finding">Arabinose is a Candida metabolite. Levels above 29 indicate active Candida overgrowth. Above 60 = significant. Above 100 = severe.</div>
     <ul class="action-list">
       <li>Phase 1: Low-sugar, low-yeast diet (no fruit, no alcohol, no vinegar initially) + binders</li>
-      <li>Phase 2 mild–moderate: Caprylic acid 1,800mg/day + Berberine 500mg 3x/day + Saccharomyces boulardii</li>
-      <li>Phase 2 moderate–severe: Nystatin 500,000–1,000,000 IU 3x/day OR Fluconazole 100–200mg/day (physician-directed)</li>
+      <li>Phase 2 mild&ndash;moderate: Caprylic acid 1,800mg/day + Berberine 500mg 3x/day + Saccharomyces boulardii</li>
+      <li>Phase 2 moderate&ndash;severe: Nystatin 500,000&ndash;1,000,000 IU 3x/day OR Fluconazole 100&ndash;200mg/day (physician-directed)</li>
       <li>Phase 3: Digestive enzymes, L-Glutamine, Zinc carnosine, Vitamin D</li>
       <li>Phase 4: MegaSporeBiotic + S. boulardii (continue even during antifungal therapy)</li>
-      <li>Retest OAT at 3 months — Arabinose should drop below 50, target below 29</li>
+      <li>Retest OAT at 3 months &mdash; Arabinose should drop below 50, target below 29</li>
     </ul>
   </div>
 
   <div class="scenario">
-    <div class="scenario-label">Scenario 2 — Aspergillus / Mold in Gut</div>
-    <div class="scenario-title">Tartaric elevated · 5-OH-methylfuroic elevated · Furan-2,5-dicarboxylic elevated · History of water damage / mold exposure</div>
+    <div class="scenario-label">Scenario 2 &mdash; Aspergillus / Mold in Gut</div>
+    <div class="scenario-title">Tartaric elevated &middot; 5-OH-methylfuroic elevated &middot; Furan-2,5-dicarboxylic elevated &middot; History of water damage / mold exposure</div>
     <div class="scenario-finding">Multiple Aspergillus markers elevated simultaneously = significant mold burden in gut. Herbals are insufficient. Pharmaceutical antifungal required.</div>
     <ul class="action-list">
-      <li>Identify and address environmental mold source FIRST — no protocol can permanently clear gut Aspergillus if ongoing exposure continues</li>
-      <li>Phase 1: Binders are critical here — GI Detox or cholestyramine. Drain first, clear second</li>
-      <li>Phase 2: Itraconazole 200mg 1–2x/day (physician-directed) — low-dose pulsed for sensitive patients</li>
-      <li>Add: TUDCA 500mg/day (liver protection during Itraconazole), NAC 600–1,200mg/day (glutathione support), liposomal glutathione</li>
-      <li>Continue binders throughout clearance — time away from all other supplements/Rx</li>
+      <li>Identify and address environmental mold source FIRST &mdash; no protocol can permanently clear gut Aspergillus if ongoing exposure continues</li>
+      <li>Phase 1: Binders are critical here &mdash; GI Detox or cholestyramine. Drain first, clear second</li>
+      <li>Phase 2: Itraconazole 200mg 1&ndash;2x/day (physician-directed) &mdash; low-dose pulsed for sensitive patients</li>
+      <li>Add: TUDCA 500mg/day (liver protection during Itraconazole), NAC 600&ndash;1,200mg/day (glutathione support), liposomal glutathione</li>
+      <li>Continue binders throughout clearance &mdash; time away from all other supplements/Rx</li>
       <li>Phase 4: Begin MegaSporeBiotic only after Aspergillus markers are trending down</li>
-      <li>Retest OAT at 3 months — all Aspergillus markers should normalize</li>
+      <li>Retest OAT at 3 months &mdash; all Aspergillus markers should normalize</li>
     </ul>
   </div>
 
   <div class="scenario">
-    <div class="scenario-label">Scenario 3 — Clostridia Dysbiosis</div>
-    <div class="scenario-title">HPHPA elevated · 4-Cresol elevated · 4-Hydroxyphenylacetic elevated · Mood symptoms · Low motivation · ADHD-like presentation</div>
+    <div class="scenario-label">Scenario 3 &mdash; Clostridia Dysbiosis</div>
+    <div class="scenario-title">HPHPA elevated &middot; 4-Cresol elevated &middot; 4-Hydroxyphenylacetic elevated &middot; Mood symptoms &middot; Low motivation &middot; ADHD-like presentation</div>
     <div class="scenario-finding">Clostridia produce dopamine-disrupting metabolites. This is a gut problem presenting as a mood or cognitive problem.</div>
     <ul class="action-list">
       <li>Phase 2: Metronidazole (Flagyl) or Vancomycin oral for C. difficile (physician-directed)</li>
       <li>Concurrent Saccharomyces boulardii (prevents C. diff recurrence, reduces Clostridia)</li>
-      <li>Support dopamine pathway: B6 as P5P 50mg/day, Zinc picolinate 30–50mg/day, L-Tyrosine 500–1,000mg AM</li>
+      <li>Support dopamine pathway: B6 as P5P 50mg/day, Zinc picolinate 30&ndash;50mg/day, L-Tyrosine 500&ndash;1,000mg AM</li>
       <li>Berberine 500mg 3x/day (herbal antimicrobial, also anti-Clostridia)</li>
       <li>After clearance: SCFA support via butyrate supplementation + fiber diversity</li>
     </ul>
@@ -318,76 +545,83 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
   <div class="section-label" style="margin-top:28px;">Symptom-Based Paths</div>
 
   <div class="scenario">
-    <div class="scenario-label">Scenario 4 — SIBO (Small Intestinal Bacterial Overgrowth)</div>
-    <div class="scenario-title">Upper abdominal bloating within 1–2 hours of eating · Belching · Early fullness · Brain fog post-meals · SIBO breath test: hydrogen or methane elevated</div>
+    <div class="scenario-label">Scenario 4 &mdash; SIBO (Small Intestinal Bacterial Overgrowth)</div>
+    <div class="scenario-title">Upper abdominal bloating within 1&ndash;2 hours of eating &middot; Belching &middot; Early fullness &middot; Brain fog post-meals &middot; SIBO breath test: hydrogen or methane elevated</div>
     <div class="scenario-finding">Hydrogen-dominant SIBO = faster motility type. Methane-dominant (IMO) = slower, constipation-predominant. Different organisms require different treatment.</div>
     <ul class="action-list">
       <li>Hydrogen SIBO: Rifaximin 550mg 3x/day x 14 days (physician-directed)</li>
       <li>Methane SIBO (IMO): Rifaximin 550mg + Neomycin 500mg 3x/day x 14 days (physician-directed)</li>
-      <li>Herbal alternative: Oregano oil 200mg + Berberine 500mg + Allicin 450mg — 4 weeks, 3x/day</li>
-      <li>Elemental diet (if severe or refractory): 2–3 weeks; eliminates substrate for bacterial overgrowth</li>
+      <li>Herbal alternative: Oregano oil 200mg + Berberine 500mg + Allicin 450mg &mdash; 4 weeks, 3x/day</li>
+      <li>Elemental diet (if severe or refractory): 2&ndash;3 weeks; eliminates substrate for bacterial overgrowth</li>
       <li>Address root cause: low stomach acid (Betaine HCl), poor motility (prokinetics: ginger, 5-HTP, LDN), structural issues</li>
       <li>After clearance: introduce probiotics slowly (spore-based first); retest breath test at 4 weeks post-treatment</li>
-      <li>Note: Do NOT use Lactobacillus-based probiotics during active SIBO treatment — can worsen hydrogen levels</li>
+      <li>Note: Do NOT use Lactobacillus-based probiotics during active SIBO treatment &mdash; can worsen hydrogen levels</li>
     </ul>
   </div>
 
   <div class="scenario">
-    <div class="scenario-label">Scenario 5 — H. pylori</div>
-    <div class="scenario-title">Epigastric pain · Nausea · Bloating after meals · Burping · Confirmed on GI-MAP or urea breath test</div>
+    <div class="scenario-label">Scenario 5 &mdash; H. pylori</div>
+    <div class="scenario-title">Epigastric pain &middot; Nausea &middot; Bloating after meals &middot; Burping &middot; Confirmed on GI-MAP or urea breath test</div>
     <div class="scenario-finding">H. pylori is present in ~50% of the global population. Not all cases are symptomatic. Treat when symptomatic or when associated with gastric pathology.</div>
     <ul class="action-list">
-      <li>First-line Rx: Triple Therapy — PPI + Amoxicillin 1g + Clarithromycin 500mg, twice daily x 14 days (physician-directed)</li>
-      <li>If Clarithromycin resistance suspected: Quadruple Therapy — Bismuth + Tetracycline + Metronidazole + PPI x 10–14 days</li>
+      <li>First-line Rx: Triple Therapy &mdash; PPI + Amoxicillin 1g + Clarithromycin 500mg, twice daily x 14 days (physician-directed)</li>
+      <li>If Clarithromycin resistance suspected: Quadruple Therapy &mdash; Bismuth + Tetracycline + Metronidazole + PPI x 10&ndash;14 days</li>
       <li>Adjunct (enhances eradication): Mastic Gum 1g 2x/day, DGL Licorice 380mg before meals, Zinc Carnosine 75mg 2x/day</li>
-      <li>Broccoli sprout extract (sulforaphane) 50–100mg/day — clinically shown to suppress H. pylori</li>
-      <li>Concurrent S. boulardii — reduces antibiotic-associated diarrhea, improves eradication rates</li>
+      <li>Broccoli sprout extract (sulforaphane) 50&ndash;100mg/day &mdash; clinically shown to suppress H. pylori</li>
+      <li>Concurrent S. boulardii &mdash; reduces antibiotic-associated diarrhea, improves eradication rates</li>
       <li>Post-treatment: retest with stool antigen or urea breath test at 4+ weeks post-antibiotic</li>
     </ul>
   </div>
 
   <div class="scenario">
-    <div class="scenario-label">Scenario 6 — Leaky Gut / Intestinal Permeability</div>
-    <div class="scenario-title">Food sensitivities multiplying · Systemic inflammation · Autoimmune conditions · Fatigue · Skin issues · Zonulin elevated on GI-MAP · Cyrex Array 2 positive</div>
-    <div class="scenario-finding">Leaky gut is not a single diagnosis — it is a spectrum of intestinal permeability. It rarely occurs in isolation. Address the upstream driver (overgrowth, diet, stress) and the lining simultaneously.</div>
+    <div class="scenario-label">Scenario 6 &mdash; Leaky Gut / Intestinal Permeability</div>
+    <div class="scenario-title">Food sensitivities multiplying &middot; Systemic inflammation &middot; Autoimmune conditions &middot; Fatigue &middot; Skin issues &middot; Zonulin elevated on GI-MAP &middot; Cyrex Array 2 positive</div>
+    <div class="scenario-finding">Leaky gut is not a single diagnosis &mdash; it is a spectrum of intestinal permeability. It rarely occurs in isolation. Address the upstream driver (overgrowth, diet, stress) and the lining simultaneously.</div>
     <ul class="action-list">
-      <li>Remove: gluten, dairy, alcohol, NSAIDs, processed food — during active healing phase (minimum 8 weeks)</li>
-      <li>L-Glutamine 5–10g/day on empty stomach — primary fuel for enterocytes</li>
-      <li>Zinc Carnosine 75mg 2x/day — gut lining integrity, anti-inflammatory</li>
-      <li>Collagen/bone broth daily — glycine, proline, hydroxyproline for lining repair</li>
-      <li>Butyrate 600mg–1.2g/day — fuel for colonocytes, tight junction support</li>
-      <li>Vitamin D3 5,000 IU — immune regulation, tight junction protein expression</li>
-      <li>Omega-3 fish oil 2–4g/day EPA+DHA — reduces intestinal inflammation</li>
+      <li>Remove: gluten, dairy, alcohol, NSAIDs, processed food &mdash; during active healing phase (minimum 8 weeks)</li>
+      <li>L-Glutamine 5&ndash;10g/day on empty stomach &mdash; primary fuel for enterocytes</li>
+      <li>Zinc Carnosine 75mg 2x/day &mdash; gut lining integrity, anti-inflammatory</li>
+      <li>Collagen/bone broth daily &mdash; glycine, proline, hydroxyproline for lining repair</li>
+      <li>Butyrate 600mg&ndash;1.2g/day &mdash; fuel for colonocytes, tight junction support</li>
+      <li>Vitamin D3 5,000 IU &mdash; immune regulation, tight junction protein expression</li>
+      <li>Omega-3 fish oil 2&ndash;4g/day EPA+DHA &mdash; reduces intestinal inflammation</li>
       <li>Address upstream driver: if dysbiosis found, treat it (see other scenarios)</li>
     </ul>
   </div>
 
   <div class="scenario">
-    <div class="scenario-label">Scenario 7 — Parasites</div>
-    <div class="scenario-title">Travel history · Persistent diarrhea · Alternating bowel habits · Weight loss · Identified on GI-MAP (Giardia, Cryptosporidium, Blastocystis, etc.)</div>
-    <div class="scenario-finding">Parasites are underdiagnosed in the U.S. — most standard stool O&amp;P tests miss them. GI-MAP PCR is more sensitive. Treat confirmed findings.</div>
+    <div class="scenario-label">Scenario 7 &mdash; Parasites</div>
+    <div class="scenario-title">Travel history &middot; Persistent diarrhea &middot; Alternating bowel habits &middot; Weight loss &middot; Identified on GI-MAP (Giardia, Cryptosporidium, Blastocystis, etc.)</div>
+    <div class="scenario-finding">Parasites are underdiagnosed in the U.S. &mdash; most standard stool O&amp;P tests miss them. GI-MAP PCR is more sensitive. Treat confirmed findings.</div>
     <ul class="action-list">
-      <li>Giardia / Blastocystis: Metronidazole 250–750mg 3x/day x 7–10 days (physician-directed)</li>
+      <li>Giardia / Blastocystis: Metronidazole 250&ndash;750mg 3x/day x 7&ndash;10 days (physician-directed)</li>
       <li>Broad parasitic coverage: Nitazoxanide 500mg 2x/day x 3 days (physician-directed)</li>
-      <li>Herbal protocol (adjunct or milder presentations): Wormwood 500mg + Black Walnut 500mg + Clove 500mg — 30 days on, 2 weeks off, 30 days on</li>
-      <li>Continue binders throughout — parasites release toxins on die-off</li>
+      <li>Herbal protocol (adjunct or milder presentations): Wormwood 500mg + Black Walnut 500mg + Clove 500mg &mdash; 30 days on, 2 weeks off, 30 days on</li>
+      <li>Continue binders throughout &mdash; parasites release toxins on die-off</li>
       <li>After clearance: full reseeding protocol (Phase 4)</li>
     </ul>
   </div>
 
   <div class="scenario">
-    <div class="scenario-label">Scenario 8 — General Dysbiosis / No Clear Diagnosis</div>
-    <div class="scenario-title">GI symptoms present · No specific pathogen identified · Low SIgA · Low microbiome diversity · Fatigue · Unclear picture</div>
+    <div class="scenario-label">Scenario 8 &mdash; General Dysbiosis / No Clear Diagnosis</div>
+    <div class="scenario-title">GI symptoms present &middot; No specific pathogen identified &middot; Low SIgA &middot; Low microbiome diversity &middot; Fatigue &middot; Unclear picture</div>
     <div class="scenario-finding">This is often a terrain problem rather than a specific pathogen. Build the foundation before targeting specific organisms.</div>
     <ul class="action-list">
       <li>Begin terrain protocol: Phase 1 (binders + drainage) + Phase 3 (replacement) simultaneously</li>
-      <li>Low-diversity intervention: prebiotic fiber diversity — rotate sources (inulin, resistant starch, psyllium, FOS)</li>
-      <li>Berberine 500mg 2x/day — broad antimicrobial, microbiome modulator, AMPK activation</li>
-      <li>Triphala 1g PM — bowel regularity, microbiome diversity, antioxidant</li>
-      <li>MegaSporeBiotic (spore-based probiotic) — builds diversity without overloading with single strains</li>
-      <li>Address upstream: sleep, stress, HPA axis — these are microbiome determinants, not just lifestyle factors</li>
+      <li>Low-diversity intervention: prebiotic fiber diversity &mdash; rotate sources (inulin, resistant starch, psyllium, FOS)</li>
+      <li>Berberine 500mg 2x/day &mdash; broad antimicrobial, microbiome modulator, AMPK activation</li>
+      <li>Triphala 1g PM &mdash; bowel regularity, microbiome diversity, antioxidant</li>
+      <li>MegaSporeBiotic (spore-based probiotic) &mdash; builds diversity without overloading with single strains</li>
+      <li>Address upstream: sleep, stress, HPA axis &mdash; these are microbiome determinants, not just lifestyle factors</li>
     </ul>
   </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ LABS & TESTING ═══════════════ -->
@@ -582,6 +816,13 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
   </div>
 
   <div class="note-box"><strong>Testing order for most members:</strong> (1) Standard labs first — bilirubin/liver panel + hsCRP + ferritin + Vitamin D + B12 + magnesium RBC. Insurance-covered, gives essential baseline. (2) Add OAT for the metabolic/systemic picture — best starting functional test. (3) Add GI-MAP if H. pylori, parasites, or specific pathogens are suspected, or if OAT is normal but gut symptoms persist. (4) Add GI Effects if you want sensitivity data (which natural agents will inhibit this patient's Candida) or richer digestion/SCFA metabolic data. (5) SIBO breath test if upper bloating worsens within 1–2 hours of meals. (6) Cyrex Array 2 if autoimmune conditions or rapid food sensitivity accumulation is present.</div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ MEDICATIONS ═══════════════ -->
@@ -669,6 +910,13 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
       <div class="med-when">WHEN TO USE: Confirmed C. difficile (4-Cresol very elevated + positive C. diff on GI-MAP). Severe Clostridia dysbiosis. Concurrent S. boulardii and post-treatment fecal microbiome restoration essential.</div>
     </div>
   </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ SUPPLEMENTS ═══════════════ -->
@@ -780,6 +1028,13 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
       <div class="supp-why">Prebiotic fibers feed beneficial bacteria and promote diversity. Rotate sources: inulin (FOS), partially hydrolyzed guar gum (PHGG), resistant starch (green banana, cooked-cooled potato), psyllium husk, arabinoxylan. Start low and increase slowly — GI symptoms at initiation = microbial die-off shifting, not intolerance. AVOID during active SIBO.</div>
     </div>
   </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ HERBAL SUPPORT ═══════════════ -->
@@ -865,6 +1120,13 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
       <div class="herb-why">Sulforaphane has strong H. pylori inhibition in human clinical trials — reduces burden even without full eradication. Also activates Nrf2 pathway (master antioxidant defense), supports gut detoxification, reduces gut inflammation. Myrosinase-activated form required. Avmacol or SGS-standardized extracts preferred.</div>
     </div>
   </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ NUTRITION ═══════════════ -->
@@ -974,75 +1236,279 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
       </ul>
     </div>
   </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
+</div>
+
+<!-- ═══════════════ CUTTING-EDGE THERAPIES ═══════════════ -->
+<div id="cutting" class="section">
+
+  <div class="info-box" style="margin-bottom:24px;"><strong>Evidence context:</strong> The therapies below range from well-established off-label use to emerging investigational protocols. Evidence tiers are noted for each. All Rx items require physician partnership. Nutraceutical alternatives are provided where available.</div>
+
+  <div class="section-label">Peptide Therapy for Gut Healing</div>
+
+  <div class="med-grid">
+    <div class="med-card">
+      <div><span class="cutting-edge-badge">Peptide Therapy</span></div>
+      <div class="med-name">BPC-157 (Body Protection Compound)</div>
+      <div class="med-dose">250&ndash;500mcg/day &middot; Oral or sublingual &middot; 4&ndash;12 weeks</div>
+      <div class="med-why"><strong>Best for:</strong> Gut lining repair, leaky gut, H. pylori adjunct, IBD support. BPC-157 is a pentadecapeptide derived from a gastric protective protein. Promotes angiogenesis and collagen synthesis in the gut wall. Accelerates healing of intestinal anastomoses in animal models. One of the most investigated gut-healing peptides.</div>
+      <div class="med-when">WHEN TO USE: Refractory leaky gut, IBD, post-antibiotic gut damage, slow recovery from gut dysbiosis. Off-label &mdash; physician oversight required. Oral form is convenient and shows GI-specific benefit.</div>
+      <div style="margin-top:10px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">NUTRACEUTICAL ALTERNATIVE</div>
+        <div style="font-size:.82rem;color:#9a9aaa;">Zinc carnosine 75mg 2x/day + L-Glutamine 10g/day + Colostrum 2g/day &mdash; similar mucosal repair mechanisms via distinct pathways. Stack all three for best coverage.</div>
+      </div>
+    </div>
+
+    <div class="med-card">
+      <div><span class="cutting-edge-badge">Peptide Therapy</span></div>
+      <div class="med-name">KPV (Lys-Pro-Val)</div>
+      <div class="med-dose">500mcg&ndash;1mg/day &middot; Oral &middot; 4&ndash;8 weeks</div>
+      <div class="med-why"><strong>Best for:</strong> Gut inflammation reduction, IBD, IBS with inflammatory component. KPV is a tripeptide derived from alpha-MSH (melanocyte-stimulating hormone). Directly reduces NF-&kappa;B-driven intestinal inflammation. Shows significant anti-inflammatory effects in colitis models. Well-tolerated.</div>
+      <div class="med-when">WHEN TO USE: Elevated calprotectin on GI-MAP, active IBD, IBS with persistent gut wall inflammation. Off-label &mdash; physician oversight required.</div>
+      <div style="margin-top:10px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">NUTRACEUTICAL ALTERNATIVE</div>
+        <div style="font-size:.82rem;color:#9a9aaa;">Curcumin (liposomal or BCM-95 form) 500&ndash;1,000mg 2x/day + Quercetin 500mg 2x/day &mdash; both inhibit NF-&kappa;B signaling and reduce gut inflammation via overlapping mechanisms.</div>
+      </div>
+    </div>
+
+    <div class="med-card">
+      <div><span class="cutting-edge-badge">Regenerative</span></div>
+      <div class="med-name">Fecal Microbiota Transplantation (FMT)</div>
+      <div class="med-dose">Single or multi-dose &middot; Colonoscopic delivery (clinical) &middot; FDA-approved for C. diff</div>
+      <div class="med-why"><strong>FDA-approved for:</strong> Recurrent C. difficile colitis (Vowst oral capsules or Rebyota rectal). Investigational for: IBD, IBS, metabolic conditions, autism spectrum disorder, longevity. Essentially a microbiome transplant &mdash; transfers entire microbial ecosystem from screened donor. Remarkably effective for C. diff with ~90% success rate.</div>
+      <div class="med-when">WHEN TO USE: Recurrent C. difficile colitis (2+ recurrences). For other conditions &mdash; clinical trial enrollment or specialized center. Not standard-of-care outside C. diff. Requires specialist oversight.</div>
+    </div>
+
+    <div class="med-card">
+      <div><span class="cutting-edge-badge">Advanced Rx</span></div>
+      <div class="med-name">Low-Dose Naltrexone (LDN) &mdash; Motility &amp; Immune</div>
+      <div class="med-dose">1.5&ndash;4.5mg &middot; Nightly &middot; Long-term maintenance</div>
+      <div class="med-why"><strong>Best for:</strong> Gut motility dysregulation (SIBO recurrence, constipation-dominant IMO), IBD, IBS, autoimmune gut conditions. LDN transiently blocks opioid receptors, causing rebound endorphin surge that modulates gut immune function, reduces intestinal inflammation, and improves motility.</div>
+      <div class="med-when">WHEN TO USE: SIBO recurrence despite dietary correction, IBD, IBS with immune component, autoimmune overlap with gut symptoms. Compounded. Start at 1.5mg, titrate to 4.5mg over 4 weeks.</div>
+      <div style="margin-top:10px;padding:10px 14px;background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">NUTRACEUTICAL ALTERNATIVE (MOTILITY)</div>
+        <div style="font-size:.82rem;color:#9a9aaa;">Ginger extract 500mg 3x/day + 5-HTP 50&ndash;100mg before bed + Iberogast (prokinetic herbal blend) &mdash; synergistic prokinetic effect without Rx requirement.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">Light, Energy &amp; Physical Therapies</div>
+
+  <div class="med-grid">
+    <div class="med-card">
+      <div><span class="cutting-edge-badge">Photobiomodulation</span></div>
+      <div class="med-name">Red / Near-Infrared Light Therapy</div>
+      <div class="med-dose">630&ndash;850nm &middot; 10&ndash;20 min/session &middot; Applied to abdomen &middot; 3&ndash;5x/week</div>
+      <div class="med-why">Photobiomodulation at 630&ndash;850nm wavelengths penetrates 2&ndash;4cm into tissue. Stimulates mitochondrial cytochrome c oxidase &rarr; increases ATP production in enterocytes. Reduces gut inflammation, supports mucosal blood flow, and emerging evidence for microbiome diversity improvement. Especially relevant when mycotoxins have depleted mitochondrial function.</div>
+      <div class="med-when">WHEN TO USE: Mold-related gut cases (mitochondrial depletion), slow mucosal healing, post-antibiotic recovery, IBD adjunct. Non-invasive, no significant side effects at appropriate dosing.</div>
+    </div>
+
+    <div class="med-card">
+      <div><span class="cutting-edge-badge">Ozone Therapy</span></div>
+      <div class="med-name">Rectal Ozone Insufflation</div>
+      <div class="med-dose">100&ndash;300mL at 20&ndash;40 &gamma;/mL &middot; Clinic-based &middot; 6&ndash;12 sessions</div>
+      <div class="med-why"><strong>Investigational.</strong> Ozone (O&#8323;) delivered rectally contacts the intestinal mucosa and venous circulation directly. Reported antimicrobial, anti-inflammatory, and microbiome-modulating effects. Used in integrative oncology and chronic gut infection settings. Evidence is primarily observational and case series &mdash; RCT data emerging.</div>
+      <div class="med-when">WHEN TO USE: Refractory dysbiosis, post-antibiotic microbiome devastation, integrative cancer support. Requires specialized training and equipment. Do not self-administer.</div>
+    </div>
+
+    <div class="med-card">
+      <div><span class="cutting-edge-badge">Hyperbaric</span></div>
+      <div class="med-name">Hyperbaric Oxygen Therapy (HBOT)</div>
+      <div class="med-dose">1.5&ndash;2.4 ATA &middot; 60&ndash;90 min sessions &middot; 20&ndash;40 sessions</div>
+      <div class="med-why">HBOT increases tissue oxygen delivery 10&ndash;15x above baseline. Reduces gut inflammation, accelerates mucosal healing, and has shown benefit in Crohn&rsquo;s disease and IBD. Also relevant in post-COVID gut syndrome. The hyperoxygenated environment directly inhibits anaerobic pathogens including certain Clostridia species.</div>
+      <div class="med-when">WHEN TO USE: Severe mucosal damage, refractory IBD, post-COVID gut dysfunction, complex Clostridia cases. Medical-grade chambers are clinic-based. Mild HBOT chambers (soft-shell, ~1.3 ATA) are available for home use with more modest effects.</div>
+    </div>
+
+    <div class="med-card">
+      <div><span class="cutting-edge-badge">Phage Therapy</span></div>
+      <div class="med-name">Bacteriophage Therapy</div>
+      <div class="med-dose">Investigational &middot; Patient-specific &middot; Specialized centers only</div>
+      <div class="med-why">Bacteriophages are viruses that specifically infect and destroy bacteria. Unlike antibiotics, they are exquisitely specific &mdash; targeting individual bacterial species or strains without disrupting the rest of the microbiome. Investigational in the U.S. but approved in several countries. Used in cases of antibiotic-resistant gut infections (Klebsiella, Pseudomonas, MRSA-related gut colonization).</div>
+      <div class="med-when">WHEN TO USE: Antibiotic-resistant gut pathogens, SIBO unresponsive to standard treatment, specialized research protocols. Not currently standard-of-care in the U.S. Monitor the field &mdash; FDA breakthrough designation granted for several phage products as of 2024&ndash;2025.</div>
+    </div>
+  </div>
+
+  <div class="note-box" style="margin-top:20px;"><strong>RoVive perspective:</strong> Cutting-edge therapies are adjuncts, not replacements. The 5-phase sequence (Assess &rarr; Prepare &rarr; Clear &rarr; Replace &rarr; Reseed) is always the foundation. These tools accelerate healing or address refractory presentations &mdash; they are most effective when the terrain work is already underway.</div>
+
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ ROVIVE METHOD ═══════════════ -->
 <div id="rovive" class="section">
-  <div class="info-box" style="margin-bottom:24px;"><strong>The RoVive lens on gut health:</strong> Gut dysfunction is never just a gut problem. It's a systems failure — an expression of terrain conditions that allowed overgrowth, permeability, or motility dysfunction to establish. The RoVive Method addresses roots, not just symptoms.</div>
+  <div class="info-box" style="margin-bottom:24px;"><strong>The RoVive lens on gut health:</strong> Gut dysfunction is never just a gut problem. It&rsquo;s a systems failure &mdash; an expression of terrain conditions that allowed overgrowth, permeability, or motility dysfunction to establish. The RoVive Method addresses roots, not just symptoms.</div>
 
-  <div class="roots-grid">
-    <div class="roots-card">
-      <div class="roots-label r-roots">ROOTS — Foundational Inputs</div>
-      <p class="muted">The gut cannot heal in a chronically stressed, sleep-deprived, nutrient-depleted system. These are not lifestyle suggestions — they are biological requirements for gut terrain restoration:</p>
-      <ul class="action-list" style="margin-top:10px;">
-        <li><strong>Sleep:</strong> 7–9 hours. The gut repairs overnight — short sleep = persistent inflammation and impaired mucosal integrity</li>
-        <li><strong>Stress / HPA axis:</strong> Cortisol directly disrupts gut motility, increases intestinal permeability, and alters microbiome diversity. Chronic stress is a gut pathogen</li>
-        <li><strong>Stomach acid:</strong> Low HCl = inadequate pathogen killing in stomach = downstream dysbiosis. Consider Betaine HCl if SIBO recurs or H. pylori risk exists</li>
-        <li><strong>Circadian rhythm:</strong> The gut microbiome has its own circadian rhythm — disrupted sleep patterns shift microbial populations toward dysbiosis</li>
-        <li><strong>Clean water:</strong> Filtered water removes chlorine and fluoride that can disrupt beneficial microbiota</li>
-        <li><strong>Movement:</strong> Regular walking (20–30 min/day) directly improves gut motility — the most underused prokinetic available</li>
+  <!-- Medicine 1.0 / 2.0 / 3.0 — new v2 element -->
+  <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px;">&#9670; Three Approaches to Gut Health</div>
+    <div style="color:#e8e4dc;font-size:.92rem;">How conventional medicine, standard functional medicine, and the RoVive Method each view and treat the gut &mdash; and where they diverge.</div>
+  </div>
+
+  <div class="med30-grid">
+    <div class="med30-card">
+      <div class="med30-label" style="color:#9a9aaa;">MEDICINE 1.0</div>
+      <div class="med30-title">Conventional</div>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.8;">
+        <li>Tests for specific pathogens (H. pylori, C. diff) when symptoms are severe enough to warrant investigation</li>
+        <li>Antibiotics, PPIs, antispasmodics, and laxatives are primary tools</li>
+        <li>Does not test for dysbiosis, fungal burden, microbiome diversity, or intestinal permeability</li>
+        <li>IBS diagnosis = no identifiable cause found; symptom management only</li>
+        <li>No assessment of the gut&ndash;brain connection or systemic downstream effects</li>
       </ul>
+      <div class="assumption-mini">
+        <div class="assumption-mini-label">ASSUMPTION WORTH QUESTIONING</div>
+        <div style="color:#9a9aaa;font-size:.82rem;">&ldquo;If we can&rsquo;t find a pathogen or structural abnormality, the gut symptoms are functional. Treat symptomatically.&rdquo;</div>
+      </div>
     </div>
 
-    <div class="roots-card">
-      <div class="roots-label r-reveal">REVEAL — Testing Layers</div>
-      <p class="muted"><strong>Layer 1 — Standard (Quest/Labcorp):</strong> CMP, CBC, hsCRP, Vitamin D 25-OH, B12, Zinc (serum), Ferritin, Homocysteine. These provide baseline metabolic and nutritional context.</p>
-      <p class="muted" style="margin-top:10px;"><strong>Layer 2 — Functional (Rupa Health):</strong></p>
-      <ul class="action-list">
-        <li>OAT (Great Plains / Mosaic) — yeast, fungal, bacterial markers, mitochondrial function, neurotransmitter metabolites</li>
-        <li>GI-MAP (Diagnostic Solutions) — PCR stool test; H. pylori, parasites, fungi, zonulin, SIgA, calprotectin</li>
-        <li>SIBO Breath Test (3-hour lactulose) — hydrogen + methane</li>
-        <li>Cyrex Array 2 — intestinal permeability (if autoimmune overlap or multiple food sensitivities)</li>
-        <li>NutrEval (Genova) — if comprehensive nutritional depletion suspected</li>
+    <div class="med30-card">
+      <div class="med30-label" style="color:#63b3ed;">MEDICINE 2.0</div>
+      <div class="med30-title">Standard Functional</div>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.8;">
+        <li>Uses GI-MAP, OAT, SIBO breath testing, and functional stool tests</li>
+        <li>Understands dysbiosis, leaky gut, microbiome diversity, and fungal burden</li>
+        <li>Applies 4R protocol (Remove, Replace, Reinoculate, Repair)</li>
+        <li>May still treat organisms one-by-one without sequencing the protocol correctly</li>
+        <li>May under-prioritize drainage before clearance, leading to poor tolerance</li>
       </ul>
-      <p class="muted" style="margin-top:10px;"><strong>Layer 3 — Advanced (refractory cases):</strong></p>
-      <ul class="action-list">
-        <li>Metabolomics (Aristotle Health) — 1,000+ metabolites; maps invisible metabolic bottlenecks</li>
-        <li>Cyrex Arrays 3/5 — gluten reactivity, multiple autoimmune reactivity screening</li>
-        <li>Food Sensitivity Panel (MRT or Vibrant America) — if elimination diet inconclusive</li>
-      </ul>
+      <div class="assumption-mini">
+        <div class="assumption-mini-label">ASSUMPTION WORTH QUESTIONING</div>
+        <div style="color:#9a9aaa;font-size:.82rem;">&ldquo;Identify the bad bacteria, remove them with the right antimicrobial, and reseed with probiotics. That&rsquo;s gut healing.&rdquo;</div>
+      </div>
     </div>
 
-    <div class="roots-card">
-      <div class="roots-label r-refine">REFINE — Lifestyle Levers Specific to Gut Health</div>
-      <ul class="action-list" style="margin-top:8px;">
-        <li><strong>Meal spacing:</strong> 4–5 hour gaps between meals activates the migrating motor complex (MMC) — the small intestine's sweeping mechanism that prevents SIBO. Constant grazing disables it</li>
-        <li><strong>Chew thoroughly:</strong> Digestion begins in the mouth. Insufficient chewing → larger food particles → fermentation substrate in the colon</li>
-        <li><strong>Cold exposure:</strong> Brief cold showers or plunges reduce gut inflammation via vagal nerve activation and reduce cortisol reactivity</li>
-        <li><strong>Sauna:</strong> Heat therapy promotes mycotoxin elimination through sweat — particularly relevant in mold-burden cases</li>
-        <li><strong>Vagal tone:</strong> Humming, gargling, slow breathing, cold water on face — all activate the vagus nerve and directly improve gut motility and reduce gut inflammation</li>
-        <li><strong>Reduce PPI use:</strong> Proton pump inhibitors long-term suppress HCl → increased SIBO and H. pylori risk. Work toward discontinuation under physician guidance</li>
-        <li><strong>Environmental mold assessment:</strong> ERMI test for Aspergillus and other molds. If dominant gut mold = Aspergillus, assume environmental exposure until proven otherwise</li>
+    <div class="med30-card" style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);">
+      <div class="med30-label" style="color:#f5a623;">MEDICINE 3.0</div>
+      <div class="med30-title" style="color:#f5a623;">RoVive Method</div>
+      <ul style="color:#e8e4dc;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.8;">
+        <li>Reads all three testing layers: standard + functional + advanced metabolomics</li>
+        <li>Sequences protocol by biology: drain first, assess organisms, clear terrain, replace depletions, reseed in order</li>
+        <li>Connects gut to brain chemistry, mood, immunity, hormones, and skin</li>
+        <li>Addresses Great 8 Pillars: sleep, food, stress, movement, water, and breathwork as non-negotiable gut inputs</li>
+        <li>Looks for the emotional root &mdash; the enteric nervous system holds patterns that perpetuate gut dysfunction beyond the organism load</li>
       </ul>
-    </div>
-
-    <div class="roots-card">
-      <div class="roots-label r-rise">RISE — What Success Looks Like</div>
-      <p class="muted">Success in gut healing is not just lab numbers — it's the reclaimed capacity to thrive:</p>
-      <ul class="action-list" style="margin-top:8px;">
-        <li>OAT markers within reference range — Arabinose &lt;29, all Aspergillus normalized, Clostridia cleared</li>
-        <li>GI-MAP: pathogens absent, SIgA optimal, calprotectin &lt;50, zonulin normal</li>
-        <li>Digestion regular, comfortable, predictable — 1–2 formed bowel movements daily</li>
-        <li>Energy sustained through the day without post-meal crashes</li>
-        <li>Brain fog resolved or significantly reduced</li>
-        <li>Food tolerance broadened — able to eat a diverse diet without reaction</li>
-        <li>Mood and motivation stable — Clostridia markers down = dopamine pathway restored</li>
-        <li>Skin, immune resilience, and sleep quality improved as downstream benefits of gut restoration</li>
-        <li>No longer dependent on binders, antifungals, or digestive aids — maintaining with diet, diverse probiotics, and foundational supplements only</li>
-      </ul>
-      <div class="success-box" style="margin-top:12px;"><strong>Questions about applying this to your specific picture?</strong> Bring your OAT or GI-MAP to your next RoVive Wisdom Circle session, or open the RoVive Guide and ask: "Can you help me interpret my gut labs using the RoVive Method?"</div>
+      <div style="color:#9a9aaa;font-size:.82rem;font-style:italic;border-top:1px solid rgba(245,166,35,.15);padding-top:10px;">RoVive 3.0 doesn&rsquo;t stop at integrative medicine. It goes all the way &mdash; asking why the terrain was hospitable to overgrowth in the first place. The gut is not a war to win. It&rsquo;s a terrain to tend.</div>
     </div>
   </div>
+
+  <!-- Original ROOTS/REVEAL/REFINE/RISE content preserved -->
+  <div class="roots-grid">
+    <div class="roots-card">
+      <div class="roots-label r-roots">ROOTS &mdash; Foundational Inputs</div>
+      <p class="muted">The gut cannot heal in a chronically stressed, sleep-deprived, nutrient-depleted system. These are not lifestyle suggestions &mdash; they are biological requirements for gut terrain restoration:</p>
+      <ul class="action-list" style="margin-top:10px;">
+        <li><strong>Sleep:</strong> 7&ndash;9 hours. The gut repairs overnight &mdash; short sleep = persistent inflammation and impaired mucosal integrity</li>
+        <li><strong>Stress / HPA axis:</strong> Cortisol directly disrupts gut motility, increases intestinal permeability, and alters microbiome diversity. Chronic stress is a gut pathogen</li>
+        <li><strong>Stomach acid:</strong> Low HCl = inadequate pathogen killing in stomach = downstream dysbiosis. Consider Betaine HCl if SIBO recurs or H. pylori risk exists</li>
+        <li><strong>Circadian rhythm:</strong> The gut microbiome has its own circadian rhythm &mdash; disrupted sleep patterns shift microbial populations toward dysbiosis</li>
+        <li><strong>Clean water:</strong> Filtered water removes chlorine and fluoride that can disrupt beneficial microbiota</li>
+        <li><strong>Movement:</strong> Regular walking (20&ndash;30 min/day) directly improves gut motility &mdash; the most underused prokinetic available</li>
+      </ul>
+    </div>
+
+    <div class="roots-card">
+      <div class="roots-label r-reveal">REVEAL &mdash; Testing Layers</div>
+      <p class="muted"><strong>Layer 1 &mdash; Standard (Quest/Labcorp):</strong> CMP, CBC, hsCRP, Vitamin D 25-OH, B12, Zinc (serum), Ferritin, Homocysteine. These provide baseline metabolic and nutritional context.</p>
+      <p class="muted" style="margin-top:10px;"><strong>Layer 2 &mdash; Functional (Rupa Health / RWC Lab Store):</strong></p>
+      <ul class="action-list">
+        <li>OAT (Great Plains / Mosaic) &mdash; yeast, fungal, bacterial markers, mitochondrial function, neurotransmitter metabolites</li>
+        <li>GI-MAP (Diagnostic Solutions) &mdash; PCR stool test; H. pylori, parasites, fungi, zonulin, SIgA, calprotectin</li>
+        <li>SIBO Breath Test (3-hour lactulose) &mdash; hydrogen + methane</li>
+        <li>Cyrex Array 2 &mdash; intestinal permeability (if autoimmune overlap or multiple food sensitivities)</li>
+        <li>GI Effects Comprehensive (Genova) &mdash; culture + sensitivity + SCFA metabolites</li>
+      </ul>
+      <p class="muted" style="margin-top:10px;"><strong>Layer 3 &mdash; Advanced (refractory cases):</strong></p>
+      <ul class="action-list">
+        <li>Metabolomix+ / ION Panel (Genova) &mdash; comprehensive nutritional and metabolic profiling</li>
+        <li>MycoTOX Profile &mdash; urine mycotoxin panel (if Aspergillus markers dominant)</li>
+        <li>Cyrex Arrays 3/5 &mdash; gluten reactivity, multiple autoimmune reactivity screening</li>
+        <li>TruAge (TruDiagnostic) &mdash; epigenetic biological age (gut healing measurably reduces biological age)</li>
+      </ul>
+    </div>
+
+    <div class="roots-card">
+      <div class="roots-label r-refine">REFINE &mdash; Lifestyle Levers Specific to Gut Health</div>
+      <ul class="action-list" style="margin-top:8px;">
+        <li><strong>Meal spacing:</strong> 4&ndash;5 hour gaps between meals activates the migrating motor complex (MMC) &mdash; the small intestine&rsquo;s sweeping mechanism that prevents SIBO. Constant grazing disables it</li>
+        <li><strong>Chew thoroughly:</strong> Digestion begins in the mouth. Insufficient chewing &rarr; larger food particles &rarr; fermentation substrate in the colon</li>
+        <li><strong>Cold exposure:</strong> Brief cold showers or plunges reduce gut inflammation via vagal nerve activation and reduce cortisol reactivity</li>
+        <li><strong>Sauna:</strong> Heat therapy promotes mycotoxin elimination through sweat &mdash; particularly relevant in mold-burden cases</li>
+        <li><strong>Vagal tone:</strong> Humming, gargling, slow breathing, cold water on face &mdash; all activate the vagus nerve and directly improve gut motility and reduce gut inflammation</li>
+        <li><strong>Reduce PPI use:</strong> Proton pump inhibitors long-term suppress HCl &rarr; increased SIBO and H. pylori risk. Work toward discontinuation under physician guidance</li>
+        <li><strong>Environmental mold assessment:</strong> ERMI test for Aspergillus and other molds. If dominant gut mold = Aspergillus, assume environmental exposure until proven otherwise</li>
+        <li><strong>The best medicine is the one you actually believe will work.</strong> Different people respond to different modalities &mdash; not because of placebo, but because belief, expectation, and neurological state are themselves physiological inputs. Choose what resonates.</li>
+      </ul>
+    </div>
+
+    <div class="roots-card">
+      <div class="roots-label r-rise">RISE &mdash; What Success Looks Like</div>
+      <p class="muted">Success in gut healing is not just lab numbers &mdash; it&rsquo;s the reclaimed capacity to thrive:</p>
+      <ul class="action-list" style="margin-top:8px;">
+        <li>OAT markers within reference range &mdash; Arabinose &lt;29, all Aspergillus normalized, Clostridia cleared</li>
+        <li>GI-MAP: pathogens absent, SIgA optimal, calprotectin &lt;50, zonulin normal</li>
+        <li>Digestion regular, comfortable, predictable &mdash; 1&ndash;2 formed bowel movements daily</li>
+        <li>Energy sustained through the day without post-meal crashes</li>
+        <li>Brain fog resolved or significantly reduced</li>
+        <li>Food tolerance broadened &mdash; able to eat a diverse diet without reaction</li>
+        <li>Mood and motivation stable &mdash; Clostridia markers down = dopamine pathway restored</li>
+        <li>Skin, immune resilience, and sleep quality improved as downstream benefits of gut restoration</li>
+        <li>No longer dependent on binders, antifungals, or digestive aids &mdash; maintaining with diet, diverse probiotics, and foundational supplements only</li>
+      </ul>
+      <div class="success-box" style="margin-top:12px;"><strong>Questions about applying this to your specific picture?</strong> Bring your OAT or GI-MAP to your next RoVive Wisdom Circle session, or open the RoVive Guide and ask: &ldquo;Can you help me interpret my gut labs using the RoVive Method?&rdquo;</div>
+    </div>
+  </div>
+
+  <!-- Emotional Root — new v2 element -->
+  <div style="margin-top:36px;border-top:1px solid #1e2130;padding-top:28px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:#fbbf24;margin-bottom:16px;">&#9670; THE EMOTIONAL ROOT</div>
+
+    <div class="emotional-root-box">
+      <div style="color:#e8e4dc;font-size:.92rem;">Physical symptoms are real. And they often have an emotional architecture beneath them &mdash; not as weakness, but as the body&rsquo;s intelligence. Unresolved emotional patterns, stored stress, and unconscious adaptations can maintain the very physiology we&rsquo;re trying to change. The enteric nervous system is not a passive organ &mdash; it holds patterns. This isn&rsquo;t about blame. It&rsquo;s about completeness.</div>
+    </div>
+
+    <h3 style="color:#fbbf24;font-family:'Syne',sans-serif;overflow:visible;padding-bottom:0.1em;">The Emotional Pattern in Gut Dysbiosis</h3>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:16px;">Gut dysfunction is the most stress-sensitive biological system in the body. Chronic anxiety, unprocessed grief, suppressed anger, and states of chronic vigilance all elevate CRF (corticotropin-releasing factor) &mdash; directly opening tight junctions and disrupting motility. Many people with persistent gut dysfunction have a history of trauma that was stored in the enteric nervous system long before organisms established. The gut heals faster when the nervous system feels safe.</p>
+
+    <p style="color:#9a9aaa;font-style:italic;margin:0 0 16px;">The best approach is the one you believe will work and will actually do. Different people respond to entirely different modalities &mdash; that&rsquo;s not noise, it&rsquo;s biology.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Somatic Therapy / EMDR</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">Targets stored trauma in the body &mdash; including the enteric nervous system. Especially relevant when gut healing plateaus despite correct protocols. The body keeps the score; the gut keeps it loudest.</div>
+      </div>
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Diaphragmatic Breathwork</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">5 slow breaths before every meal activates the parasympathetic state required for optimal digestion. Eating in sympathetic activation (stressed, rushed, distracted) directly impairs HCl production and gut motility.</div>
+      </div>
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Journaling / Expressive Writing</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">Reduces rumination-driven HPA activation. 15&ndash;20 minutes of expressive (not structured) writing 3&ndash;4x/week measurably reduces cortisol. Research shows reduced IBS symptom severity with consistent journaling.</div>
+      </div>
+      <div style="background:#131620;border:1px solid #2a2d3e;border-radius:8px;padding:14px;">
+        <div style="font-weight:700;color:#e8e4dc;margin-bottom:4px;overflow:visible;padding-bottom:0.1em;">Meditation &amp; Prayer</div>
+        <div style="color:#9a9aaa;font-size:.88rem;">10&ndash;20 minutes daily reduces CRF-driven permeability and lowers systemic inflammation. The mechanism doesn&rsquo;t require belief in a specific tradition &mdash; focused stillness changes gut biochemistry. The modality is secondary to the consistency.</div>
+      </div>
+    </div>
+  </div>
+
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ AHA MOMENTS ═══════════════ -->
@@ -1133,10 +1599,57 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
       <li><strong>Best placed:</strong> When introducing neurotransmitter metabolites on the OAT, or in any mental health + gut session.</li>
     </ul>
   </div>
+
+  <div class="section-label">Autoimmunity &amp; Microbial Fingerprinting</div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 8 &middot; Systems Thinking</div>
+    <div class="scenario-title">What if your autoimmune condition started as a leaky gut problem &mdash; and your immune system is still fighting a battle that began in your intestine?</div>
+    <div class="scenario-finding">Intestinal permeability allows bacterial endotoxins (lipopolysaccharides, LPS) and partially digested food antigens to enter the bloodstream. The immune system mounts an antibody response to these antigens. When the structure of these bacterial proteins resembles human tissue proteins &mdash; a process called molecular mimicry &mdash; the immune system begins attacking the body&rsquo;s own cells. Leaky gut doesn&rsquo;t cause autoimmunity directly. It opens the gate. Every autoimmune condition carries a prior gut story. The question isn&rsquo;t whether they&rsquo;re related &mdash; the question is how far back the gut story begins.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Fasano A. &ldquo;Zonulin, regulation of tight junctions, and autoimmune diseases.&rdquo; <em>Annals of the New York Academy of Sciences</em>, 1258:25&ndash;33, 2012. Also: Fasano A. &ldquo;Leaky gut and autoimmune diseases.&rdquo; <em>Clinical Reviews in Allergy &amp; Immunology</em>, 2012.</li>
+      <li><strong>Delivery tip:</strong> &ldquo;We tend to think autoimmune disease starts in the organ it attacks &mdash; the thyroid, the joint, the skin. What if it starts in the gut, years earlier, and by the time we get the diagnosis, the gut story is ancient history?&rdquo;</li>
+      <li><strong>Best placed:</strong> When discussing leaky gut scenarios, or in any session where members have autoimmune conditions.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Aha Moment 9 &middot; Timeline / Causality</div>
+    <div class="scenario-title">What if the antibiotic your doctor gave you 10 years ago permanently changed your microbiome &mdash; and you&rsquo;ve been trying to recover ever since?</div>
+    <div class="scenario-finding">A single course of broad-spectrum antibiotics can alter microbiome composition in ways detectable 2 years later. Multiple courses can cause permanent extinction of specific bacterial species that never return to that individual. Bifidobacterium and Lactobacillus species lost during childhood antibiotic exposure may explain adult dysbiosis, food sensitivities, and autoimmune conditions that emerge decades later. The gut has no amnesia. It remembers every antibiotic it was ever given. And the microbiome that was lost was not generic &mdash; it was uniquely yours, shaped by your birth, your mother, your first years of life. Once gone, that specific configuration is irreplaceable.</div>
+    <ul class="action-list">
+      <li><strong>Citation:</strong> Dethlefsen L, Relman DA. &ldquo;Incomplete recovery and individualized responses of the human distal gut microbiota to repeated antibiotic perturbation.&rdquo; <em>Proceedings of the National Academy of Sciences</em>, 108 Suppl 1:4554&ndash;4561, 2011. Also: Jernberg C, et al. &ldquo;Long-term ecological impacts of antibiotic administration on the human intestinal microbiota.&rdquo; <em>ISME Journal</em>, 2007.</li>
+      <li><strong>Delivery tip:</strong> &ldquo;This isn&rsquo;t about blaming the antibiotic &mdash; it was often necessary. It&rsquo;s about understanding that what came after it was never fully addressed. That&rsquo;s what we&rsquo;re doing now.&rdquo;</li>
+      <li><strong>Best placed:</strong> Opening a session about gut restoration, or when members ask &ldquo;why is gut healing taking so long?&rdquo;</li>
+    </ul>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <!-- ═══════════════ QUICK REFERENCE ═══════════════ -->
 <div id="quickref" class="section">
+
+  <!-- Where to Start — new v2 element -->
+  <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);border-radius:10px;padding:16px 20px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px;">&#9670; WHERE TO START</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#68d391;letter-spacing:.08em;margin-bottom:6px;">NEW TO THIS PROTOCOL</div>
+        <div style="color:#e8e4dc;font-size:.9rem;">Order the OAT (Organic Acids Test) and remove sugar, alcohol, and high-mold foods for 7 days. These two actions cost almost nothing but give you a map and start shifting the terrain &mdash; before a single supplement is taken.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;letter-spacing:.08em;margin-bottom:6px;">ALREADY DOING THE BASICS</div>
+        <div style="color:#e8e4dc;font-size:.9rem;">Add GI-MAP to cross-reference your OAT findings, and confirm drainage is open (TUDCA + binder in place) before advancing to Phase 2 clearance. If you&rsquo;ve been treating but not improving &mdash; drainage and the Emotional Root tab are the most commonly overlooked leverage points.</div>
+      </div>
+    </div>
+  </div>
+
   <div class="note-box" style="margin-bottom:20px;"><strong>Print or screenshot this tab</strong> for a one-page reference of the complete protocol.</div>
 
   <div class="qr-grid">
@@ -1202,27 +1715,39 @@ h2{font-size:1.1rem;color:#fff;margin-bottom:16px;font-weight:700;}
       <div class="qr-item">Bring your OAT or GI-MAP to the RoVive Guide: "Help me interpret my gut labs using the RoVive Method"</div>
     </div>
   </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you&rsquo;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&rsquo;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+</div>
+
 </div>
 
 <div class="protocol-footer">
-  ROVIVE METHOD · DR. YOSHI RAHM, D.O. · <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;">DrYoshi.com</a><br>
-  FOR EDUCATIONAL PURPOSES ONLY · NOT MEDICAL ADVICE · NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE<br>
-  Questions about this protocol? Bring them to your next RoVive Wisdom Circle Q&amp;A, or open the RoVive Guide.
+  ROVIVE METHOD &middot; DR. YOSHI RAHM, D.O. &middot; <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;">DrYoshi.com</a><br>
+  FOR EDUCATIONAL PURPOSES ONLY &middot; NOT MEDICAL ADVICE &middot; NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE<br>
+  Questions about this protocol? Bring them to your next RoVive Wisdom Circle Q&amp;A, or open the RoVive Guide.<br>
+  <span style="color:#3a3a4a;font-size:.65rem;letter-spacing:.04em;">Updated June 2026 &middot; RoVive Protocol Builder v2.1</span>
 </div>
 
 <script>
-function showTab(name, el) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+function showTab(name,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(name).classList.add('active');
   el.classList.add('active');
 }
-function togglePhase(id) {
+function togglePhase(id){
   document.getElementById(id).classList.toggle('open');
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const first = document.querySelector('.phase-card');
-  if (first) first.classList.add('open');
+function toggleDigDeeper(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const first=document.querySelector('.phase-card');
+  if(first)first.classList.add('open');
 });
 </script>
 </body>
