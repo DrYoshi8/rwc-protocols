@@ -1,0 +1,949 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metabolic Phenotype Finder — RoVive Method · Dr. Yoshi Rahm</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #eceae6;
+  color: #1a1a2e;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* ═══════════════════════════════════════
+   PAGE WRAPPER (both pages share this)
+═══════════════════════════════════════ */
+.page {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto 0;
+  padding: 26px 30px 22px;
+  background: #f7f6f3;
+}
+
+/* Screen: visual separation between pages */
+@media screen {
+  .page { margin-bottom: 0; }
+  .page-2 {
+    margin-top: 32px;
+    border-top: 3px dashed #d0ccc8;
+    padding-top: 28px;
+  }
+  .page-break-label {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: #b0ada8;
+    margin: 16px 0 0;
+    padding: 6px 0;
+    border-top: 1px dashed #d0ccc8;
+  }
+}
+
+/* ═══════════════════════════════════════
+   HEADER — PAGE 1
+═══════════════════════════════════════ */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #f5a623;
+  gap: 16px;
+}
+.rovive-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f5a623;
+  margin-bottom: 4px;
+}
+.header h1 {
+  font-family: 'Syne', Arial, sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  color: #0d0f14;
+  line-height: 1.1;
+}
+.header h1 span { color: #f5a623; }
+.header-sub {
+  font-size: 11px;
+  color: #6b6b80;
+  margin-top: 3px;
+}
+.instructions-box {
+  background: #fff;
+  border: 1px solid #e0dcd6;
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-width: 265px;
+  flex-shrink: 0;
+}
+.inst-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f5a623;
+  margin-bottom: 5px;
+}
+.instructions-box ol {
+  padding-left: 14px;
+  color: #3a3a50;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════
+   5-COLUMN GRID
+═══════════════════════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  margin-bottom: 14px;
+}
+.col {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e0dcd6;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+}
+.col-header {
+  padding: 9px 10px 7px;
+  text-align: center;
+}
+.type-letter {
+  font-family: 'Syne', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  display: block;
+  line-height: 1;
+}
+.type-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+  display: block;
+  margin-top: 2px;
+}
+.col-a { border-top: 3px solid #63b3ed; }
+.col-b { border-top: 3px solid #f5a623; }
+.col-c { border-top: 3px solid #fc8181; }
+.col-d { border-top: 3px solid #b794f4; }
+.col-e { border-top: 3px solid #68d391; }
+.col-a .col-header { background: #2b6cb0; }
+.col-b .col-header { background: #b7791f; }
+.col-c .col-header { background: #c53030; }
+.col-d .col-header { background: #6b46c1; }
+.col-e .col-header { background: #276749; }
+
+.symptom-list {
+  padding: 7px 9px 9px;
+  list-style: none;
+}
+.symptom-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 3.5px 0;
+  border-bottom: 1px solid #f0ede8;
+  font-size: 11px;
+  color: #2d2d3e;
+  line-height: 1.35;
+  cursor: pointer;
+}
+.symptom-list li:last-child { border-bottom: none; }
+.check-box {
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid #c0bdb8;
+  border-radius: 3px;
+  margin-top: 1px;
+  background: #fff;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════
+   TALLY ROW
+═══════════════════════════════════════ */
+.tally-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  margin-bottom: 13px;
+}
+.tally-cell {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e0dcd6;
+  padding: 7px 10px;
+  text-align: center;
+}
+.tally-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a9aaa;
+  margin-bottom: 4px;
+}
+.tally-box {
+  height: 26px;
+  border-bottom: 2px solid #ddd;
+  margin: 0 auto;
+  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 17px;
+  font-weight: 700;
+}
+.tally-a .tally-box { border-color: #63b3ed; color: #2b6cb0; }
+.tally-b .tally-box { border-color: #f5a623; color: #b7791f; }
+.tally-c .tally-box { border-color: #fc8181; color: #c53030; }
+.tally-d .tally-box { border-color: #b794f4; color: #6b46c1; }
+.tally-e .tally-box { border-color: #68d391; color: #276749; }
+
+/* ═══════════════════════════════════════
+   MY TYPE SECTION
+═══════════════════════════════════════ */
+.my-type-section {
+  background: #0d0f14;
+  border-radius: 10px;
+  padding: 15px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 12px;
+}
+.my-type-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f5a623;
+  margin-bottom: 7px;
+}
+.fill-line {
+  border: none;
+  border-bottom: 1.5px solid #2e3048;
+  width: 100%;
+  height: 24px;
+  display: block;
+  margin-bottom: 6px;
+  background: transparent;
+}
+.hint { font-size: 10px; color: #5a5a70; font-style: italic; }
+
+.tab-lines { display: flex; flex-direction: column; gap: 5px; }
+.tab-row { display: flex; align-items: center; gap: 6px; }
+.tab-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: #f5a623;
+  flex-shrink: 0;
+  width: 14px;
+}
+.tab-fill {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #2e3048;
+  height: 20px;
+  background: transparent;
+}
+
+.commitment-box {
+  background: rgba(245,166,35,0.07);
+  border: 1px solid rgba(245,166,35,0.2);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.commitment-text {
+  font-size: 10px;
+  color: #8a8a9a;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.commitment-text strong { color: #f5a623; }
+.sig-line { border-bottom: 1px solid #2e3048; height: 20px; margin-bottom: 3px; }
+.sig-label { font-size: 9px; color: #5a5a70; }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-disclaimer {
+  font-family: 'DM Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.05em;
+  color: #9a9aaa;
+}
+.footer-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  color: #f5a623;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+/* ═══════════════════════════════════════
+   PAGE 2 — PROTOCOL STACK
+═══════════════════════════════════════ */
+.p2-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #f5a623;
+  gap: 16px;
+}
+.p2-header h2 {
+  font-family: 'Syne', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0d0f14;
+  line-height: 1.1;
+}
+.p2-header h2 span { color: #f5a623; }
+.p2-sub { font-size: 11px; color: #6b6b80; margin-top: 3px; }
+
+.tool-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0d0f14;
+  border-radius: 8px;
+  padding: 8px 16px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.tool-cta-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: #9a9aaa;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+.tool-cta-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #f5a623;
+  font-weight: 500;
+}
+
+/* Stack table */
+.stack-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+}
+.stack-table thead tr {
+  background: #0d0f14;
+}
+.stack-table thead th {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f5a623;
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 500;
+}
+.stack-table tbody tr {
+  border-bottom: 1px solid #e0dcd6;
+}
+.stack-table tbody tr:last-child { border-bottom: none; }
+.stack-table tbody tr:nth-child(odd) { background: #fff; }
+.stack-table tbody tr:nth-child(even) { background: #f4f2ef; }
+.stack-table td {
+  padding: 11px 12px;
+  vertical-align: top;
+  font-size: 11.5px;
+  color: #2d2d3e;
+  line-height: 1.45;
+}
+
+/* Type badge cell */
+.type-badge-cell {
+  width: 110px;
+  white-space: nowrap;
+}
+.type-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px 5px 7px;
+  border-radius: 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.type-pill .letter {
+  font-family: 'Syne', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.pill-a { background: #ebf5fb; color: #2b6cb0; }
+.pill-a .letter { background: #2b6cb0; }
+.pill-b { background: #fdf8ed; color: #b7791f; }
+.pill-b .letter { background: #b7791f; }
+.pill-c { background: #fef2f2; color: #c53030; }
+.pill-c .letter { background: #c53030; }
+.pill-d { background: #f5f0ff; color: #6b46c1; }
+.pill-d .letter { background: #6b46c1; }
+.pill-e { background: #f0fff4; color: #276749; }
+.pill-e .letter { background: #276749; }
+
+/* Tab pills */
+.tab-chips { display: flex; flex-direction: column; gap: 4px; }
+.tab-chip {
+  display: inline-block;
+  background: #f0ede8;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: #3a3a50;
+  white-space: nowrap;
+}
+.tab-chip.primary {
+  background: #0d0f14;
+  color: #f5a623;
+}
+
+/* Why text */
+.why-cell { color: #555568; font-style: italic; font-size: 11px; }
+
+/* Lab list */
+.lab-list { display: flex; flex-direction: column; gap: 3px; }
+.lab-item {
+  font-size: 10.5px;
+  color: #444455;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.lab-item::before {
+  content: '·';
+  color: #f5a623;
+  font-size: 14px;
+  line-height: 1;
+  margin-top: -1px;
+  flex-shrink: 0;
+}
+
+/* Phenotype tab callout */
+.phenotype-callout {
+  background: rgba(245,166,35,0.07);
+  border: 1px solid rgba(245,166,35,0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.phenotype-callout-icon {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #f5a623;
+  flex-shrink: 0;
+}
+.phenotype-callout-text {
+  font-size: 11.5px;
+  color: #3a3a50;
+  line-height: 1.5;
+}
+.phenotype-callout-text strong { color: #0d0f14; }
+
+/* ═══════════════════════════════════════
+   PRINT
+═══════════════════════════════════════ */
+@media print {
+  @page { size: landscape; margin: 10mm 12mm; }
+  html, body { background: #fff; }
+  .page { max-width: 100%; padding: 0; background: #fff; margin-bottom: 0; }
+  .page-break-label { display: none; }
+  .page-2 {
+    page-break-before: always;
+    break-before: page;
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
+  }
+  .col-header, .my-type-section, .stack-table thead tr,
+  .type-pill, .tab-chip.primary, .tool-cta, .phenotype-callout {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a.tool-cta { color: inherit; }
+}
+
+/* ═══════════════════════════════════════
+   INTERACTIVE (screen)
+═══════════════════════════════════════ */
+@media screen {
+  .symptom-list li:hover { background: rgba(245,166,35,0.04); }
+  .symptom-list li.checked .check-box::after {
+    content: '';
+    position: absolute;
+    left: 2px; top: 4px;
+    width: 5px; height: 3px;
+    border-left: 1.5px solid #fff;
+    border-bottom: 1.5px solid #fff;
+    transform: rotate(-45deg);
+  }
+  .col-a .symptom-list li.checked .check-box { background: #2b6cb0; border-color: #2b6cb0; }
+  .col-b .symptom-list li.checked .check-box { background: #b7791f; border-color: #b7791f; }
+  .col-c .symptom-list li.checked .check-box { background: #c53030; border-color: #c53030; }
+  .col-d .symptom-list li.checked .check-box { background: #6b46c1; border-color: #6b46c1; }
+  .col-e .symptom-list li.checked .check-box { background: #276749; border-color: #276749; }
+  .col-a .symptom-list li.checked { color: #1a4a7a; }
+  .col-b .symptom-list li.checked { color: #8a5a10; }
+  .col-c .symptom-list li.checked { color: #8a1a1a; }
+  .col-d .symptom-list li.checked { color: #4a2a8a; }
+  .col-e .symptom-list li.checked { color: #1a4a30; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     PAGE 1 — METABOLIC PHENOTYPE FINDER
+════════════════════════════════════════ -->
+<div class="page page-1">
+
+  <div class="header">
+    <div>
+      <div class="rovive-badge">◆ RoVive Method · Dr. Yoshi Rahm, D.O.</div>
+      <h1>Metabolic <span>Phenotype Finder</span></h1>
+      <div class="header-sub">Find Your Metabolic Starting Point · The Metabolic Reset Protocol</div>
+    </div>
+    <div class="instructions-box">
+      <div class="inst-title">◆ How to Use This Worksheet</div>
+      <ol>
+        <li>Read each column (Types A through E)</li>
+        <li>Check every symptom or pattern that resonates</li>
+        <li>Count your checks per column and record the tally below</li>
+        <li>Most checks = your <strong>dominant type</strong></li>
+        <li>Second most = your <strong>secondary type</strong></li>
+        <li>Turn to page 2 to find your first protocol tabs</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="col col-a">
+      <div class="col-header">
+        <span class="type-letter">A</span>
+        <span class="type-name">Carb-Driven</span>
+      </div>
+      <ul class="symptom-list">
+        <li><span class="check-box"></span>Blood sugar spikes after carb-heavy meals</li>
+        <li><span class="check-box"></span>Fatigue or brain fog 1–2 hrs after eating</li>
+        <li><span class="check-box"></span>Strong carb or sugar cravings throughout the day</li>
+        <li><span class="check-box"></span>Belly / visceral weight gain</li>
+        <li><span class="check-box"></span>Elevated A1c, fasting glucose, or fasting insulin</li>
+        <li><span class="check-box"></span>Diagnosed with prediabetes, T2DM, or metabolic syndrome</li>
+        <li><span class="check-box"></span>High C-peptide or HOMA-IR above 2.0</li>
+        <li><span class="check-box"></span>Hunger 2–3 hrs after a full meal</li>
+        <li><span class="check-box"></span>Blood sugar "roller coaster" throughout the day</li>
+        <li><span class="check-box"></span>Family history of T2DM or obesity</li>
+      </ul>
+    </div>
+
+    <div class="col col-b">
+      <div class="col-header">
+        <span class="type-letter">B</span>
+        <span class="type-name">Cortisol-Driven</span>
+      </div>
+      <ul class="symptom-list">
+        <li><span class="check-box"></span>Wired-but-tired: exhausted but can't relax</li>
+        <li><span class="check-box"></span>Waking midnight–3am (alert or heart racing)</li>
+        <li><span class="check-box"></span>High fasting glucose despite a clean diet</li>
+        <li><span class="check-box"></span>Low morning energy; second wind at night</li>
+        <li><span class="check-box"></span>Salt cravings, especially in the morning</li>
+        <li><span class="check-box"></span>Poor stress recovery — takes days to bounce back</li>
+        <li><span class="check-box"></span>Unexplained anxiety or irritability</li>
+        <li><span class="check-box"></span>DHEA-S low, pregnenolone low, or flat cortisol curve</li>
+        <li><span class="check-box"></span>Chronic stress, burnout, or trauma history</li>
+        <li><span class="check-box"></span>Glucose elevated in the morning, lower by afternoon</li>
+      </ul>
+    </div>
+
+    <div class="col col-c">
+      <div class="col-header">
+        <span class="type-letter">C</span>
+        <span class="type-name">Inflammatory / Gut</span>
+      </div>
+      <ul class="symptom-list">
+        <li><span class="check-box"></span>Bloating or discomfort after most meals</li>
+        <li><span class="check-box"></span>Food sensitivities that have increased over time</li>
+        <li><span class="check-box"></span>Brain fog that worsens after eating</li>
+        <li><span class="check-box"></span>hs-CRP elevated (above 1.0 mg/L)</li>
+        <li><span class="check-box"></span>Ferritin elevated (&gt;150 women / &gt;200 men)</li>
+        <li><span class="check-box"></span>Joint pain or muscle aches without clear cause</li>
+        <li><span class="check-box"></span>Multiple antibiotic courses in your lifetime</li>
+        <li><span class="check-box"></span>Skin issues: eczema, psoriasis, acne, or rosacea</li>
+        <li><span class="check-box"></span>Gas, bloating, constipation, or loose stools</li>
+        <li><span class="check-box"></span>Omega-3 index low or never tested</li>
+      </ul>
+    </div>
+
+    <div class="col col-d">
+      <div class="col-header">
+        <span class="type-letter">D</span>
+        <span class="type-name">Thyroid / Hormonal</span>
+      </div>
+      <ul class="symptom-list">
+        <li><span class="check-box"></span>Cold hands and feet even in warm environments</li>
+        <li><span class="check-box"></span>Hair thinning — scalp, eyebrows, or body hair</li>
+        <li><span class="check-box"></span>Low libido or changes in sexual function</li>
+        <li><span class="check-box"></span>Weight gain despite no change in diet or exercise</li>
+        <li><span class="check-box"></span>Dry skin, brittle nails, or slow wound healing</li>
+        <li><span class="check-box"></span>Fatigue that doesn't improve with more sleep</li>
+        <li><span class="check-box"></span>Perimenopause or menopause symptoms (women)</li>
+        <li><span class="check-box"></span>Low testosterone or andropause symptoms (men)</li>
+        <li><span class="check-box"></span>TSH, Free T3, or Free T4 outside optimal range</li>
+        <li><span class="check-box"></span>SHBG high or sex hormones consistently imbalanced</li>
+      </ul>
+    </div>
+
+    <div class="col col-e">
+      <div class="col-header">
+        <span class="type-letter">E</span>
+        <span class="type-name">Mitochondrial</span>
+      </div>
+      <ul class="symptom-list">
+        <li><span class="check-box"></span>Deep, persistent fatigue — even after full sleep</li>
+        <li><span class="check-box"></span>Feel cold despite normal thyroid labs</li>
+        <li><span class="check-box"></span>History of toxin, chemical, or mold exposure</li>
+        <li><span class="check-box"></span>Symptoms started or worsened after a viral illness</li>
+        <li><span class="check-box"></span>Exercise intolerance — feel worse after working out</li>
+        <li><span class="check-box"></span>Sensitivity to chemicals, fragrances, or medications</li>
+        <li><span class="check-box"></span>Brain fog, memory lapses, or slowed processing</li>
+        <li><span class="check-box"></span>Widespread muscle pain or fibromyalgia diagnosis</li>
+        <li><span class="check-box"></span>Marked energy decline over the past 5–10 years</li>
+        <li><span class="check-box"></span>Family history of autoimmune or mitochondrial disease</li>
+      </ul>
+    </div>
+
+  </div><!-- /grid -->
+
+  <div class="tally-row">
+    <div class="tally-cell tally-a">
+      <div class="tally-label">Type A — Total Checks</div>
+      <div class="tally-box" id="tally-a"></div>
+    </div>
+    <div class="tally-cell tally-b">
+      <div class="tally-label">Type B — Total Checks</div>
+      <div class="tally-box" id="tally-b"></div>
+    </div>
+    <div class="tally-cell tally-c">
+      <div class="tally-label">Type C — Total Checks</div>
+      <div class="tally-box" id="tally-c"></div>
+    </div>
+    <div class="tally-cell tally-d">
+      <div class="tally-label">Type D — Total Checks</div>
+      <div class="tally-box" id="tally-d"></div>
+    </div>
+    <div class="tally-cell tally-e">
+      <div class="tally-label">Type E — Total Checks</div>
+      <div class="tally-box" id="tally-e"></div>
+    </div>
+  </div>
+
+  <div class="my-type-section">
+    <div>
+      <div class="my-type-label">◆ My Metabolic Type</div>
+      <div style="margin-bottom:8px;">
+        <div style="font-size:10px;color:#9a9aaa;margin-bottom:3px;">Primary (most checks):</div>
+        <hr class="fill-line">
+      </div>
+      <div>
+        <div style="font-size:10px;color:#9a9aaa;margin-bottom:3px;">Secondary (second most):</div>
+        <hr class="fill-line">
+      </div>
+      <div class="hint" style="margin-top:5px;">Most people are a composite of 2 types. See page 2 for your protocol tabs.</div>
+    </div>
+    <div>
+      <div class="my-type-label">◆ My First 3 Protocol Tabs</div>
+      <div class="tab-lines">
+        <div class="tab-row"><span class="tab-num">1.</span><hr class="tab-fill"></div>
+        <div class="tab-row"><span class="tab-num">2.</span><hr class="tab-fill"></div>
+        <div class="tab-row"><span class="tab-num">3.</span><hr class="tab-fill"></div>
+      </div>
+      <div class="hint" style="margin-top:7px;">Open these first at<br>tools.dryoshi.com/metabolic-reset-protocol</div>
+    </div>
+    <div>
+      <div class="my-type-label">◆ One Action I'll Take This Week</div>
+      <div class="commitment-box">
+        <div class="commitment-text">
+          <strong>I will</strong> open the Metabolic Reset Protocol, navigate to my first 3 tabs, and spend 20 minutes learning my starting stack — before my next RoVive call.
+        </div>
+        <div class="sig-line"></div>
+        <div class="sig-label" style="color:#5a5a70;">Signed &amp; dated: ___________________</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-disclaimer">Educational use only · Not medical advice · Not a substitute for personal medical care · DrYoshi.com</div>
+    <a class="footer-link" href="https://tools.dryoshi.com/metabolic-reset-protocol/" target="_blank">tools.dryoshi.com/metabolic-reset-protocol</a>
+  </div>
+
+</div><!-- /page-1 -->
+
+<div class="page-break-label">— — — PAGE 2: PROTOCOL STACK (prints on reverse / separate page) — — —</div>
+
+<!-- ════════════════════════════════════════
+     PAGE 2 — YOUR PROTOCOL STACK
+════════════════════════════════════════ -->
+<div class="page page-2">
+
+  <div class="p2-header">
+    <div>
+      <div class="rovive-badge">◆ RoVive Method · Dr. Yoshi Rahm, D.O.</div>
+      <h2>Your Protocol <span>Stack</span></h2>
+      <div class="p2-sub">Which tabs to open first in the Metabolic Reset Protocol — based on your phenotype</div>
+    </div>
+    <a class="tool-cta" href="https://tools.dryoshi.com/metabolic-reset-protocol/" target="_blank">
+      <div>
+        <span class="tool-cta-label">◆ Access the full protocol</span>
+        <span class="tool-cta-url">tools.dryoshi.com/metabolic-reset-protocol</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="phenotype-callout">
+    <div class="phenotype-callout-icon">◆ START HERE</div>
+    <div class="phenotype-callout-text">
+      <strong>Every member, every type:</strong> Open the <strong>Metabolic Phenotypes</strong> tab first — it maps your phenotype directly to the protocol and shows how your type connects to each section. Then open your three type-specific tabs below.
+    </div>
+  </div>
+
+  <table class="stack-table">
+    <thead>
+      <tr>
+        <th style="width:115px;">Type</th>
+        <th style="width:260px;">◆ First 3 Tabs to Open</th>
+        <th>◆ Why These Tabs First</th>
+        <th style="width:240px;">◆ Key Labs to Run</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td class="type-badge-cell">
+          <div class="type-pill pill-a">
+            <span class="letter">A</span>
+            Carb-Driven
+          </div>
+        </td>
+        <td>
+          <div class="tab-chips">
+            <span class="tab-chip primary">1. Labs &amp; Targets</span>
+            <span class="tab-chip">2. Medications / RX</span>
+            <span class="tab-chip">3. Nutraceuticals · Botanicals</span>
+          </div>
+        </td>
+        <td class="why-cell">
+          Insulin resistance is measurable and treatable — know your numbers first, then build a targeted intervention stack around the insulin signaling pathway.
+        </td>
+        <td>
+          <div class="lab-list">
+            <div class="lab-item">Fasting insulin + HOMA-IR</div>
+            <div class="lab-item">HbA1c + fasting glucose</div>
+            <div class="lab-item">CGM (continuous glucose monitor)</div>
+            <div class="lab-item">C-peptide · Uric acid</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="type-badge-cell">
+          <div class="type-pill pill-b">
+            <span class="letter">B</span>
+            Cortisol-Driven
+          </div>
+        </td>
+        <td>
+          <div class="tab-chips">
+            <span class="tab-chip primary">1. RoVive Method</span>
+            <span class="tab-chip">2. Great 8 Pillars</span>
+            <span class="tab-chip">3. Cutting-Edge Therapies</span>
+          </div>
+        </td>
+        <td class="why-cell">
+          Cortisol architecture drives glucose. The Roots section and sleep/stress pillars must come before any metabolic intervention — treating blood sugar without this layer is downstream only.
+        </td>
+        <td>
+          <div class="lab-list">
+            <div class="lab-item">AM cortisol + DHEA-S</div>
+            <div class="lab-item">Pregnenolone</div>
+            <div class="lab-item">DUTCH Complete (cortisol curve)</div>
+            <div class="lab-item">Fasting glucose (AM) vs afternoon</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="type-badge-cell">
+          <div class="type-pill pill-c">
+            <span class="letter">C</span>
+            Inflammatory / Gut
+          </div>
+        </td>
+        <td>
+          <div class="tab-chips">
+            <span class="tab-chip primary">1. Nutraceuticals · Botanicals</span>
+            <span class="tab-chip">2. Cutting-Edge Therapies</span>
+            <span class="tab-chip">3. Great 8 Pillars</span>
+          </div>
+        </td>
+        <td class="why-cell">
+          The gut is upstream of metabolism. Repair the barrier, reduce the inflammatory load with targeted nutraceuticals, then rebuild with lifestyle — not the other way around.
+        </td>
+        <td>
+          <div class="lab-list">
+            <div class="lab-item">GI-MAP (gut microbiome/pathogens)</div>
+            <div class="lab-item">hs-CRP · Ferritin</div>
+            <div class="lab-item">Omega-3 index</div>
+            <div class="lab-item">Food sensitivity panel (IgG)</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="type-badge-cell">
+          <div class="type-pill pill-d">
+            <span class="letter">D</span>
+            Thyroid / Hormonal
+          </div>
+        </td>
+        <td>
+          <div class="tab-chips">
+            <span class="tab-chip primary">1. Labs &amp; Targets</span>
+            <span class="tab-chip">2. Medications / RX</span>
+            <span class="tab-chip">3. Nutraceuticals · Botanicals</span>
+          </div>
+        </td>
+        <td class="why-cell">
+          Hormonal decline shifts the metabolic baseline. Know your complete hormonal picture — thyroid, sex hormones, adrenal — before adding any intervention. The labs drive the protocol here.
+        </td>
+        <td>
+          <div class="lab-list">
+            <div class="lab-item">DUTCH Plus (full hormone map)</div>
+            <div class="lab-item">Free T3, Free T4, Reverse T3</div>
+            <div class="lab-item">SHBG · Total + Free testosterone</div>
+            <div class="lab-item">Estradiol · Progesterone · TSH</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="type-badge-cell">
+          <div class="type-pill pill-e">
+            <span class="letter">E</span>
+            Mitochondrial
+          </div>
+        </td>
+        <td>
+          <div class="tab-chips">
+            <span class="tab-chip primary">1. Cutting-Edge Therapies</span>
+            <span class="tab-chip">2. Nutraceuticals · Botanicals</span>
+            <span class="tab-chip">3. Testing Arsenal</span>
+          </div>
+        </td>
+        <td class="why-cell">
+          Mitochondria need a clean environment before they can rebuild. Remove the burden (toxins, oxidative stress), replenish the cofactors, then expand capacity. Testing confirms the specific burden.
+        </td>
+        <td>
+          <div class="lab-list">
+            <div class="lab-item">Organic Acids Test (OAT)</div>
+            <div class="lab-item">Heavy metals (blood + urine)</div>
+            <div class="lab-item">Mycotoxin panel (if mold exposure)</div>
+            <div class="lab-item">CoQ10 · Glutathione · NAD+ markers</div>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- Quick note on composite types -->
+  <div style="background:#fff;border:1px solid #e0dcd6;border-radius:8px;padding:10px 16px;margin-bottom:12px;display:flex;gap:12px;align-items:flex-start;">
+    <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;color:#f5a623;flex-shrink:0;padding-top:2px;">◆ COMPOSITE TYPES</div>
+    <div style="font-size:11px;color:#555568;line-height:1.55;">
+      If you have a <strong style="color:#0d0f14;">dominant + secondary type</strong>, open your dominant type's first tab, then your secondary type's first tab, then return to your dominant type's second tab.
+      Work the dominant type's stack first — once stable, layer in the secondary.
+      Example: <em>Primary A + Secondary B → open Labs &amp; Targets, then RoVive Method, then Medications / RX.</em>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-disclaimer">Metabolic Phenotype Finder · RoVive Wisdom Circle · Educational use only · Not medical advice · Not a substitute for personal medical care</div>
+    <a class="footer-link" href="https://tools.dryoshi.com/metabolic-reset-protocol/" target="_blank">tools.dryoshi.com/metabolic-reset-protocol</a>
+  </div>
+
+</div><!-- /page-2 -->
+
+<script>
+// Interactive checkboxes
+document.querySelectorAll('.symptom-list li').forEach(li => {
+  li.addEventListener('click', () => {
+    li.classList.toggle('checked');
+    updateTallies();
+  });
+});
+
+function updateTallies() {
+  ['a','b','c','d','e'].forEach(t => {
+    const count = document.querySelectorAll(`.col-${t} li.checked`).length;
+    const box = document.getElementById(`tally-${t}`);
+    if (box) box.textContent = count > 0 ? count : '';
+  });
+}
+</script>
+</body>
+</html>
