@@ -1,0 +1,962 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Decision Protocol &#183; RoVive Method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+--bg:#0d0f14; --surface:#131620; --surface-2:#181b28; --border:#1e2130;
+--text:#e8e4dc; --text-muted:#9a9aaa; --accent:#f5a623; --green:#68d391;
+--blue:#63b3ed; --purple:#b794f4; --red:#fc8181; --cyan:#06b6d4; --pink:#f9a8d4;
+}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;line-height:1.7;padding:0 0 60px;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px;}
+/* DESCENDER SAFETY: Syne has deep descenders (g p y j q). Never use tight
+   line-height or clipped overflow on Syne text. These values are deliberate. */
+h1,h2,h3,h4,strong,b,th,td,li,p,div,span,button{overflow:visible;}
+h1{line-height:1.3;padding-bottom:0.28em;overflow:visible;font-size:2.1rem;font-weight:800;}
+h2,h3,h4{line-height:1.38;padding-bottom:0.18em;overflow:visible;}
+h2{font-size:1.4rem;font-weight:700;margin:32px 0 14px;color:var(--text);}
+h3{font-size:1.08rem;font-weight:700;margin:22px 0 10px;color:var(--text);}
+p{margin-bottom:12px;color:var(--text-muted);font-size:.95rem;}
+a{color:var(--accent);}
+.header{padding:44px 0 26px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+.header h1{line-height:1.3;padding-bottom:0.32em;overflow:visible;}
+.header h1 span{color:var(--accent);}
+.header p{color:var(--text-muted);font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:0;}
+.rovive-badge{display:inline-block;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:var(--accent);font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+.disclaimer{font-family:'DM Mono',monospace;font-size:.62rem!important;letter-spacing:.06em;color:#5a5a6a!important;margin-top:12px!important;text-transform:none!important;}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;padding:18px 0 22px;border-bottom:1px solid var(--border);margin-bottom:28px;}
+.tab{background:var(--surface);border:1px solid var(--border);color:var(--text-muted);font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.05em;padding:9px 13px 11px;line-height:1.5;overflow:visible;border-radius:6px;cursor:pointer;transition:.15s;}
+.tab:hover{border-color:rgba(245,166,35,.4);color:var(--text);}
+.tab.active{background:rgba(245,166,35,.12);border-color:var(--accent);color:var(--accent);}
+.section{display:none;}
+.section.active{display:block;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin:16px 0;}
+.card-hi{background:var(--surface-2);border:1px solid #2a2d3e;border-radius:10px;padding:18px 22px;margin:16px 0;}
+.lead{font-size:1.02rem;color:var(--text);}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:14px 0;}
+th{background:var(--surface-2);color:var(--accent);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:10px 10px 12px;line-height:1.5;overflow:visible;border-bottom:1px solid var(--border);}
+td{padding:10px 10px 12px;line-height:1.6;overflow:visible;border-bottom:1px solid var(--border);color:var(--text-muted);vertical-align:top;}
+td strong{color:var(--text);}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.muted{color:var(--text-muted);}
+.ok{color:var(--green);}
+.bad{color:var(--red);}
+.warn{color:var(--accent);}
+.lbl{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.6;padding-bottom:.1em;overflow:visible;}
+.lbl-gold{color:var(--accent);}
+.lbl-blue{color:var(--blue);}
+.lbl-green{color:var(--green);}
+.lbl-purple{color:var(--purple);}
+.lbl-red{color:var(--red);}
+.assumption-box{background:rgba(245,166,35,.06);border-left:3px solid var(--accent);border-radius:6px;padding:14px 18px;margin:20px 0;}
+.assumption-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.indicators-box{background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.female-box{background:rgba(236,72,153,.06);border:1px solid rgba(236,72,153,.25);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.female-box-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#f9a8d4;margin-bottom:8px;}
+.male-box{background:rgba(104,211,145,.06);border:1px solid rgba(104,211,145,.25);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.male-box-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.emotional-root-box{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.tier{display:inline-block;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-left:6px;vertical-align:middle;white-space:nowrap;}
+.tier1{background:rgba(104,211,145,.12);border:1px solid rgba(104,211,145,.35);color:var(--green);}
+.tier2{background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.35);color:var(--accent);}
+.tier3{background:rgba(154,154,170,.1);border:1px solid rgba(154,154,170,.3);color:var(--text-muted);}
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;margin:18px 0;}
+.fig svg{display:block;width:100%;height:auto;}
+.fig-cap{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.05em;color:var(--text-muted);margin-top:10px;line-height:1.6;}
+.hr-note{font-family:'DM Mono',monospace;font-size:.73rem;color:var(--red);letter-spacing:.03em;line-height:1.7;margin:0 0 12px;padding:10px 14px 12px;background:rgba(252,129,129,.06);border:1px solid rgba(252,129,129,.22);border-radius:8px;overflow:visible;}
+.dig-deeper-toggle{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);border-radius:8px;padding:10px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:12px 0 0;color:var(--accent);font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;width:100%;text-align:left;}
+.dig-deeper-toggle::after{content:"\25BC";font-size:.6rem;transition:transform .2s;}
+.dig-deeper-toggle.open::after{transform:rotate(180deg);}
+.dig-deeper-content{display:none;background:rgba(255,255,255,.02);border:1px solid rgba(245,166,35,.1);border-top:none;border-radius:0 0 8px 8px;padding:14px 18px;color:var(--text-muted);font-size:.9rem;}
+.dig-deeper-content.open{display:block;}
+.phase-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;}
+.phase-head{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.phase-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text);line-height:1.45;padding-bottom:.18em;overflow:visible;}
+.phase-head::after{content:"\25BC";color:var(--accent);font-size:.6rem;transition:transform .2s;}
+.phase-card.open .phase-head::after{transform:rotate(180deg);}
+.phase-body{display:none;padding:0 18px 18px;}
+.phase-card.open .phase-body{display:block;}
+.scenario{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--purple);border-radius:8px;padding:16px 20px;margin:14px 0;}
+.scenario-label{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:8px;}
+.scenario-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.02rem;color:var(--text);line-height:1.45;padding-bottom:.18em;overflow:visible;margin-bottom:8px;}
+.scenario-finding{color:var(--text-muted);font-size:.92rem;margin-bottom:10px;}
+.action-list{list-style:none;padding:0;margin:0;}
+.action-list li{color:var(--text-muted);font-size:.85rem;padding:3px 0 4px;line-height:1.6;overflow:visible;}
+.action-list li strong{color:var(--text);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.store-tag{display:inline-block;background:rgba(104,211,145,.1);border:1px solid rgba(104,211,145,.25);color:var(--green);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-left:6px;}
+.qbox{background:var(--surface-2);border:1px solid #2a2d3e;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.qnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;min-width:30px;border-radius:50%;background:rgba(245,166,35,.15);color:var(--accent);font-family:'DM Mono',monospace;font-weight:700;font-size:.85rem;margin-right:12px;}
+.example-banner{background:rgba(183,148,244,.08);border:1px solid rgba(183,148,244,.28);border-radius:10px;padding:14px 18px;margin-bottom:22px;}
+@media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr;}h1{font-size:1.6rem;}.wrap{padding:0 14px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="rovive-badge">RoVive Method &#183; Dr. Yoshi Rahm</div>
+  <h1 style="line-height:1.3;padding-bottom:0.32em;overflow:visible;">The Decision <span>Protocol</span></h1>
+  <p>Roots &#8594; Reveal &#8594; Refine &#8594; Rise &#183; RoVive Method</p>
+  <p class="disclaimer">FOR EDUCATIONAL PURPOSES ONLY &#183; NOT MEDICAL ADVICE &#183; NOT A SUBSTITUTE FOR PERSONAL MEDICAL CARE &#183; <a href="https://DrYoshi.com" target="_blank" style="color:#f5a623;font-weight:700;text-decoration:none;">DrYoshi.com</a></p>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('overview',this)">Overview</button>
+  <button class="tab" onclick="showTab('pillars',this)">Great 8 Pillars</button>
+  <button class="tab" onclick="showTab('questions',this)">The Five Questions</button>
+  <button class="tab" onclick="showTab('tree',this)">Decision Tree</button>
+  <button class="tab" onclick="showTab('supps',this)">Supplements &#183; When &amp; Whether</button>
+  <button class="tab" onclick="showTab('examples',this)">Worked Examples</button>
+  <button class="tab" onclick="showTab('aha',this)">Aha Moments</button>
+  <button class="tab" onclick="showTab('method',this)">RoVive Method</button>
+  <button class="tab" onclick="showTab('quick',this)">Quick Reference</button>
+</div>
+<div id="overview" class="section active">
+
+  <div class="indicators-box" style="margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:10px;">&#9670; DOES THIS RESONATE?</div>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">You might be living this pattern if&hellip;</p>
+    <ul style="color:#e8e4dc;margin:0;padding-left:18px;line-height:1.8;">
+      <li>Someone looked at one number, reached for a prescription pad, and the visit was over before you understood what the number meant.</li>
+      <li>You have a folder of results going back years and no idea which of them actually matter.</li>
+      <li>Every practitioner hands you a different list of supplements, and the lists do not agree.</li>
+      <li>A result was flagged, you were told to repeat it in a year, and nobody asked what might have caused it.</li>
+      <li>You have been told a value is &ldquo;normal for your age&rdquo; and something in you did not accept that as an answer.</li>
+      <li>You are doing a great many things and cannot tell which of them is working.</li>
+    </ul>
+  </div>
+
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; The Assumption Worth Questioning</div>
+    <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:6px;">&ldquo;If a number is abnormal, it needs treating.&rdquo;</p>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:0;">A result is not an observation of your body. It is the output of a procedure &#8212; a method, applied under particular conditions, on a particular morning, judged against a range somebody chose. Before any of it means anything, you have to know how it was made and what is driving it. Treating a number without that is treating a rumour. <strong>What would have to be true for this result to be telling you something other than what it appears to say?</strong></p>
+  </div>
+
+  <h2>What this protocol is</h2>
+  <p class="lead">Every other RoVive protocol answers <em>what</em> &#8212; what the markers mean, what the options are, what to take. This one answers <strong>how to decide</strong>. It is a method, not a topic.</p>
+  <p>That means it is deliberately domain-neutral. The structure below works the same whether the question in front of you is a lipid panel, a thyroid result, a gut test, a hormone panel, a bone density scan or an imaging report. The examples have to come from somewhere, so several are cardiovascular &#8212; but nothing in the reasoning depends on that, and the <strong>Worked Examples</strong> tab deliberately includes thyroid and gut cases to show the same five questions doing the same work in different territory.</p>
+
+  <div class="card-hi">
+    <h3 style="margin-top:0;">What it is not</h3>
+    <p style="margin-bottom:8px;"><strong>It does not restate doses.</strong> Where a decision leads to a specific agent, this protocol points you to the one that carries the detail &#8212; the Lipid &amp; Vascular protocol, the Fats &amp; Fatty Acids protocol, and the rest of the library. Duplicating dosing across documents is how two documents end up disagreeing within a year.</p>
+    <p style="margin-bottom:0;"><strong>It is not a substitute for judgment, and it is not a substitute for a physician.</strong> It is a way of making your own reasoning visible, so that you can tell the difference between a decision and a guess &#8212; in yourself, and in the people advising you.</p>
+  </div>
+
+  <h2>The Core Reframe &#8212; The Treatment Triangle</h2>
+  <p>Three layers. You build from the bottom. The layer almost everyone reaches for first is the smallest one at the top.</p>
+  <div class="fig">
+    <svg viewBox="0 0 680 412" xmlns="http://www.w3.org/2000/svg">
+<polygon points="340,22 408,150 272,150" fill="rgba(245,166,35,.22)" stroke="#f5a623" stroke-width="1.4"/>
+<polygon points="272,150 408,150 476,274 204,274" fill="rgba(99,179,237,.12)" stroke="#63b3ed" stroke-width="1.4"/>
+<polygon points="204,274 476,274 544,398 136,398" fill="rgba(104,211,145,.12)" stroke="#68d391" stroke-width="1.4"/>
+<text x="340" y="104" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#f5a623">TREATMENT</text>
+<text x="340" y="126" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#9a9aaa">drug &#183; supplement &#183; dose</text>
+<text x="340" y="212" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#63b3ed">TRAJECTORY</text>
+<text x="340" y="234" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#9a9aaa">is anything actually happening?</text>
+<text x="340" y="252" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#9a9aaa">imaging &#183; controlled repeat &#183; rate of change</text>
+<text x="340" y="336" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#68d391">TERRAIN</text>
+<text x="340" y="358" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#9a9aaa">what is driving it?</text>
+<text x="340" y="376" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#9a9aaa">the Great 8 Pillars</text>
+<path d="M 618 30 L 618 88" stroke="#fc8181" stroke-width="3" fill="none"/>
+<polygon points="618,100 611,84 625,84" fill="#fc8181"/>
+<text x="618" y="22" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" font-weight="700" fill="#fc8181">CONVENTIONAL</text>
+<text x="618" y="118" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">enters here</text>
+<text x="618" y="132" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">and stops here</text>
+<path d="M 70 372 L 70 86" stroke="#68d391" stroke-width="3" fill="none"/>
+<polygon points="70,74 63,90 77,90" fill="#68d391"/>
+<text x="70" y="390" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" font-weight="700" fill="#68d391">BUILT FROM</text>
+<text x="70" y="402" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" font-weight="700" fill="#68d391">THE BOTTOM</text>
+<text x="70" y="46" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">smallest layer,</text>
+<text x="70" y="60" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">last decision</text>
+</svg>
+    <div class="fig-cap"><strong>The Treatment Triangle.</strong> TERRAIN is what is driving the number &#8212; and it maps directly onto the Great 8 Pillars, which is why they are the second tab of this protocol rather than an afterthought. TRAJECTORY asks whether anything is actually happening: imaging, a controlled repeat, a rate of change over time. TREATMENT is the smallest band because it is the last decision, not the first. The red arrow is where a twelve-minute appointment enters the diagram; the green arrow is the order this protocol argues for.</div>
+  </div>
+
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; The Inversion</div>
+    <p style="color:#e8e4dc;font-size:.95rem;margin-bottom:0;">Conventional care enters at the apex and usually never descends. A value crosses a threshold and a prescription follows. That is not malice and it is not incompetence &#8212; it is a short appointment and a guideline written for populations rather than for you. <strong>The whole of this protocol is an argument for entering at the base instead.</strong></p>
+  </div>
+
+  <h2>How to read the evidence tiers</h2>
+  <p>Every claim, marker and intervention in the RoVive library carries a tier badge where it is first covered in detail. The tier describes <strong>how much and what kind of evidence exists</strong> &#8212; not how confident you should feel about your own body.</p>
+  <div class="fig">
+    <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg">
+<rect x="150" y="14" width="380" height="66" rx="8" fill="rgba(104,211,145,.14)" stroke="#68d391" stroke-width="1.4"/>
+<text x="340" y="38" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#68d391">TIER 1</text>
+<text x="340" y="58" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#c8c4bc">Causal evidence AND randomised outcome data</text>
+<text x="340" y="73" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">act on it</text>
+<rect x="110" y="90" width="460" height="66" rx="8" fill="rgba(245,166,35,.14)" stroke="#f5a623" stroke-width="1.4"/>
+<text x="340" y="114" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#f5a623">TIER 2</text>
+<text x="340" y="134" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#c8c4bc">Strong mechanism, limited or mixed trial data</text>
+<text x="340" y="149" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">weigh it &#8212; most clinical judgment lives here</text>
+<rect x="70" y="166" width="540" height="66" rx="8" fill="rgba(154,154,170,.1)" stroke="#9a9aaa" stroke-width="1.4"/>
+<text x="340" y="190" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#9a9aaa">TIER 3</text>
+<text x="340" y="210" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#c8c4bc">Mechanism and epidemiology, intervention unproven</text>
+<text x="340" y="225" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">note it, do not build the plan on it</text>
+</svg>
+    <div class="fig-cap">The tier system, widest at the bottom because that is where most of biology currently sits. A protocol containing only Tier 1 material would be short, safe and far less useful. Most real clinical judgment happens in Tier 2. Tier 3 is where the interesting questions live &#8212; and naming something as unproven while still including it is what makes the rest of the document trustworthy.</div>
+  </div>
+
+  <div class="card">
+    <p style="margin-bottom:0;"><strong>Why the bottom tier still belongs here.</strong> Excluding everything unproven would mean excluding most of what a thoughtful clinician actually thinks about. The honest move is not to hide Tier 3 material but to label it, so you can tell the difference between something you should act on and something worth watching. <strong>A protocol that never says &ldquo;we do not know&rdquo; is not being careful with you.</strong></p>
+  </div>
+
+  <h2>The three questions this protocol keeps asking</h2>
+  <div class="grid3">
+    <div class="card" style="margin:0;">
+      <div class="lbl lbl-green">TERRAIN</div>
+      <p style="margin-bottom:0;margin-top:6px;">What is driving this &#8212; and has anyone actually looked?</p>
+    </div>
+    <div class="card" style="margin:0;">
+      <div class="lbl lbl-blue">TRAJECTORY</div>
+      <p style="margin-bottom:0;margin-top:6px;">Is it doing anything, in this body, right now?</p>
+    </div>
+    <div class="card" style="margin:0;">
+      <div class="lbl lbl-gold">TREATMENT</div>
+      <p style="margin-bottom:0;margin-top:6px;">Has this earned its place &#8212; and what would change my mind?</p>
+    </div>
+  </div>
+
+  <div class="card-hi">
+    <h3 style="margin-top:0;">Nothing in biology is monotonic</h3>
+    <p style="margin-bottom:0;">This protocol spends much of its length arguing against over-treating. It is worth stating the opposite risk just as plainly: <strong>under-treating is also a decision, and it also has consequences.</strong> Declining a genuinely indicated intervention because a document encouraged scepticism is the same error in the other direction. The goal is not less medicine. It is medicine that has earned its place &#8212; and sometimes, having asked the questions honestly, the answer is yes, start it, start it now.</p>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+<div id="pillars" class="section">
+
+  <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:6px;">&#9670; THE GREAT 8 PILLARS &#8212; THE TERRAIN LAYER</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">In this protocol the pillars are not a wellness checklist appended to the end. <strong>They are the terrain</strong> &#8212; the base of the Treatment Triangle, and the answer to &ldquo;what is driving this number?&rdquo; almost every time anyone bothers to look.</div>
+  </div>
+
+  <div style="background:rgba(99,179,237,.06);border:1px solid rgba(99,179,237,.2);border-radius:8px;padding:12px 16px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:6px;">&#9670; HOW TO READ THIS LIST</div>
+    <div style="color:#9a9aaa;font-size:.9rem;">All 8 pillars matter &#8212; always. Because this is a method rather than a condition, the ranking here is unusual: it is ordered by <strong>how often a pillar turns out to be the driver that nobody looked at</strong>, not by importance. For any specific condition the order changes, and the relevant protocol will rank them for that condition. Your weakest pillar is often your biggest opportunity regardless of where it sits here.</div>
+  </div>
+
+<div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;">#1</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Sleep &amp; Light</div></div><p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">The most commonly missed upstream driver in all of medicine, and the one most likely to be generating several apparently separate problems at once. Disordered or insufficient sleep raises blood pressure, degrades glucose handling, raises inflammatory markers, suppresses testosterone, impairs memory consolidation and slows processing speed. A person with four abnormal results and untreated sleep-disordered breathing does not have four problems.</p><div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;"><div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; HOW IT SHOWS UP IN A DECISION</div><div style="color:#e8e4dc;font-size:.9rem;">Before accepting any list of separate diagnoses, ask whether one sleep problem could produce all of them. If it could, the sleep study is the highest-yield test on the list &#8212; and the other decisions can reasonably wait for it.</div></div><button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &#8212; Why sleep sits at the top of a decision protocol</button><div class="dig-deeper-content"><p>The glymphatic system clears metabolic waste from the brain predominantly during slow-wave sleep, and that clearance falls sharply when deep sleep is fragmented. Growth hormone release is pulsatile and concentrated in early-night slow-wave sleep. Circadian misalignment independently impairs insulin sensitivity in controlled laboratory studies, in people with entirely normal sleep duration.</p>
+  <p>The decision-relevant point is not that sleep is important &#8212; everyone agrees it is important. It is that <strong>sleep-disordered breathing is common, under-diagnosed, and produces a constellation of findings that look like independent diseases.</strong> Hypertension, proteinuria, cognitive complaints, elevated inflammatory markers and low testosterone can all be downstream of it.</p>
+  <p>When several findings appear at once, the discipline is to ask what single upstream process could generate all of them before treating each one separately. Sleep is the first place to look, because it is common, testable, treatable, and routinely skipped.</p>
+  <p><strong>Light is inseparable from this.</strong> Morning outdoor light exposure entrains the circadian system more powerfully than any supplement; evening blue light delays melatonin onset. Both are free, and both are frequently the actual intervention when someone asks which sleep supplement to take.</p></div></div><div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;">#2</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Food</div></div><p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Food is the terrain input with the largest surface area and the most contested evidence, which makes it the pillar most likely to be argued about and least likely to be measured. The decision-relevant question is rarely &ldquo;is this food good or bad&rdquo; but &ldquo;what is this person actually eating, how do we know, and what would change if it changed?&rdquo;</p><div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;"><div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; HOW IT SHOWS UP IN A DECISION</div><div style="color:#e8e4dc;font-size:.9rem;">Before attributing a marker to diet, establish that the dietary pattern was actually assessed rather than assumed. A great deal of nutritional advice is given to people whose diet was never asked about in any detail.</div></div><button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &#8212; Diet as a variable you can actually test</button><div class="dig-deeper-content"><p>The recurring failure in nutritional decision-making is treating diet as a fixed belief rather than a testable variable. Three disciplines fix most of it.</p>
+  <p><strong>Establish the baseline before changing it.</strong> A marker attributed to diet, in someone whose intake was never assessed, is an attribution rather than a finding. Photographic food records over several ordinary days outperform recall dramatically.</p>
+  <p><strong>Change one thing, and define the readout first.</strong> Deciding in advance which marker should move, by how much, and over what interval, is what separates an experiment from a hope. If nothing was specified in advance, any result can be read as success.</p>
+  <p><strong>Match the marker to the exposure.</strong> Different markers reflect different time windows. Some reflect the previous morning; others integrate over months. Choosing a marker that moves faster than the intervention, or slower than the follow-up interval, produces an uninterpretable result no matter how good the intervention was.</p>
+  <p>The full dietary reasoning for any given condition belongs in that condition&#8217;s protocol. What belongs here is the decision structure: assess, change one thing, pre-specify the readout, and choose a marker whose time course matches the question.</p></div></div><div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><div style="background:rgba(245,166,35,.15);border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.85rem;">#3</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Movement</div></div><p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Movement is the pillar with the strongest outcome evidence and the weakest adherence, which makes it a decision problem more than an information problem. Almost nobody needs to be told that exercise helps. What they need is a version that survives their actual life.</p><div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;margin-bottom:12px;"><div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">&#9670; HOW IT SHOWS UP IN A DECISION</div><div style="color:#e8e4dc;font-size:.9rem;">When designing any movement recommendation, ask what will still happen during a bad week, a travel week or an injury. A plan that only works under ideal conditions is a plan that will stop.</div></div><button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &#8212; Why the optimal programme is usually the wrong one</button><div class="dig-deeper-content"><p>Zone 2 cardiovascular work (e.g., a brisk walk where you can hold a full conversation, easy cycling, light swimming, a conversational-pace jog) and progressive resistance training are foundational, and the evidence for both is strong.</p>
+  <p>But the decision-relevant failure mode is not choosing the wrong modality. It is <strong>the all-or-nothing pattern</strong>: an ambitious programme, three good weeks, an injury or a disruption, and then nothing for eight months. This pattern is extremely common and it is predictable from someone&#8217;s history.</p>
+  <p>Where that history exists, the correct move is often to deliberately prescribe something smaller than what is optimal &#8212; something that survives travel, illness and a bad week. Ten bodyweight squats after each meal is not an optimal glycaemic intervention. It is a <em>real</em> one, and the difference matters far more than the gap between it and something better that will not happen.</p>
+  <p><strong>The principle generalises well beyond movement:</strong> the best version of any intervention is the one that will actually be done. When a plan and a life are in conflict, the plan loses, and the plan was the thing you were able to change.</p></div></div><div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><div style="background:rgba(245,166,35,.15);border-radius:50%;width:26px;height:26px;min-width:26px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.75rem;">#4</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Spirit &amp; Purpose</div></div><p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Whether that is God, your higher self, a deep belief in yourself, or simply what gets you out of bed before the alarm &#8212; this is your animating force. In decision terms it determines whether any plan is sustained, and it shapes what a person is actually optimising for, which is not always what a guideline assumes.</p><button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &#8212; Purpose as a decision input</button><div class="dig-deeper-content"><p>Two people with identical results can reasonably make opposite decisions, and neither is wrong. One is optimising for maximum years; another for independence, or capacity for specific work, or avoiding a particular way of declining that they watched someone else endure.</p>
+  <p>A protocol that never asks what someone is optimising for will keep producing technically correct recommendations that get quietly abandoned. <strong>Ask what the person is actually trying to protect.</strong> The answer changes which trade-offs are acceptable &#8212; how much monitoring burden is tolerable, how much medication, how much dietary restriction, how much uncertainty.</p>
+  <p>There is also a measurable dimension. Sense of purpose has been associated with lower all-cause mortality in prospective cohorts, with effect sizes comparable to several interventions that receive vastly more clinical attention. The mechanisms proposed include health behaviour, stress physiology and inflammatory signalling. <span class="tier tier2">Tier 2</span></p></div></div><div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><div style="background:rgba(245,166,35,.15);border-radius:50%;width:26px;height:26px;min-width:26px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.75rem;">#5</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Community &amp; Connection</div></div><p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">The most underestimated pillar, and one of the few terrain inputs that can be observed without any test at all. Social isolation carries mortality associations comparable to established cardiovascular risk factors, and unlike most of them it is rarely recorded, rarely asked about, and almost never entered into a treatment decision.</p><button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &#8212; Connection as terrain, not as sentiment</button><div class="dig-deeper-content"><p>The decision-relevant observation is that isolation does two things at once: it acts as a direct physiological stressor, and it degrades every other pillar. Isolated people sleep worse, eat worse, move less and take medication less consistently. A plan built for someone who is alone and unsupported has to be simpler than a plan built for someone with help.</p>
+  <p>There are also population observations that are difficult to explain any other way &#8212; communities whose cardiovascular outcomes were substantially better than their measured risk factors predicted, and whose advantage faded as their social structure changed rather than as their diet did. Those observations have real methodological limitations and cannot carry a causal claim on their own. <span class="tier tier2">Tier 2</span></p>
+  <p><strong>Practical consequence:</strong> ask who else is in the room. The answer changes what plan is realistic, and it is free to obtain.</p></div></div><div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><div style="background:rgba(245,166,35,.15);border-radius:50%;width:26px;height:26px;min-width:26px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.75rem;">#6</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Water</div></div><p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Hydration status silently changes a surprising number of measured values by concentrating or diluting what is measured per unit volume. A person who arrives dehydrated produces a different panel from the same person hydrated, with no change in underlying physiology.</p><button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &#8212; Hydration as a pre-analytical variable</button><div class="dig-deeper-content"><p>This pillar earns its place in a decision protocol for a specific and unglamorous reason: <strong>hydration status is one of the commonest reasons a result is wrong without anyone being at fault.</strong> Concentration effects touch creatinine, haemoglobin, haematocrit, albumin and lipid values among others.</p>
+  <p>It compounds with other pre-analytical factors. Someone who trained hard, used a sauna and arrived under-hydrated can produce several simultaneously abnormal values that all normalise on a controlled repeat. This is covered in detail in <strong>The Five Questions &#8594; Question 3</strong>.</p>
+  <p>Beyond the analytical point, adequate mineralised water intake supports plasma volume, thermoregulation and renal clearance. The quality conversation &#8212; filtration, mineral content, structure &#8212; is real but belongs in the protocols where it carries specific weight.</p></div></div><div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><div style="background:rgba(245,166,35,.15);border-radius:50%;width:26px;height:26px;min-width:26px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.75rem;">#7</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Air</div></div><p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Breathing pattern is a directly modifiable input to autonomic state, and air quality is an exposure that is almost never measured in people who spend most of their lives indoors. Both are terrain; neither appears on any standard panel.</p><button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &#8212; Breath and exposure as unmeasured inputs</button><div class="dig-deeper-content"><p><strong>Breath as autonomic lever.</strong> Slow nasal breathing with an extended exhale raises vagal tone and heart rate variability within minutes. Nasal breathing generates nitric oxide in the paranasal sinuses, which contributes to airway and vascular tone. These effects are measurable and immediate, which makes breathwork one of the few terrain interventions with a same-session readout.</p>
+  <p><strong>Air quality as exposure.</strong> Indoor air is where most people spend most of their time, and it is essentially never assessed. Combustion sources, mould, volatile organic compounds and particulate matter are real exposures with real physiological consequences, and they can produce findings that look idiopathic.</p>
+  <p>When inflammatory markers are elevated with no obvious source, exposure history belongs in the differential alongside everything else &#8212; including the building the person lives in.</p></div></div><div style="background:#131620;border:1px solid #2a2d3e;border-radius:10px;padding:18px;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><div style="background:rgba(245,166,35,.15);border-radius:50%;width:26px;height:26px;min-width:26px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-weight:700;color:#f5a623;font-size:.75rem;">#8</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#e8e4dc;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Electrical</div></div><p style="color:#9a9aaa;font-size:.9rem;margin-bottom:10px;">Light exposure, grounding, electromagnetic environment and mitochondrial charge. This pillar carries the widest range of evidence quality of any of the eight, from well-established circadian photobiology to claims that remain speculative &#8212; which makes honest tiering more important here than anywhere else.</p><button class="dig-deeper-toggle" onclick="toggleDigDeeper(this)">&#9670; Dig Deeper &#8212; Separating what is established from what is not</button><div class="dig-deeper-content"><p><strong>Well established.</strong> Light is the dominant circadian entrainment signal, acting through melanopsin-containing retinal ganglion cells. Timing, intensity and spectrum all matter. Morning outdoor light and evening dimming are among the highest-leverage, lowest-cost interventions available. <span class="tier tier1">Tier 1</span></p>
+  <p><strong>Reasonable mechanism, developing evidence.</strong> Red and near-infrared photobiomodulation has plausible mechanisms involving cytochrome c oxidase and mitochondrial function, with a growing but heterogeneous clinical literature. Effects appear real in several indications; optimal dosing parameters remain unsettled. <span class="tier tier2">Tier 2</span></p>
+  <p><strong>Mechanistic and epidemiological only.</strong> Grounding, structured water and non-ionising electromagnetic field exposure at everyday intensities have proposed mechanisms and some supportive observation, but intervention evidence is limited or absent. <span class="tier tier3">Tier 3</span></p>
+  <p>This pillar is a useful test of whether a protocol is being honest with you. Including Tier 3 material is legitimate. <strong>Presenting it at Tier 1 confidence is not.</strong></p></div></div>
+  <div class="card-hi">
+    <h3 style="margin-top:0;">Using the pillars as a diagnostic move</h3>
+    <p style="margin-bottom:8px;">When a result is abnormal and nobody can say why, walk the eight in order and ask a single question of each: <strong>could this pillar be producing this finding, and has anyone actually checked?</strong></p>
+    <p style="margin-bottom:0;">The value is not that you will always find the answer. It is that the walk surfaces the pillars that were <em>assumed</em> rather than assessed &#8212; and in practice the driver is usually sitting in one of those.</p>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+<div id="questions" class="section">
+
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; Before You Treat A Number</div>
+    <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:6px;">Five questions, in order. They work on any result, in any domain, from any laboratory.</p>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:0;">The first three ask whether the number is real. The last two ask whether it matters. Most clinical conversations begin at question four without ever asking the first three &#8212; which is how a value that was never trustworthy ends up driving a decision that lasts for years.</p>
+  </div>
+
+  <div class="qbox">
+    <div style="display:flex;align-items:flex-start;">
+      <div class="qnum">1</div>
+      <div style="flex:1;">
+        <h3 style="margin-top:0;margin-bottom:6px;">What is this measuring &#8212; and in what units?</h3>
+        <p style="margin-bottom:10px;">Two results with the same name are not necessarily the same quantity, and two numbers in different units are not always convertible.</p>
+      </div>
+    </div>
+    <p>Most unit conversions are harmless arithmetic. Glucose in mmol/L is mg/dL divided by 18. Vitamin D in nmol/L is ng/mL multiplied by 2.5. Both convert exactly, in both directions, for everyone.</p>
+    <p><strong>Some do not convert at all.</strong> Where a measurement reports <em>mass</em> and another reports <em>number of particles</em>, the relationship between them depends on how big the individual particles happen to be in that person &#8212; which varies. A single conversion factor is then not merely imprecise; it is systematically wrong in a direction that depends on the individual.</p>
+    <p>The same problem appears in other guises across medicine:</p>
+    <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:1.85;margin-bottom:12px;">
+      <li><strong>Different assays for the same analyte</strong> that are not standardised against one another, so results from two laboratories cannot be compared even in identical units.</li>
+      <li><strong>Total versus free versus bioavailable</strong> fractions of a hormone &#8212; three different questions reported under similar names, with different reference ranges and different clinical meanings.</li>
+      <li><strong>Activity versus concentration</strong> &#8212; how much of an enzyme is present is not the same question as how much work it is doing.</li>
+      <li><strong>Antibody titres</strong> expressed on scales that differ by laboratory, where a fourfold change may be meaningful and a twofold change may be noise.</li>
+    </ul>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;">
+      <div class="lbl lbl-green" style="margin-bottom:4px;">&#9670; WHAT TO DO</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Before comparing any two results, confirm they are the same quantity, in the same units, from the same assay. When they are not, the fix is to re-order in the preferred units rather than to convert the number you already have.</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div style="display:flex;align-items:flex-start;">
+      <div class="qnum">2</div>
+      <div style="flex:1;">
+        <h3 style="margin-top:0;margin-bottom:6px;">Was it measured, or was it calculated?</h3>
+        <p style="margin-bottom:10px;">Several of the most-quoted numbers in medicine are never measured at all. They are arithmetic performed on other numbers &#8212; which means they inherit every error those numbers carry, and they have conditions under which the arithmetic stops working.</p>
+      </div>
+    </div>
+    <div class="tbl-scroll">
+    <table>
+      <tr><th>Type</th><th>Examples</th><th>What to watch for</th></tr>
+      <tr><td><strong>Measured directly</strong></td><td class="muted">Most immunoassays, mass spectrometry results, imaging measurements, cell counts</td><td class="muted">Assay interference, sample handling, and the reference range used. Generally the more trustworthy category &#8212; but see Question 3.</td></tr>
+      <tr><td><strong>Calculated from other values</strong></td><td class="muted">Estimated glomerular filtration rate, several lipid fractions, free hormone indices, insulin resistance indices, corrected calcium</td><td class="muted"><strong>Inherits every error of its inputs.</strong> Most have a validity range outside which the formula is simply wrong, and many laboratories report the result anyway.</td></tr>
+      <tr><td><strong>Derived from a proxy</strong></td><td class="muted">Estimated average glucose from a glycated marker; bone density T-scores; body fat from impedance</td><td class="muted">Valid only where the assumption linking proxy to target holds. Conditions that break the assumption &#8212; altered red cell lifespan, unusual body composition, oedema &#8212; break the estimate.</td></tr>
+    </table>
+    </div>
+    <p><strong>The failure mode that catches people</strong> is a calculated value that changes dramatically because one of its <em>inputs</em> changed, and is then read as though the underlying quantity had changed. When an equation was never valid at the starting value, comparing before and after is comparing an artefact to a measurement.</p>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;">
+      <div class="lbl lbl-green" style="margin-bottom:4px;">&#9670; WHAT TO DO</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">For any value driving a decision, ask whether it was measured or derived, and if derived, whether the formula was valid at your values. Where it matters, ask for the direct measurement &#8212; it usually exists and is usually simply not ordered by default.</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div style="display:flex;align-items:flex-start;">
+      <div class="qnum">3</div>
+      <div style="flex:1;">
+        <h3 style="margin-top:0;margin-bottom:6px;">What was going on in the 48 hours before the draw?</h3>
+        <p style="margin-bottom:10px;">Pre-analytical variation is the most under-appreciated source of wrong numbers in outpatient medicine. None of it is laboratory error. The laboratory measured correctly &#8212; it measured a body that was in an unusual state.</p>
+      </div>
+    </div>
+    <div class="tbl-scroll">
+    <table>
+      <tr><th>What happened</th><th>What it moves</th><th>How to control it</th></tr>
+      <tr><td><strong>High-dose biotin</strong><br><span style="display:inline-block;margin-top:5px;" class="tier tier1">Tier 1</span></td><td class="muted">Interferes with many streptavidin-biotin immunoassays. Can produce <em>falsely low</em> thyroid-stimulating hormone with <em>falsely high</em> free T4 and T3 &#8212; a picture that looks like overt hyperthyroidism in someone with a normal thyroid. Also affects troponin and some hormone assays.</td><td class="muted">Hold 2&#8211;3 days; longer for very high doses. Common because biotin is in most hair, skin and nail supplements, and people rarely think of it as a drug.</td></tr>
+      <tr><td><strong>Heavy or unaccustomed exercise</strong></td><td class="muted">Raises muscle-derived markers, several enzymes, and inflammatory markers. Can persist for days after genuinely hard or eccentric work.</td><td class="muted">Avoid for 48 hours before testing that includes muscle, renal or inflammatory markers.</td></tr>
+      <tr><td><strong>Creatine supplementation</strong></td><td class="muted">Raises serum creatinine and therefore lowers calculated filtration rate, with no change in actual kidney function.</td><td class="muted">Hold 48 hours, and disclose it &#8212; so a single flagged value is not read in isolation.</td></tr>
+      <tr><td><strong>Dehydration, sauna, heat</strong></td><td class="muted">Concentrates almost everything measured per unit volume.</td><td class="muted">Normal hydration; no sauna for 24&#8211;48 hours.</td></tr>
+      <tr><td><strong>Alcohol</strong></td><td class="muted">Raises triglycerides and several liver markers; affects sleep architecture for days.</td><td class="muted">Avoid for at least 3 days.</td></tr>
+      <tr><td><strong>A recent meal</strong></td><td class="muted">Raises triglycerides, glucose and insulin; corrupts anything calculated from them.</td><td class="muted">Fast 10&#8211;12 hours where the panel requires it. Some markers do not need fasting &#8212; check rather than assume.</td></tr>
+      <tr><td><strong>Acute illness or injury</strong></td><td class="muted">Raises acute-phase reactants; transiently lowers several other values including some lipids and some hormones.</td><td class="muted">Postpone 2&#8211;4 weeks. A panel drawn during illness misleads, often in a reassuring direction.</td></tr>
+      <tr><td><strong>Time of day</strong></td><td class="muted">Cortisol, testosterone, iron and several others vary substantially across the day by normal physiology.</td><td class="muted">Standardise the draw time, and compare like with like across repeats.</td></tr>
+      <tr><td><strong>Recent medication or supplement changes</strong></td><td class="muted">Shifts the panel and sometimes the assay itself.</td><td class="muted">Note dates on the requisition so results are read against the right baseline.</td></tr>
+    </table>
+    </div>
+    <div class="female-box">
+      <div class="female-box-title">&#9670; Female-specific</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Menstrual cycle phase changes hormone values, several lipid fractions, iron studies and some inflammatory markers. Comparing a result drawn in one phase to a result drawn in another is a comparison of two different physiological states, not a change over time. Where cycle phase matters, it belongs on the requisition. In perimenopause &#8212; which can begin at 35 &#8212; cycle-to-cycle variability itself increases, so a single draw carries less information than it would have a decade earlier.</div>
+    </div>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;">
+      <div class="lbl lbl-green" style="margin-bottom:4px;">&#9670; WHAT TO DO</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">For any abnormal result that is about to change a decision, reconstruct the 48 hours before the draw before accepting it. If any of the above applies, the right next step is a controlled repeat &#8212; not a diagnosis, and not dismissal either.</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div style="display:flex;align-items:flex-start;">
+      <div class="qnum">4</div>
+      <div style="flex:1;">
+        <h3 style="margin-top:0;margin-bottom:6px;">What is driving it &#8212; and has anyone looked?</h3>
+        <p style="margin-bottom:10px;">This is the terrain question, and it is the one most often skipped entirely. A result tells you that something is happening. It does not carry its own cause.</p>
+      </div>
+    </div>
+    <p>Two people can arrive at an identical value by completely different routes, and the route determines what will actually help. Treating the number without knowing the route means selecting an intervention at random from the list of things that move that number.</p>
+    <p><strong>The structured version of this question is to walk the Great 8 Pillars</strong> and ask of each: could this be producing this finding, and has anyone checked? The value of the walk is that it separates the pillars that were <em>assessed</em> from the pillars that were <em>assumed</em>. In practice the driver is usually sitting among the assumed ones.</p>
+    <div class="card" style="background:rgba(99,179,237,.06);border-color:rgba(99,179,237,.22);">
+      <div class="lbl lbl-blue" style="margin-bottom:6px;">&#9670; THE UPSTREAM TEST</div>
+      <p style="margin-bottom:0;">When several findings appear together, ask whether one upstream process could generate all of them. If it could, that process becomes the highest-yield thing to investigate &#8212; and the downstream decisions can often reasonably wait for the answer. <strong>Four findings do not necessarily mean four problems.</strong></p>
+    </div>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;">
+      <div class="lbl lbl-green" style="margin-bottom:4px;">&#9670; WHAT TO DO</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Ask directly: what is driving this, and what was actually looked at to find out? If the honest answer is that nobody looked, that is the next step &#8212; not a prescription.</div>
+    </div>
+  </div>
+
+  <div class="qbox">
+    <div style="display:flex;align-items:flex-start;">
+      <div class="qnum">5</div>
+      <div style="flex:1;">
+        <h3 style="margin-top:0;margin-bottom:6px;">Is it actually doing anything?</h3>
+        <p style="margin-bottom:10px;">This is the trajectory question. A risk factor is a statement about probability across a population. It is not a statement about what is happening inside you.</p>
+      </div>
+    </div>
+    <p>Three kinds of evidence answer it, and they differ enormously in directness:</p>
+    <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:1.85;margin-bottom:12px;">
+      <li><strong>Direct visualisation.</strong> Imaging that shows the tissue or structure in question. The most direct evidence available, and usually the most expensive and least often ordered.</li>
+      <li><strong>Functional measurement.</strong> A test of what the system can actually do, rather than what a marker implies it might. Capacity testing, provocative testing, performance measures.</li>
+      <li><strong>Rate of change.</strong> The same measurement, under the same conditions, over time. Frequently more informative than any single value &#8212; and available to anyone with two comparable results.</li>
+    </ul>
+    <p>A marker is a proxy. Proxies are useful precisely because they are cheap and repeatable, and they are limited precisely because they are proxies. <strong>When a proxy and a direct measurement disagree, the direct measurement usually wins</strong> &#8212; and the disagreement is itself one of the most informative findings available.</p>
+    <div class="card-hi">
+      <h3 style="margin-top:0;">When does looking earn its cost?</h3>
+      <p style="margin-bottom:8px;">Direct assessment is not always worth it. It earns its place when:</p>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:1.8;margin-bottom:8px;">
+        <li>The result would <strong>change the decision</strong> &#8212; in either direction. If you would do the same thing regardless, the test is expensive reassurance.</li>
+        <li>The markers and the clinical picture <strong>disagree</strong>, and the disagreement is unresolved.</li>
+        <li>A long-term commitment is being contemplated, and the evidence for starting rests entirely on proxies.</li>
+        <li>The person needs to <strong>see it</strong> to act on it &#8212; which is a legitimate clinical reason, not a soft one.</li>
+      </ul>
+      <p style="margin-bottom:0;"><strong>It does not earn its place</strong> when the result cannot change the plan, when it will generate incidental findings that trigger cascades of further testing with their own risks, or when it is being ordered because the uncertainty is uncomfortable rather than because the answer is actionable.</p>
+    </div>
+    <div style="background:rgba(104,211,145,.06);border-left:3px solid #68d391;border-radius:4px;padding:10px 14px;">
+      <div class="lbl lbl-green" style="margin-bottom:4px;">&#9670; WHAT TO DO</div>
+      <div style="color:#e8e4dc;font-size:.9rem;">Before treating a risk factor long-term, ask what direct evidence exists that it is doing damage in this body &#8212; and whether obtaining that evidence would change anything. Sometimes the honest answer is that it would not, and the decision proceeds on the proxy. That is a legitimate answer. It is just not the same as never having asked.</div>
+    </div>
+  </div>
+
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; The Rule These Five Questions Exist To Teach</div>
+    <p style="color:#e8e4dc;font-size:1rem;font-weight:600;margin-bottom:8px;">An abnormal result is never safe to ignore &#8212; and it is rarely safe to act on the first time you see it.</p>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:0;">If questions 4 and 5 have not been asked, the next step is to ask them. That is not delay and it is not scepticism for its own sake. It is the difference between a decision and a guess.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">The worksheet &#8212; take this to any appointment</h3>
+    <p>Write the answers down. The act of writing them exposes which ones nobody can answer, and those are exactly the ones worth pursuing.</p>
+    <div class="tbl-scroll">
+    <table>
+      <tr><th>&nbsp;</th><th>Question</th><th>Your answer</th></tr>
+      <tr><td><strong>1</strong></td><td>What is this measuring, and in what units?</td><td class="muted">&nbsp;</td></tr>
+      <tr><td><strong>2</strong></td><td>Was it measured, or calculated? Was the formula valid at my values?</td><td class="muted">&nbsp;</td></tr>
+      <tr><td><strong>3</strong></td><td>What was going on in the 48 hours before the draw?</td><td class="muted">&nbsp;</td></tr>
+      <tr><td><strong>4</strong></td><td>What is driving it &#8212; and has anyone looked?</td><td class="muted">&nbsp;</td></tr>
+      <tr><td><strong>5</strong></td><td>Is it actually doing anything?</td><td class="muted">&nbsp;</td></tr>
+    </table>
+    </div>
+    <p style="font-family:'DM Mono',monospace;font-size:.62rem;color:#5a5a6a;margin:12px 0 0;letter-spacing:.05em;">EDUCATIONAL WORKSHEET ONLY &#183; NOT A DIAGNOSIS &#183; NOT MEDICAL ADVICE</p>
+  </div>
+
+  <div class="card-hi">
+    <h3 style="margin-top:0;">Asking in writing</h3>
+    <p style="margin-bottom:8px;">Requests made verbally in a short appointment are the ones that quietly do not get ordered. A short written list, sent in advance through the portal, survives far better &#8212; and creates a record of what was asked.</p>
+    <p style="margin-bottom:0;">If a request is declined, asking for the reason to be documented is reasonable, not adversarial. Often there is a good reason and hearing it is useful. Occasionally there is not, and the documentation is what lets you take the question elsewhere.</p>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+<div id="tree" class="section">
+
+  <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px;">&#9670; The Sequence</div>
+    <div style="color:#e8e4dc;font-size:.92rem;">The five questions in the order they should actually be asked, with the branch points marked. Nothing here is specific to any organ system.</div>
+  </div>
+
+  <div class="fig">
+    <svg viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg">
+<rect x="230" y="10" width="220" height="44" rx="8" fill="rgba(245,166,35,.14)" stroke="#f5a623" stroke-width="1.4"/>
+<text x="340" y="30" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="700" fill="#f5a623">AN ABNORMAL RESULT</text>
+<text x="340" y="46" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">any marker, any domain</text>
+<line x1="340" y1="54" x2="340" y2="76" stroke="#3a3d4e" stroke-width="1.6"/>
+<polygon points="340,84 334,72 346,72" fill="#3a3d4e"/>
+<rect x="190" y="84" width="300" height="46" rx="8" fill="rgba(99,179,237,.1)" stroke="#63b3ed" stroke-width="1.4"/>
+<text x="340" y="104" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#63b3ed">IS THE NUMBER REAL?</text>
+<text x="340" y="121" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">questions 1&#8211;3 &#183; units, calculated, the 48 hours</text>
+<line x1="340" y1="130" x2="340" y2="152" stroke="#3a3d4e" stroke-width="1.6"/>
+<polygon points="340,160 334,148 346,148" fill="#3a3d4e"/>
+<line x1="490" y1="107" x2="492" y2="107" stroke="#fc8181" stroke-width="1.6" stroke-dasharray="5 4"/>
+<polygon points="502,107 490,101 490,113" fill="#fc8181"/>
+<rect x="504" y="86" width="170" height="42" rx="8" fill="rgba(252,129,129,.1)" stroke="#fc8181" stroke-width="1.3"/>
+<text x="589" y="104" text-anchor="middle" font-family="DM Mono, monospace" font-size="9.5" font-weight="700" fill="#fc8181">NO &#8212; REPEAT IT</text>
+<text x="589" y="118" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">under controlled conditions</text>
+<rect x="190" y="160" width="300" height="46" rx="8" fill="rgba(104,211,145,.1)" stroke="#68d391" stroke-width="1.4"/>
+<text x="340" y="180" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#68d391">WHAT IS DRIVING IT?</text>
+<text x="340" y="197" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">question 4 &#183; walk the Great 8 Pillars</text>
+<line x1="340" y1="206" x2="340" y2="228" stroke="#3a3d4e" stroke-width="1.6"/>
+<polygon points="340,236 334,224 346,224" fill="#3a3d4e"/>
+<rect x="150" y="236" width="380" height="46" rx="8" fill="rgba(104,211,145,.1)" stroke="#68d391" stroke-width="1.4"/>
+<text x="340" y="256" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#68d391">COULD ONE UPSTREAM CAUSE EXPLAIN SEVERAL FINDINGS?</text>
+<text x="340" y="273" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">if yes &#8212; that test outranks everything downstream</text>
+<line x1="340" y1="282" x2="340" y2="304" stroke="#3a3d4e" stroke-width="1.6"/>
+<polygon points="340,312 334,300 346,300" fill="#3a3d4e"/>
+<rect x="190" y="312" width="300" height="46" rx="8" fill="rgba(99,179,237,.1)" stroke="#63b3ed" stroke-width="1.4"/>
+<text x="340" y="332" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#63b3ed">IS IT ACTUALLY DOING ANYTHING?</text>
+<text x="340" y="349" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">question 5 &#183; imaging, function, rate of change</text>
+<line x1="340" y1="358" x2="340" y2="380" stroke="#3a3d4e" stroke-width="1.6"/>
+<polygon points="340,388 334,376 346,376" fill="#3a3d4e"/>
+<rect x="150" y="388" width="380" height="60" rx="8" fill="rgba(245,166,35,.14)" stroke="#f5a623" stroke-width="1.4"/>
+<text x="340" y="408" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="700" fill="#f5a623">ONLY NOW: TREAT, WAIT, OR WATCH</text>
+<text x="340" y="425" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">and name in advance what would change your mind</text>
+<text x="340" y="440" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#9a9aaa">all three are decisions &#183; only one looks like one</text>
+<text x="24" y="240" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#68d391" transform="rotate(-90 24 240)">TERRAIN</text>
+<text x="24" y="335" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#63b3ed" transform="rotate(-90 24 335)">TRAJECTORY</text>
+<text x="24" y="418" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#f5a623" transform="rotate(-90 24 418)">TREATMENT</text>
+</svg>
+    <div class="fig-cap"><strong>The decision sequence.</strong> Reading top to bottom: establish that the number is real before asking what it means, ask what is driving it before asking what to do about it, and check whether one upstream cause could explain several findings before treating them separately. The dashed red branch is the exit most often skipped &#8212; a result that fails the reality check should send you back for a controlled repeat, not forward to a prescription. The coloured labels down the left edge map each stage onto the Treatment Triangle.</div>
+  </div>
+
+  <h2>The sequencing rules</h2>
+<div class="phase-card open"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">Rule 1 &#183; Establish the number before interpreting it</div></div><div class="phase-body">
+  <p>Questions 1 to 3 come first, always, and they are cheap. Units, measured-versus-calculated, and the 48 hours before the draw can all be answered without ordering anything.</p>
+  <p>The reason this rule comes first is asymmetry. <strong>The cost of checking is minutes. The cost of not checking is a diagnosis that follows someone for the rest of their life</strong> &#8212; in their chart, in their insurance record, and in how every subsequent clinician reads them.</p>
+  <p>A controlled repeat is the single most under-used instrument in outpatient medicine. It costs one more draw and it resolves a substantial fraction of abnormal results.</p></div></div><div class="phase-card"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">Rule 2 &#183; Look for one cause before treating several effects</div></div><div class="phase-body">
+  <p>When several abnormalities appear at once, the reflex is to address each. The discipline is to ask first whether one upstream process could be producing all of them.</p>
+  <p>If it could, that investigation <strong>outranks every downstream decision</strong>, because a positive result changes several of them simultaneously and a negative result costs you only the time it took.</p>
+  <p>This is where the Great 8 Pillars earn their place in a decision protocol. The walk is quick, and it reliably surfaces the pillars that were assumed rather than assessed.</p>
+  <p><em>The counterweight:</em> do not let the search for elegance delay something urgent. A unifying explanation is a hypothesis, not a reason to leave a genuinely dangerous value untreated while you look for it. <strong>Urgency overrides elegance.</strong></p></div></div><div class="phase-card"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">Rule 3 &#183; Name what would change your mind &#8212; before you decide</div></div><div class="phase-body">
+  <p>This is the discipline that separates a plan from a guess, and it is almost never done explicitly.</p>
+  <p>Any decision &#8212; to treat, to wait, or to watch &#8212; should come with a stated answer to: <strong>what result, symptom or timeframe would make me reverse this?</strong> Write it down at the moment of deciding, when you are still honest, rather than later when you are defending the decision.</p>
+  <p>Two things follow from it. A plan with a named trigger has a built-in review date, so it cannot quietly become permanent by inertia. And a plan without one is not really a plan &#8212; it is a preference, and it will be defended like one.</p>
+  <div style="background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:4px;padding:10px 14px;margin-top:10px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;letter-spacing:.08em;margin-bottom:4px;">&#9670; THE TEST</div>
+    <div style="color:#e8e4dc;font-size:.9rem;">If you cannot name what would change your mind, you have not made a decision. You have taken a position.</div>
+  </div></div></div><div class="phase-card"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">Rule 4 &#183; Withholding is a decision, and often the right one</div></div><div class="phase-body">
+  <p>The most important decision in many plans is something deliberately <em>not</em> started. It rarely feels like action, which is exactly why it gets skipped.</p>
+  <p>Deliberate withholding is appropriate when:</p>
+  <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:1.85;">
+    <li>A pending investigation could change the choice entirely.</li>
+    <li>Treating the downstream number would obscure the upstream cause, or make it harder to find.</li>
+    <li>Starting two things at once would make it impossible to know which one worked.</li>
+    <li>The person&#8217;s circumstances mean the intervention will predictably fail right now, and a later start has a better chance.</li>
+  </ul>
+  <p><strong>Withholding is only legitimate when it is named, time-limited and written down</strong> &#8212; with the trigger from Rule 3 attached. Withholding without a review date is not a decision; it is drift wearing a decision&#8217;s clothes.</p>
+  <p><em>And the honest converse:</em> withholding something genuinely indicated, because the uncertainty feels safer than the commitment, is a real harm that does not show up in any record.</p></div></div><div class="phase-card"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">Rule 5 &#183; Change one variable, and define the readout first</div></div><div class="phase-body">
+  <p>Starting four things at once means that if something improves you will never know which one did it &#8212; and you will carry all four, at cost, indefinitely.</p>
+  <p>Before starting anything, specify three things: <strong>which marker or symptom should move, by how much, and by when.</strong> Write them down. A readout defined afterwards will be met by almost any outcome.</p>
+  <p>Where the pressure to do several things at once is real &#8212; and sometimes it is &#8212; stage them deliberately, with intervals long enough for each to declare itself, rather than abandoning the principle entirely.</p>
+  <p><em>The exception worth naming:</em> where an intervention is genuinely a package whose components are not expected to work alone, treat the package as the single variable rather than pretending otherwise.</p></div></div><div class="phase-card"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">Rule 6 &#183; Match the plan to the life, not to the literature</div></div><div class="phase-body">
+  <p>The best version of any intervention is the one that will actually be sustained. A plan that is optimal on paper and incompatible with someone&#8217;s work, travel, caring responsibilities or finances is not a better plan &#8212; it is a plan that will stop.</p>
+  <p>Where someone has a documented history of starting ambitiously and stopping, that history is <strong>clinical data</strong>. It predicts the outcome of the next ambitious plan at least as well as any marker predicts anything.</p>
+  <p>The correct response is usually to deliberately prescribe something smaller than optimal, and to say plainly that this is what you are doing and why. Naming the pattern out loud &#8212; without judgement &#8212; is often the most useful thing in the conversation.</p>
+  <p><strong>A modest intervention that happens beats an excellent one that does not.</strong> This is not a compromise on standards. It is what taking outcomes seriously actually looks like.</p></div></div>
+  <h2>Three shapes a decision takes</h2>
+  <p>Across domains, the same three patterns recur. Recognising which one you are in tells you what the next move is. <strong>These are shapes of reasoning, not conditions</strong> &#8212; each appears in cardiology, endocrinology, gastroenterology and everywhere else.</p>
+
+  <div class="scenario">
+    <div class="scenario-label">Shape 1</div>
+    <div class="scenario-title">The markers are alarming and the direct evidence is reassuring</div>
+    <div class="scenario-finding">Proxies suggest significant risk. Direct assessment of the tissue or function in question shows far less than the proxies implied. The two genuinely disagree.</div>
+    <ul class="action-list">
+      <li><strong>What it means:</strong> the proxy is doing what proxies do &#8212; describing a population average that this person is not sitting at. Something in their terrain is not converting risk into damage at the expected rate.</li>
+      <li><strong>The move:</strong> direct evidence generally outranks the proxy. This is the pattern where the right answer is frequently to do <em>less</em> than the numbers demand &#8212; and the only reason anyone can know that is that somebody looked.</li>
+      <li><strong>The trap:</strong> generalising it. One person&#8217;s reassuring direct evidence licenses nothing for anyone else, and does not license ignoring the proxy in future either. It buys information about one body at one time.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Shape 2</div>
+    <div class="scenario-title">Several findings, one plausible upstream cause, and a pending test</div>
+    <div class="scenario-finding">Multiple abnormalities appear together. One process could plausibly generate all of them, and a single investigation would confirm or exclude it.</div>
+    <ul class="action-list">
+      <li><strong>What it means:</strong> treating each finding separately risks four interventions for one problem, and obscures the cause while doing it.</li>
+      <li><strong>The move:</strong> prioritise the upstream test above everything downstream, and deliberately withhold the downstream treatments until it returns &#8212; with a named trigger and a date.</li>
+      <li><strong>The trap:</strong> letting the pending test become indefinite. A withheld decision needs a deadline, or it becomes a decision never to treat, made by inertia rather than by judgement.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-label">Shape 3</div>
+    <div class="scenario-title">Something improved dramatically, and it was not the thing that mattered</div>
+    <div class="scenario-finding">A marker moves impressively. A second marker, measuring the thing you actually care about, has barely moved &#8212; or a third has moved in a direction that looks alarming but is an artefact of the first one changing.</div>
+    <ul class="action-list">
+      <li><strong>What it means:</strong> the intervention did something real. It did not necessarily do the thing the intervention was for.</li>
+      <li><strong>The move:</strong> identify in advance which marker actually represents the outcome you care about, and judge by that one. Where a calculated value moved because its inputs moved, exclude it from the comparison entirely.</li>
+      <li><strong>The trap:</strong> the celebration. A dramatic improvement in a secondary marker is genuinely motivating, and it is worth acknowledging &#8212; while being clear that the primary question is still open.</li>
+    </ul>
+  </div>
+
+  <div class="card-hi">
+    <h3 style="margin-top:0;">Deprescribing &#8212; the decision nobody schedules</h3>
+    <p style="margin-bottom:8px;">Every item on a plan was started for a reason, at a moment, under conditions. Any of those may have changed. Almost nothing prompts a review.</p>
+    <p style="margin-bottom:8px;">Ask periodically, of everything on the list: <strong>what was this started for, is that still true, and how would I know if it were not?</strong> If nobody can answer the first part, that alone is worth investigating.</p>
+    <p style="margin-bottom:0;">Stopping is subject to the same rules as starting &#8212; one thing at a time, with a defined readout and a named trigger for restarting. And some things must not be stopped abruptly at all, which is a conversation to have with the prescriber before making any change.</p>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+<div id="supps" class="section">
+
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; What This Tab Is</div>
+    <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:6px;">This tab contains no doses. That is deliberate.</p>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:0;">Doses belong in the protocol for the condition being treated, where they sit next to the mechanism, the evidence tier, the interactions and the cautions. Repeating them here would create a second source that drifts out of agreement with the first. What belongs here is the part no condition protocol covers: <strong>how to decide whether to take anything at all, how to tell whether it is working, and when to stop.</strong></p>
+  </div>
+
+  <h2>The first question is not which one</h2>
+  <p>Almost every supplement conversation starts at &ldquo;which one should I take?&rdquo; The prior question is whether anything should be added at all, and it has a real answer that differs by person.</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>Ask this first</th><th>Why it comes before choosing an agent</th></tr>
+    <tr><td><strong>Is there a measured deficiency, or an inferred one?</strong></td><td class="muted">Correcting a documented deficiency and supplementing on the theory that more is better are different activities with different odds. The first has a defined endpoint and a way to know you have arrived. The second does not.</td></tr>
+    <tr><td><strong>Would a terrain change do the same job?</strong></td><td class="muted">Several of the commonest supplement targets respond to sleep, light exposure, movement or food &#8212; usually more durably, always more cheaply. A supplement taken instead of the terrain change is a tax paid to avoid the harder thing.</td></tr>
+    <tr><td><strong>What is the readout, and when?</strong></td><td class="muted">If no marker or symptom can be named that should change, and no interval by which it should change, there will be no way to evaluate this later. It will simply accumulate.</td></tr>
+    <tr><td><strong>What else is already on the list?</strong></td><td class="muted">Interaction risk rises with the number of items, and so does the chance that two products contain the same ingredient. Long lists are frequently the product of several practitioners who never saw each other&#8217;s recommendations.</td></tr>
+    <tr><td><strong>Will this actually be taken?</strong></td><td class="muted">A regimen requiring four separate timings around meals has a predictable adherence curve. Simplicity is a clinical property, not a convenience.</td></tr>
+  </table>
+  </div>
+
+  <h2>Absorption often matters more than the form debate</h2>
+  <p>A great deal of energy goes into which branded form of a compound is superior, and comparatively little into whether it is being taken in a way that allows absorption at all. The second usually matters more.</p>
+  <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:1.85;">
+    <li><strong>Fat-soluble compounds</strong> need to be taken with a meal containing fat. Taken on an empty stomach, the form is irrelevant because very little is getting in.</li>
+    <li><strong>Some minerals compete with each other</strong> for the same transporters. Taken together, they reduce each other&#8217;s uptake &#8212; separating them can matter more than which salt was chosen.</li>
+    <li><strong>Some compounds require an empty stomach</strong> and are blocked by food, calcium or coffee.</li>
+    <li><strong>Divided dosing</strong> outperforms a single large dose for several water-soluble compounds with saturable absorption.</li>
+    <li><strong>Timing relative to the circadian cycle</strong> matters for anything affecting alertness or sleep &#8212; and the same compound can help or harm depending only on when it is taken.</li>
+  </ul>
+  <p>The specific guidance for any given compound lives in the protocol that covers it. The decision principle is simply: <strong>before changing the form, confirm the timing is right.</strong></p>
+
+  <h2>When &ldquo;natural&rdquo; is pharmacologically a drug</h2>
+  <div class="card" style="border-color:rgba(252,129,129,.3);background:rgba(252,129,129,.05);">
+    <p style="margin-bottom:8px;">Some botanical and over-the-counter products contain compounds that are pharmacologically identical, or nearly identical, to prescription medicines. Where that is true, they carry the same interactions, the same monitoring requirements and the same contraindications &#8212; while being sold without any of the accompanying counselling.</p>
+    <p style="margin-bottom:8px;"><strong>Three consequences follow, and they apply regardless of how the product is marketed:</strong></p>
+    <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:1.8;margin-bottom:8px;">
+      <li><strong>Interactions are real interactions.</strong> A botanical that induces or inhibits a drug-metabolising enzyme changes the blood level of everything else that uses that pathway.</li>
+      <li><strong>Contraindications carry across.</strong> If the pharmaceutical version is contraindicated in pregnancy, or with a particular condition, so is the botanical.</li>
+      <li><strong>Content varies between products and between batches</strong> in a way that prescription medicines do not, which makes the effective dose genuinely uncertain.</li>
+    </ul>
+    <p style="margin-bottom:0;">The practical rule: <strong>anything with a real pharmacological effect deserves the same disclosure as a prescription.</strong> Tell every prescriber what you are taking, including the things that came from a health food shop. The word &ldquo;natural&rdquo; on a label is a marketing decision, not a safety finding.</p>
+  </div>
+
+  <div class="card" style="border-color:rgba(252,129,129,.35);">
+    <div class="lbl lbl-red" style="margin-bottom:6px;">&#9670; NARROW THERAPEUTIC WINDOW</div>
+    <p style="margin-bottom:0;">A small number of compounds &#8212; cardiac glycosides above all &#8212; have a narrow margin between an effective dose and a toxic one. For these, no dose is published anywhere in the RoVive library, deliberately. They require physician partnership, monitoring, and an understanding of the interactions that raise blood levels unexpectedly. If you encounter a dose for such a compound online, the presence of the number is itself a warning about the source.</p>
+  </div>
+
+  <h2>How to tell whether it is working</h2>
+  <p>This is where most supplement regimens fail, and the failure is structural rather than pharmacological. Without a pre-specified readout, nothing can be evaluated, so nothing is ever stopped, and the list only grows.</p>
+
+  <div class="grid2">
+    <div class="card" style="margin:0;">
+      <div class="lbl lbl-green" style="margin-bottom:6px;">&#9670; A GOOD READOUT</div>
+      <ul style="color:#9a9aaa;font-size:.88rem;padding-left:16px;line-height:1.75;margin:0;">
+        <li>Named before starting</li>
+        <li>Moves on a timescale you are willing to wait for</li>
+        <li>Measured the same way each time</li>
+        <li>Would be convincing to someone sceptical</li>
+        <li>Has a threshold defined in advance</li>
+      </ul>
+    </div>
+    <div class="card" style="margin:0;">
+      <div class="lbl lbl-red" style="margin-bottom:6px;">&#9670; A POOR READOUT</div>
+      <ul style="color:#9a9aaa;font-size:.88rem;padding-left:16px;line-height:1.75;margin:0;">
+        <li>Chosen afterwards to fit the result</li>
+        <li>Moves far slower than the review interval</li>
+        <li>Compared across different assays or conditions</li>
+        <li>So broad that anything counts as improvement</li>
+        <li>Entirely subjective, with no diary and no baseline</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top:14px;"><strong>Subjective readouts are legitimate</strong> &#8212; energy, sleep quality, digestive comfort, mood and pain are the things people actually care about, and no marker substitutes for them. They simply need the same discipline: a baseline recorded before starting, a consistent way of rating, and a pre-specified interval. A one-to-ten score kept in a note for two weeks before and after is a genuine experiment. A recollection is not.</p>
+
+  <h2>The review date</h2>
+  <div class="card-hi">
+    <p style="margin-bottom:8px;">Every item added to a plan should be given a date at which it will be reconsidered. Without one, the default is permanence, and the list becomes an archaeological record of every practitioner ever consulted.</p>
+    <p style="margin-bottom:8px;"><strong>At each review, ask of each item:</strong></p>
+    <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:1.8;margin-bottom:8px;">
+      <li>What was this started for?</li>
+      <li>Is that still the case?</li>
+      <li>Did the readout we specified actually move?</li>
+      <li>If I stopped it, what would I expect to happen &#8212; and how would I know?</li>
+    </ul>
+    <p style="margin-bottom:0;">Anything that fails all four is a candidate for stopping. Stop one at a time, with the same discipline as starting, and leave enough time between changes to attribute what happens.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">Where the doses actually live</h3>
+    <p style="margin-bottom:8px;">For specific agents, forms, three-tier dosing, evidence grades, interactions and cautions, go to the protocol for the system in question &#8212; the <strong>Lipid &amp; Vascular protocol</strong>, the <strong>Fats &amp; Fatty Acids protocol</strong>, and the rest of the RoVive library. Each carries its dosing next to the reasoning that justifies it.</p>
+    <p style="margin-bottom:0;">If a recommendation appears in two RoVive protocols and they disagree, the condition-specific protocol is the more recent authority and the discrepancy is worth reporting so it can be reconciled.</p>
+  </div>
+
+  <div class="card" style="border-color:rgba(245,166,35,.25);">
+    <p style="margin-bottom:0;font-family:'DM Mono',monospace;font-size:.62rem;color:#5a5a6a;letter-spacing:.05em;">EDUCATIONAL FRAMEWORK ONLY &#183; NOT A DIAGNOSIS &#183; NOT MEDICAL ADVICE &#183; DISCUSS ALL SUPPLEMENTS AND CHANGES WITH YOUR OWN PHYSICIAN, INCLUDING ANYTHING PURCHASED WITHOUT A PRESCRIPTION</p>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+<div id="examples" class="section">
+
+  <div class="example-banner">
+    <div class="lbl lbl-purple" style="margin-bottom:8px;">&#9670; READ THIS FIRST</div>
+    <p style="color:#e8e4dc;font-size:.95rem;font-weight:600;margin-bottom:8px;">These are illustrations of the method. They are not templates, and they are not advice for anybody.</p>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:8px;">Every example below is a composite, written to show the five questions doing real work. The numbers are illustrative. No example describes a specific person, and none of them should be pattern-matched onto your own results &#8212; two people can present with an identical value and need opposite decisions, which is the entire point of the protocol you have just read.</p>
+    <p style="color:#9a9aaa;font-size:.9rem;margin-bottom:0;"><strong>What to take from them is the shape of the reasoning</strong>, not the conclusion. The first three are cardiovascular because that is where the illustrations are clearest. The last two are deliberately somewhere else, to show the method does not belong to any one organ system.</p>
+  </div>
+
+  <h2>Cardiovascular illustrations</h2>
+<div class="card-hi"><div class="lbl lbl-green" style="margin-bottom:6px;">EXAMPLE 1 &#183; SHAPE 1</div><h3 style="margin-top:0;">The markers accuse; the imaging acquits</h3><p style="margin-bottom:10px;">A woman in her sixties. Total cholesterol and LDL are both well above the reference range, particle count is high, and her inflammatory marker is roughly twenty times the optimal target. Two siblings died of heart attacks younger than she is now. Multiple clinicians have recommended lipid-lowering therapy. She eats a diet high in animal fat and has declined.</p><div class="tbl-scroll"><table><tr><th>&nbsp;</th><th>Walking the five questions</th></tr><tr><td><strong>Q1</strong></td><td class="muted">Units and assays consistent across draws. Nothing ambiguous.</td></tr><tr><td><strong>Q2</strong></td><td class="muted">Particle count measured directly rather than estimated. The cholesterol fractions are partly calculated, which matters less here because the particle count is available.</td></tr><tr><td><strong>Q3</strong></td><td class="muted">Draws were routine and unremarkable. However the inflammatory marker was drawn during a period of known environmental exposure at home &#8212; relevant, and easily missed.</td></tr><tr><td><strong>Q4</strong></td><td class="muted">Terrain is mixed. Metabolically she is well: favourable particle-size pattern, no evidence of insulin resistance, exceptionally high protective-particle protein. The inflammation appears to be driven by an environmental exposure rather than by metabolic disease.</td></tr><tr><td><strong>Q5</strong></td><td class="muted">Direct imaging of the arteries shows minimal disease for her age, and none of the unstable type. The proxies and the anatomy genuinely disagree.</td></tr></table></div><div style="background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:4px;padding:10px 14px;margin-top:10px;"><div class="lbl lbl-gold" style="margin-bottom:4px;">&#9670; THE DECISION</div><div style="color:#e8e4dc;font-size:.9rem;">Direct evidence outranks the proxy. The decision is to treat nothing for cholesterol, address the environmental exposure, and re-image on an interval &#8212; with a named trigger: any meaningful rise in plaque burden, or a change in her metabolic terrain, reopens the question. <strong>Note what made this possible: somebody looked.</strong> Without the imaging, the same numbers and the same family history would still be an open argument, and a reasonable clinician would still be recommending treatment.</div></div></div><div class="card-hi"><div class="lbl lbl-blue" style="margin-bottom:6px;">EXAMPLE 2 &#183; SHAPE 2</div><h3 style="margin-top:0;">Four findings, one plausible upstream cause</h3><p style="margin-bottom:10px;">A man in his mid-sixties arrives to discuss cholesterol. He also has untreated high blood pressure, protein in his urine, subjective memory complaints, and an inflammatory marker roughly twelve times target. Cognitive testing shows a striking deficit in one memory domain alongside slowed processing speed, with attention and executive function intact. He sleeps poorly and snores heavily.</p><div class="tbl-scroll"><table><tr><th>&nbsp;</th><th>Walking the five questions</th></tr><tr><td><strong>Q1</strong></td><td class="muted">Standard assays, nothing ambiguous.</td></tr><tr><td><strong>Q2</strong></td><td class="muted">His filtration rate is calculated from a single marker &#8212; worth noting, though his protein loss is measured directly.</td></tr><tr><td><strong>Q3</strong></td><td class="muted">Nothing unusual before the draws. Worth confirming for the renal markers specifically.</td></tr><tr><td><strong>Q4</strong></td><td class="muted">Four findings, and one candidate that could plausibly generate all of them: untreated sleep-disordered breathing raises blood pressure, contributes to protein loss through pressure effects, drives inflammation, and produces exactly the cognitive pattern seen &#8212; slowed speed with preserved higher-order function.</td></tr><tr><td><strong>Q5</strong></td><td class="muted">Body composition shows visceral fat in the worst seventh for his age despite an unremarkable appearance. Vascular imaging is pending.</td></tr></table></div><div style="background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:4px;padding:10px 14px;margin-top:10px;"><div class="lbl lbl-gold" style="margin-bottom:4px;">&#9670; THE DECISION</div><div style="color:#e8e4dc;font-size:.9rem;">The sleep study becomes the highest-yield investigation in the entire workup, because a positive result changes several decisions at once. Blood pressure medication is deliberately withheld pending it &#8212; with a named trigger and a date &#8212; on the reasoning that treating apnoea may resolve the pressure, and treating the pressure would obscure that. A hormonal abnormality is also deferred, since the same upstream process suppresses it. <strong>What is started instead is small and terrain-directed:</strong> a deficiency corrected, and a movement intervention chosen specifically because it survives an unusually heavy travel schedule.</div></div></div><div class="card-hi"><div class="lbl lbl-red" style="margin-bottom:6px;">EXAMPLE 3 &#183; SHAPE 3</div><h3 style="margin-top:0;">The number that moved was not the number that mattered</h3><p style="margin-bottom:10px;">A metabolically healthy, well-muscled man with a markedly elevated triglyceride level and a high atherogenic particle count. Over four months he takes up daily running, improves his diet and loses weight. He repeats his labs.</p><div class="tbl-scroll"><table><tr><th>&nbsp;</th><th>Walking the five questions</th></tr><tr><td><strong>Q1</strong></td><td class="muted">Consistent units throughout. One marker was reported in mass units where molar units would have been more informative &#8212; a reorder rather than a conversion.</td></tr><tr><td><strong>Q2</strong></td><td class="muted"><strong>This is where the example turns.</strong> His cholesterol fraction was <em>calculated</em>, and at his original triglyceride level the formula was outside its validity range. The starting value was never a measurement.</td></tr><tr><td><strong>Q3</strong></td><td class="muted">The first draw was under ordinary conditions. Before the repeat he was given explicit pre-test instructions &#8212; and a muscle-derived marker that had suggested organ impairment normalised completely, having been an artefact of training and supplementation.</td></tr><tr><td><strong>Q4</strong></td><td class="muted">Terrain is genuinely good: excellent insulin sensitivity, low visceral fat, high muscle mass. The triglyceride elevation is therefore being driven by something other than metabolic disease &#8212; hormonal therapy, nicotine and genetics are the candidates.</td></tr><tr><td><strong>Q5</strong></td><td class="muted">Triglycerides fell by roughly two thirds. The marker that counts all atherogenic particles fell by about five per cent. The calculated cholesterol fraction <em>rose</em> sharply &#8212; because as triglycerides fell, cholesterol redistributed and the formula became valid.</td></tr></table></div><div style="background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:4px;padding:10px 14px;margin-top:10px;"><div class="lbl lbl-gold" style="margin-bottom:4px;">&#9670; THE DECISION</div><div style="color:#e8e4dc;font-size:.9rem;">Four months of genuine effort produced a spectacular improvement in one marker and almost none in the one that represents the actual risk. Judged on the calculated fraction alone he appears worse; judged on the triglycerides alone he appears transformed; <strong>both readings are wrong.</strong> The decision is to keep the lifestyle gains, stop treating the calculated value as a comparator at all, and turn attention to the drivers terrain actually identified.</div></div></div>
+  <h2>The same method, different territory</h2>
+  <p>Nothing above depends on cardiology. Here is the identical sequence in two other domains.</p>
+<div class="card-hi"><div class="lbl lbl-purple" style="margin-bottom:6px;">EXAMPLE 4 &#183; THYROID</div><h3 style="margin-top:0;">A thyroid result that looks like a diagnosis</h3><p style="margin-bottom:10px;">A woman in her forties presents with fatigue and palpitations. Her thyroid-stimulating hormone comes back suppressed and her free thyroid hormones are elevated &#8212; a picture consistent with an overactive thyroid. Treatment is offered at the first appointment.</p><div class="tbl-scroll"><table><tr><th>&nbsp;</th><th>Walking the five questions</th></tr><tr><td><strong>Q1</strong></td><td class="muted">Free versus total fractions confirmed &#8212; the free hormones were measured, which is the right question. Units consistent with the reference range quoted.</td></tr><tr><td><strong>Q2</strong></td><td class="muted">Measured by immunoassay rather than calculated. <strong>Which matters enormously here, for reasons that emerge at question 3.</strong></td></tr><tr><td><strong>Q3</strong></td><td class="muted">She takes a high-dose hair and nail supplement containing biotin, and took it the morning of the draw. Biotin interferes with many streptavidin-based immunoassays, characteristically producing a <em>falsely low</em> stimulating hormone alongside <em>falsely high</em> free hormones &#8212; precisely the pattern reported. The FDA issued a safety communication on this in 2017.</td></tr><tr><td><strong>Q4</strong></td><td class="muted">Terrain review is still worth doing: her fatigue is real, her sleep is poor, and a period of significant stress preceded the symptoms. Those findings do not disappear if the thyroid result is an artefact.</td></tr><tr><td><strong>Q5</strong></td><td class="muted">Rather than an uptake scan, the cheapest next step is a repeat after holding biotin for several days &#8212; which resolves the question directly.</td></tr></table></div><div style="background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:4px;padding:10px 14px;margin-top:10px;"><div class="lbl lbl-gold" style="margin-bottom:4px;">&#9670; THE DECISION</div><div style="color:#e8e4dc;font-size:.9rem;">The repeat off biotin returns entirely normal thyroid values. No thyroid disease, no treatment, and a diagnosis avoided that would have followed her for years. <strong>The fatigue and palpitations remain real and still require explanation</strong> &#8212; the terrain question does not go away simply because one test turned out to be an artefact. Question 3 resolved this one, and question 3 costs nothing.</div></div></div><div class="card-hi"><div class="lbl lbl-green" style="margin-bottom:6px;">EXAMPLE 5 &#183; GUT</div><h3 style="margin-top:0;">A gut panel with many abnormalities and no obvious target</h3><p style="margin-bottom:10px;">A man in his fifties with bloating and irregular bowel habit runs a comprehensive stool panel. Roughly a dozen markers are flagged &#8212; several organisms outside the reference range, a raised inflammatory marker, low levels of a protective bacterial group. He is given a list of nine supplements.</p><div class="tbl-scroll"><table><tr><th>&nbsp;</th><th>Walking the five questions</th></tr><tr><td><strong>Q1</strong></td><td class="muted">Reference ranges on panels of this kind are frequently derived from the laboratory&#8217;s own population rather than from outcome data, and differ substantially between vendors. A flag means &ldquo;unusual in this laboratory&#8217;s sample&rdquo;, not necessarily &ldquo;harmful&rdquo;.</td></tr><tr><td><strong>Q2</strong></td><td class="muted">Several values are derived quantities rather than direct counts. Their precision is lower than the decimal places imply.</td></tr><tr><td><strong>Q3</strong></td><td class="muted">He had taken a course of antibiotics six weeks earlier, which substantially perturbs these measurements for months. He had also been travelling.</td></tr><tr><td><strong>Q4</strong></td><td class="muted">Terrain review finds the driver almost immediately: profoundly disordered sleep for two years, meals eaten late and at irregular times, and very little movement. The gut findings are plausibly downstream of all three.</td></tr><tr><td><strong>Q5</strong></td><td class="muted">The relevant trajectory question is not another panel &#8212; it is whether his symptoms track with anything. A two-week symptom and food diary identifies a clear relationship with meal timing.</td></tr></table></div><div style="background:rgba(245,166,35,.06);border-left:3px solid #f5a623;border-radius:4px;padding:10px 14px;margin-top:10px;"><div class="lbl lbl-gold" style="margin-bottom:4px;">&#9670; THE DECISION</div><div style="color:#e8e4dc;font-size:.9rem;">The decision is not nine supplements. It is to treat the panel as descriptive rather than prescriptive given the recent antibiotics, address meal timing and sleep first, and re-evaluate in eight weeks with a defined readout &#8212; symptom score, not another panel. <strong>A dozen abnormal markers is not a dozen problems.</strong> It is frequently one upstream problem and a measurement taken at a moment when nothing would have looked normal.</div></div></div>
+  <div class="card-hi">
+    <h3 style="margin-top:0;">What the five examples have in common</h3>
+    <p style="margin-bottom:8px;">In every one, the decisive move was made <em>before</em> anyone chose a treatment &#8212; and in three of the five, the decisive move cost nothing at all.</p>
+    <ul style="color:#9a9aaa;font-size:.9rem;padding-left:18px;line-height:1.8;margin-bottom:8px;">
+      <li>Two were resolved by asking what happened in the 48 hours before the draw.</li>
+      <li>One was resolved by noticing that a number had been calculated rather than measured.</li>
+      <li>One was resolved by asking whether a single upstream cause could explain several findings.</li>
+      <li>One was resolved by obtaining direct evidence instead of arguing about proxies.</li>
+    </ul>
+    <p style="margin-bottom:0;"><strong>None of them required knowing more medicine.</strong> They required asking the five questions in order, and being willing to hear that the answer to one of them was &ldquo;nobody checked&rdquo;.</p>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+<div id="aha" class="section">
+
+  <h2>Aha Moments</h2>
+  <p>Nine questions with real citations. Each carries its honest limitation inside the moment itself &#8212; volunteering the caveat before anyone asks is what converts a surprising claim into a credible one.</p>
+  <p>They are ordered roughly by how early in a conversation they land well.</p>
+
+<div class="scenario"><div class="scenario-label">Aha Moment 1 &#183; Conventional medicine blind spot</div><div class="scenario-title">Your thyroid test says your thyroid is overactive. What if it is measuring your hair supplement?</div><div class="scenario-finding">High-dose biotin &#8212; the ingredient in most hair, skin and nail products &#8212; interferes with many streptavidin-based immunoassays. The characteristic pattern is a <em>falsely low</em> thyroid-stimulating hormone alongside <em>falsely elevated</em> free T4 and T3: a picture that reads as overt hyperthyroidism in someone with an entirely normal thyroid. The same interference affects troponin and several other assays. The FDA issued a formal safety communication about it in 2017.</div><ul class="action-list"><li><strong>Honest limitation:</strong> Not every assay is affected &#8212; platforms differ, and some laboratories have moved to biotin-resistant methods. The point is not that thyroid results are unreliable; it is that this specific, common, invisible confounder is almost never asked about. Holding biotin for several days and repeating resolves it.</li><li><strong>Citation:</strong> FDA Safety Communication, November 2017; AACC/ADLM guidance document on biotin interference in laboratory tests.</li><li><strong>Delivery tip:</strong> Ask the room how many take a hair, skin or nail supplement. Count the hands, pause, then answer.</li><li><strong>Best placed:</strong> Opening hook, or immediately before Question 3.</li></ul></div><div class="scenario"><div class="scenario-label">Aha Moment 2 &#183; Conventional medicine blind spot</div><div class="scenario-title">What if the most useful number on your lab report is one the laboratory never printed?</div><div class="scenario-finding">Non-HDL cholesterol is total cholesterol minus HDL &#8212; two numbers already on every standard panel. It captures every atherogenic particle rather than one subset, costs nothing, requires no new test, and is computable from any lipid panel you have ever had. In a meta-analysis of individual data from 62,154 people across 8 statin trials, it was <em>more</em> strongly associated with future major cardiovascular events than either the calculated LDL fraction or the directly measured particle protein.</div><ul class="action-list"><li><strong>Honest limitation:</strong> The better measurement is still the direct particle count; non-HDL is the free approximation you already own. And that analysis was conducted in people already taking statins, which is not everybody.</li><li><strong>Citation:</strong> Boekholdt et al., <em>JAMA</em>, 2012;307(12):1302&#8211;1309.</li><li><strong>Delivery tip:</strong> Ask people to find any old lipid panel and do the subtraction live. The arithmetic takes ten seconds and the number is new to almost everyone.</li><li><strong>Best placed:</strong> After Question 2, or as a live activity.</li></ul></div><div class="scenario"><div class="scenario-label">Aha Moment 3 &#183; Conventional medicine blind spot</div><div class="scenario-title">What if the kidney disease in your chart was created by your workout?</div><div class="scenario-finding">Creatinine is a breakdown product of muscle. It is used as a kidney marker because the kidney clears it &#8212; but it is produced in proportion to muscle mass and turnover. Heavy training, high muscle mass, creatine supplementation, sauna use and simple dehydration all raise it, lowering the calculated filtration rate, with no change in actual kidney function. A systematic review of creatine supplementation found a small but statistically significant rise in serum creatinine with <strong>no significant change in measured filtration</strong>.</div><ul class="action-list"><li><strong>Honest limitation:</strong> An elevated creatinine is never safe to ignore. Cystatin C, which is largely independent of muscle mass, is the cross-check &#8212; and it has its own confounders including corticosteroids, thyroid dysfunction and inflammation. The lesson is to repeat under controlled conditions before accepting the label, not to dismiss the finding.</li><li><strong>Citation:</strong> Samra and Abcar, <em>The Permanente Journal</em>, 2012;16(2):51&#8211;52; systematic review and meta-analysis of creatine supplementation and kidney function, <em>BMC Nephrology</em>, 2025.</li><li><strong>Delivery tip:</strong> Works especially well with anyone who lifts. Ask who takes creatine before answering.</li><li><strong>Best placed:</strong> Question 3, or the Decision Tree.</li></ul></div><div class="scenario"><div class="scenario-label">Aha Moment 4 &#183; Timeline / causality</div><div class="scenario-title">What if a number going up was the proof that the treatment worked?</div><div class="scenario-finding">Several widely quoted values are calculated rather than measured, and calculated values have conditions under which the arithmetic simply fails. The most common lipid estimate was published in 1972 with its limitation stated in the original paper &#8212; it is not valid above a triglyceride of 400 mg/dL. When triglycerides fall from above that threshold, two things happen at once: cholesterol genuinely redistributes between particle classes, and the equation becomes valid for the first time. The result can rise sharply while the actual atherogenic burden falls.</div><ul class="action-list"><li><strong>Honest limitation:</strong> This describes one specific circumstance &#8212; very high triglycerides &#8212; not a general rule that rising cholesterol is good news. Below the validity threshold, a rise means what you think it means.</li><li><strong>Citation:</strong> Friedewald, Levy and Fredrickson, <em>Clinical Chemistry</em>, 1972;18(6):499&#8211;502; Martin et al., <em>JAMA</em>, 2013;310(19):2061&#8211;2068.</li><li><strong>Delivery tip:</strong> Show the before and after, ask for a verdict, then reveal that one of the two numbers was never a measurement.</li><li><strong>Best placed:</strong> Question 2, or Worked Example 3.</li></ul></div><div class="scenario"><div class="scenario-label">Aha Moment 5 &#183; Systems thinking</div><div class="scenario-title">Two results, 96 and 48. What if they are the same number?</div><div class="scenario-finding">Where one laboratory reports a particle in <em>mass</em> units and another reports it in <em>molar</em> units, the two are not interconvertible, because the relationship depends on how large that individual&#8217;s particles happen to be. Published conversion factors span roughly 1.85 to 2.85 depending on the protein isoform. A result of 48 in mass units therefore sits somewhere between about 89 and 137 in molar units &#8212; a range wide enough to straddle most decision thresholds. And the error has a direction: the smaller, more atherogenic isoforms carry the higher factor, so mass units systematically under-report risk in exactly the people who have the most of it.</div><ul class="action-list"><li><strong>Honest limitation:</strong> The mass result is not wrong. It simply cannot be compared to a molar result, or to a molar threshold, without knowing the isoform &#8212; which is why the field is moving to molar reporting. The fix is to re-order in the preferred units, not to convert the number you have. <em>(Verify exact authorship before citing in print.)</em></li><li><strong>Citation:</strong> <em>Journal of Clinical Lipidology</em>, 2018 &#8212; relationship of molar concentration and mass by apolipoprotein isoform size.</li><li><strong>Delivery tip:</strong> Put both numbers on screen and ask which person is at higher risk. Let the room commit before answering.</li><li><strong>Best placed:</strong> Question 1.</li></ul></div><div class="scenario"><div class="scenario-label">Aha Moment 6 &#183; Brain-body connection</div><div class="scenario-title">What if the memory test that reads like early dementia is measuring how you slept?</div><div class="scenario-finding">Cognitive testing reports domain scores, and the <em>shape</em> across domains carries more information than any single line. A pattern of slowed processing and impaired consolidation alongside <strong>intact attention, executive function and cognitive flexibility</strong> looks more like a brain being acted on by something ongoing than like a degenerative process, which does not typically spare higher-order function while gutting speed. In someone with chronic fragmented sleep and heavy snoring, that reorders the investigation entirely &#8212; the next test is a sleep study, not a memory clinic.</div><ul class="action-list"><li><strong>Honest limitation:</strong> This rules nothing out, and in someone with genetic risk and a family history it would be dishonest to suggest otherwise. The meta-review literature is explicit that it remains difficult to say which cognitive domains sleep-disordered breathing affects. Several medications also slow processing speed. This sets the <em>order</em> of investigation, not the diagnosis &#8212; and repeat testing after treating the sleep is what actually answers it.</li><li><strong>Citation:</strong> Bucks, Olaithe and Eastwood, <em>Respirology</em>, 2013;18(1):61&#8211;70.</li><li><strong>Delivery tip:</strong> Show the low score alone first. Let the room sit with it. Then show the whole profile.</li><li><strong>Best placed:</strong> Question 4, or Worked Example 2.</li></ul></div><div class="scenario"><div class="scenario-label">Aha Moment 7 &#183; Systems thinking</div><div class="scenario-title">Split one DNA sample in two and test both. How far apart can the answers be?</div><div class="scenario-finding">Up to nine years, for six prominent epigenetic clocks. At the level of individual methylation sites reproducibility is poor &#8212; across 350 blood samples run twice, probe reliability coefficients skewed hard toward zero, with a mean of 0.21 and a median of 0.09. Aggregating hundreds of sites into a score recovers much of that but not all of it. Retrained using principal-component methods, most replicates came within about 1.5 years. Same DNA, same instant, same laboratory.</div><ul class="action-list"><li><strong>Honest limitation:</strong> This is an argument for reading such results carefully, not for discarding them. The underlying idea &#8212; that methylation reflects sustained exposure rather than one morning &#8212; is sound and genuinely useful. The practical rule is to trust the direction and the large outliers, and to ignore small differences: a marker at the 53rd percentile and one at the 58th are not telling you different things.</li><li><strong>Citation:</strong> Sugden et al., <em>Patterns</em>, 2020; Higgins-Chen et al., <em>Nature Aging</em>, 2022;2(7):644&#8211;661.</li><li><strong>Delivery tip:</strong> Ask for a guess at the spread before giving the number. Guesses cluster around a few months.</li><li><strong>Best placed:</strong> Any discussion of advanced or consumer testing.</li></ul></div><div class="scenario"><div class="scenario-label">Aha Moment 8 &#183; Conventional medicine blind spot</div><div class="scenario-title">What if the reason a medication gave you side effects was knowable before you took it?</div><div class="scenario-finding">For one widely prescribed drug class, three genes carry actionable evidence, formalised in a 2022 consensus guideline. One encodes the transporter that moves the drug out of the bloodstream and into the liver where it works &#8212; a reduced-function variant means more drug remains in systemic circulation, raising exposure in muscle and with it the risk of muscular side effects. Two further genes affect specific individual drugs within the same class. A flagged variant does not mean the treatment goal changes. It means the choice of agent and the starting dose should.</div><ul class="action-list"><li><strong>Honest limitation:</strong> Pharmacogenomic testing is not routine, is not always covered, and its clinical utility varies enormously by drug class &#8212; this is not an argument that everyone should be genotyped for everything. It is an argument that where actionable guidance exists, knowing beforehand beats discovering afterwards.</li><li><strong>Citation:</strong> Cooper-DeHoff et al., <em>Clinical Pharmacology &amp; Therapeutics</em>, 2022;111(5) &#8212; CPIC guideline for SLCO1B1, ABCG2 and CYP2C9.</li><li><strong>Delivery tip:</strong> Ask who has stopped a medication because of side effects without ever finding out why.</li><li><strong>Best placed:</strong> Decision Tree, Rule 3 &#8212; or any medication conversation.</li></ul></div><div class="scenario"><div class="scenario-label">Aha Moment 9 &#183; Timeline / causality</div><div class="scenario-title">A gene variant is called the strongest risk factor for a major disease. Why has evolution not removed it?</div><div class="scenario-finding">Because in a different environment it may not have been a liability. In a study of 372 forager-horticulturalists in the Bolivian Amazon &#8212; a population in which most adults carry intestinal parasite infection at any time &#8212; non-carriers of the variant showed worse cognitive performance as parasite burden rose, while <strong>carriers maintained performance even at high burden</strong>. The opposite of what the same variant reliably predicts in industrialised populations. This is the antagonistic pleiotropy hypothesis: advantages expressed early, costs arriving decades later.</div><ul class="action-list"><li><strong>Honest limitation:</strong> This is not a reassurance about carrying the variant. In a population like ours the disease risk is real, large and repeatedly replicated. The early-life advantage is genuinely contested &#8212; at least one meta-analysis across seven cognitive domains in young adults found no supporting effect. The defensible claim is that the variant is context-dependent, not benign.</li><li><strong>Citation:</strong> Trumble et al., <em>The FASEB Journal</em>, 2017;31(4):1508&#8211;1515.</li><li><strong>Delivery tip:</strong> Best used with someone who has just received a frightening genetic result. Deliver it slowly.</li><li><strong>Best placed:</strong> Closing, or any genetics conversation.</li></ul></div>
+  <div class="card-hi">
+    <h3 style="margin-top:0;">What makes these work</h3>
+    <p style="margin-bottom:8px;">Each one exposes an assumption that has never been examined, and each <em>resolves</em> into something actionable rather than simply unsettling. That distinction matters &#8212; a surprising claim that leaves someone frightened and without a next step has done harm, not good.</p>
+    <p style="margin-bottom:0;">Notice also that <strong>four of the nine turn on nothing more than the first three questions</strong> &#8212; units, measured-or-calculated, and the 48 hours before the draw. The most striking moments in clinical reasoning are rarely about knowing more medicine. They are about checking whether the number was real before building anything on it.</p>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+<div id="method" class="section">
+
+  <h2>Medicine 1.0 &#8594; 2.0 &#8594; 3.0</h2>
+  <div class="grid3" style="margin-bottom:28px;">
+    <div style="background:#181b28;border:1px solid #2a2d3e;border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#9a9aaa;margin-bottom:8px;">MEDICINE 1.0</div>
+      <div style="font-weight:700;color:#e8e4dc;margin-bottom:8px;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Conventional</div>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.7;">
+        <li>Compares your value to a threshold and acts when it is crossed</li>
+        <li>Rarely asks how the number was produced</li>
+        <li>Treats findings separately, by specialty</li>
+        <li>Excellent in acute and structural disease &#8212; and genuinely life-saving there</li>
+      </ul>
+      <div style="background:rgba(245,166,35,.05);border-left:2px solid rgba(245,166,35,.3);padding:8px 10px;border-radius:3px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#f5a623;letter-spacing:.08em;margin-bottom:4px;">ASSUMPTION WORTH QUESTIONING</div>
+        <div style="color:#9a9aaa;font-size:.82rem;">&ldquo;An abnormal result means a problem that needs treating.&rdquo;</div>
+      </div>
+    </div>
+    <div style="background:#181b28;border:1px solid #2a2d3e;border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#63b3ed;margin-bottom:8px;">MEDICINE 2.0</div>
+      <div style="font-weight:700;color:#e8e4dc;margin-bottom:8px;overflow:visible;line-height:1.45;padding-bottom:0.18em;">Standard Functional</div>
+      <ul style="color:#9a9aaa;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.7;">
+        <li>Looks upstream and asks about root cause &#8212; a real advance</li>
+        <li>Tests far more broadly</li>
+        <li>But often treats every flagged marker on a wide panel</li>
+        <li>Frequently starts many things at once, so nothing can be attributed</li>
+      </ul>
+      <div style="background:rgba(245,166,35,.05);border-left:2px solid rgba(245,166,35,.3);padding:8px 10px;border-radius:3px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#f5a623;letter-spacing:.08em;margin-bottom:4px;">ASSUMPTION WORTH QUESTIONING</div>
+        <div style="color:#9a9aaa;font-size:.82rem;">&ldquo;More testing produces better decisions.&rdquo;</div>
+      </div>
+    </div>
+    <div style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);border-radius:10px;padding:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.1em;color:#f5a623;margin-bottom:8px;">MEDICINE 3.0</div>
+      <div style="font-weight:700;color:#f5a623;margin-bottom:8px;overflow:visible;line-height:1.45;padding-bottom:0.18em;">RoVive Method</div>
+      <ul style="color:#e8e4dc;font-size:.9rem;padding-left:16px;margin-bottom:12px;line-height:1.7;">
+        <li>Establishes that the number is real before interpreting it</li>
+        <li>Looks for one upstream cause before treating several effects</li>
+        <li>Names what would change its mind, in advance</li>
+        <li>Treats withholding as a decision, with a date attached</li>
+        <li>Matches the plan to the life, not to the literature</li>
+      </ul>
+      <div style="color:#9a9aaa;font-size:.82rem;font-style:italic;border-top:1px solid rgba(245,166,35,.15);padding-top:10px;">RoVive 3.0 doesn&#8217;t stop at integrative medicine. It goes all the way &#8212; homeopathy, frequency medicine, somatic healing, metaphysics, and the inner life &#8212; because the body, mind, and spirit are inseparable. It always questions, always pushes the boundaries while simplifying, going within, and drawing on common sense and ancient wisdom. Finding balance in our modern world is the journey worth taking. And no protocol is complete without asking <em>why</em>.</div>
+    </div>
+  </div>
+
+  <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 18px;margin-bottom:20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:6px;">&#9670; The RoVive Clinical Framework</div>
+    <div style="color:#e8e4dc;font-size:.92rem;">These four stages &#8212; Roots, Reveal, Refine, Rise &#8212; are the RoVive diagnostic and therapeutic sequence. Here they are applied to the act of deciding itself.</div>
+  </div>
+
+<div class="phase-card open"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">ROOTS &#8212; what any good decision requires before anything else</div></div><div class="phase-body">
+  <p>Four things have to be in place before a decision is worth making, and none of them is a test.</p>
+  <p><strong>A stated question.</strong> &ldquo;Should I take this?&rdquo; is not answerable. &ldquo;Is this marker elevated because of something I can change, and is it currently causing harm?&rdquo; is.</p>
+  <p><strong>A known baseline.</strong> If you do not know where you started, you cannot know whether anything moved. This applies to symptoms as much as to markers, and symptom baselines are almost never recorded.</p>
+  <p><strong>An honest inventory.</strong> Everything currently being taken, including things bought without a prescription, and everything currently being done. Decisions made against an incomplete list are made against fiction.</p>
+  <p><strong>A named goal.</strong> What is actually being optimised for &#8212; which may not be what a guideline assumes. Two people with identical results can reasonably choose differently, and the difference usually lives here.</p></div></div><div class="phase-card"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">REVEAL &#8212; what to measure, in what order</div></div><div class="phase-body">
+  <p>Testing has a sequence, and the sequence is what stops it becoming a shopping trip.</p>
+  <p><strong>Layer 1 &#8212; Foundational.</strong> Standard panels from a major laboratory <span class="store-tag">&#10003; RWC Lab Store</span>. Inexpensive, well standardised, well understood, and sufficient to answer a surprising proportion of questions. Start here every time.</p>
+  <p><strong>Layer 2 &#8212; Functional.</strong> Hormone, gut, toxin and nutrient panels <span class="store-tag">&#10003; RWC Lab Store</span>. Appropriate when a foundational result raised a specific question that a foundational test cannot answer.</p>
+  <p><strong>Layer 3 &#8212; Advanced and metabolomic.</strong> Comprehensive metabolomics, methylation-based measures, genetic panels <span class="store-tag">&#10003; RWC Lab Store</span>. Genuinely informative, frequently over-ordered, and most useful when there is a specific hypothesis to test rather than a general wish for more data.</p>
+  <div style="background:rgba(99,179,237,.06);border-left:3px solid #63b3ed;border-radius:4px;padding:10px 14px;margin-top:10px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#63b3ed;letter-spacing:.08em;margin-bottom:4px;">&#9670; THE SEQUENCING RULE</div>
+    <div style="color:#e8e4dc;font-size:.9rem;">Foundational first. Act on it for 8&#8211;12 weeks. Escalate only where a real question remains unanswered. A panel ordered because the uncertainty is uncomfortable will produce findings, and those findings will produce more testing, and none of it will have been driven by a question.</div>
+  </div>
+  <p style="margin-top:10px;"><strong>Physical capacity belongs in this layer and is routinely forgotten.</strong> Grip strength and gait speed are validated predictors of all-cause mortality, cost nothing, and can be measured in a corridor. Body composition &#8212; particularly visceral fat and appendicular lean mass rather than a single body fat percentage &#8212; answers questions no blood marker can, and is essential for anyone whose weight is changing for any reason.</p></div></div><div class="phase-card"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">REFINE &#8212; the levers, in order of leverage</div></div><div class="phase-body">
+  <p>Once the number is established and the driver identified, interventions are ordered by leverage rather than by novelty.</p>
+  <p><strong>1. The upstream driver</strong>, if one was found. Treating it resolves several downstream findings at once.</p>
+  <p><strong>2. The terrain inputs</strong> &#8212; the Great 8 Pillars, starting with whichever is most obviously deficient. These are usually free, usually slower, and usually more durable.</p>
+  <p><strong>3. Targeted correction</strong> of anything genuinely deficient, with a defined endpoint and a plan to stop when it is reached.</p>
+  <p><strong>4. Agents that modify the marker directly</strong> &#8212; pharmaceutical or nutraceutical &#8212; once the layers above have been addressed or deliberately ruled out with reasons.</p>
+  <p style="font-style:italic;color:#9a9aaa;">The best medicine is the one you actually believe will work. Different people respond to different modalities &#8212; not because of placebo, but because belief, expectation, and neurological state are themselves physiological inputs. Choose what resonates.</p></div></div><div class="phase-card"><div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">RISE &#8212; what success actually looks like</div></div><div class="phase-body">
+  <p>Success in a decision protocol is not a set of numbers. It is a change in how decisions get made.</p>
+  <p><strong>In the results:</strong> the markers that were pre-specified as the readout have moved, in the direction and on the timescale that was named in advance.</p>
+  <p><strong>In the experience:</strong> you can say what each item on your plan is for, what it is doing, and what would make you stop it. Nothing is on the list because somebody once suggested it.</p>
+  <p><strong>In your capacity:</strong> you walk into an appointment with a written question rather than a worry, and you can tell the difference between a clinician who has reasoned about your case and one who has pattern-matched it.</p>
+  <p><strong>And the quiet one:</strong> the number of things you are taking has gone down at least once, deliberately, because a review found something that was no longer earning its place.</p></div></div>
+  <div style="margin-top:36px;border-top:1px solid #1e2130;padding-top:28px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:#fbbf24;margin-bottom:16px;">&#9670; THE EMOTIONAL ROOT</div>
+    <div class="emotional-root-box">
+      <div style="color:#e8e4dc;font-size:.92rem;">Physical symptoms are real. And they often have an emotional architecture beneath them &#8212; not as weakness, but as the body&#8217;s intelligence. Unresolved emotional patterns, stored stress, and unconscious adaptations can maintain the very physiology we&#8217;re trying to change. This isn&#8217;t about blame. It&#8217;s about completeness.</div>
+    </div>
+
+    <h3 style="color:#fbbf24;">The emotional pattern in decision-making</h3>
+    <p>This protocol has an emotional root that is different from a condition protocol&#8217;s, and naming it changes how the whole document reads.</p>
+    <p><strong>Most over-testing and most over-treating are driven by fear, not by evidence.</strong> An abnormal result produces genuine anxiety, and doing something &#8212; anything &#8212; relieves it. That relief is real, it arrives immediately, and it is almost entirely independent of whether the action helped. So the action gets repeated, and the list grows, and each addition buys a little more relief and a little more complexity.</p>
+    <p>The same fear runs in the opposite direction. Declining an intervention can be its own form of avoidance &#8212; the discomfort of committing to something is relieved by not committing, and that relief also feels like judgement.</p>
+    <p style="color:#e8e4dc;"><strong>The sentence that resolves it:</strong> uncertainty is not the same as danger, and action is not the same as care. Sitting with a not-yet-answered question, having named what would answer it and by when, is one of the most clinically sophisticated things a person can do &#8212; and it feels, in the moment, like doing nothing.</p>
+    <p style="font-style:italic;margin:16px 0 12px;">The best approach is the one you believe will work and will actually do. Different people respond to entirely different modalities &#8212; that is not noise, it is biology.</p>
+
+    <div class="grid2">
+      <div class="card" style="margin:0;">
+        <div class="lbl lbl-gold" style="margin-bottom:6px;">&#9670; WHEN THE DRIVER IS HEALTH ANXIETY</div>
+        <p style="margin-bottom:0;font-size:.88rem;">More testing reliably makes it worse, because every broad panel generates incidental findings and each one generates a new worry. The intervention is usually fewer, better-chosen tests with pre-specified readouts &#8212; and often direct support for the anxiety itself, which is a legitimate clinical target rather than a character flaw.</p>
+      </div>
+      <div class="card" style="margin:0;">
+        <div class="lbl lbl-blue" style="margin-bottom:6px;">&#9670; WHEN THE DRIVER IS GRIEF OR FAMILY HISTORY</div>
+        <p style="margin-bottom:0;font-size:.88rem;">Watching a parent or sibling decline shapes every subsequent decision, usually invisibly. Naming it out loud &#8212; &ldquo;I think I am making this decision about my father&rdquo; &#8212; frequently changes it. Family history is a reason to look carefully. It is not a verdict, and it is not an inheritance you have already received.</p>
+      </div>
+      <div class="card" style="margin:0;">
+        <div class="lbl lbl-green" style="margin-bottom:6px;">&#9670; WHEN THE DRIVER IS CONTROL</div>
+        <p style="margin-bottom:0;font-size:.88rem;">A long regimen can be a way of managing helplessness rather than a way of managing physiology. This is worth recognising with compassion rather than judgement &#8212; and it usually responds better to one thing done well and tracked honestly than to being told to stop.</p>
+      </div>
+      <div class="card" style="margin:0;">
+        <div class="lbl lbl-purple" style="margin-bottom:6px;">&#9670; WHEN THE DRIVER IS MISTRUST</div>
+        <p style="margin-bottom:0;font-size:.88rem;">Often earned, through a real experience of being dismissed. The risk is that it hardens into refusing everything conventional on principle, which is the same error as accepting everything on principle. Scepticism applied evenly is discernment; scepticism applied in one direction only is a position.</p>
+      </div>
+    </div>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+
+<div id="quick" class="section">
+
+  <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);border-radius:10px;padding:16px 20px;margin-bottom:24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#f5a623;margin-bottom:12px;">&#9670; WHERE TO START</div>
+    <div class="grid2">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#68d391;letter-spacing:.08em;margin-bottom:6px;">NEW TO THIS</div>
+        <div style="color:#e8e4dc;font-size:.9rem;">Take the most recent result that worries you and answer Question 3 &#8212; what was going on in the 48 hours before that draw? It costs nothing, it takes two minutes, and it resolves a surprising number of abnormal results on its own.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#f5a623;letter-spacing:.08em;margin-bottom:6px;">ALREADY DOING THE BASICS</div>
+        <div style="color:#e8e4dc;font-size:.9rem;">Take everything currently on your plan and give each item a review date and a named trigger for stopping. Anything you cannot write a trigger for is a candidate for the next conversation.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>The five questions, on one screen</h2>
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>&nbsp;</th><th>Question</th><th>What it protects you from</th></tr>
+    <tr><td><strong>1</strong></td><td><strong>What is this measuring &#8212; and in what units?</strong></td><td class="muted">Comparing two numbers that are not the same quantity</td></tr>
+    <tr><td><strong>2</strong></td><td><strong>Was it measured, or calculated?</strong></td><td class="muted">Building a decision on arithmetic that was invalid at your values</td></tr>
+    <tr><td><strong>3</strong></td><td><strong>What was going on in the 48 hours before?</strong></td><td class="muted">A permanent label created by a temporary state</td></tr>
+    <tr><td><strong>4</strong></td><td><strong>What is driving it &#8212; and has anyone looked?</strong></td><td class="muted">Treating four effects of one cause as four problems</td></tr>
+    <tr><td><strong>5</strong></td><td><strong>Is it actually doing anything?</strong></td><td class="muted">Treating a population probability as though it were your anatomy</td></tr>
+  </table>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:.62rem;color:#5a5a6a;margin:4px 0 0;letter-spacing:.05em;">EDUCATIONAL FRAMEWORK ONLY &#183; NOT A DIAGNOSIS &#183; NOT MEDICAL ADVICE</p>
+
+  <h2>The six sequencing rules</h2>
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>&nbsp;</th><th>Rule</th></tr>
+    <tr><td><strong>1</strong></td><td>Establish the number before interpreting it</td></tr>
+    <tr><td><strong>2</strong></td><td>Look for one cause before treating several effects</td></tr>
+    <tr><td><strong>3</strong></td><td>Name what would change your mind &#8212; before you decide</td></tr>
+    <tr><td><strong>4</strong></td><td>Withholding is a decision &#8212; name it, date it, write it down</td></tr>
+    <tr><td><strong>5</strong></td><td>Change one variable, and define the readout first</td></tr>
+    <tr><td><strong>6</strong></td><td>Match the plan to the life, not to the literature</td></tr>
+  </table>
+  </div>
+
+  <h2>The Sentences</h2>
+  <div class="card">
+    <p style="color:#e8e4dc;font-size:1rem;margin-bottom:12px;">&#8220;A result is not an observation. It is the output of a procedure &#8212; and the procedure can fail while nothing is wrong with you.&#8221;</p>
+    <p style="color:#e8e4dc;font-size:1rem;margin-bottom:12px;">&#8220;An abnormal result is never safe to ignore, and rarely safe to act on the first time you see it.&#8221;</p>
+    <p style="color:#e8e4dc;font-size:1rem;margin-bottom:12px;">&#8220;If you cannot name what would change your mind, you have not made a decision. You have taken a position.&#8221;</p>
+    <p style="color:#e8e4dc;font-size:1rem;margin-bottom:12px;">&#8220;Four findings do not necessarily mean four problems.&#8221;</p>
+    <p style="color:#e8e4dc;font-size:1rem;margin-bottom:12px;">&#8220;A modest intervention that happens beats an excellent one that does not.&#8221;</p>
+    <p style="color:#e8e4dc;font-size:1rem;margin-bottom:0;">&#8220;Uncertainty is not the same as danger, and action is not the same as care.&#8221;</p>
+  </div>
+
+  <h2>Top 3 failure points</h2>
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>Failure</th><th>What it looks like</th><th>The fix</th></tr>
+    <tr><td><strong>Starting at the apex</strong></td><td class="muted">A value crosses a threshold and a treatment follows, with terrain and trajectory never examined.</td><td class="muted">Questions 4 and 5, asked out loud, before anything is started.</td></tr>
+    <tr><td><strong>No named trigger</strong></td><td class="muted">A plan quietly becomes permanent because nothing was ever specified that would end it. Five years later nobody remembers why it was started.</td><td class="muted">Rule 3. Write the trigger at the moment of deciding, not afterwards.</td></tr>
+    <tr><td><strong>Everything at once</strong></td><td class="muted">Four changes in one week. Something improves. Nothing can be attributed, so everything continues indefinitely, at cost.</td><td class="muted">Rule 5. One variable, readout defined in advance.</td></tr>
+  </table>
+  </div>
+
+  <div class="card-hi">
+    <h3 style="margin-top:0;">Where to go next</h3>
+    <p style="margin-bottom:0;">This protocol deliberately contains no doses and no condition-specific targets. For those, go to the protocol for the system in question &#8212; the <strong>Lipid &amp; Vascular protocol</strong> for cardiovascular markers and therapeutics, the <strong>Fats &amp; Fatty Acids protocol</strong> for dietary fat and fatty acid testing, and the rest of the RoVive library for everything else. This one travels with you into all of them.</p>
+  </div>
+
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid #1e2130;text-align:center;">
+  <p style="color:#c8c4bc;font-size:.95rem;line-height:1.7;max-width:580px;margin:0 auto 20px;">Every protocol here was built from 20+ years of clinical pattern recognition &#8212; not what standard guidelines say. If you&#8217;re ready to stop guessing, the full library is waiting.</p>
+  <a href="https://dryoshi.com/work-together/" target="_blank" style="display:inline-block;background:#f5a623;color:#0d0f14;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 28px;border-radius:6px;margin-bottom:20px;">See What&#8217;s Inside &#8594;</a>
+  <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:#5a5a6a;">Educational use only &#183; Not medical advice &#183; Not a substitute for personal medical care</p>
+</div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+function showTab(name, el){
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById(name).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function togglePhase(card){ card.classList.toggle('open'); }
+function toggleDigDeeper(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var first = document.querySelector('.phase-card');
+  if(first && !first.classList.contains('open')) first.classList.add('open');
+});
+</script>
+</body>
+</html>
