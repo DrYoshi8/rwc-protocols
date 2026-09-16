@@ -136,6 +136,7 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015);}
   <button class="tab active" onclick="showTab('overview',this)">Overview</button>
   <button class="tab" onclick="showTab('pillars',this)">Great 8 Pillars</button>
   <button class="tab" onclick="showTab('labs',this)">Labs &amp; Targets</button>
+  <button class="tab" onclick="showTab('reading',this)">Reading The Report</button>
   <button class="tab" onclick="showTab('tree',this)">Decision Tree</button>
   <button class="tab" onclick="showTab('meds',this)">Medications / Rx</button>
   <button class="tab" onclick="showTab('nutra',this)">Nutraceuticals &middot; Botanicals</button>
@@ -616,8 +617,22 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015);}
   </div>
 
   <div class="card-hi">
+    <h3 style="margin-top:0;">APOE &mdash; Level Is Not Isoform (And The Other Side Of e4)</h3>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">Two different questions get confused constantly, including in commercial reports. <strong>Your genotype</strong> is which <em>version</em> of the protein you build &mdash; determined by two SNPs, structural, fixed at conception, and readable only by genetic testing. <strong>Your plasma apoE concentration</strong> is <em>how much</em> of that protein is circulating. Different question, different assay, different meaning.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">They are not unrelated, though. Plasma apoE concentration runs <strong>highest in e2, middle in e3, lowest in e4</strong> &mdash; apoE2 binds the LDL receptor poorly and accumulates, apoE4 interacts differently and runs lower. So a low measured or predicted apoE <em>level</em> is what you would expect in an e4 carrier. The two findings converge rather than conflict. What a low level is <em>not</em> is good news: lower apoE has been associated with worse cognitive outcomes, and e4's risk comes from how the isoform functions rather than how much of it there is.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:12px;"><strong>Practical consequence:</strong> a methylation-predicted or directly measured apoE level cannot genotype you and should never be read as though it had. If the APOE genotype matters for your decisions &mdash; and for an e4 carrier the lipid conversation and the cognitive conversation are the same conversation &mdash; it has to be genotyped directly.</p>
+    <div style="background:rgba(104,211,145,.06);border:1px solid rgba(104,211,145,.2);border-radius:8px;padding:12px 16px;">
+      <p style="color:var(--text);font-size:.92rem;font-weight:600;margin-bottom:8px;">The other side of e4 &mdash; why a variant this costly was never bred out</p>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:6px;"><strong>It is the ancestral allele.</strong> e4 is the version the human lineage carried first; e3 and e2 are the later arrivals. A common variant that was purely harmful should not have survived selection, which by itself tells you the picture is incomplete.</p>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:6px;"><strong>It appears to help under infectious load.</strong> In a study of 372 Tsimane forager-horticulturalists &mdash; an Amazonian population in which most adults carry intestinal helminth infection at any given time &mdash; non-carriers showed worse cognitive performance as parasite burden rose, while <strong>e4 carriers maintained performance even at high burden</strong>. The opposite of what e4 reliably predicts in industrialised populations.</p>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:6px;"><strong>Early gain, late cost.</strong> This is the antagonistic pleiotropy hypothesis: advantages expressed in youth and reproduction, with the bill arriving decades later. Supporting work includes an association between e4 and higher fecundity in a natural-fertility population, and a short-duration memory advantage reported in young carriers.</p>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:0;"><strong>The honest limits, and they matter.</strong> None of this is a defence of e4. In a population like ours the Alzheimer's and cardiovascular risk is real, large and well replicated. The early-life cognitive advantage is genuinely contested &mdash; at least one meta-analysis across seven cognitive domains in young adults found no supporting effect at all. The defensible reading is that e4 is <strong>context-dependent, not benign</strong>: it appears to have been advantageous in the environment humans evolved in, and is costly in the one we built.</p>
+    </div>
+  </div>
+
+  <div class="card-hi">
     <h3 style="margin-top:0;">LPA Gene</h3>
-    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:0;">A copy-number variant in the kringle IV type 2 domain determines Lp(a) almost entirely &mdash; fewer repeats produce a smaller, more efficiently secreted apo(a) and therefore higher circulating Lp(a). Heritability runs 70&ndash;90%. This same isoform variability is exactly why mg/dL and nmol/L don't convert cleanly.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:0;">A copy-number variant in the kringle IV type 2 domain determines Lp(a) almost entirely &mdash; fewer repeats produce a smaller, more efficiently secreted apo(a) and therefore higher circulating Lp(a). Heritability runs 70&ndash;90%. This same isoform variability is exactly why mg/dL and nmol/L don't convert cleanly &mdash; published factors run from roughly <strong>1.85 for large isoforms to 2.85 for small ones</strong>, and because the small isoforms are both the more atherogenic and the higher-factor ones, a mass-unit result under-reports risk in the people carrying most of it. <strong>Ask for nmol/L.</strong> See <em>Reading The Report &rarr; section 4</em>.</p>
   </div>
 
   <div class="card-hi">
@@ -688,6 +703,92 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015);}
     <p class="lead">Every protocol here was built from 20+ years of clinical pattern recognition &mdash; not what standard guidelines say. If you're ready to stop guessing, the full library is waiting.</p>
     <a href="https://dryoshi.com/work-together/" target="_blank" class="footer-cta">See What's Inside &#8594;</a>
     <p class="footer-fine">Educational use only &middot; Not medical advice &middot; Not a substitute for personal medical care</p>
+  </div>
+
+</div>
+
+<div id="reading" class="section">
+
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; The Question Almost Nobody Asks</div>
+    <p style="color:var(--text);font-size:.95rem;font-weight:600;margin-bottom:6px;">A result is not an observation. It is the output of a procedure &mdash; and the procedure can fail while nothing whatsoever is wrong with you.</p>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:0;">Every number on your report was produced by a method, under conditions, on a particular morning, against a range somebody chose. Change any one of those four and the number moves while your body does not. Most of what follows costs nothing to apply. It is the cheapest accuracy available anywhere in this protocol, and it is the layer that gets skipped. <strong>Before you treat a number, find out how it was made.</strong></p>
+  </div>
+
+  <h2>1 &middot; Was it measured, or was it calculated?</h2>
+  <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:12px;">Several of the most-quoted numbers on a lipid panel are never measured at all. They are arithmetic performed on other numbers &mdash; which means they inherit every error those numbers carry, and they have conditions under which the arithmetic simply stops working.</p>
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>Number</th><th>How it is usually produced</th><th>Where it breaks</th></tr>
+    <tr><td><strong>LDL-C</strong> &mdash; Friedewald<br><span style="display:inline-block;margin-top:5px;" class="tier tier1">Tier 1</span></td><td class="muted">Total &minus; HDL &minus; (triglycerides &divide; 5). The default on most standard panels.</td><td class="muted"><strong>Not valid above a triglyceride of 400 mg/dL</strong> &mdash; the limitation is stated in the 1972 paper that introduced it. It also progressively <em>underestimates</em> LDL-C as triglycerides rise and as LDL-C itself falls. Above 400 the lab should decline to report it; many report it anyway.</td></tr>
+    <tr><td><strong>LDL-C</strong> &mdash; Martin-Hopkins</td><td class="muted">Same idea, but the divisor is adjustable rather than fixed at 5, chosen from a 180-cell table based on your own triglyceride and non-HDL values.</td><td class="muted">Substantially more accurate across the triglyceride range and at low LDL-C. Increasingly the default at major labs. <strong>Worth asking which equation your lab used</strong> &mdash; the two can differ meaningfully in exactly the people where it matters.</td></tr>
+    <tr><td><strong>LDL-C</strong> &mdash; direct</td><td class="muted">Actually measured, not derived.</td><td class="muted">Costs more and is rarely ordered by default. Worth requesting when triglycerides are high, when LDL-C is very low, or when a calculated value is about to drive a treatment decision.</td></tr>
+    <tr><td><strong>Non-HDL Cholesterol</strong><br><span style="display:inline-block;margin-top:5px;" class="tier tier1">Tier 1</span></td><td class="muted">Total &minus; HDL. Two numbers you already have.</td><td class="muted"><strong>It does not break.</strong> No triglyceride ceiling, no equation to invalidate, no extra cost. See section 5 below.</td></tr>
+    <tr><td><strong>Remnant Cholesterol</strong></td><td class="muted">Total &minus; HDL &minus; LDL-C.</td><td class="muted">Inherits whatever error the LDL-C carried. If the LDL-C was Friedewald at a high triglyceride, the remnant number is built on sand.</td></tr>
+    <tr><td><strong>VLDL-C</strong></td><td class="muted">Triglycerides &divide; 5 on most panels.</td><td class="muted">Same fixed-divisor assumption, same failure above 400.</td></tr>
+    <tr><td><strong>eGFR</strong></td><td class="muted">Calculated from creatinine, age and sex.</td><td class="muted">Inherits everything that moves creatinine &mdash; and creatinine is a muscle product before it is a kidney marker. See section 3.</td></tr>
+  </table>
+  </div>
+
+  <div class="card-hi">
+    <h3 style="margin-top:0;">The one that catches people</h3>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">When triglycerides are very high and then fall, a Friedewald LDL-C will often appear to <em>rise</em> sharply. Both things are happening at once: cholesterol genuinely redistributes out of triglyceride-rich remnant particles into LDL, and the equation &mdash; which was never valid at the starting value &mdash; becomes valid.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:0;">So a rising LDL-C in that setting can be the signature of a real improvement, not a deterioration. <strong>The only honest before-and-after comparison in a high-triglyceride phenotype is non-HDL, or ApoB.</strong> Comparing two Friedewald LDL-C values across a large triglyceride change is comparing an artefact to a measurement.</p>
+  </div>
+
+  <h2>2 &middot; The 48 hours before the draw</h2>
+  <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:12px;">Pre-analytical variation is the single most under-appreciated source of wrong numbers in outpatient medicine. None of the following is a lab error. The lab measured correctly &mdash; it measured a body that was in an unusual state.</p>
+  <div class="tbl-scroll">
+  <table>
+    <tr><th>What you did</th><th>What it moves</th><th>Standard way to control it</th></tr>
+    <tr><td><strong>Creatine supplementation</strong></td><td class="muted">Raises serum creatinine, lowering calculated eGFR, with no change in actual filtration. A systematic review found a small but statistically significant creatinine rise and <strong>no significant change in GFR</strong>.</td><td class="muted">Hold for 48 hours before a renal panel &mdash; and tell whoever ordered the test that you take it, so a single elevated result is not read in isolation.</td></tr>
+    <tr><td><strong>Heavy or eccentric training</strong></td><td class="muted">Raises creatinine and CK. Large muscle mass raises baseline creatinine permanently.</td><td class="muted">Avoid hard training for 48 hours before a renal or muscle panel.</td></tr>
+    <tr><td><strong>Sauna, heat, dehydration</strong></td><td class="muted">Concentrates nearly everything measured per unit volume &mdash; creatinine, haemoglobin, albumin, lipids.</td><td class="muted">Normal hydration, no sauna for 24&ndash;48 hours.</td></tr>
+    <tr><td><strong>Alcohol</strong></td><td class="muted">Raises triglycerides sharply and moves GGT and liver enzymes.</td><td class="muted">Avoid for at least 3 days before a lipid panel.</td></tr>
+    <tr><td><strong>A fat-containing meal</strong></td><td class="muted">Raises triglycerides substantially, which then corrupts any Friedewald-derived LDL-C and VLDL-C.</td><td class="muted">Fast 10&ndash;12 hours, water permitted. Non-fasting panels are fine for ApoB and non-HDL; they are not fine for calculated LDL-C.</td></tr>
+    <tr><td><strong>Acute illness or injury</strong></td><td class="muted">Raises CRP and ferritin as acute-phase reactants and can transiently <em>lower</em> total and LDL cholesterol.</td><td class="muted">Postpone 2&ndash;4 weeks. A lipid panel drawn during or shortly after an illness will mislead in a reassuring direction.</td></tr>
+    <tr><td><strong>High-dose biotin</strong></td><td class="muted">Interferes with many streptavidin-biotin immunoassays &mdash; thyroid panels and troponin are the classic casualties. Produces convincing, entirely false results.</td><td class="muted">Hold 2&ndash;3 days. This one is common because biotin is in most hair and nail supplements.</td></tr>
+    <tr><td><strong>Starting or stopping a lipid drug</strong></td><td class="muted">Shifts the whole panel, and statins raise circulating PCSK9.</td><td class="muted">Note the date of any change on the requisition so the result is read against the right baseline.</td></tr>
+  </table>
+  </div>
+
+  <h2>3 &middot; When the kidney number is not the kidney</h2>
+  <div class="card-hi">
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;"><strong>Creatinine is a breakdown product of muscle.</strong> It is used as a kidney marker because the kidney clears it, but it is produced in proportion to muscle mass and turnover. A muscular person, a person who supplements creatine, a person who trains hard, eats a lot of meat, sits in a sauna or arrives dehydrated can all produce an elevated creatinine and a reduced calculated eGFR with entirely normal kidneys.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">The consequence is not academic. A single reduced eGFR is frequently enough to put a chronic kidney disease stage in a chart, and once it is there it tends to stay.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:0;"><strong>Cystatin C is the check.</strong> It is produced by all nucleated cells at a relatively constant rate and is largely independent of muscle mass, sex and diet. Where creatinine and cystatin C disagree, muscle is usually the explanation; where they agree, the finding is far more likely to be real. The correct response to one abnormal creatinine is a controlled repeat with cystatin C alongside &mdash; not a diagnosis, and not dismissal either. Cystatin C has its own confounders: it rises with corticosteroids, thyroid dysfunction, inflammation and obesity.</p>
+  </div>
+
+  <h2>4 &middot; Units that do not convert</h2>
+  <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:12px;">Most unit changes are harmless arithmetic. Glucose in mmol/L is mg/dL divided by 18. Vitamin D in nmol/L is ng/mL multiplied by 2.5. Both convert exactly, in both directions, for everyone. <strong>Lp(a) does not.</strong></p>
+  <div class="card-hi">
+    <h3 style="margin-top:0;">Lp(a) &mdash; mass versus molar</h3>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">Reported in <strong>mg/dL</strong>, the assay weighs the particle. Reported in <strong>nmol/L</strong>, it counts the particles. Those are different quantities, and the relationship between them depends on how big your particular apo(a) protein is &mdash; which is set by the kringle IV repeat number you inherited and varies enormously between people.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">Published conversion factors range from roughly <strong>1.85 for large apo(a) isoforms to about 2.85 for small ones</strong>. A result of 48 mg/dL therefore sits somewhere between about 89 and 137 nmol/L &mdash; a range wide enough to straddle most decision thresholds. A single conversion factor is explicitly discouraged.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:0;"><strong>And the error has a direction.</strong> Small apo(a) isoforms are both the more atherogenic ones and the ones carrying the highest conversion factor &mdash; so a mass-unit result systematically under-represents risk in precisely the people who have the most of it. This is why the field is moving to molar units. <strong>Ask for nmol/L. If you already have a mg/dL result, the fix is to reorder in molar units, not to do arithmetic on the one you have.</strong></p>
+  </div>
+
+  <h2>5 &middot; The number nobody prints</h2>
+  <div class="card-hi">
+    <p style="color:var(--text);font-size:1.05rem;font-weight:700;margin-bottom:8px;">Total cholesterol &minus; HDL = non-HDL cholesterol</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">It counts the cholesterol carried in <em>every</em> atherogenic particle you have &mdash; LDL, VLDL, IDL, remnants and Lp(a) &mdash; rather than LDL alone. It costs nothing, it needs no new test, it is computable from any lipid panel you have ever had, and almost no laboratory reports it.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">In a meta-analysis of individual data from <strong>62,154 people across 8 statin trials</strong>, non-HDL cholesterol was <em>more</em> strongly associated with future major cardiovascular events than either LDL-C or ApoB &mdash; hazard ratios per 1-SD of <strong>1.16</strong> for non-HDL, <strong>1.13</strong> for LDL-C and <strong>1.14</strong> for ApoB.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:0;"><strong>The honest limits:</strong> ApoB remains the better measurement, because it counts particles rather than the cholesterol inside them &mdash; non-HDL is the free approximation you already own. And that meta-analysis was conducted in statin-treated populations, which is not everybody. Targets are in the <strong>Labs &amp; Targets</strong> tab.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">What to ask for &mdash; in writing, before the appointment</h3>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">Requests made verbally in a short consultation are the ones that quietly do not get ordered. A written list, sent in advance through the portal, is far more likely to survive.</p>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:6px;">&bull; <strong>ApoB</strong> &mdash; and if it is declined, ask for the reason to be documented</p>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:6px;">&bull; <strong>Lp(a) once in a lifetime, reported in nmol/L</strong></p>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:6px;">&bull; <strong>Which LDL-C equation the lab uses</strong> &mdash; Friedewald or Martin-Hopkins</p>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:6px;">&bull; <strong>Cystatin C alongside creatinine</strong> if you are muscular, supplement creatine, or have ever had a flagged eGFR</p>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:0;">&bull; <strong>The pre-test conditions you followed</strong>, noted on the requisition &mdash; fasting hours, whether you trained, whether you held creatine or biotin</p>
+  </div>
+
+  <div class="assumption-box">
+    <div class="assumption-label">&#9670; The Rule This Tab Exists To Teach</div>
+    <p style="color:var(--text);font-size:.95rem;font-weight:600;margin-bottom:0;">An abnormal result is never safe to ignore &mdash; and it is rarely safe to act on the first time you see it. Repeat it under controlled conditions before you accept the label.</p>
   </div>
 
 </div>
@@ -848,6 +949,15 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015);}
   <div style="font-family:'DM Mono',monospace;font-size:.67rem;color:#68d391;letter-spacing:.08em;margin-bottom:4px;">NUTRACEUTICAL ALTERNATIVE</div>
   <div style="font-size:.9rem;"><strong>Red yeast rice</strong> (see full entry in Nutraceuticals &middot; Botanicals) + CoQ10 &middot; <strong>Berberine</strong> 500 mg 3x/day with meals &middot; <strong>Psyllium husk</strong> 10 g/day &middot; <strong>Plant sterols</strong> 2 g/day &middot; <strong>Citrus bergamot</strong> 500&ndash;1,500 mg/day</div>
 </div>
+
+  <div class="card-hi">
+    <h3 style="margin-top:0;">Before The Ranking &mdash; Who Handles These Drugs Differently</h3>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">The ranking above assumes average pharmacokinetics. A meaningful minority of people do not have them, and this is knowable in advance rather than discovered through a bad experience. Three genes carry actionable evidence, covered by a formal 2022 consensus guideline.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:6px;"><strong>SLCO1B1</strong> encodes the transporter that pulls statins <em>out of the bloodstream and into the liver</em> &mdash; where they are supposed to work. This applies to all statins. The reduced-function variant rs4149056 (c.521T&gt;C, carried in the relatively common *5 and *15 alleles) means less drug reaches the liver and more stays in systemic circulation, raising exposure in muscle and with it the risk of statin-associated musculoskeletal symptoms. The evidence is strongest and most reproduced for <strong>simvastatin</strong>.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:6px;"><strong>ABCG2</strong> encodes an efflux transporter that specifically modulates <strong>rosuvastatin</strong> absorption and disposition.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;"><strong>CYP2C9</strong> affects exposure to <strong>fluvastatin</strong> specifically &mdash; and notably does not meaningfully affect the others.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:0;"><strong>What this changes, and what it does not.</strong> A flagged variant changes <em>which</em> statin and at <em>what</em> starting dose &mdash; it is a reason to select differently, not a reason to abandon lipid lowering. Someone with a reduced-function SLCO1B1 result who genuinely needs ApoB lowered may do well on a different statin at a conservative dose, or on a non-statin route entirely: ezetimibe, bempedoic acid and the PCSK9 class do not depend on this transporter. The goal is unchanged. Only the road to it is. <em>This is also the most useful thing to know <strong>before</strong> a first prescription rather than after a painful month.</em></p>
+  </div>
 
   <h2>Non-Statin Prescription Options</h2>
 
@@ -1099,6 +1209,15 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015);}
     <tr><td><strong>TruAge / TruHealth</strong> (TruDiagnostic) <span class="store-tag">&#10003; RWC Lab Store</span></td><td class="muted">DNA-methylation biological age, pace of aging, organ-system breakdown</td><td class="muted">You want a before-and-after measure of whether the whole protocol is working at a systems level. Retest every 6&ndash;12 months.</td></tr>
     <tr><td><strong>MethylDetox</strong> <span class="store-tag">&#10003; RWC Lab Store</span> / homocysteine pathway</td><td class="muted">MTHFR, COMT and methylation status</td><td class="muted">Homocysteine is elevated and you want to know why &mdash; understanding it as a methylation and nutrient marker rather than a cardiovascular target.</td></tr>
   </table>
+  </div>
+
+  <div class="card-hi">
+    <h3 style="margin-top:0;">Methylation-Predicted Biomarkers &mdash; Genuinely Interesting, Not Yet Actionable <span style="display:inline-block;margin-left:6px;" class="tier tier3">Tier 3</span></h3>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;">Several commercial panels now report <em>methylation-predicted</em> versions of familiar markers &mdash; ApoB, LDL-C, HDL particle size, triglycerides, HbA1c, individual fatty acids. These are not blood levels. They are estimates of your levels, derived from DNA methylation patterns, trained against measured values in large cohorts.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;"><strong>The idea is a good one.</strong> A serum value reports one morning and moves with your last meal, your training, your hydration and your stress. Methylation shifts with sustained exposure, so a methylation-derived estimate behaves more like an integrated history than a snapshot. For a marker as volatile as triglycerides, that is a real conceptual advantage.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;"><strong>The reliability picture is the part nobody leads with.</strong> At the level of individual methylation sites, reproducibility is poor: across 350 blood samples run twice, probe intraclass correlations ranged from 0.28 to 1.00 but skewed hard toward zero, with a <strong>mean of 0.21 and a median of 0.09</strong>. Aggregating hundreds of sites into a score recovers much of that &mdash; but not all of it. Splitting one DNA sample in two and running both produced deviations of <strong>up to 9 years</strong> between replicates across six prominent epigenetic clocks; retrained using principal-component methods, most replicates came within <strong>1.5 years</strong>. Same DNA, same instant, same laboratory.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:8px;"><strong>Two questions worth putting to any vendor:</strong> what is the intraclass correlation for each individual biomarker you report, and does this report use principal-component-based methods? Per-marker reliability figures for these commercial proxies are not, at present, straightforward to find in the published literature.</p>
+    <p style="color:var(--text-muted);font-size:.92rem;margin-bottom:0;"><strong>How to read one sensibly.</strong> Trust the direction and the large outliers; ignore small differences &mdash; a marker at the 53rd percentile and one at the 58th are not telling you different things. Be particularly careful with any composite that <em>sums</em> a category: a single &ldquo;total polyunsaturated fat&rdquo; figure can be driven upward by deliberate omega-3 intake and then trigger an automated recommendation to reduce seed oils, which may be exactly backwards for that person. <strong>Interesting enough to run. Not strong enough to prescribe from.</strong></p>
   </div>
 
   <h2>Tier 4 &middot; Imaging &amp; Vascular Function</h2>
@@ -1439,7 +1558,7 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015);}
   <div class="phase-card">
     <div class="phase-head" onclick="togglePhase(this.parentElement)"><div class="phase-title">REVEAL &mdash; What to measure, in what order</div></div>
     <div class="phase-body">
-      <p><strong>Layer 1 &mdash; Standard (Quest / Labcorp via Rupa) <span class="store-tag">&#10003; RWC Lab Store</span></strong><br>Lipid panel, ApoB, Lp(a) once in nmol/L, fasting insulin, glucose, HbA1c, hsCRP, homocysteine, CMP, CBC, thyroid panel, 25-OH vitamin D, ferritin, uric acid, RBC magnesium.</p>
+      <p><strong>Layer 1 &mdash; Standard (Quest / Labcorp via the RWC lab store) <span class="store-tag">&#10003; RWC Lab Store</span></strong><br>Lipid panel, ApoB, Lp(a) once in nmol/L, fasting insulin, glucose, HbA1c, hsCRP, homocysteine, CMP, CBC, thyroid panel, 25-OH vitamin D, ferritin, uric acid, RBC magnesium.</p>
       <p><strong>Layer 2 &mdash; Functional <span class="store-tag">&#10003; RWC Lab Store</span></strong><br>CardioMetabolic Profile (Doctor's Data) or CardioIQ (Quest) for full fractionation, oxLDL, sdLDL and every ratio. Omega-3 Index by RBC membrane &mdash; ordered specifically, not the whole-blood substitute. Sterol markers to separate absorber from producer. TMAO if the gut axis is in question.</p>
       <p><strong>Layer 3 &mdash; Advanced, genomic and anatomic <span class="store-tag">&#10003; RWC Lab Store</span></strong><br>3X4 Genetics, APOE genotype, FH panel where suspected, TruAge epigenetic clock. Then the piece that changes everything: <strong>imaging</strong> &mdash; coronary artery calcium as the entry point, AI-quantified CT angiography where the answer will change what you do. Plus DEXA with visceral adipose and distribution read properly, grip strength and gait speed.</p>
       <p style="color:var(--accent);"><strong>The sequencing rule:</strong> foundational bloods first, act for 8&ndash;12 weeks, then escalate only where a real question remains unanswered. Ordering everything at once produces noise.</p>
